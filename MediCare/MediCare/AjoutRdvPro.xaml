@@ -1,0 +1,62 @@
+﻿<Window x:Name="addRdvPro" x:Class="MediCare.AjoutRdvPro"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MediCare"
+             mc:Ignorable="d" Height="419.149" Width="601.063">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="ressources/images/CelluleBleue.jpg"/>
+        </Grid.Background>
+        <TextBox x:Name="jourT" HorizontalAlignment="Left" Height="21" Margin="47,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" PreviewTextInput="jourT_PreviewTextInput"/>
+        <Label x:Name="jourL" Content="Jour" HorizontalAlignment="Left" Height="33" Margin="47,37,0,0" VerticalAlignment="Top" Width="49"/>
+        <Label x:Name="moisL" Content="Mois" HorizontalAlignment="Left" Height="33" Margin="115,37,0,0" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="anneeT" HorizontalAlignment="Left" Height="21" Margin="232,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" PreviewTextInput="anneeT_PreviewTextInput"/>
+        <Label x:Name="anneeL" Content="Année" HorizontalAlignment="Left" Height="33" Margin="232,37,0,0" VerticalAlignment="Top" Width="49"/>
+        <Label x:Name="heuresL" Content="Heure" HorizontalAlignment="Left" Height="33" Margin="308,37,0,0" VerticalAlignment="Top" Width="72"/>
+        <TextBox x:Name="minutesT" HorizontalAlignment="Left" Height="21" Margin="373,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" PreviewTextInput="minutesT_PreviewTextInput"/>
+        <Label x:Name="minutesL" Content="Minutes" HorizontalAlignment="Left" Height="33" Margin="368,37,0,0" VerticalAlignment="Top" Width="61"/>
+        <TextBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="26" Margin="50,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" PreviewTextInput="nomPatientT_PreviewTextInput"/>
+        <Label x:Name="nomPatientL" Content="Nom" HorizontalAlignment="Left" Height="33" Margin="46,107,0,0" VerticalAlignment="Top" Width="50"/>
+        <CheckBox x:Name="isImportant" Content="Important" HorizontalAlignment="Left" Height="21" Margin="50,233,0,0" VerticalAlignment="Top" Width="83"/>
+        <TextBox x:Name="notesT" HorizontalAlignment="Left" Height="151" Margin="280,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281"/>
+        <Label x:Name="notesL" Content="Notes" HorizontalAlignment="Left" Height="33" Margin="276,127,0,0" VerticalAlignment="Top" Width="50"/>
+        <Button x:Name="addBtn" Content="Ajouter" HorizontalAlignment="Left" Height="44" Margin="50,273,0,0" VerticalAlignment="Top" Width="196" Click="addBtn_Click"/>
+        <TextBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="26" Margin="50,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" PreviewTextInput="prenomPatientT_PreviewTextInput"/>
+        <Label x:Name="prenomPatientL" Content="Prenom" HorizontalAlignment="Left" Height="33" Margin="46,157,0,0" VerticalAlignment="Top" Width="50"/>
+        <ComboBox x:Name="moisBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="119,82,0,0" Width="100" Height="21" >
+            <ComboBoxItem Content="Janvier" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Février" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Mars" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Avril" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Mai" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Juin" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Juillet" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Aout" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Septembre" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Octobre" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Novembre" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Décembre" HorizontalAlignment="Left" Width="92"/>
+        </ComboBox>
+        <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="311,81,0,0" Width="43" >
+            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="6" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="7" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="8" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="9" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="10" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="42"/>
+            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="42"/>
+        </ComboBox>
+        <Label x:Name="ampmL" Content="AM/PM" HorizontalAlignment="Left" Height="33" Margin="441,37,0,0" VerticalAlignment="Top" Width="72"/>
+        <ComboBox x:Name="ampmBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="444,81,0,0" Width="43" >
+            <ComboBoxItem Content="AM" HorizontalAlignment="Left" Width="43"/>
+            <ComboBoxItem Content="PM" HorizontalAlignment="Left" Width="43"/>
+        </ComboBox>
+    </Grid>
+</Window>
