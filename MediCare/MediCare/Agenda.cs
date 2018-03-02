@@ -35,7 +35,7 @@ namespace MediCare
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             Personne patientRdv = (from personne in dataClass.Personne
-                                   where nomPatient == personne.nom && prenomPatient == personne.prenom
+                                   where nomPatient.Equals(personne.nom) && prenomPatient.Equals(personne.prenom)
                                    join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
                                    select personne).First();
             RendezVous rdv = new RendezVous
