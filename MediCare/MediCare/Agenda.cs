@@ -18,11 +18,11 @@ namespace MediCare
         //                                  select p;
         //}
 
-        List<string> mois = new List<string>{"Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"};
+        List<string> mois = new List<string> { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre" };
 
         public int ConvertMoisToNum(string month)
         {
-            return mois.IndexOf(month)+1;
+            return mois.IndexOf(month) + 1;
         }
 
         public string ConvertNumToMois(DateTime date)

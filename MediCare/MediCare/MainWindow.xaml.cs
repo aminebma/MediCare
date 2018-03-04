@@ -24,9 +24,31 @@ namespace MediCare
 
         private void TestAgenda(object sender, RoutedEventArgs e)
         {
-            AgendaMediCare test = new AgendaMediCare();
-            test.Show();
+            AgendaMediCare TestAgenda = new AgendaMediCare();
+            TestAgenda.Show();
+        }
+        private void TestConsultation(object sender, RoutedEventArgs e)
+        {
+            AjoutConsultation TestConsultation = new AjoutConsultation();
+            TestConsultation.Show();
         }
 
+        private void TestPatient(object sender, RoutedEventArgs e)
+        {
+            FichePatient TestPatient = new FichePatient();
+            TestPatient.Show();
+        }
+
+        private void medecin2_Click(object sender, RoutedEventArgs e)
+        {
+            InscriptionMedecin TestInsMedecin = new InscriptionMedecin();
+            TestInsMedecin.Show();
+        }
+
+        private void TestMain(object sender, RoutedEventArgs e)
+        {
+            SignUp TestSignUp = new SignUp();
+            TestSignUp.Show();
+        }
     }
 }

@@ -9,13 +9,8 @@ namespace MediCare
 {
     class Consult
     {
-        public struct TraitementEnreg
-        {
-            public string Dose { get; set; }
-            public string Indication { get; set; }
-            public string NomMed { get; set; }
-        }
-        public void AddConsult(string nomPatient, string prenomPatient, string nomMedecin, string prenomMedecin,DateTime date, string diagnostic, string description, string cheminCertificat,string cheminLettreOrientation, string cheminScanner, string cheminBilan, List<string> cheminRadio, List<TraitementEnreg> traitement)
+        
+        public void AddConsult(string nomPatient, string prenomPatient, string nomMedecin, string prenomMedecin,DateTime date, string diagnostic, string description, string cheminCertificat,string cheminLettreOrientation, string cheminScanner, string cheminBilan, List<string> cheminRadio, List<Traite> traitement)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
@@ -86,11 +81,6 @@ namespace MediCare
             };
 
             
-        }
-
-        internal void AddConsult(string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8, string text9, string text10, string text11, List<string> radio, List<TraitementEnreg> traitement)
-        {
-            throw new NotImplementedException();
         }
     }
 }

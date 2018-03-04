@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediCare", "MediCare\MediCare.csproj", "{656673ED-1688-4446-ACF1-85F2B2660043}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8434E872-F46D-4866-A8C0-3EF7B492856A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

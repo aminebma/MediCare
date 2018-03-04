@@ -1,0 +1,38 @@
+﻿<Window x:Class="MediCare.FichePatient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediCare"
+        mc:Ignorable="d"
+        Title="Window1" Height="461.917" Width="403.667">
+    <Grid Background="White">
+        <TextBox x:Name="Nom" HorizontalAlignment="Left" Height="17" Margin="83,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <Label Content="Nom" HorizontalAlignment="Left" Height="22" Margin="83,43,0,0" VerticalAlignment="Top" Width="45" FontSize="9" Foreground="#FF3599CC"/>
+        <TextBox x:Name="Nom_Copy" HorizontalAlignment="Left" Height="17" Margin="160,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <Label x:Name="Prénom1" Content="Prénom" HorizontalAlignment="Left" Height="22" Margin="160,43,0,0" VerticalAlignment="Top" Width="45" FontSize="9" Foreground="#FF3599CC"/>
+        <TextBox x:Name="Nom_Copy1" HorizontalAlignment="Left" Height="17" Margin="239,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Date de naissance" HorizontalAlignment="Left" Height="22" Margin="239,43,0,0" VerticalAlignment="Top" Width="86" FontSize="9" Foreground="#FF3599CC"/>
+        <TextBox x:Name="Nom_Copy2" HorizontalAlignment="Left" Height="16" Margin="83,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <Label x:Name="Adresse1" Content="Adresse" HorizontalAlignment="Left" Height="20" Margin="83,93,0,0" VerticalAlignment="Top" Width="45" FontSize="9" Foreground="#FF3599CC"/>
+        <TextBox x:Name="Nom_Copy3" HorizontalAlignment="Left" Height="16" Margin="160,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <Label Content=" Numero de téléphone" HorizontalAlignment="Left" Height="20" Margin="140,93,0,0" VerticalAlignment="Top" Width="114" FontSize="9" Foreground="#FF3599CC"/>
+        <TextBox x:Name="Nom_Copy4" HorizontalAlignment="Left" Height="16" Margin="239,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <Label x:Name="Taille1" Content="Taille" HorizontalAlignment="Left" Height="20" Margin="239,93,0,0" VerticalAlignment="Top" Width="88" FontSize="9" Foreground="#FF3599CC"/>
+        <TextBox x:Name="Nom_Copy23" HorizontalAlignment="Left" Height="17" Margin="83,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <Label Content="Poids" HorizontalAlignment="Left" Height="22" Margin="83,141,0,0" VerticalAlignment="Top" Width="45" FontSize="9" Foreground="#FF3599CC"/>
+        <TextBox x:Name="Nom_Copy24" HorizontalAlignment="Left" Height="17" Margin="160,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <Label Content="Groupage" HorizontalAlignment="Left" Height="22" Margin="160,141,0,0" VerticalAlignment="Top" Width="45" FontSize="9" Foreground="#FF3599CC"/>
+        <TextBox x:Name="Maladie" HorizontalAlignment="Left" Height="17" Margin="239,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <Label Content="Maladie" HorizontalAlignment="Left" Height="22" Margin="239,141,0,0" VerticalAlignment="Top" Width="45" FontSize="9" Foreground="#FF3599CC"/>
+        <TextBox x:Name="Nom_Copy26" HorizontalAlignment="Left" Height="16" Margin="83,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <TextBox x:Name="Nom_Copy32" HorizontalAlignment="Left" Height="16" Margin="246,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <TextBox x:Name="Nom_Copy38" HorizontalAlignment="Left" Height="16" Margin="160,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+        <TextBox x:Name="Etat_santé" HorizontalAlignment="Left" Height="16" Margin="121,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <Label Content="État de santé" HorizontalAlignment="Left" Height="20" Margin="40,189,0,0" VerticalAlignment="Top" Width="65" FontSize="9" Foreground="#FF3599CC"/>
+        <Button x:Name="Ajouter" Content="Ajouter un patient" HorizontalAlignment="Left" Height="39" Margin="27,270,0,0" VerticalAlignment="Top" Width="171" Background="#FF3599CA" Foreground="White" />
+        <Button x:Name="Supprimer" Content="Supprimer un patient" HorizontalAlignment="Left" Height="39" Margin="109,333,0,0" VerticalAlignment="Top" Width="187" Background="#FF3599CA" Foreground="White"/>
+        <Button x:Name="Rechercher" Content="Rechercher un patient" HorizontalAlignment="Left" Height="39" Margin="203,270,0,0" VerticalAlignment="Top" Width="174" Background="#FF3599CA" Foreground="White"/>
+
+    </Grid>
+</Window>

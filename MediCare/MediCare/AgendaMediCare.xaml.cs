@@ -26,9 +26,16 @@ namespace MediCare
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void RdvPro_Click(object sender, RoutedEventArgs e)
+        private void AjtRDVpro_Click(object sender, RoutedEventArgs e)
         {
-            menuAgenda.Visibility = Visibility.Hidden;
+            AjoutRdvPro RDVPRO = new AjoutRdvPro();
+            RDVPRO.Show();
+        }
+
+        private void AjtRDVPersBtn_click(object sender, RoutedEventArgs e)
+        {
+            AjoutRdvPerso RDVPERSO = new AjoutRdvPerso();
+            RDVPERSO.Show();
         }
     }
 }

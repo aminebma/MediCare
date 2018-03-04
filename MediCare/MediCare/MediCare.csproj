@@ -13,7 +13,6 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,6 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -85,11 +85,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AjoutRdvPerso.xaml.cs">
+      <DependentUpon>AjoutRdvPerso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutConsultation.xaml.cs">
+      <DependentUpon>AjoutConsultation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.xaml.cs">
+      <DependentUpon>SignUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Medecin2.cs" />
+    <Compile Include="InscriptionMedecin.xaml.cs">
+      <DependentUpon>InscriptionMedecin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Patien.cs" />
+    <Compile Include="FichePatient.xaml.cs">
+      <DependentUpon>FichePatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs" />
+    <Compile Include="Traite.cs" />
     <Page Include="AgendaMediCare.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="AjoutRdvPerso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AjoutRdvPro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SignUp.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -109,6 +139,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="AjoutConsultation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InscriptionMedecin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FichePatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MCDataClass.designer.cs">
@@ -151,171 +193,45 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ressources\icones\icones ico\logo_blue.ico" />
-    <Resource Include="ressources\icones\icones ico\logo_white.ico" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\001-people-2.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\002-medical-14.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\003-location.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\004-medical-13.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\005-medical-12.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\006-medical-11.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\007-people-1.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\008-man.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\009-medical-10.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\010-medical-9.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\011-medical-8.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\012-business.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\013-technology-2.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\014-time-3.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\015-medical-7.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\016-people.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\017-time-2.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\018-interface.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\019-arrows.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\020-computer-1.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\021-technology-1.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\022-time-1.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\023-technology.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\024-computer.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\025-medical-6.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\026-lock.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\027-marketing.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\028-cogwheel.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\029-time.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\030-search.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\031-medical-5.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\032-medical-3.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\033-social.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\034-medical-history-1.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\035-medical-2.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\036-medical-history.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\037-medical-4.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\038-medical-1.png" />
-    <Resource Include="ressources\icones\icones png\128 Pixels\039-medical.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\001-people-2.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\002-medical-14.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\003-location.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\004-medical-13.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\005-medical-12.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\006-medical-11.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\007-people-1.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\008-man.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\009-medical-10.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\010-medical-9.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\011-medical-8.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\012-business.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\013-technology-2.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\014-time-3.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\015-medical-7.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\016-people.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\017-time-2.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\018-interface.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\019-arrows.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\020-computer-1.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\021-technology-1.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\022-time-1.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\023-technology.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\024-computer.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\025-medical-6.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\026-lock.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\027-marketing.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\028-cogwheel.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\029-time.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\030-search.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\031-medical-5.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\032-medical-3.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\033-social.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\034-medical-history-1.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\035-medical-2.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\036-medical-history.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\037-medical-4.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\038-medical-1.png" />
-    <Resource Include="ressources\icones\icones png\32 Pixels\039-medical.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\001-people-2.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\002-medical-14.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\003-location.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\004-medical-13.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\005-medical-12.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\006-medical-11.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\007-people-1.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\008-man.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\009-medical-10.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\010-medical-9.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\011-medical-8.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\012-business.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\013-technology-2.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\014-time-3.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\015-medical-7.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\016-people.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\017-time-2.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\018-interface.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\019-arrows.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\020-computer-1.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\021-technology-1.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\022-time-1.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\023-technology.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\024-computer.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\025-medical-6.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\026-lock.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\027-marketing.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\028-cogwheel.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\029-time.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\030-search.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\031-medical-5.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\032-medical-3.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\033-social.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\034-medical-history-1.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\035-medical-2.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\036-medical-history.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\037-medical-4.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\038-medical-1.png" />
-    <Resource Include="ressources\icones\icones png\64 Pixels\039-medical.png" />
+    <Resource Include="ressources\images\akk.PNG" />
+    <Resource Include="ressources\images\bulles.PNG" />
+    <Resource Include="ressources\images\bulles_2.PNG" />
+    <Resource Include="ressources\images\bulles_3.PNG" />
+    <Resource Include="ressources\images\Capture_2.PNG" />
+    <Content Include="dbo.Table.sql" />
+    <Resource Include="ressources\images\facebbok.PNG" />
+    <Resource Include="ressources\images\logo_final.PNG" />
+    <Resource Include="ressources\images\logo_final_blue.PNG" />
+    <Resource Include="ressources\images\logoo.PNG" />
+    <Resource Include="ressources\images\mail.PNG" />
     <Content Include="MCDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="MCDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>MCDatabase.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ressources\icones\icones svg\001-people-2.svg" />
-    <Content Include="ressources\icones\icones svg\002-medical-14.svg" />
-    <Content Include="ressources\icones\icones svg\003-location.svg" />
-    <Content Include="ressources\icones\icones svg\004-medical-13.svg" />
-    <Content Include="ressources\icones\icones svg\005-medical-12.svg" />
-    <Content Include="ressources\icones\icones svg\006-medical-11.svg" />
-    <Content Include="ressources\icones\icones svg\007-people-1.svg" />
-    <Content Include="ressources\icones\icones svg\008-man.svg" />
-    <Content Include="ressources\icones\icones svg\009-medical-10.svg" />
-    <Content Include="ressources\icones\icones svg\010-medical-9.svg" />
-    <Content Include="ressources\icones\icones svg\011-medical-8.svg" />
-    <Content Include="ressources\icones\icones svg\012-business.svg" />
-    <Content Include="ressources\icones\icones svg\013-technology-2.svg" />
-    <Content Include="ressources\icones\icones svg\014-time-3.svg" />
-    <Content Include="ressources\icones\icones svg\015-medical-7.svg" />
-    <Content Include="ressources\icones\icones svg\016-people.svg" />
-    <Content Include="ressources\icones\icones svg\017-time-2.svg" />
-    <Content Include="ressources\icones\icones svg\018-interface.svg" />
-    <Content Include="ressources\icones\icones svg\019-arrows.svg" />
-    <Content Include="ressources\icones\icones svg\020-computer-1.svg" />
-    <Content Include="ressources\icones\icones svg\021-technology-1.svg" />
-    <Content Include="ressources\icones\icones svg\022-time-1.svg" />
-    <Content Include="ressources\icones\icones svg\023-technology.svg" />
-    <Content Include="ressources\icones\icones svg\024-computer.svg" />
-    <Content Include="ressources\icones\icones svg\025-medical-6.svg" />
-    <Content Include="ressources\icones\icones svg\026-lock.svg" />
-    <Content Include="ressources\icones\icones svg\027-marketing.svg" />
-    <Content Include="ressources\icones\icones svg\028-cogwheel.svg" />
-    <Content Include="ressources\icones\icones svg\029-time.svg" />
-    <Content Include="ressources\icones\icones svg\030-search.svg" />
-    <Content Include="ressources\icones\icones svg\031-medical-5.svg" />
-    <Content Include="ressources\icones\icones svg\032-medical-3.svg" />
-    <Content Include="ressources\icones\icones svg\033-social.svg" />
-    <Content Include="ressources\icones\icones svg\034-medical-history-1.svg" />
-    <Content Include="ressources\icones\icones svg\035-medical-2.svg" />
-    <Content Include="ressources\icones\icones svg\036-medical-history.svg" />
-    <Content Include="ressources\icones\icones svg\037-medical-4.svg" />
-    <Content Include="ressources\icones\icones svg\038-medical-1.svg" />
-    <Content Include="ressources\icones\icones svg\039-medical.svg" />
+    <Resource Include="ressources\images\fond-médical-50928037.jpg" />
+    <Resource Include="ressources\images\abstract-blue-medical-background-technology-layered-38479133.jpg" />
+    <Resource Include="ressources\images\fond-médical-cellule.jpg" />
+    <Resource Include="ressources\icones\icones ico\logo_blue.ico" />
+    <Resource Include="ressources\icones\icones ico\logo_white.ico" />
+    <Resource Include="ressources\images\MenuIcone.PNG" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\band-aid-forming-a-cross-mark.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\dentist.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\emergency-light.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\first-aid-kit-bag.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\hospital-medical-signal-of-a-cross-in-a-circle %281%29.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\hospital-medical-signal-of-a-cross-in-a-circle.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\medical-doctor-specialist.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\medical-stethoscope-variant.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\note-on-a-clipboard.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\positive-verified-symbol-of-a-clipboard.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\pulse-line.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\hospital-medical-signal-of-a-cross-in-a-circle %282%29.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\men-silhouette.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\phone-book.png" />
+    <Resource Include="ressources\images\mde.PNG" />
     <Resource Include="ressources\images\CelluleBleue.jpg" />
     <Resource Include="ressources\images\logo_blue.PNG" />
     <Resource Include="ressources\images\logo_white.PNG" />
@@ -341,45 +257,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ressources\Icones\Icones svg\001-people-2.svg" />
-    <Content Include="ressources\Icones\Icones svg\002-medical-14.svg" />
-    <Content Include="ressources\Icones\Icones svg\003-location.svg" />
-    <Content Include="ressources\Icones\Icones svg\004-medical-13.svg" />
-    <Content Include="ressources\Icones\Icones svg\005-medical-12.svg" />
-    <Content Include="ressources\Icones\Icones svg\006-medical-11.svg" />
-    <Content Include="ressources\Icones\Icones svg\007-people-1.svg" />
-    <Content Include="ressources\Icones\Icones svg\008-man.svg" />
-    <Content Include="ressources\Icones\Icones svg\009-medical-10.svg" />
-    <Content Include="ressources\Icones\Icones svg\010-medical-9.svg" />
-    <Content Include="ressources\Icones\Icones svg\011-medical-8.svg" />
-    <Content Include="ressources\Icones\Icones svg\012-business.svg" />
-    <Content Include="ressources\Icones\Icones svg\013-technology-2.svg" />
-    <Content Include="ressources\Icones\Icones svg\014-time-3.svg" />
-    <Content Include="ressources\Icones\Icones svg\015-medical-7.svg" />
-    <Content Include="ressources\Icones\Icones svg\016-people.svg" />
-    <Content Include="ressources\Icones\Icones svg\017-time-2.svg" />
-    <Content Include="ressources\Icones\Icones svg\018-interface.svg" />
-    <Content Include="ressources\Icones\Icones svg\019-arrows.svg" />
-    <Content Include="ressources\Icones\Icones svg\020-computer-1.svg" />
-    <Content Include="ressources\Icones\Icones svg\021-technology-1.svg" />
-    <Content Include="ressources\Icones\Icones svg\022-time-1.svg" />
-    <Content Include="ressources\Icones\Icones svg\023-technology.svg" />
-    <Content Include="ressources\Icones\Icones svg\024-computer.svg" />
-    <Content Include="ressources\Icones\Icones svg\025-medical-6.svg" />
-    <Content Include="ressources\Icones\Icones svg\026-lock.svg" />
-    <Content Include="ressources\Icones\Icones svg\027-marketing.svg" />
-    <Content Include="ressources\Icones\Icones svg\028-cogwheel.svg" />
-    <Content Include="ressources\Icones\Icones svg\029-time.svg" />
-    <Content Include="ressources\Icones\Icones svg\030-search.svg" />
-    <Content Include="ressources\Icones\Icones svg\031-medical-5.svg" />
-    <Content Include="ressources\Icones\Icones svg\032-medical-3.svg" />
-    <Content Include="ressources\Icones\Icones svg\033-social.svg" />
-    <Content Include="ressources\Icones\Icones svg\034-medical-history-1.svg" />
-    <Content Include="ressources\Icones\Icones svg\035-medical-2.svg" />
-    <Content Include="ressources\Icones\Icones svg\036-medical-history.svg" />
-    <Content Include="ressources\Icones\Icones svg\037-medical-4.svg" />
-    <Content Include="ressources\Icones\Icones svg\038-medical-1.svg" />
-    <Content Include="ressources\Icones\Icones svg\039-medical.svg" />
     <Resource Include="ressources\Images\CelluleBleue.jpg" />
     <Resource Include="ressources\Images\logo_blue.PNG" />
     <Resource Include="ressources\Images\logo_white.PNG" />
@@ -388,5 +265,6 @@
     <Resource Include="ressources\Icones\Icones ico\logo_blue.ico" />
     <Resource Include="ressources\Icones\Icones ico\logo_white.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

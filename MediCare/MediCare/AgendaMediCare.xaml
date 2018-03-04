@@ -5,10 +5,166 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MediCare"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="Agenda" x:Class="MediCare.AgendaMediCare"
-             mc:Ignorable="d" Height="720" Width="1080" Background="White" WindowStyle="None" WindowStartupLocation="CenterScreen">
+             mc:Ignorable="d" Height="720" Width="1080" Background="White" WindowStartupLocation="CenterScreen">
     <Grid x:Name="menuAgenda" OpacityMask="White">
-        <StackPanel HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="1072" Background="#FF175DD8"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="966,0,0,0" VerticalAlignment="Top" Width="100" Source="ressources/Icones/Icones png/128 Pixels/014-time-3.png" IsEnabled="False" Stretch="Fill"/>
-
+        <StackPanel HorizontalAlignment="Right" Height="70" VerticalAlignment="Top" Width="1072" Background="#FF77B3B4">
+            <Label  Width="202" FontSize="48" FontFamily="Century Gothic" Foreground="#FF634523" Height="69" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Agenda"/>
+        </StackPanel>
+        <StackPanel x:Name="StackPanelMenu" Width="250" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Background="#FF77B3B4">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+            <ListView Height="685" Foreground="#DD000000">
+                <ListViewItem x:Name="contenuMenu" Height="145" RenderTransformOrigin="0.5,0.5" Foreground="#DDFFFFFF" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Image HorizontalAlignment="Left" Height="76.427" VerticalAlignment="Center" Width="72.48" Source="ressources/icones/icones png/64 Pixels/medical-doctor-specialist.png"/>
+                        <TextBlock Text="Home" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="36" Foreground="#FF634523"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="listViewItem1" Height="98.7" RenderTransformOrigin="0.5,0.5" Foreground="#DDFFFFFF" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Image HorizontalAlignment="Left" Height="39.35" VerticalAlignment="center" Width="37.812" Source="ressources/icones/icones png/64 Pixels/first-aid-kit-bag.png"/>
+                        <TextBlock Text="Menu" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="36" Foreground="#FF634523"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="listViewItem2" Height="98.7" RenderTransformOrigin="0.5,0.5" Foreground="#DDFFFFFF" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Image HorizontalAlignment="Left" Height="35.06" VerticalAlignment="center" Width="37.838" Source="ressources/icones/icones png/64 Pixels/band-aid-forming-a-cross-mark.png"/>
+                        <TextBlock Text="Menu" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="36" Foreground="#FF634523"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="listViewItem3" Height="98.7" RenderTransformOrigin="0.5,0.5" Foreground="#DDFFFFFF" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Image HorizontalAlignment="Left" Height="45.91" VerticalAlignment="center" Width="48.555" Source="ressources/icones/icones png/64 Pixels/positive-verified-symbol-of-a-clipboard.png" Stretch="Fill"/>
+                        <TextBlock Text="Menu" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="36" Foreground="#FF634523"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="listViewItem4" Height="98.7" RenderTransformOrigin="0.5,0.5" Foreground="#DDFFFFFF" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Image HorizontalAlignment="Left" Height="48.76" VerticalAlignment="center" Width="40.598" Source="ressources/icones/icones png/64 Pixels/pulse-line.png"/>
+                        <TextBlock Text="Menu" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="36" Foreground="#FF634523"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="listViewItem5" Height="95.2" RenderTransformOrigin="0.5,0.5" Foreground="#DDFFFFFF" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Image HorizontalAlignment="Left" Height="43.818" VerticalAlignment="center" Width="43.296" Source="ressources/icones/icones png/64 Pixels/emergency-light.png"/>
+                        <TextBlock Text="Menu" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="36" Foreground="#FF634523"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </StackPanel>
+        <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="1013.5,630,8.5,9" Foreground="#FF634523" HorizontalAlignment="Left">
+            <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40"/>
+        </Button>
+        <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="963.5,630,58.5,9" Foreground="#FF634523" HorizontalAlignment="Left">
+            <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40"/>
+        </Button>
+        <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="913.5,630,108.5,9" Foreground="#FF634523" HorizontalAlignment="Left">
+            <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
+        </Button>
+        <StackPanel Orientation="Horizontal" Height="85" Margin="312,205,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="453">
+            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/hospital-medical-signal-of-a-cross-in-a-circle (2).png" Stretch="Fill"></Image>
+            <TextBlock Text="Ajouter un rendez-vous proffesionnel" Margin="10,29.013,390,25" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523" Height="30.987" Width="393"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="85" Margin="312,325,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="428">
+            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/men-silhouette.png" Stretch="Fill"></Image>
+            <TextBlock Margin="10,10,390,10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523"><Run Text="Ajouter un rendez-vous p"/><Run Text="ersonnel"/></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="85" Margin="312,440,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="428">
+            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,23.497,0,22.5" Source="ressources/icones/icones png/64 Pixels/phone-book.png" Stretch="Fill"></Image>
+            <TextBlock Text="Consulter mon agenda" Margin="10,10,390,10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523"/>
+        </StackPanel>
+        <Calendar HorizontalAlignment="right" Height="354" Margin="0,207,8,0" VerticalAlignment="Top" Width="280" Foreground="Black" BorderBrush="Black" FontFamily="Century Gothic" FontSize="10" FirstDayOfWeek="Sunday" Background="White"/>
+        <Expander x:Name="___Notif___Notifications_" Header="Notifications" HorizontalAlignment="Right" Height="619" Margin="826.5,70,0,0" VerticalAlignment="Top" Width="240" Foreground="#FF785F0E" FontFamily="Century Gothic" FontSize="36" FontWeight="Bold" Background="{x:Null}">
+            <ListView Height="569.607" Foreground="#FF1B88D3" Background="#FF1B88D3">
+                <TextBox Width="230" Height="25.607" Text="aucune notifications..." Foreground="#FF1B88D3" IsReadOnlyCaretVisible="True"/>
+            </ListView>
+        </Expander>
+        <Button x:Name="AjtRDVProBtn" HorizontalAlignment="Left" Height="85" Margin="312,205,0,0" VerticalAlignment="Top" Width="453" Click="AjtRDVpro_Click">
+            <Button.Foreground>
+                <SolidColorBrush Color="#DDFFFFFF" Opacity="0"/>
+            </Button.Foreground>
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="AjtRDVPersBtn" Content="Button" HorizontalAlignment="Left" Height="85" Margin="312,325,0,0" VerticalAlignment="Top" Width="453" Click="AjtRDVPersBtn_click">
+            <Button.Foreground>
+                <SolidColorBrush Color="#DDFFFFFF" Opacity="0"/>
+            </Button.Foreground>
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="CsltAgdBtn" Content="Button" HorizontalAlignment="Left" Height="85" Margin="312,440,0,0" VerticalAlignment="Top" Width="453">
+            <Button.Foreground>
+                <SolidColorBrush Color="#DDFFFFFF" Opacity="0"/>
+            </Button.Foreground>
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
