@@ -34,21 +34,40 @@ namespace MediCare
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            Personne patientRdv = (from personne in dataClass.Personne
-                                   where nomPatient.Equals(personne.nom) && prenomPatient.Equals(personne.prenom)
-                                   join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                   select personne).First();
-            RendezVous rdv = new RendezVous
+            var patientRdv = (from personne in dataClass.Personne
+                              where nomPatient == personne.nom && prenomPatient == personne.prenom
+                              join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                              select personne);
+
+            if (patientRdv.Count() != 0)
             {
-                Date = date,
-                IdPatient = patientRdv.Id,
-                IdMedecin = idMedecin,
-                Important = important,
-                Fait = false,
-                Note = notes
-            };
-            dataClass.RendezVous.InsertOnSubmit(rdv);
-            dataClass.SubmitChanges();
+                Personne pers = patientRdv.First<Personne>();
+                RendezVous rdv = new RendezVous
+                {
+                    Date = date,
+                    IdPatient = pers.Id,
+                    IdMedecin = idMedecin,
+                    Important = important,
+                    Fait = false,
+                    Note = notes
+                };
+                dataClass.RendezVous.InsertOnSubmit(rdv);
+                dataClass.SubmitChanges();
+            }
+            else
+            {
+                RendezVous rdv = new RendezVous
+                {
+                    Date = date,
+                    IdPatient = 0,
+                    IdMedecin = idMedecin,
+                    Important = important,
+                    Fait = false,
+                    Note = notes
+                };
+                dataClass.RendezVous.InsertOnSubmit(rdv);
+                dataClass.SubmitChanges();
+            }
         }
 
         public void SuppRdv(string nomPatient, string prenomPatient)
