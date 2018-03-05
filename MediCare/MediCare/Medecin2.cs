@@ -8,13 +8,13 @@ namespace MediCare
 {
     class Medecin2
     {
-        public void AddMed( string  key_ , Boolean active, string username, string password,  int IdPersonne)
+        public void AddMed( string  key , Boolean active, string username, string password,  int IdPersonne)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext db = new MCDataClassDataContext(con);
             Medecin t = new Medecin
             {
-                 key_ = key_ ,
+                 key = key ,
                 active = active,
                 username = username,
                 password = password,

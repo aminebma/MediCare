@@ -10,13 +10,13 @@ namespace MediCare
     class Consult
     {
         
-        public void AddConsult(string nomPatient, string prenomPatient, string nomMedecin, string prenomMedecin,DateTime date, string diagnostic, string description, string cheminCertificat,string cheminLettreOrientation, string cheminScanner, string cheminBilan, List<string> cheminRadio, List<Traite> traitement)
+        public void AddConsult(string nomPatient, string prenomPatient, string nomMedecin, string prenomMedecin, string diagnostic, string description, string cheminCertificat,string cheminLettreOrientation, string cheminScanner, string cheminBilan, List<string> cheminRadio, List<Traite> traitement)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             Consultation table = new Consultation
             {
-                date=date,
+                date=DateTime.Today,
                 diagnostic=diagnostic,
                 description=description,
                 cheminCertificat=cheminCertificat,
@@ -82,6 +82,31 @@ namespace MediCare
 
             
         }
+       /* public void SuppRdv(string nomPatient, string prenomPatient, DateTime date)
+        {
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+            RendezVous rdvToDelete = (from personne in dataClass.Personne
+                                      where nomPatient == personne.nom && prenomPatient == personne.prenom
+                                      join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                      join cslt in dataClass.Consultation on personne.Id equals consultation.Id
+                                      orderby rdv.Id descending
+                                      select rdv).First();
+            dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
+            dataClass.SubmitChanges();
+
+        }
+
+        public void SuppRdv(DateTime date)
+        {
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+            RendezVous rdvToDelete = (from rdv in dataClass.RendezVous
+                                      where date == rdv.Date
+                                      select rdv).First();
+            dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
+            dataClass.SubmitChanges();
+        }*/
     }
 }
 

@@ -19,7 +19,7 @@ namespace MediCare
         //}
 
         List<string> mois = new List<string> { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre" };
-
+       
         public int ConvertMoisToNum(string month)
         {
             return mois.IndexOf(month) + 1;
@@ -34,10 +34,10 @@ namespace MediCare
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            var patientRdv = (from personne in dataClass.Personne
-                              where nomPatient == personne.nom && prenomPatient == personne.prenom
-                              join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                              select personne);
+            IQueryable<Personne> patientRdv = (from personne in dataClass.Personne
+                                               where nomPatient == personne.nom && prenomPatient == personne.prenom
+                                               join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                               select personne);
 
             if (patientRdv.Count() != 0)
             {
@@ -51,23 +51,62 @@ namespace MediCare
                     Fait = false,
                     Note = notes
                 };
+
                 dataClass.RendezVous.InsertOnSubmit(rdv);
+                dataClass.SubmitChanges();
+
+
+                MPRendezVous mPRdv = new MPRendezVous
+                {
+                    IdMedecin = idMedecin,
+                    IdPatient = pers.Id,
+                    IdRendezVous = rdv.Id
+                };
+
+                dataClass.MPRendezVous.InsertOnSubmit(mPRdv);
                 dataClass.SubmitChanges();
             }
             else
             {
+                
+                 //PersonneClasse newPatient = new PersonneClasse();
+                 //try
+                 //{
+                 //   newPatient.AddPatientPersonne(nomPatient, prenomPatient);
+                 //}
+                 //catch(Exception)
+                 //{
+                 //   MessageBox.Show("Erreur lors de l'ajout du patient");
+                 //}
+
+                //Personne addedPatient = (from personne in dataClass.Personne
+                //                         orderby personne.Id descending
+                //                         select personne).First<Personne>();
+
                 RendezVous rdv = new RendezVous
                 {
                     Date = date,
-                    IdPatient = 0,
+                    IdPatient = /*addedPatient.Id,*/0,
                     IdMedecin = idMedecin,
                     Important = important,
                     Fait = false,
                     Note = notes
                 };
+
                 dataClass.RendezVous.InsertOnSubmit(rdv);
                 dataClass.SubmitChanges();
+
+                //MPRendezVous mPRdv = new MPRendezVous
+                //{
+                //    IdMedecin = idMedecin,
+                //    IdPatient = addedPatient.Id,
+                //    IdRendezVous = rdv.Id
+                //};
+
+                //dataClass.MPRendezVous.InsertOnSubmit(mPRdv);
+                //dataClass.SubmitChanges();
             }
+
         }
 
         public void SuppRdv(string nomPatient, string prenomPatient)
@@ -79,7 +118,7 @@ namespace MediCare
                                       join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
                                       join rdv in dataClass.RendezVous on personne.Id equals rdv.Id
                                       orderby rdv.Id descending
-                                      select rdv).First();
+                                      select rdv).First<RendezVous>();
             dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
             dataClass.SubmitChanges();
 
@@ -91,7 +130,7 @@ namespace MediCare
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             RendezVous rdvToDelete = (from rdv in dataClass.RendezVous
                                       where date == rdv.Date
-                                      select rdv).First();
+                                      select rdv).First<RendezVous>();
             dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
             dataClass.SubmitChanges();
         }
@@ -105,7 +144,7 @@ namespace MediCare
                                       join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
                                       join rdv in dataClass.RendezVous on personne.Id equals rdv.Id
                                       orderby rdv.Id descending
-                                      select rdv).First();
+                                      select rdv).First<RendezVous>();
             rdvToModify.Date = newDate;
             dataClass.RendezVous.InsertOnSubmit(rdvToModify);
             dataClass.SubmitChanges();
@@ -117,7 +156,7 @@ namespace MediCare
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             RendezVous rdvToModify = (from rdv in dataClass.RendezVous
                                       where date == rdv.Date
-                                      select rdv).First();
+                                      select rdv).First<RendezVous>();
             rdvToModify.Date = newDate;
             dataClass.RendezVous.InsertOnSubmit(rdvToModify);
             dataClass.SubmitChanges();

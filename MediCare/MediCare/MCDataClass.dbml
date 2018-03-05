@@ -25,19 +25,6 @@
       <Association Name="Consultation_Traitement" Member="Consultation" ThisKey="IdConsultation" OtherKey="Id" Type="Consultation" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Medecin" Member="Medecin">
-    <Type Name="Medecin">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="[key ]" Member="key_" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="password" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="IdPersonne" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Medecin_MPConsultation" Member="MPConsultation" ThisKey="Id" OtherKey="IdMedecin" Type="MPConsultation" />
-      <Association Name="Medecin_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdMedecin" Type="MPRendezVous" />
-      <Association Name="Personne_Medecin" Member="Personne" ThisKey="IdPersonne" OtherKey="Id" Type="Personne" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.MedicamenTraitement" Member="MedicamenTraitement">
     <Type Name="MedicamenTraitement">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -73,38 +60,9 @@
       <Column Name="IdPatient" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdMedecin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdRendezVous" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="RendezVous_MPRendezVous" Member="RendezVous" ThisKey="IdRendezVous" OtherKey="Id" Type="RendezVous" IsForeignKey="true" />
       <Association Name="Medecin_MPRendezVous" Member="Medecin" ThisKey="IdMedecin" OtherKey="Id" Type="Medecin" IsForeignKey="true" />
       <Association Name="Patient_MPRendezVous" Member="Patient" ThisKey="IdPatient" OtherKey="Id" Type="Patient" IsForeignKey="true" />
-      <Association Name="RendezVous_MPRendezVous" Member="RendezVous" ThisKey="IdRendezVous" OtherKey="Id" Type="RendezVous" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Patient" Member="Patient">
-    <Type Name="Patient">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="taille" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[poids ]" Member="poids_" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="groupage" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="maladie" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="etatSante" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="IdPersonne" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Patient_MPConsultation" Member="MPConsultation" ThisKey="Id" OtherKey="IdPatient" Type="MPConsultation" />
-      <Association Name="Patient_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdPatient" Type="MPRendezVous" />
-      <Association Name="Personne_Patient" Member="Personne" ThisKey="IdPersonne" OtherKey="Id" Type="Personne" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Personne" Member="Personne">
-    <Type Name="Personne">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="prenom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="jourN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="moisN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="anneeN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="adresse" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="telephone" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="sexe" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Personne_Medecin" Member="Medecin" ThisKey="Id" OtherKey="IdPersonne" Type="Medecin" />
-      <Association Name="Personne_Patient" Member="Patient" ThisKey="Id" OtherKey="IdPersonne" Type="Patient" />
     </Type>
   </Table>
   <Table Name="dbo.Radio" Member="Radio">
@@ -125,6 +83,46 @@
       <Column Name="Fait" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="RendezVous_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdRendezVous" Type="MPRendezVous" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Medecin" Member="Medecin">
+    <Type Name="Medecin">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[key]" Member="key" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IdPersonne" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Medecin_MPConsultation" Member="MPConsultation" ThisKey="Id" OtherKey="IdMedecin" Type="MPConsultation" />
+      <Association Name="Medecin_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdMedecin" Type="MPRendezVous" />
+      <Association Name="Personne_Medecin" Member="Personne" ThisKey="IdPersonne" OtherKey="Id" Type="Personne" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Patient" Member="Patient">
+    <Type Name="Patient">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="taille" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="poids" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="groupage" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="maladie" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="etatSante" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IdPersonne" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Patient_MPConsultation" Member="MPConsultation" ThisKey="Id" OtherKey="IdPatient" Type="MPConsultation" />
+      <Association Name="Patient_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdPatient" Type="MPRendezVous" />
+      <Association Name="Personne_Patient" Member="Personne" ThisKey="IdPersonne" OtherKey="Id" Type="Personne" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Personne" Member="Personne">
+    <Type Name="Personne">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="prenom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dateNaissance" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="adresse" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="telephone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sexe" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Personne_Medecin" Member="Medecin" ThisKey="Id" OtherKey="IdPersonne" Type="Medecin" />
+      <Association Name="Personne_Patient" Member="Patient" ThisKey="Id" OtherKey="IdPersonne" Type="Patient" />
     </Type>
   </Table>
 </Database>

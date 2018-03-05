@@ -94,6 +94,9 @@
     <Compile Include="AjoutConsultation.xaml.cs">
       <DependentUpon>AjoutConsultation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MenuConsultation.xaml.cs">
+      <DependentUpon>MenuConsultation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
@@ -101,11 +104,10 @@
     <Compile Include="InscriptionMedecin.xaml.cs">
       <DependentUpon>InscriptionMedecin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Patien.cs" />
     <Compile Include="FichePatient.xaml.cs">
       <DependentUpon>FichePatient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Person.cs" />
+    <Compile Include="ClassePersonne.cs" />
     <Compile Include="Traite.cs" />
     <Page Include="AgendaMediCare.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -116,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AjoutRdvPro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MenuConsultation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -198,7 +204,6 @@
     <Resource Include="ressources\images\bulles_2.PNG" />
     <Resource Include="ressources\images\bulles_3.PNG" />
     <Resource Include="ressources\images\Capture_2.PNG" />
-    <Content Include="dbo.Table.sql" />
     <Resource Include="ressources\images\facebbok.PNG" />
     <Resource Include="ressources\images\logo_final.PNG" />
     <Resource Include="ressources\images\logo_final_blue.PNG" />
