@@ -9,6 +9,28 @@
         Title="MenuConsultation" Height="720" Width="1080">
     <Grid>
 
+        <Image Margin="693,161,325,468" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-419.408"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Image Margin="512,278,522,369" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-488.234"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
         <StackPanel HorizontalAlignment="Right" Height="70" VerticalAlignment="Top" Width="1072" Background="#FF77B3B4">
             <Label  Width="315" FontSize="48" FontFamily="Century Gothic" Foreground="#FF634523" Height="69" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Consultation" Margin="435,0,322,0"/>
         </StackPanel>
@@ -122,13 +144,85 @@
             <TextBlock Text="Ajouter un nouveau patient" Margin="10,29.013,390,25" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523" Height="30.987" Width="393"/>
             <Button Content="Button" HorizontalAlignment="Left" Height="93" Margin="0,0,0,-8" VerticalAlignment="Top" Width="576" Background="{x:Null}"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Height="85" Margin="312,325,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="557">
+        <StackPanel Orientation="Horizontal" Height="86" Margin="306,338,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="557">
             <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/men-silhouette.png" Stretch="Fill"/>
             <TextBlock Margin="10,10,390,10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523" Text="Ajouter une consultation à un ancien patient"/>
             <Button Content="Button" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="562" Background="{x:Null}"/>
         </StackPanel>
         <Button x:Name="AjoutNouvPatient" Content="Button" HorizontalAlignment="Left" Height="70" Margin="301,216,0,0" VerticalAlignment="Top" Width="580" Background="{x:Null}" Click="AjoutNouvPatient_Click"/>
-        <Button x:Name="AjoutConsultPatient" Content="Button" HorizontalAlignment="Left" Height="70" Margin="302,338,0,0" VerticalAlignment="Top" Width="580" Background="{x:Null}" Click="AjoutConsultPatient_Click"/>
+        <Button x:Name="AjoutConsultPatient" Content="Button" HorizontalAlignment="Left" Height="70" Margin="300,348,0,0" VerticalAlignment="Top" Width="580" Background="{x:Null}" Click="AjoutConsultPatient_Click"/>
+        <Image Margin="252,94,732,515" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="69.111"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="421,588,595,19" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-31.602"/>
+                    <TranslateTransform X="182.112" Y="-104.668"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF3E3E40" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Image Margin="262,586,738,25" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.596"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF3E3E40" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Image Margin="976,529,20,76" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.16"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="952,87,44,518" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.16"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="747,472,265,163" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-137.704"/>
+                    <TranslateTransform X="219.646" Y="-171.58"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
     </Grid>
 </Window>

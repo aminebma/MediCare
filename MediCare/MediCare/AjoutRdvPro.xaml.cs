@@ -26,15 +26,15 @@ namespace MediCare
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        List<string> caract = new List<string> {"," , "." , ":" , ";" , "!" , "*" , "$" , "/" , "?" , "+" , "_" , "=" , "§" , "<" , ">" , "{" , "}" , "[" , "]" , "(" , ")" , "'" , "\"" , "&" , "²" , "@" , "|" , "#" , "£" , "µ" , "%" , "€" , "¤"};
+        List<string> caract = new List<string> { ",", ".", ":", ";", "!", "*", "$", "/", "?", "+", "_", "=", "§", "<", ">", "{", "}", "[", "]", "(", ")", "'", "\"", "&", "²", "@", "|", "#", "£", "µ", "%", "€", "¤" };
         Agenda rdv = new Agenda();
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             bool checkDate = false;
-                // checkTime = false;
-            int realHour=0;
-            if (dateT.Text=="" || heureBox.Text=="" || minutesBox.Text == "" || ampmBox.Text=="" || prenomPatientT.Text == "" || nomPatientT.Text == "")
+            // checkTime = false;
+            int realHour = 0;
+            if (dateT.Text == "" || heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" || prenomPatientT.Text == "" || nomPatientT.Text == "")
             {
                 MessageBox.Show("Veuillez remplir toutes les informations!");
                 if (dateT.Text == "") dateL.Foreground = Brushes.Red; else dateL.Foreground = Brushes.Black;
@@ -44,9 +44,9 @@ namespace MediCare
                 if (prenomPatientT.Text == "") prenomPatientL.Foreground = Brushes.Red; else prenomPatientL.Foreground = Brushes.Black;
                 if (nomPatientT.Text == "") nomPatientL.Foreground = Brushes.Red; else nomPatientL.Foreground = Brushes.Black;
             }
-            else 
+            else
             {
-                realHour = (ampmBox.Text == "AM") ? Int32.Parse(heureBox.Text) : (Int32.Parse(heureBox.Text)+12);
+                realHour = (ampmBox.Text == "AM") ? Int32.Parse(heureBox.Text) : (Int32.Parse(heureBox.Text) + 12);
                 checkDate = DateCheck(realHour);
                 //checkTime = TimeCheck(realHour);
                 if (checkDate /*&& checkTime*/)
@@ -71,6 +71,7 @@ namespace MediCare
                 }
                 //else
                 //{
+                //
                 //    if(Int16.Parse(minutesBox.Text)>59)
                 //    {
                 //        MessageBox.Show("Minutes invalide");
@@ -102,7 +103,7 @@ namespace MediCare
 
         private bool DateCheck(int realhour)
         {
-            DateTime dateRdv = DateTime.Parse(dateT.Text+ " " + realhour + ":" + minutesBox.Text + ":00");
+            DateTime dateRdv = DateTime.Parse(dateT.Text + " " + realhour + ":" + minutesBox.Text + ":00");
             return (dateRdv < DateTime.Now) ? false : true;
         }
 

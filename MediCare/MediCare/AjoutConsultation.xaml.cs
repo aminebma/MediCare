@@ -19,14 +19,34 @@ namespace MediCare
     /// </summary>
     public partial class AjoutConsultation : Window
     {
+        Traite TraitementEnreg = new Traite();
+        List<string> radioList = new List<string>();
+        List<Traite> traitementList = new List<Traite>();
+
         public AjoutConsultation()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            radioList.Add(radioT.Text);
+            radioT.Text = "";
+        }
 
+        private void AjouterTraitement_Click(object sender, RoutedEventArgs e)
+        {
+            TraitementEnreg.Dose = doseT.Text;
+            TraitementEnreg.NomMed = medicamentT.Text;
+            TraitementEnreg.Indication = indicationT.Text;
+            traitementList.Add(TraitementEnreg);
+            doseT.Text = "";
+            indicationT.Text = "";
+            medicamentT.Text = "";
 
-        Traite TraitementEnreg = new Traite();
+        }
+
+       
 
 
         private void Add_Consultation_Click(object sender, RoutedEventArgs e)
@@ -47,24 +67,26 @@ namespace MediCare
             {
 
                 Consult consultation = new Consult();
-                try
-                {
-
-                    List<string> radioList = new List<string> { radioT.Text };
-                    Traite TraitementEnreg = new Traite(doseT.Text, indicationT.Text, medicamentT.Text);
-                    List<Traite> traitementList = new List<Traite> { TraitementEnreg };
+                //try
+                //{
+                    radioList.Add(radioT.Text);
+                    TraitementEnreg.Dose = doseT.Text;
+                    TraitementEnreg.NomMed = medicamentT.Text;
+                    TraitementEnreg.Indication = indicationT.Text;
+                    traitementList.Add(TraitementEnreg);
                     consultation.AddConsult(nomPatientT.Text, prenomPatientT.Text, nomMedecinT.Text, prenomMedecinT.Text, diagnosticT.Text, descriptionT.Text, certificatT.Text, lettreT.Text, scannerT.Text, bilanT.Text, radioList, traitementList);
                     MessageBox.Show("Rendez-vous ajouté avec succés !");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Une erreur s'est produite !");
-                }
+                //}
+                //catch (Exception)
+                //{
+                //    MessageBox.Show("Une erreur s'est produite !");
+                //}
 
 
 
             }
         }
 
+       
     }
 }

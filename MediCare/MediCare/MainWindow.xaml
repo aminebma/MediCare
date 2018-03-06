@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1024" >
     <Grid RenderTransformOrigin="0.52,0.463">
+        <Image Margin="920,116,38,519" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.419,0.452">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-50.575"/>
+                    <TranslateTransform X="-0.287" Y="4.576"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="7,98,933,507" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.16"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="242,245,708,379" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.419,0.452">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-188.279"/>
+                    <TranslateTransform X="-184.479" Y="160.81"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
         <Button Content="TEST AGENDA Amine/lotfi" HorizontalAlignment="Left" Height="104" Margin="542,143,0,0" VerticalAlignment="Top" Width="410" Click="TestAgenda" FontSize="24" FontFamily="Caviar Dreams" Background="#FF77B3B4"/>
         <Button Content="TEST CONSULTATION imane/imene" HorizontalAlignment="Left" Height="116" Margin="80,310,0,0" VerticalAlignment="Top" Width="406" Click="TestConsultation" FontSize="24" FontFamily="Caviar Dreams" Background="#FF77B3B4"/>
         <Button Content="TEST PATIENT sidali" HorizontalAlignment="Left" Height="104" Margin="80,143,0,0" VerticalAlignment="Top" Width="402" Background="#FF77B3B4" FontFamily="Caviar Dreams" FontSize="24" Click="TestPatient"/>
@@ -15,6 +46,27 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Height="90" Width="1016" Background="#FFAA6D29">
             <Label Content="Interface de test MediCare" HorizontalAlignment="Center" Height="62"  VerticalAlignment="Top" Width="490" FontFamily="Century Gothic" FontSize="36" Foreground="#DDFFFFFF" FontWeight="Bold" Margin="270,0,256,0"/>
         </StackPanel>
+        <Image Margin="834,522,68,61" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.16"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="5,602,917,5" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="248,420,690,197" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-137.704"/>
+                    <TranslateTransform X="219.646" Y="-171.58"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
     </Grid>
 </Window>

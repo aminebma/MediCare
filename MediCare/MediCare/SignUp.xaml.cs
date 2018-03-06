@@ -26,6 +26,12 @@ namespace MediCare
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        
-}
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            InscriptionMedecin t = new InscriptionMedecin();
+            t.Show();
+
+        }
+    }
 }

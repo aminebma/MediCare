@@ -24,12 +24,38 @@ namespace MediCare
             InitializeComponent();
         }
         PersonneClasse pers = new PersonneClasse();
+        List<string> caract = new List<string> { ",", ".", ":", ";", "!", "*", "$", "/", "?", "+", "_", "=", "§", "<", ">", "{", "}", "[", "]", "(", ")", "'", "\"", "&", "²", "@", "|", "#" };
 
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
 
             pers.AddPatientPersonne(Nom.Text, Prenom.Text, Date_naiss.Text, Adresse.Text, Num_tel.Text, Sexe.Text, Taille.Text, Poids.Text, Groupage.Text, Maladie.Text, Etat_santé.Text);
             MessageBox.Show("Le patient a été inséré ! ");
+        }
+
+        private void Nom_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (NumberCheck(e.Text) || caract.Contains(e.Text)) e.Handled = true;
+        }
+
+        private bool NumberCheck(string verifText)
+        {
+            return int.TryParse(verifText, out int result);
+        }
+
+        private void Prenom_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (NumberCheck(e.Text) || caract.Contains(e.Text)) e.Handled = true;
+        }
+
+        private void DatePicker_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void Num_tel_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!NumberCheck(e.Text) || caract.Contains(e.Text)) e.Handled = true;
         }
     }
 }

@@ -18,19 +18,18 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <TextBox HorizontalAlignment="Left" Height="29.032" Margin="116.742,154.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200.836" FontSize="72" Background="White" BorderBrush="#FFF9FAFF" Grid.Row="1" Visibility="Hidden" Opacity="0.985" Cursor="UpArrow"/>
-        <Button Content="Log in " HorizontalAlignment="Left" Height="31.936" Margin="91.617,333.172,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182.781" Background="#FF3599CC" FontSize="16" Foreground="White" BorderThickness="0" BorderBrush="{x:Null}"/>
+        <Button Content="Log in " HorizontalAlignment="Left" Height="32" Margin="100,333,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182" Background="#FF3599CC" FontSize="16" Foreground="White" BorderThickness="0" BorderBrush="{x:Null}"/>
         <Image Margin="10,414.179,281.552,3" Grid.Row="1" Source="ressources/images/bulles.PNG" Stretch="Fill"/>
         <Image Margin="11.448,251.108,1.5,151.071" Grid.Row="1" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Grid.Column="2"/>
         <Image Margin="2.565,77.677,1.5,339.502" Grid.Row="1" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Grid.Column="2"/>
-        <Image Margin="5,0,-4,397" Source="ressources/images/mde.PNG" Stretch="Fill" Grid.RowSpan="2" Opacity="0.8" Grid.ColumnSpan="3"/>
+        <Image Margin="1,0,0,397" Source="ressources/images/mde.PNG" Stretch="Fill" Grid.RowSpan="2" Opacity="0.8" Grid.ColumnSpan="3"/>
         <Label Content=" Forget password ?" HorizontalAlignment="Left" Height="34" Margin="92,285,0,0" Grid.Row="1" VerticalAlignment="Top" Width="157" Foreground="#FFC51D8F" FontWeight="Bold"/>
-        <Label Content="       Sign up " HorizontalAlignment="Left" Height="33.923" Margin="116.742,388.749,0,0" Grid.Row="1" VerticalAlignment="Top" Width="157.656" Foreground="#FFC51D8F" FontWeight="Bold" FontSize="16"/>
         <PasswordBox HorizontalAlignment="Left" Height="36" Margin="92,244,0,0" Grid.Row="1" VerticalAlignment="Top" Width="173" BorderThickness="0,0,0,3" BorderBrush="#FF3599CC"/>
-        <Label Content="Pass word " HorizontalAlignment="Left" Height="29" Margin="92,215,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold" Grid.Row="1"/>
+        <Label Content="Pass word " HorizontalAlignment="Left" Height="29" Margin="101,244,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold" Grid.Row="1"/>
         <TextBox HorizontalAlignment="Left" Height="36" Margin="92,169,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="User Name" HorizontalAlignment="Left" Height="34" Margin="92,140,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold" Grid.Row="1"/>
-        <Image Grid.ColumnSpan="3" Margin="-2,0,2,402" Grid.RowSpan="2" Source="ressources/images/mde.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Label Content="User Name" HorizontalAlignment="Left" Height="34" Margin="100,171,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold" Grid.Row="1"/>
         <Image Margin="77,0,2,375" Source="ressources/images/logo_final.PNG" Stretch="Fill" Grid.Row="1"/>
+        <Button Content="Sign in" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="122,395,0,0" Padding="0" BorderThickness="0" Background="#FFEA3999" Foreground="White" Height="34" Click="Button_Click" Grid.Row="1"/>
 
     </Grid>
 </Window>

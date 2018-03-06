@@ -13,6 +13,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -94,8 +94,16 @@
     <Compile Include="AjoutConsultation.xaml.cs">
       <DependentUpon>AjoutConsultation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MCDataClass.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCDataClass.dbml</DependentUpon>
+    </Compile>
     <Compile Include="MenuConsultation.xaml.cs">
       <DependentUpon>MenuConsultation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModifMed.xaml.cs">
+      <DependentUpon>ModifMed.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -124,6 +132,10 @@
     <Page Include="MenuConsultation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ModifMed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SignUp.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -159,11 +171,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MCDataClass.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MCDataClass.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -177,6 +184,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="MCDataClass.dbml.layout">
+      <DependentUpon>MCDataClass.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -185,9 +195,6 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>MCDataClass.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </None>
-    <None Include="MCDataClass.dbml.layout">
-      <DependentUpon>MCDataClass.dbml</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -199,6 +206,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MCDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="ressources\images\akk.PNG" />
     <Resource Include="ressources\images\bulles.PNG" />
     <Resource Include="ressources\images\bulles_2.PNG" />
@@ -209,13 +219,6 @@
     <Resource Include="ressources\images\logo_final_blue.PNG" />
     <Resource Include="ressources\images\logoo.PNG" />
     <Resource Include="ressources\images\mail.PNG" />
-    <Content Include="MCDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MCDatabase_log.ldf">
-      <DependentUpon>MCDatabase.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="ressources\images\fond-médical-50928037.jpg" />
     <Resource Include="ressources\images\abstract-blue-medical-background-technology-layered-38479133.jpg" />
     <Resource Include="ressources\images\fond-médical-cellule.jpg" />

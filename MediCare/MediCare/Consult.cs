@@ -82,31 +82,61 @@ namespace MediCare
 
             
         }
-       /* public void SuppRdv(string nomPatient, string prenomPatient, DateTime date)
-        {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            RendezVous rdvToDelete = (from personne in dataClass.Personne
-                                      where nomPatient == personne.nom && prenomPatient == personne.prenom
-                                      join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                      join cslt in dataClass.Consultation on personne.Id equals consultation.Id
-                                      orderby rdv.Id descending
-                                      select rdv).First();
-            dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
-            dataClass.SubmitChanges();
+		public void SuppConsultation(string nomPatient, string prenomPatient, DateTime date)
+		{
+			string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+			MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+			Personne Pers = (from personne in dataClass.Personne
+							 where nomPatient == personne.nom && prenomPatient == personne.prenom
+							 select personne).First<Personne>();
 
-        }
+			Patient Pat = (from patient in dataClass.Patient
+						   where patient.IdPersonne == Pers.Id
+						   select patient).First<Patient>();
 
-        public void SuppRdv(DateTime date)
-        {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            RendezVous rdvToDelete = (from rdv in dataClass.RendezVous
-                                      where date == rdv.Date
-                                      select rdv).First();
-            dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
-            dataClass.SubmitChanges();
-        }*/
-    }
+			MPConsultation mpcnsltToDelete = (from cns in dataClass.Consultation
+										  where cns.date == date
+										  join mpc in dataClass.MPConsultation on cns.Id equals mpc.IdConsultation
+									   	  where mpc.IdPatient == Pat.Id
+										  select mpc).First<MPConsultation>();
+
+			Consultation cnsltToDelete = (from cns in dataClass.Consultation
+										  where cns.Id == mpcnsltToDelete.IdConsultation
+										  select cns).First<Consultation>();
+
+
+			
+			dataClass.MPConsultation.DeleteOnSubmit(mpcnsltToDelete);
+			dataClass.SubmitChanges();
+			dataClass.Consultation.DeleteOnSubmit(cnsltToDelete);
+			dataClass.SubmitChanges();
+
+		}
+		/* public void SuppRdv(string nomPatient, string prenomPatient, DateTime date)
+		 {
+			 string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+			 MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+			 RendezVous rdvToDelete = (from personne in dataClass.Personne
+									   where nomPatient == personne.nom && prenomPatient == personne.prenom
+									   join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+									   join cslt in dataClass.Consultation on personne.Id equals consultation.Id
+									   orderby rdv.Id descending
+									   select rdv).First();
+			 dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
+			 dataClass.SubmitChanges();
+
+		 }
+
+		 public void SuppRdv(DateTime date)
+		 {
+			 string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+			 MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+			 RendezVous rdvToDelete = (from rdv in dataClass.RendezVous
+									   where date == rdv.Date
+									   select rdv).First();
+			 dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
+			 dataClass.SubmitChanges();
+		 }*/
+	}
 }
 

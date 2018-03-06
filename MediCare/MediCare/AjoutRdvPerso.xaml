@@ -11,12 +11,60 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <ImageBrush ImageSource="ressources/images/fond-médical-50928037.jpg" Opacity="0.6"/>
-        </Grid.Background>
-        <StackPanel HorizontalAlignment="Left" Height="59.723" VerticalAlignment="Top" Width="639.063" Background="#FF7C5223" Grid.ColumnSpan="2" Margin="0,0,-3,0">
-            <Label Content="Ajout rendez Vous personnel" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center" Width="346" FontFamily="Century Gothic" FontSize="24" Foreground="#DDFFFFFF" Margin="150,0,143,0"/>
+        <StackPanel HorizontalAlignment="Left" Height="59.723" VerticalAlignment="Top" Width="639.063" Background="#FF6A97AC" Grid.ColumnSpan="2" Margin="0,0,-3,0">
+            <Label Content="Ajout rendez-vous personnel" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center" Width="346" FontFamily="Century Gothic" FontSize="24" Foreground="#DDFFFFFF" Margin="150,0,143,0"/>
         </StackPanel>
+        <Image Margin="553,388,7,3" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.16"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="4,60,556,331" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.16"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="36,362,541,59" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="246,138,332,283" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.419,0.452">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-50.575"/>
+                    <TranslateTransform X="-0.287" Y="4.576"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="294,413,283,8" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-137.704"/>
+                    <TranslateTransform X="219.646" Y="-171.58"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="438,169,140,252" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.419,0.452">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-188.279"/>
+                    <TranslateTransform X="-184.479" Y="160.81"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Window>
  

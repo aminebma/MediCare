@@ -19,7 +19,7 @@ namespace MediCare
         //}
 
         List<string> mois = new List<string> { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre" };
-       
+
         public int ConvertMoisToNum(string month)
         {
             return mois.IndexOf(month) + 1;
@@ -68,25 +68,17 @@ namespace MediCare
             }
             else
             {
-                
-                 //PersonneClasse newPatient = new PersonneClasse();
-                 //try
-                 //{
-                 //   newPatient.AddPatientPersonne(nomPatient, prenomPatient);
-                 //}
-                 //catch(Exception)
-                 //{
-                 //   MessageBox.Show("Erreur lors de l'ajout du patient");
-                 //}
 
-                //Personne addedPatient = (from personne in dataClass.Personne
-                //                         orderby personne.Id descending
-                //                         select personne).First<Personne>();
+                PersonneClasse newPatient = new PersonneClasse();
+                newPatient.AddPatientPersonne(nomPatient, prenomPatient, "17/12/1998", "test", "6969", "rbrr", "444", "654", "o", "fzef", "dfb");
+                Personne addedPatient = (from personne in dataClass.Personne
+                                         orderby personne.Id descending
+                                         select personne).First<Personne>();
 
                 RendezVous rdv = new RendezVous
                 {
                     Date = date,
-                    IdPatient = /*addedPatient.Id,*/0,
+                    IdPatient = addedPatient.Id,
                     IdMedecin = idMedecin,
                     Important = important,
                     Fait = false,
@@ -96,15 +88,15 @@ namespace MediCare
                 dataClass.RendezVous.InsertOnSubmit(rdv);
                 dataClass.SubmitChanges();
 
-                //MPRendezVous mPRdv = new MPRendezVous
-                //{
-                //    IdMedecin = idMedecin,
-                //    IdPatient = addedPatient.Id,
-                //    IdRendezVous = rdv.Id
-                //};
+                MPRendezVous mPRdv = new MPRendezVous
+                {
+                    IdMedecin = idMedecin,
+                    IdPatient = addedPatient.Id,
+                    IdRendezVous = rdv.Id
+                };
 
-                //dataClass.MPRendezVous.InsertOnSubmit(mPRdv);
-                //dataClass.SubmitChanges();
+                dataClass.MPRendezVous.InsertOnSubmit(mPRdv);
+                dataClass.SubmitChanges();
             }
 
         }
@@ -116,7 +108,7 @@ namespace MediCare
             RendezVous rdvToDelete = (from personne in dataClass.Personne
                                       where nomPatient == personne.nom && prenomPatient == personne.prenom
                                       join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                      join rdv in dataClass.RendezVous on personne.Id equals rdv.Id
+                                      join rdv in dataClass.RendezVous on personne.Id equals rdv.IdPatient
                                       orderby rdv.Id descending
                                       select rdv).First<RendezVous>();
             dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
@@ -142,7 +134,7 @@ namespace MediCare
             RendezVous rdvToModify = (from personne in dataClass.Personne
                                       where nomPatient == personne.nom && prenomPatient == personne.prenom
                                       join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                      join rdv in dataClass.RendezVous on personne.Id equals rdv.Id
+                                      join rdv in dataClass.RendezVous on personne.Id equals rdv.IdPatient
                                       orderby rdv.Id descending
                                       select rdv).First<RendezVous>();
             rdvToModify.Date = newDate;

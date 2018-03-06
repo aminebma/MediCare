@@ -40,12 +40,20 @@ namespace MediCare
         {
 
         }
+        Medecin2 med = new Medecin2();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-          
+           // med.AddMed(nom.Text, prenom.Text, date_naiss.Text, adresse.Text, num_tel.Text, sexe.Text,  username.Text, password.Text, clef.Text);
+          //  MessageBox.Show("Le medecin a été inséré ! ");
         }
+
+        private void heureBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+    }
     }
 
      
-}
+
