@@ -206,9 +206,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MCDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="ressources\images\akk.PNG" />
     <Resource Include="ressources\images\bulles.PNG" />
     <Resource Include="ressources\images\bulles_2.PNG" />

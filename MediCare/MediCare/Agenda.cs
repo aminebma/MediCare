@@ -34,14 +34,14 @@ namespace MediCare
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<Personne> patientRdv = (from personne in dataClass.Personne
+            IQueryable<Patient> patientRdv = (from personne in dataClass.Personne
                                                where nomPatient == personne.nom && prenomPatient == personne.prenom
                                                join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                               select personne);
+                                               select patient);
 
             if (patientRdv.Count() != 0)
             {
-                Personne pers = patientRdv.First<Personne>();
+                Patient pers = patientRdv.First<Patient>();
                 RendezVous rdv = new RendezVous
                 {
                     Date = date,
@@ -71,9 +71,9 @@ namespace MediCare
 
                 PersonneClasse newPatient = new PersonneClasse();
                 newPatient.AddPatientPersonne(nomPatient, prenomPatient, "17/12/1998", "test", "6969", "rbrr", "444", "654", "o", "fzef", "dfb");
-                Personne addedPatient = (from personne in dataClass.Personne
-                                         orderby personne.Id descending
-                                         select personne).First<Personne>();
+                Patient addedPatient = (from personne in dataClass.Personne
+                                        join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                        select patient).First<Patient>();
 
                 RendezVous rdv = new RendezVous
                 {

@@ -59,9 +59,9 @@ namespace MediCare
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Database connexion error");
+                    MessageBox.Show("Database error");
                     }
-                }
+            }
                 else if (!checkDate)
                 {
                     MessageBox.Show("Veuillez rentrer une date/heure valide");
