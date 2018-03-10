@@ -36,9 +36,6 @@ namespace MediCare
     partial void InsertTraitement(Traitement instance);
     partial void UpdateTraitement(Traitement instance);
     partial void DeleteTraitement(Traitement instance);
-    partial void InsertMedecin(Medecin instance);
-    partial void UpdateMedecin(Medecin instance);
-    partial void DeleteMedecin(Medecin instance);
     partial void InsertMedicamenTraitement(MedicamenTraitement instance);
     partial void UpdateMedicamenTraitement(MedicamenTraitement instance);
     partial void DeleteMedicamenTraitement(MedicamenTraitement instance);
@@ -63,6 +60,9 @@ namespace MediCare
     partial void InsertRendezVous(RendezVous instance);
     partial void UpdateRendezVous(RendezVous instance);
     partial void DeleteRendezVous(RendezVous instance);
+    partial void InsertMedecin(Medecin instance);
+    partial void UpdateMedecin(Medecin instance);
+    partial void DeleteMedecin(Medecin instance);
     #endregion
 		
 		public MCDataClassDataContext() : 
@@ -108,14 +108,6 @@ namespace MediCare
 			get
 			{
 				return this.GetTable<Traitement>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Medecin> Medecin
-		{
-			get
-			{
-				return this.GetTable<Medecin>();
 			}
 		}
 		
@@ -180,6 +172,14 @@ namespace MediCare
 			get
 			{
 				return this.GetTable<RendezVous>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Medecin> Medecin
+		{
+			get
+			{
+				return this.GetTable<Medecin>();
 			}
 		}
 	}
@@ -701,285 +701,6 @@ namespace MediCare
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Medecin")]
-	public partial class Medecin : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _key;
-		
-		private System.Nullable<bool> _active;
-		
-		private string _username;
-		
-		private string _password;
-		
-		private System.Nullable<int> _IdPersonne;
-		
-		private EntitySet<MPConsultation> _MPConsultation;
-		
-		private EntitySet<MPRendezVous> _MPRendezVous;
-		
-		private EntityRef<Personne> _Personne;
-		
-    #region Définitions de méthodes d'extensibilité
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnkeyChanging(string value);
-    partial void OnkeyChanged();
-    partial void OnactiveChanging(System.Nullable<bool> value);
-    partial void OnactiveChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    partial void OnIdPersonneChanging(System.Nullable<int> value);
-    partial void OnIdPersonneChanged();
-    #endregion
-		
-		public Medecin()
-		{
-			this._MPConsultation = new EntitySet<MPConsultation>(new Action<MPConsultation>(this.attach_MPConsultation), new Action<MPConsultation>(this.detach_MPConsultation));
-			this._MPRendezVous = new EntitySet<MPRendezVous>(new Action<MPRendezVous>(this.attach_MPRendezVous), new Action<MPRendezVous>(this.detach_MPRendezVous));
-			this._Personne = default(EntityRef<Personne>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[key]", Storage="_key", DbType="VarChar(50)")]
-		public string key
-		{
-			get
-			{
-				return this._key;
-			}
-			set
-			{
-				if ((this._key != value))
-				{
-					this.OnkeyChanging(value);
-					this.SendPropertyChanging();
-					this._key = value;
-					this.SendPropertyChanged("key");
-					this.OnkeyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
-		public System.Nullable<bool> active
-		{
-			get
-			{
-				return this._active;
-			}
-			set
-			{
-				if ((this._active != value))
-				{
-					this.OnactiveChanging(value);
-					this.SendPropertyChanging();
-					this._active = value;
-					this.SendPropertyChanged("active");
-					this.OnactiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(20)")]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPersonne", DbType="Int")]
-		public System.Nullable<int> IdPersonne
-		{
-			get
-			{
-				return this._IdPersonne;
-			}
-			set
-			{
-				if ((this._IdPersonne != value))
-				{
-					if (this._Personne.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdPersonneChanging(value);
-					this.SendPropertyChanging();
-					this._IdPersonne = value;
-					this.SendPropertyChanged("IdPersonne");
-					this.OnIdPersonneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medecin_MPConsultation", Storage="_MPConsultation", ThisKey="Id", OtherKey="IdMedecin")]
-		public EntitySet<MPConsultation> MPConsultation
-		{
-			get
-			{
-				return this._MPConsultation;
-			}
-			set
-			{
-				this._MPConsultation.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medecin_MPRendezVous", Storage="_MPRendezVous", ThisKey="Id", OtherKey="IdMedecin")]
-		public EntitySet<MPRendezVous> MPRendezVous
-		{
-			get
-			{
-				return this._MPRendezVous;
-			}
-			set
-			{
-				this._MPRendezVous.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Medecin", Storage="_Personne", ThisKey="IdPersonne", OtherKey="Id", IsForeignKey=true)]
-		public Personne Personne
-		{
-			get
-			{
-				return this._Personne.Entity;
-			}
-			set
-			{
-				Personne previousValue = this._Personne.Entity;
-				if (((previousValue != value) 
-							|| (this._Personne.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Personne.Entity = null;
-						previousValue.Medecin.Remove(this);
-					}
-					this._Personne.Entity = value;
-					if ((value != null))
-					{
-						value.Medecin.Add(this);
-						this._IdPersonne = value.Id;
-					}
-					else
-					{
-						this._IdPersonne = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Personne");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_MPConsultation(MPConsultation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Medecin = this;
-		}
-		
-		private void detach_MPConsultation(MPConsultation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Medecin = null;
-		}
-		
-		private void attach_MPRendezVous(MPRendezVous entity)
-		{
-			this.SendPropertyChanging();
-			entity.Medecin = this;
-		}
-		
-		private void detach_MPRendezVous(MPRendezVous entity)
-		{
-			this.SendPropertyChanging();
-			entity.Medecin = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MedicamenTraitement")]
 	public partial class MedicamenTraitement : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1350,9 +1071,9 @@ namespace MediCare
 		
 		private EntityRef<Consultation> _Consultation;
 		
-		private EntityRef<Medecin> _Medecin;
-		
 		private EntityRef<Patient> _Patient;
+		
+		private EntityRef<Medecin> _Medecin;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -1371,8 +1092,8 @@ namespace MediCare
 		public MPConsultation()
 		{
 			this._Consultation = default(EntityRef<Consultation>);
-			this._Medecin = default(EntityRef<Medecin>);
 			this._Patient = default(EntityRef<Patient>);
+			this._Medecin = default(EntityRef<Medecin>);
 			OnCreated();
 		}
 		
@@ -1502,40 +1223,6 @@ namespace MediCare
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medecin_MPConsultation", Storage="_Medecin", ThisKey="IdMedecin", OtherKey="Id", IsForeignKey=true)]
-		public Medecin Medecin
-		{
-			get
-			{
-				return this._Medecin.Entity;
-			}
-			set
-			{
-				Medecin previousValue = this._Medecin.Entity;
-				if (((previousValue != value) 
-							|| (this._Medecin.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Medecin.Entity = null;
-						previousValue.MPConsultation.Remove(this);
-					}
-					this._Medecin.Entity = value;
-					if ((value != null))
-					{
-						value.MPConsultation.Add(this);
-						this._IdMedecin = value.Id;
-					}
-					else
-					{
-						this._IdMedecin = default(int);
-					}
-					this.SendPropertyChanged("Medecin");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_MPConsultation", Storage="_Patient", ThisKey="IdPatient", OtherKey="Id", IsForeignKey=true)]
 		public Patient Patient
 		{
@@ -1566,6 +1253,40 @@ namespace MediCare
 						this._IdPatient = default(int);
 					}
 					this.SendPropertyChanged("Patient");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medecin_MPConsultation", Storage="_Medecin", ThisKey="IdMedecin", OtherKey="Id", IsForeignKey=true)]
+		public Medecin Medecin
+		{
+			get
+			{
+				return this._Medecin.Entity;
+			}
+			set
+			{
+				Medecin previousValue = this._Medecin.Entity;
+				if (((previousValue != value) 
+							|| (this._Medecin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Medecin.Entity = null;
+						previousValue.MPConsultation.Remove(this);
+					}
+					this._Medecin.Entity = value;
+					if ((value != null))
+					{
+						value.MPConsultation.Add(this);
+						this._IdMedecin = value.Id;
+					}
+					else
+					{
+						this._IdMedecin = default(int);
+					}
+					this.SendPropertyChanged("Medecin");
 				}
 			}
 		}
@@ -1605,11 +1326,11 @@ namespace MediCare
 		
 		private int _IdRendezVous;
 		
-		private EntityRef<Medecin> _Medecin;
-		
 		private EntityRef<Patient> _Patient;
 		
 		private EntityRef<RendezVous> _RendezVous;
+		
+		private EntityRef<Medecin> _Medecin;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -1627,9 +1348,9 @@ namespace MediCare
 		
 		public MPRendezVous()
 		{
-			this._Medecin = default(EntityRef<Medecin>);
 			this._Patient = default(EntityRef<Patient>);
 			this._RendezVous = default(EntityRef<RendezVous>);
+			this._Medecin = default(EntityRef<Medecin>);
 			OnCreated();
 		}
 		
@@ -1725,40 +1446,6 @@ namespace MediCare
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medecin_MPRendezVous", Storage="_Medecin", ThisKey="IdMedecin", OtherKey="Id", IsForeignKey=true)]
-		public Medecin Medecin
-		{
-			get
-			{
-				return this._Medecin.Entity;
-			}
-			set
-			{
-				Medecin previousValue = this._Medecin.Entity;
-				if (((previousValue != value) 
-							|| (this._Medecin.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Medecin.Entity = null;
-						previousValue.MPRendezVous.Remove(this);
-					}
-					this._Medecin.Entity = value;
-					if ((value != null))
-					{
-						value.MPRendezVous.Add(this);
-						this._IdMedecin = value.Id;
-					}
-					else
-					{
-						this._IdMedecin = default(int);
-					}
-					this.SendPropertyChanged("Medecin");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_MPRendezVous", Storage="_Patient", ThisKey="IdPatient", OtherKey="Id", IsForeignKey=true)]
 		public Patient Patient
 		{
@@ -1823,6 +1510,40 @@ namespace MediCare
 						this._IdRendezVous = default(int);
 					}
 					this.SendPropertyChanged("RendezVous");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medecin_MPRendezVous", Storage="_Medecin", ThisKey="IdMedecin", OtherKey="Id", IsForeignKey=true)]
+		public Medecin Medecin
+		{
+			get
+			{
+				return this._Medecin.Entity;
+			}
+			set
+			{
+				Medecin previousValue = this._Medecin.Entity;
+				if (((previousValue != value) 
+							|| (this._Medecin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Medecin.Entity = null;
+						previousValue.MPRendezVous.Remove(this);
+					}
+					this._Medecin.Entity = value;
+					if ((value != null))
+					{
+						value.MPRendezVous.Add(this);
+						this._IdMedecin = value.Id;
+					}
+					else
+					{
+						this._IdMedecin = default(int);
+					}
+					this.SendPropertyChanged("Medecin");
 				}
 			}
 		}
@@ -2171,9 +1892,9 @@ namespace MediCare
 		
 		private string _sexe;
 		
-		private EntitySet<Medecin> _Medecin;
-		
 		private EntitySet<Patient> _Patient;
+		
+		private EntitySet<Medecin> _Medecin;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -2197,8 +1918,8 @@ namespace MediCare
 		
 		public Personne()
 		{
-			this._Medecin = new EntitySet<Medecin>(new Action<Medecin>(this.attach_Medecin), new Action<Medecin>(this.detach_Medecin));
 			this._Patient = new EntitySet<Patient>(new Action<Patient>(this.attach_Patient), new Action<Patient>(this.detach_Patient));
+			this._Medecin = new EntitySet<Medecin>(new Action<Medecin>(this.attach_Medecin), new Action<Medecin>(this.detach_Medecin));
 			OnCreated();
 		}
 		
@@ -2342,19 +2063,6 @@ namespace MediCare
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Medecin", Storage="_Medecin", ThisKey="Id", OtherKey="IdPersonne")]
-		public EntitySet<Medecin> Medecin
-		{
-			get
-			{
-				return this._Medecin;
-			}
-			set
-			{
-				this._Medecin.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Patient", Storage="_Patient", ThisKey="Id", OtherKey="IdPersonne")]
 		public EntitySet<Patient> Patient
 		{
@@ -2365,6 +2073,19 @@ namespace MediCare
 			set
 			{
 				this._Patient.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Medecin", Storage="_Medecin", ThisKey="Id", OtherKey="IdPersonne")]
+		public EntitySet<Medecin> Medecin
+		{
+			get
+			{
+				return this._Medecin;
+			}
+			set
+			{
+				this._Medecin.Assign(value);
 			}
 		}
 		
@@ -2388,18 +2109,6 @@ namespace MediCare
 			}
 		}
 		
-		private void attach_Medecin(Medecin entity)
-		{
-			this.SendPropertyChanging();
-			entity.Personne = this;
-		}
-		
-		private void detach_Medecin(Medecin entity)
-		{
-			this.SendPropertyChanging();
-			entity.Personne = null;
-		}
-		
 		private void attach_Patient(Patient entity)
 		{
 			this.SendPropertyChanging();
@@ -2407,6 +2116,18 @@ namespace MediCare
 		}
 		
 		private void detach_Patient(Patient entity)
+		{
+			this.SendPropertyChanging();
+			entity.Personne = null;
+		}
+		
+		private void attach_Medecin(Medecin entity)
+		{
+			this.SendPropertyChanging();
+			entity.Personne = this;
+		}
+		
+		private void detach_Medecin(Medecin entity)
 		{
 			this.SendPropertyChanging();
 			entity.Personne = null;
@@ -2795,6 +2516,285 @@ namespace MediCare
 		{
 			this.SendPropertyChanging();
 			entity.RendezVous = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Medecin")]
+	public partial class Medecin : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _key;
+		
+		private System.Nullable<bool> _active;
+		
+		private string _username;
+		
+		private string _password;
+		
+		private System.Nullable<int> _IdPersonne;
+		
+		private EntitySet<MPConsultation> _MPConsultation;
+		
+		private EntitySet<MPRendezVous> _MPRendezVous;
+		
+		private EntityRef<Personne> _Personne;
+		
+    #region Définitions de méthodes d'extensibilité
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnkeyChanging(string value);
+    partial void OnkeyChanged();
+    partial void OnactiveChanging(System.Nullable<bool> value);
+    partial void OnactiveChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnIdPersonneChanging(System.Nullable<int> value);
+    partial void OnIdPersonneChanged();
+    #endregion
+		
+		public Medecin()
+		{
+			this._MPConsultation = new EntitySet<MPConsultation>(new Action<MPConsultation>(this.attach_MPConsultation), new Action<MPConsultation>(this.detach_MPConsultation));
+			this._MPRendezVous = new EntitySet<MPRendezVous>(new Action<MPRendezVous>(this.attach_MPRendezVous), new Action<MPRendezVous>(this.detach_MPRendezVous));
+			this._Personne = default(EntityRef<Personne>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[key]", Storage="_key", DbType="VarChar(50)")]
+		public string key
+		{
+			get
+			{
+				return this._key;
+			}
+			set
+			{
+				if ((this._key != value))
+				{
+					this.OnkeyChanging(value);
+					this.SendPropertyChanging();
+					this._key = value;
+					this.SendPropertyChanged("key");
+					this.OnkeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this.OnactiveChanging(value);
+					this.SendPropertyChanging();
+					this._active = value;
+					this.SendPropertyChanged("active");
+					this.OnactiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(20)")]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPersonne", DbType="Int")]
+		public System.Nullable<int> IdPersonne
+		{
+			get
+			{
+				return this._IdPersonne;
+			}
+			set
+			{
+				if ((this._IdPersonne != value))
+				{
+					if (this._Personne.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdPersonneChanging(value);
+					this.SendPropertyChanging();
+					this._IdPersonne = value;
+					this.SendPropertyChanged("IdPersonne");
+					this.OnIdPersonneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medecin_MPConsultation", Storage="_MPConsultation", ThisKey="Id", OtherKey="IdMedecin")]
+		public EntitySet<MPConsultation> MPConsultation
+		{
+			get
+			{
+				return this._MPConsultation;
+			}
+			set
+			{
+				this._MPConsultation.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medecin_MPRendezVous", Storage="_MPRendezVous", ThisKey="Id", OtherKey="IdMedecin")]
+		public EntitySet<MPRendezVous> MPRendezVous
+		{
+			get
+			{
+				return this._MPRendezVous;
+			}
+			set
+			{
+				this._MPRendezVous.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Medecin", Storage="_Personne", ThisKey="IdPersonne", OtherKey="Id", IsForeignKey=true)]
+		public Personne Personne
+		{
+			get
+			{
+				return this._Personne.Entity;
+			}
+			set
+			{
+				Personne previousValue = this._Personne.Entity;
+				if (((previousValue != value) 
+							|| (this._Personne.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Personne.Entity = null;
+						previousValue.Medecin.Remove(this);
+					}
+					this._Personne.Entity = value;
+					if ((value != null))
+					{
+						value.Medecin.Add(this);
+						this._IdPersonne = value.Id;
+					}
+					else
+					{
+						this._IdPersonne = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Personne");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_MPConsultation(MPConsultation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Medecin = this;
+		}
+		
+		private void detach_MPConsultation(MPConsultation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Medecin = null;
+		}
+		
+		private void attach_MPRendezVous(MPRendezVous entity)
+		{
+			this.SendPropertyChanging();
+			entity.Medecin = this;
+		}
+		
+		private void detach_MPRendezVous(MPRendezVous entity)
+		{
+			this.SendPropertyChanging();
+			entity.Medecin = null;
 		}
 	}
 }

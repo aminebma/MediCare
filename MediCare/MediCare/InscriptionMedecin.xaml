@@ -9,10 +9,10 @@
 
     <Grid Background="White" >
         <TextBox x:Name="nom" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Nom " VerticalAlignment="Top" Width="145" Margin="297,42,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
-        <TextBox x:Name="prenom" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Prenom" VerticalAlignment="Top" Width="145" Margin="479,42,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="prenom" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Prenom" VerticalAlignment="Top" Width="145" Margin="479,42,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
         <TextBox x:Name="adresse" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="144" Margin="296,97,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
         <TextBox x:Name="num_tel" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="Numéro de Tel" VerticalAlignment="Top" Width="144" Margin="480,97,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
-        <TextBox x:Name="clef" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Clé d'activation" VerticalAlignment="Top" Width="144" Margin="296,185,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="clef" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Clé d'activation" VerticalAlignment="Top" Width="144" Margin="296,185,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
         <Button Content="Sign in" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="467,328,0,0" Padding="0" BorderThickness="0" Background="#FFEA3999" Foreground="White" Height="34" Click="Button_Click"/>
         <Image Margin="588,-5,5,359" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
         <Image Margin="589,362,-2,-26" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5"/>
@@ -22,9 +22,9 @@
         <Image Margin="316,372,290,10" Source="ressources/images/akk.PNG" Stretch="Fill"/>
         <Image Margin="352,372,256,12" Source="ressources/images/facebbok.PNG" Stretch="Fill"/>
         <Image Margin="280,372,324,7" Source="ressources/images/mail.PNG" Stretch="Fill"/>
-        <TextBox x:Name="username" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Nom utilisateur" VerticalAlignment="Top" Width="144" Margin="479,155,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox x:Name="password" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Mot de passe" VerticalAlignment="Top" Width="144" Margin="296,229,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox x:Name="sexe" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Sexe" VerticalAlignment="Top" Width="144" Margin="477,230,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox x:Name="date_naiss" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Date de naissance" VerticalAlignment="Top" Width="144" Margin="298,148,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="username" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Nom utilisateur" VerticalAlignment="Top" Width="144" Margin="479,155,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
+        <TextBox x:Name="password" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Mot de passe" VerticalAlignment="Top" Width="144" Margin="296,229,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
+        <TextBox x:Name="sexe" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Sexe" VerticalAlignment="Top" Width="144" Margin="477,230,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
+        <DatePicker x:Name="date_naiss" HorizontalAlignment="Left" Height="30" Margin="297,152,0,0" VerticalAlignment="Top" Width="138"/>
     </Grid>
 </Window>

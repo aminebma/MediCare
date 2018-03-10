@@ -9,33 +9,32 @@ namespace MediCare
 {
     class Medecin2
     {
-        public void AddMed(String nom, String prenom, string date, String adresse, string num_tel, String sexe, string key, string username, string password)
+        public void AddMed(string nom, string prenom, DateTime date, string adresse, string num_tel, string sexe, string key, string username, string password)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataclass = new MCDataClassDataContext(con);
             Personne t = new Personne
             {
                 nom = nom,
                 prenom = prenom,
-                dateNaissance = DateTime.Parse(date),
+                dateNaissance =date,
                 adresse = adresse,
                 telephone = int.Parse(num_tel),
                 sexe = sexe,
 
-
-
-
+            
             };
             dataclass.Personne.InsertOnSubmit(t);
             dataclass.SubmitChanges();
 
-            Medecin tabmedecin = new Medecin();
-            tabmedecin.active = true;
-            tabmedecin.key = key;
-
-            tabmedecin.username = username;
-            tabmedecin.password = password;
-            tabmedecin.IdPersonne = t.Id;
+            Medecin tabmedecin = new Medecin
+            {
+                active = true,
+                key = key,
+                username = username,
+                password = password,
+                IdPersonne = t.Id
+            };
             dataclass.Medecin.InsertOnSubmit(tabmedecin);
             dataclass.SubmitChanges();
         }
