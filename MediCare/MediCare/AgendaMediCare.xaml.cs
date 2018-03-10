@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Reflection;
 
 namespace MediCare
 {
@@ -23,6 +24,7 @@ namespace MediCare
         public AgendaMediCare()
         {
             InitializeComponent();
+            GenererNotification();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
@@ -36,6 +38,26 @@ namespace MediCare
         {
             AjoutRdvPerso RDVPERSO = new AjoutRdvPerso();
             RDVPERSO.Show();
+        }
+
+        private void GenererNotification()
+        {
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+            IQueryable<RendezVous> NotifRdv = (from RendezVous in dataClass.RendezVous
+                                               select RendezVous);
+
+    
+            if ( NotifRdv.Count() != 0)
+            {
+                RendezVous test = NotifRdv.First<RendezVous>();
+                TextNotif.Text = " Rendez Vous \n Date :" + test.Date + " \n patient :" + test.IdPatient + "\n important :" + test.Important + "\n Note : " + test.Note;
+            }
+
+            if (TextNotif.Text != "Aucune notification...")
+            {
+                NotificationsExpender.Foreground = Brushes.Red;
+            }
         }
     }
 }

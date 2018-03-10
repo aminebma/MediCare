@@ -67,8 +67,8 @@ namespace MediCare
             {
 
                 Consult consultation = new Consult();
-                //try
-                //{
+                try
+                {
                     radioList.Add(radioT.Text);
                     TraitementEnreg.Dose = doseT.Text;
                     TraitementEnreg.NomMed = medicamentT.Text;
@@ -76,15 +76,15 @@ namespace MediCare
                     traitementList.Add(TraitementEnreg);
                     consultation.AddConsult(nomPatientT.Text, prenomPatientT.Text, nomMedecinT.Text, prenomMedecinT.Text, diagnosticT.Text, descriptionT.Text, certificatT.Text, lettreT.Text, scannerT.Text, bilanT.Text, radioList, traitementList);
                     MessageBox.Show("Rendez-vous ajouté avec succés !");
-                //}
-                //catch (Exception)
-                //{
-                //    MessageBox.Show("Une erreur s'est produite !");
-                //}
+                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("Une erreur s'est produite !");
+                }
 
 
 
-            }
+        }
         }
 
        
