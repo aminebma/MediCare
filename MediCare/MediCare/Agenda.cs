@@ -35,9 +35,9 @@ namespace MediCare
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             IQueryable<Patient> patientRdv = (from personne in dataClass.Personne
-                                              where nomPatient == personne.nom && prenomPatient == personne.prenom
-                                              join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                              select patient);
+                                               where nomPatient == personne.nom && prenomPatient == personne.prenom
+                                               join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                               select patient);
 
             if (patientRdv.Count() != 0)
             {
@@ -72,7 +72,6 @@ namespace MediCare
                 PersonneClasse newPatient = new PersonneClasse();
                 newPatient.AddPatientPersonne(nomPatient, prenomPatient, "17/12/1998", "test", "6969", "rbrr", "444", "654", "o", "fzef", "dfb");
                 Patient addedPatient = (from personne in dataClass.Personne
-                                        where nomPatient==personne.nom && prenomPatient==personne.prenom
                                         join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
                                         select patient).First<Patient>();
 
@@ -109,19 +108,12 @@ namespace MediCare
             RendezVous rdvToDelete = (from personne in dataClass.Personne
                                       where nomPatient == personne.nom && prenomPatient == personne.prenom
                                       join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                      join rdv in dataClass.RendezVous on patient.Id equals rdv.IdPatient
+                                      join rdv in dataClass.RendezVous on personne.Id equals rdv.IdPatient
                                       orderby rdv.Id descending
                                       select rdv).First<RendezVous>();
-
-            MPRendezVous mPRendezVous = (from rdv in dataClass.MPRendezVous
-                                         where rdvToDelete.Id == rdv.IdRendezVous && rdvToDelete.IdPatient == rdv.IdPatient && rdvToDelete.IdMedecin == rdv.IdMedecin
-                                         orderby rdv.Id descending
-                                         select rdv).First<MPRendezVous>();
-
-            dataClass.MPRendezVous.DeleteOnSubmit(mPRendezVous);
-            dataClass.SubmitChanges();
             dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
-            dataClass.SubmitChanges();      
+            dataClass.SubmitChanges();
+
         }
 
         public void SuppRdv(DateTime date)
@@ -131,14 +123,6 @@ namespace MediCare
             RendezVous rdvToDelete = (from rdv in dataClass.RendezVous
                                       where date == rdv.Date
                                       select rdv).First<RendezVous>();
-
-            MPRendezVous mPRendezVous = (from rdv in dataClass.MPRendezVous
-                                         where rdvToDelete.Id == rdv.IdRendezVous && rdvToDelete.IdPatient == rdv.IdPatient && rdvToDelete.IdMedecin == rdv.IdMedecin
-                                         orderby rdv.Id descending
-                                         select rdv).First<MPRendezVous>();
-
-            dataClass.MPRendezVous.DeleteOnSubmit(mPRendezVous);
-            dataClass.SubmitChanges();
             dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
             dataClass.SubmitChanges();
         }
@@ -150,11 +134,11 @@ namespace MediCare
             RendezVous rdvToModify = (from personne in dataClass.Personne
                                       where nomPatient == personne.nom && prenomPatient == personne.prenom
                                       join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                      join rdv in dataClass.RendezVous on patient.Id equals rdv.IdPatient
+                                      join rdv in dataClass.RendezVous on personne.Id equals rdv.IdPatient
                                       orderby rdv.Id descending
                                       select rdv).First<RendezVous>();
-
             rdvToModify.Date = newDate;
+            dataClass.RendezVous.InsertOnSubmit(rdvToModify);
             dataClass.SubmitChanges();
         }
 
@@ -166,6 +150,7 @@ namespace MediCare
                                       where date == rdv.Date
                                       select rdv).First<RendezVous>();
             rdvToModify.Date = newDate;
+            dataClass.RendezVous.InsertOnSubmit(rdvToModify);
             dataClass.SubmitChanges();
         }
 

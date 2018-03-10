@@ -7,94 +7,6 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="Agenda" x:Class="MediCare.AgendaMediCare"
              mc:Ignorable="d" Height="720" Width="1080" Background="White" WindowStartupLocation="CenterScreen">
     <Grid x:Name="menuAgenda" OpacityMask="White">
-        <Image Margin="985,136,28,499" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="72.589"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="256,101,727,507" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="69.111"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="460,528,556,79" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-31.602"/>
-                    <TranslateTransform X="182.112" Y="-104.668"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-            <Image.OpacityMask>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FF3E3E40" Offset="1"/>
-                </LinearGradientBrush>
-            </Image.OpacityMask>
-        </Image>
-        <Image Margin="1012,575,20,62" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.356,0.478">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-12.993"/>
-                    <TranslateTransform X="-0.124" Y="0.55"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-            <Image.OpacityMask>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FF3E3E40" Offset="1"/>
-                </LinearGradientBrush>
-            </Image.OpacityMask>
-        </Image>
-        <Image Margin="266,562,734,49" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-2.596"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-            <Image.OpacityMask>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FF3E3E40" Offset="1"/>
-                </LinearGradientBrush>
-            </Image.OpacityMask>
-        </Image>
-        <Image Margin="749,95,270,533" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-419.408"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="522,273,512,374" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-488.234"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
         <StackPanel HorizontalAlignment="Right" Height="84" VerticalAlignment="Top" Width="1072" Background="#FF77B3B4">
             <Label  Width="202" FontSize="48" FontFamily="Century Gothic" Foreground="#FF634523" Height="69" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Agenda" Margin="435,0"/>
         </StackPanel>
@@ -204,20 +116,21 @@
             <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
         </Button>
         <StackPanel Orientation="Horizontal" Height="85" Margin="312,205,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="453">
-            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/hospital-medical-signal-of-a-cross-in-a-circle (2).png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/hospital-medical-signal-of-a-cross-in-a-circle (2).png" Stretch="Fill"></Image>
             <TextBlock Text="Ajouter un rendez-vous proffesionnel" Margin="10,29.013,390,25" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523" Height="30.987" Width="393"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Height="85" Margin="312,325,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="428">
-            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/men-silhouette.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/men-silhouette.png" Stretch="Fill"></Image>
             <TextBlock Margin="10,10,390,10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523"><Run Text="Ajouter un rendez-vous p"/><Run Text="ersonnel"/></TextBlock>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Height="85" Margin="312,440,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="428">
-            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,23.497,0,22.5" Source="ressources/icones/icones png/64 Pixels/phone-book.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,23.497,0,22.5" Source="ressources/icones/icones png/64 Pixels/phone-book.png" Stretch="Fill"></Image>
             <TextBlock Text="Consulter mon agenda" Margin="10,10,390,10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523"/>
         </StackPanel>
-        <Expander x:Name="NotificationsExpender" Header="Notifications" HorizontalAlignment="Right" Height="599" Margin="0,87,2,0" VerticalAlignment="Top" Width="240" Foreground="#FF785F0E" FontFamily="Century Gothic" FontSize="36" FontWeight="Bold" Background="{x:Null}">
-            <ListView x:Name="ListeNotif" Height="569.607" Foreground="#FF1B88D3" Background="#FF1B88D3">
-                <TextBox x:Name="TextNotif" Height="536" Text="Aucune notification..." Foreground="#FF1B88D3" IsReadOnlyCaretVisible="True" VerticalScrollBarVisibility="Auto" Focusable="False" IsReadOnly="True" ScrollViewer.CanContentScroll="True" IsEnabled="False" AllowDrop="False" Width="230" VerticalContentAlignment="Top"/>
+        <Calendar HorizontalAlignment="right" Height="354" Margin="0,207,8,0" VerticalAlignment="Top" Width="280" Foreground="Black" BorderBrush="Black" FontFamily="Century Gothic" FontSize="10" FirstDayOfWeek="Sunday" Background="{x:Null}"/>
+        <Expander x:Name="___Notif___Notifications_" Header="Notifications" HorizontalAlignment="Right" Height="599" Margin="0,87,2,0" VerticalAlignment="Top" Width="240" Foreground="#FF785F0E" FontFamily="Century Gothic" FontSize="36" FontWeight="Bold" Background="{x:Null}">
+            <ListView Height="569.607" Foreground="#FF1B88D3" Background="#FF1B88D3">
+                <TextBox Width="230" Height="25.607" Text="aucune notifications..." Foreground="#FF1B88D3" IsReadOnlyCaretVisible="True"/>
             </ListView>
         </Expander>
         <Button x:Name="AjtRDVProBtn" HorizontalAlignment="Left" Height="85" Margin="312,205,0,0" VerticalAlignment="Top" Width="453" Click="AjtRDVpro_Click">
@@ -253,5 +166,93 @@
                 <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
             </Button.Background>
         </Button>
+        <Image Margin="256,101,727,507" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="69.111"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="460,528,556,79" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-31.602"/>
+                    <TranslateTransform X="182.112" Y="-104.668"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF3E3E40" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Image Margin="1012,575,20,62" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.356,0.478">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-12.993"/>
+                    <TranslateTransform X="-0.124" Y="0.55"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF3E3E40" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Image Margin="266,562,734,49" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.596"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF3E3E40" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Image Margin="749,95,270,533" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-419.408"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="522,273,512,374" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-488.234"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="985,136,28,499" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="72.589"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Window>

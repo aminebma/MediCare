@@ -31,8 +31,8 @@ namespace MediCare
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            bool checkDate = false,
-                checkTime = false;
+            bool checkDate = false;
+            // checkTime = false;
             int realHour = 0;
             if (dateT.Text == "" || heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" || prenomPatientT.Text == "" || nomPatientT.Text == "")
             {
@@ -48,8 +48,8 @@ namespace MediCare
             {
                 realHour = (ampmBox.Text == "AM") ? Int32.Parse(heureBox.Text) : (Int32.Parse(heureBox.Text) + 12);
                 checkDate = DateCheck(realHour);
-                checkTime = TimeCheck(realHour);
-                if (checkDate && checkTime)
+                //checkTime = TimeCheck(realHour);
+                if (checkDate /*&& checkTime*/)
                 {
                     minutesL.Foreground = Brushes.Black;
                     try
@@ -59,22 +59,30 @@ namespace MediCare
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Database error");
+                    MessageBox.Show("Database error");
                     }
-                }
-                else if (!checkTime)
-                {
-                    MessageBox.Show("Horaire invalide");
-                    heuresL.Foreground = Brushes.Red;
-                    minutesL.Foreground = Brushes.Red;
-                }
+            }
                 else if (!checkDate)
                 {
-                    MessageBox.Show("Veuillez rentrer une date valide");
+                    MessageBox.Show("Veuillez rentrer une date/heure valide");
                     dateL.Foreground = Brushes.Red;
                     minutesL.Foreground = Brushes.Red;
                     heuresL.Foreground = Brushes.Red;
-                } 
+                }
+                //else
+                //{
+                //
+                //    if(Int16.Parse(minutesBox.Text)>59)
+                //    {
+                //        MessageBox.Show("Minutes invalide");
+                //        minutesL.Foreground = Brushes.Red;
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Heure invalide");
+                //        heuresL.Foreground = Brushes.Red;
+                //    }
+                //}
             }
         }
 
@@ -99,11 +107,10 @@ namespace MediCare
             return (dateRdv < DateTime.Now) ? false : true;
         }
 
-        private bool TimeCheck(int realHour)
-        {
-            DateTime dateRdv = DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00");
-            return ( (DateTime.Now>dateRdv && DateTime.Now.Hour > realHour) || (DateTime.Now>dateRdv && DateTime.Now.Hour == realHour && DateTime.Now.Minute > Int16.Parse(minutesBox.Text))) ? false : true;
-        }
+        //private bool TimeCheck(int realHour)
+        //{
+        //    return (DateTime.Now.Hour > realHour || (DateTime.Now.Hour == realHour && DateTime.Now.Minute > Int16.Parse(minutesBox.Text))) ? false : true;
+        //}
 
         private void dateT_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
