@@ -102,6 +102,24 @@ namespace MediCare
 
         }
 
+        public void AddRdv(DateTime date, byte idMedecin, string notes)
+        {
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+
+            RendezVous rdvPerso = new RendezVous
+            {
+                Date = date,
+                IdPatient = 0,
+                IdMedecin = idMedecin,
+                Important = false,
+                Fait = false,
+                Note = notes
+            };
+            dataClass.RendezVous.InsertOnSubmit(rdvPerso);
+            dataClass.SubmitChanges();
+        }
+
         public void SuppRdv(string nomPatient, string prenomPatient)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
@@ -180,5 +198,39 @@ namespace MediCare
         //    dataClass.RendezVous.InsertOnSubmit(rdvToModify);
         //    dataClass.SubmitChanges();
         //}
+
+        public List<Personne> RechercherPatientNom(string nom)
+        {
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+            IQueryable<Personne> patients = (from personne in dataClass.Personne
+                                             where personne.nom.Contains(nom)
+                                             join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                             select personne);
+            return patients.ToList<Personne>();
+        }
+
+        public List<Personne> RechercherPatientPrenom(string nom)
+        {
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+            IQueryable<Personne> patients = (from personne in dataClass.Personne
+                                             where personne.prenom.Contains(nom)
+                                             join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                             select personne);
+            return patients.ToList<Personne>();
+        }
+
+        public List<Personne> RechercherPatient(string nom, string prenom)
+        {
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+            IQueryable<Personne> patients = (from personne in dataClass.Personne
+                                             where personne.nom.Contains(nom) && personne.prenom.Contains(prenom)
+                                             join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                             select personne);
+            return patients.ToList<Personne>();
+        }
+
     }
 }

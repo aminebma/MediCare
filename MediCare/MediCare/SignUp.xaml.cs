@@ -28,10 +28,17 @@ namespace MediCare
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            //MessageBox.Show(password.Password);
             InscriptionMedecin t = new InscriptionMedecin();
             t.Show();
+            this.Close();
+        }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {   
+
+
+            this.Close();
         }
     }
 }

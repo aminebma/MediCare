@@ -271,12 +271,11 @@
     <Resource Include="ressources\Icones\Icones ico\logo_white.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ressources\icones\icones png\64 Pixels\notification.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="MCDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="ressources\icones\icones png\64 Pixels\013-technology-2.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\notification.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
