@@ -27,12 +27,19 @@ namespace MediCare
         
         Agenda rdv = new Agenda();
 
-        private void dateT_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private bool DateCheck(int realhour)
         {
-            e.Handled = true;
+            DateTime dateRdv = DateTime.Parse(dateT.Text + " " + realhour + ":" + minutesBox.Text + ":00");
+            return (dateRdv < DateTime.Now) ? false : true;
         }
 
-        private void addBtn_Click(object sender, RoutedEventArgs e)
+        private bool TimeCheck(int realHour)
+        {
+            DateTime dateRdv = DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00");
+            return ((DateTime.Now > dateRdv && DateTime.Now.Hour > realHour) || (DateTime.Now > dateRdv && DateTime.Now.Hour == realHour && DateTime.Now.Minute > Int16.Parse(minutesBox.Text))) ? false : true;
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             bool checkDate = false,
                checkTime = false;
@@ -79,16 +86,9 @@ namespace MediCare
             }
         }
 
-        private bool DateCheck(int realhour)
+        private void dateT_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            DateTime dateRdv = DateTime.Parse(dateT.Text + " " + realhour + ":" + minutesBox.Text + ":00");
-            return (dateRdv < DateTime.Now) ? false : true;
-        }
-
-        private bool TimeCheck(int realHour)
-        {
-            DateTime dateRdv = DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00");
-            return ((DateTime.Now > dateRdv && DateTime.Now.Hour > realHour) || (DateTime.Now > dateRdv && DateTime.Now.Hour == realHour && DateTime.Now.Minute > Int16.Parse(minutesBox.Text))) ? false : true;
+            e.Handled = true;
         }
     }
 }

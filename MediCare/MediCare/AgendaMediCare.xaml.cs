@@ -44,19 +44,20 @@ namespace MediCare
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<RendezVous> NotifRdv = (from RendezVous in dataClass.RendezVous
-                                               select RendezVous);
+            IQueryable<RendezVous> NotifRdv = (from rendezVous in dataClass.RendezVous
+                                               select rendezVous);
 
     
             if ( NotifRdv.Count() != 0)
             {
-                RendezVous test = NotifRdv.First<RendezVous>();
-                TextNotif.Text = " Rendez Vous \n Date :" + test.Date + " \n patient :" + test.IdPatient + "\n important :" + test.Important + "\n Note : " + test.Note;
-            }
-
-            if (TextNotif.Text != "Aucune notification...")
-            {
                 NotificationsExpender.Foreground = Brushes.Red;
+                //ImageNotif.Visibility = Visibility.Visible;
+                foreach ( RendezVous rdv in NotifRdv)
+                {
+                    TextBlock TextNotif = new TextBlock();
+                    TextNotif.Text = " Rendez Vous \n Date :" + rdv.Date + " \n patient :" + rdv.IdPatient + "\n important :" + rdv.Important + "\n Note : " + rdv.Note;
+                    ListeNotif.Items.Add(TextNotif);
+                }
             }
         }
     }

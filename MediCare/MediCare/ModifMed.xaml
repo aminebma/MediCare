@@ -7,18 +7,22 @@
         mc:Ignorable="d"
         Title="ModifMed" Height="600" Width="600">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="328*"/>
+            <RowDefinition Height="241*"/>
+        </Grid.RowDefinitions>
         <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="36" Margin="42,109,0,0" VerticalAlignment="Top" Width="173" BorderThickness="0,0,0,3" BorderBrush="#FF3599CC"/>
         <Label Content="Pass word " HorizontalAlignment="Left" Height="29" Margin="51,109,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
         <TextBox x:Name="username"  HorizontalAlignment="Left" Height="36" Margin="42,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
         <Label Content="User Name" HorizontalAlignment="Left" Height="34" Margin="44,34,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Button Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="451,483,0,0" Padding="0" BorderThickness="0" Background="#FFEA3999" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
-        <Label Content="Veuillez saisir vos nouveaux champs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,181,0,0" Foreground="#DD3599CC" FontWeight="Bold"/>
+        <Button Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="451,154.667,0,0" Padding="0" BorderThickness="0" Background="#FFEA3999" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6" Grid.Row="1"/>
+        <Label Content="Veuillez saisir vos nouveaux champs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,181,0,0" Foreground="#DD3599CC" FontWeight="Bold" FontSize="16"/>
         <PasswordBox x:Name="npassword" HorizontalAlignment="Left" Height="36" Margin="112,248,0,0" VerticalAlignment="Top" Width="173" BorderThickness="0,0,0,3" BorderBrush="#FF3599CC"/>
         <Label Content="Nouveau mot de passe" HorizontalAlignment="Left" Height="29" Margin="121,248,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <TextBox x:Name="nTel"  HorizontalAlignment="Left" Height="36" Margin="112,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Nouveau numéro de Tel" HorizontalAlignment="Left" Height="34" Margin="120,322,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <TextBox x:Name="nadresse" HorizontalAlignment="Left" Height="36" Margin="119,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Nouvelle adresse" HorizontalAlignment="Left" Height="34" Margin="127,392,0,0" VerticalAlignment="Top" Width="143" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <TextBox x:Name="nTel"  HorizontalAlignment="Left" Height="36" Margin="112,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold" Grid.RowSpan="2"/>
+        <Label Content="Nouveau numéro de Tel" HorizontalAlignment="Left" Height="34" Margin="120,322,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold" Grid.RowSpan="2"/>
+        <TextBox x:Name="nadresse" HorizontalAlignment="Left" Height="36" Margin="119,61.667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold" Grid.Row="1"/>
+        <Label Content="Nouvelle adresse" HorizontalAlignment="Left" Height="34" Margin="127,63.667,0,0" VerticalAlignment="Top" Width="143" Foreground="#FF3599CC" FontWeight="Bold" Grid.Row="1"/>
 
     </Grid>
 </Window>

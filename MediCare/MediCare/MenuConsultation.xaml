@@ -147,10 +147,9 @@
         <StackPanel Orientation="Horizontal" Height="86" Margin="306,338,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="557">
             <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/men-silhouette.png" Stretch="Fill"/>
             <TextBlock Margin="10,10,390,10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523" Text="Ajouter une consultation à un ancien patient"/>
-            <Button Content="Button" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="562" Background="{x:Null}"/>
         </StackPanel>
-        <Button x:Name="AjoutNouvPatient" Content="Button" HorizontalAlignment="Left" Height="70" Margin="301,216,0,0" VerticalAlignment="Top" Width="580" Background="{x:Null}" Click="AjoutNouvPatient_Click"/>
-        <Button x:Name="AjoutConsultPatient" Content="Button" HorizontalAlignment="Left" Height="70" Margin="300,348,0,0" VerticalAlignment="Top" Width="580" Background="{x:Null}" Click="AjoutConsultPatient_Click"/>
+        <Button x:Name="AjoutNouvPatient" Content="" HorizontalAlignment="Left" Height="70" Margin="301,216,0,0" VerticalAlignment="Top" Width="580" Background="{x:Null}" Click="AjoutNouvPatient_Click"/>
+        <Button x:Name="AjoutConsultPatient" Content="" HorizontalAlignment="Left" Height="70" Margin="300,348,0,0" VerticalAlignment="Top" Width="580" Background="{x:Null}" Click="AjoutConsultPatient_Click"/>
         <Image Margin="252,94,732,515" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -223,7 +222,17 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="70" Width="70">
+            <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10,0" Foreground="White" Width="50">
+                <StackPanel Width="150">
+                    <Button Content="Settings"/>
+                    <Button Content="Account"/>
+                    <Button Content="Help"/>
+                    <Separator/>
+                    <Button Content="Logout"/>
+                </StackPanel>
+            </materialDesign:PopupBox>
+        </StackPanel>
     </Grid>
 </Window>
 
