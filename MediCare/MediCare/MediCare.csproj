@@ -273,10 +273,5 @@
   <ItemGroup>
     <Resource Include="ressources\icones\icones png\64 Pixels\notification.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="MCDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

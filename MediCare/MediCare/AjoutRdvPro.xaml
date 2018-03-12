@@ -20,12 +20,12 @@
         </StackPanel>
         <Label x:Name="heuresL" Content="Heure*" HorizontalAlignment="Left" Height="34.458" Margin="218.759,206.78,0,0" VerticalAlignment="Top" Width="71.955" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.5,0.5"/>
         <Label x:Name="minutesL" Content="Minutes*" HorizontalAlignment="Left" Height="37" Margin="201,266,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.484,3.516"/>
-        <TextBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="37" Margin="118,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" PreviewTextInput="nomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" mah:TextBoxHelper.HasText="True" Foreground="#FF7C5223"/>
+        <TextBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="37" Margin="118,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" PreviewTextInput="nomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" mah:TextBoxHelper.HasText="True" Foreground="#FF7C5223" TextChanged="nomPatientT_TextChanged"/>
         <Label x:Name="nomPatientL" Content="Nom*" HorizontalAlignment="Left" Height="38" Margin="24,83,0,0" VerticalAlignment="Top" Width="70" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.58,1.606"/>
         <CheckBox x:Name="isImportant" Content="Important" HorizontalAlignment="Left" Height="53" Margin="291,372,0,0" VerticalAlignment="Top" Width="107" FontFamily="Century Gothic" Foreground="#FF7C5223" FontWeight="Bold" FontSize="16"/>
         <TextBox x:Name="notesT" HorizontalAlignment="Left" Height="194.128" Margin="418.566,131.267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194.982" BorderBrush="#FF673AB7" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
         <Label x:Name="notesL" Content="Notes" HorizontalAlignment="Left" Height="34.856" Margin="485.766,325.395,0,0" VerticalAlignment="Top" Width="66.5" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223"/>
-        <TextBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="31.993" Margin="117.725,126.187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229.183" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
+        <TextBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="31.993" Margin="117.725,126.187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229.183" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" TextChanged="prenomPatientT_TextChanged"/>
         <Label x:Name="prenomPatientL" Content="Prenom*" HorizontalAlignment="Left" Height="34" Margin="24,126,0,0" VerticalAlignment="Top" Width="89" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223"/>
         <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="290.714,206.78,0,0" Width="95.992" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35.073" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
@@ -110,5 +110,6 @@
             <ComboBoxItem Content="58" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="59" HorizontalAlignment="Left" Width="74"/>
         </ComboBox>
+        <TextBlock x:Name="patientsT" HorizontalAlignment="Left" Height="113" Margin="24,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
     </Grid>
 </Window>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace MediCare
 {
@@ -26,8 +27,10 @@ namespace MediCare
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        List<string> caract = new List<string> { ",", ".", ":", ";", "!", "*", "$", "/", "?", "+", "_", "=", "§", "<", ">", "{", "}", "[", "]", "(", ")", "'", "\"", "&", "²", "@", "|", "#", "£", "µ", "%", "€", "¤" };
+        //List<string> caract = new List<string> { ",", ".", ":", ";", "!", "*", "$", "/", "?", "+", "_", "=", "§", "<", ">", "{", "}", "[", "]", "(", ")", "'", "\"", "&", "²", "@", "|", "#", "£", "µ", "%", "€", "¤" };
         Agenda rdv = new Agenda();
+        List<Personne> patients;
+        Regex charControl = new Regex(@"[A-Za-z]+");
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -80,18 +83,20 @@ namespace MediCare
 
         private void nomPatientT_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (NumberCheck(e.Text) || caract.Contains(e.Text)) e.Handled = true;
+            //  if (NumberCheck(e.Text) || caract.Contains(e.Text)) e.Handled = true;
+            if (!charControl.IsMatch(e.Text)) e.Handled = true;
         }
 
         private void prenomPatientT_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (NumberCheck(e.Text) || caract.Contains(e.Text)) e.Handled = true;
+            //if (NumberCheck(e.Text) || caract.Contains(e.Text)) e.Handled = true;            
+            if (!charControl.IsMatch(e.Text)) e.Handled = true;
         }
-
-        private bool NumberCheck(string verifText)
-        {
-            return int.TryParse(verifText, out int result);
-        }
+        
+        //private bool NumberCheck(string verifText)
+        //{
+        //    return int.TryParse(verifText, out int result);
+        //}
 
         private bool DateCheck(int realhour)
         {
@@ -108,6 +113,36 @@ namespace MediCare
         private void dateT_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (nomPatientT.Text == "") patientsT.Text = "";
+            else
+            {
+                if(prenomPatientT.Text == "") patients = rdv.RechercherPatientNom(nomPatientT.Text);
+                else patients = rdv.RechercherPatient(nomPatientT.Text,prenomPatientT.Text);
+                patientsT.Text = "";
+                foreach (Personne p in patients)
+                {
+                    patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
+                }
+            }  
+        }
+
+        private void prenomPatientT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (prenomPatientT.Text == "") patientsT.Text = "";
+            else
+            {
+                if (nomPatientT.Text == "") patients = rdv.RechercherPatientPrenom(prenomPatientT.Text);
+                else patients = rdv.RechercherPatient(nomPatientT.Text, prenomPatientT.Text);
+                patientsT.Text = "";
+                foreach (Personne p in patients)
+                {
+                    patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
+                }
+            }
         }
     }
 }

@@ -34,7 +34,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="36,362,541,59" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="10,308,567,113" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5"/>
         <Image Margin="246,138,332,283" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.419,0.452">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -45,7 +45,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="294,413,283,8" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+        <Image Margin="316,411,261,10" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -55,7 +55,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="438,169,140,252" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.419,0.452">
+        <Image Margin="430,236,148,185" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.419,0.452">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -65,6 +65,94 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,246,0,0" Width="96" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
+            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="6" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="7" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="8" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="9" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="10" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="74"/>
+        </ComboBox>
+        <ComboBox x:Name="ampmBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,362,0,0" Width="96" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="14" Foreground="#FF7C5223" >
+            <ComboBoxItem Content="AM" HorizontalAlignment="Left" Width="75"/>
+            <ComboBoxItem Content="PM" HorizontalAlignment="Left" Width="75"/>
+        </ComboBox>
+        <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,310,0,0" Width="96" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
+            <ComboBoxItem Content="0" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="6" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="7" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="8" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="9" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="10" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="13" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="14" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="15" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="16" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="17" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="18" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="19" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="20" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="21" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="22" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="23" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="24" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="25" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="26" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="27" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="28" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="29" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="30" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="31" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="32" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="33" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="34" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="35" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="36" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="37" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="38" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="39" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="40" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="41" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="42" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="43" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="44" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="45" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="46" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="47" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="48" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="49" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="50" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="51" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="52" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="53" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="54" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="55" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="56" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="57" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="58" HorizontalAlignment="Left" Width="74"/>
+            <ComboBoxItem Content="59" HorizontalAlignment="Left" Width="74"/>
+        </ComboBox>
+        <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="56,257,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput"/>
+        <Label x:Name="heuresL" Content="Heure*" HorizontalAlignment="Left" Height="34" Margin="344,247,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="minutesL" Content="Minutes*" HorizontalAlignment="Left" Height="37" Margin="336,308,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.484,3.516"/>
+        <Label x:Name="ampmL" Content="AM/PM*" HorizontalAlignment="Left" Height="35" Margin="338,362,0,0" VerticalAlignment="Top" Width="83" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.472,0.545"/>
+        <Label x:Name="dateL" Content="Date*" HorizontalAlignment="Left" Height="34" Margin="110,223,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="notesT" HorizontalAlignment="Left" Height="80" Margin="76,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="505" BorderBrush="#FF673AB7" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
+        <Label x:Name="notesL" Content="Description du rendez vous" HorizontalAlignment="Left" Height="35" Margin="201,85,0,0" VerticalAlignment="Top" Width="249" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223"/>
+        <Button x:Name="addBtn" Content="Ajouter" HorizontalAlignment="Center" Height="53" Margin="69,344,417,78" Width="150" Click="addBtn_Click" FontFamily="Century Gothic" Background="#FF7C5223"/>
     </Grid>
 </Window>
  
