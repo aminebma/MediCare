@@ -40,5 +40,12 @@ namespace MediCare
 
             this.Close();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MenuPrincipal Menu = new MenuPrincipal();
+            Menu.Show();
+            this.Close();
+        }
     }
 }

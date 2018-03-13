@@ -17,12 +17,10 @@ namespace MediCare
             {
                 nom = nom,
                 prenom = prenom,
-                dateNaissance =date,
+                dateNaissance = date,
                 adresse = adresse,
                 telephone = int.Parse(num_tel),
-                sexe = sexe,
-
-            
+                sexe = sexe
             };
             dataclass.Personne.InsertOnSubmit(t);
             dataclass.SubmitChanges();
@@ -38,35 +36,59 @@ namespace MediCare
             dataclass.Medecin.InsertOnSubmit(tabmedecin);
             dataclass.SubmitChanges();
         }
-    }
-    /*   public void ModifRdv(string username, string password, string newusername, string newpassword,string newtel)
+
+        //il me faudra une fonction de vérification du nom d'utilisateur et du mot de passe
+
+        public bool VerifMed(string mot_pass, string nom)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            Medecin medToModify = (from personne in dataClass.Personne 
-                                      where username ==  && password == personne.prenom
-                                      join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                      join rdv in dataClass.RendezVous on personne.Id equals rdv.IdPatient
-                                      orderby rdv.Id descending
-                                      select rdv).First<RendezVous>();
-            rdvToModify.Date = newDate;
-            dataClass.RendezVous.InsertOnSubmit(rdvToModify);
-            dataClass.SubmitChanges();
+            MCDataClassDataContext dataclass = new MCDataClassDataContext(con);
+
+            IQueryable<Medecin> medverif = (from medecin in dataclass.Medecin
+                                            where medecin.username == nom && medecin.password == mot_pass
+                                            select medecin);
+            medverif.ToList();
+            if (medverif == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+
+
         }
 
-        public void ModifRdv(string nomPatient, string prenomPatient, DateTime newDate)
+
+
+        public void ModifMed(string nom, string mot_pass, string new_username, string new_password)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            RendezVous rdvToModify = (from personne in dataClass.Personne -
-                                      where nomPatient == personne.nom && prenomPatient == personne.prenom
-                                      join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                      join rdv in dataClass.RendezVous on personne.Id equals rdv.IdPatient
-                                      orderby rdv.Id descending
-                                      select rdv).First<RendezVous>();
-            rdvToModify.Date = newDate;
-            dataClass.RendezVous.InsertOnSubmit(rdvToModify);
-            dataClass.SubmitChanges();
+            IQueryable<Medecin> medToModify = (from medecin in dataClass.Medecin
+                                               where nom == medecin.username && mot_pass == medecin.password
+                                               select medecin);
+            List<Medecin> list = medToModify.ToList<Medecin>();
+            //medToModify.username = new_username;
+            foreach(Medecin med in list)
+            {
+                med.password = new_password;
+                dataClass.SubmitChanges();
+            }
         }
-    }*/
+
+
+    } 
+    
 }
+
+    
+
+
+
+   
+ 
+      
+

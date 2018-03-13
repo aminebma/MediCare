@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MCDatabase" Class="MCDataClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bin\Debug\MCDatabase.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="MediCare.Properties.Settings" SettingsPropertyName="MCDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MCDatabase.mdf;Integrated Security=True" SettingsObjectName="MediCare.Properties.Settings" SettingsPropertyName="MCDatabaseConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.RendezVous" Member="RendezVous">
     <Type Name="RendezVous">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -91,6 +91,17 @@
       <Association Name="Personne_Medecin" Member="Personne" ThisKey="IdPersonne" OtherKey="Id" Type="Personne" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Traitement" Member="Traitement">
+    <Type Name="Traitement">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Dose" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Indication" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="IdConsultation" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdMedicament" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Medicaments_Traitement" Member="Medicaments" ThisKey="IdMedicament" OtherKey="Id" Type="Medicaments" IsForeignKey="true" />
+      <Association Name="Consultation_Traitement" Member="Consultation" ThisKey="IdConsultation" OtherKey="Id" Type="Consultation" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Consultation" Member="Consultation">
     <Type Name="Consultation">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -102,20 +113,10 @@
       <Column Name="cheminScanner" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="cheminBilan" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="cheminOrdo" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="label" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Association Name="Consultation_Radio" Member="Radio" ThisKey="Id" OtherKey="IdConsultation" Type="Radio" />
       <Association Name="Consultation_MPConsultation" Member="MPConsultation" ThisKey="Id" OtherKey="IdConsultation" Type="MPConsultation" />
       <Association Name="Consultation_Traitement" Member="Traitement" ThisKey="Id" OtherKey="IdConsultation" Type="Traitement" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Traitement" Member="Traitement">
-    <Type Name="Traitement">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Dose" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Indication" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="IdConsultation" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdMedicament" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Consultation_Traitement" Member="Consultation" ThisKey="IdConsultation" OtherKey="Id" Type="Consultation" IsForeignKey="true" />
-      <Association Name="Medicaments_Traitement" Member="Medicaments" ThisKey="IdMedicament" OtherKey="Id" Type="Medicaments" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

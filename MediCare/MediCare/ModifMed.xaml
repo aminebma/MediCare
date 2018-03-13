@@ -5,24 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
         mc:Ignorable="d"
-        Title="ModifMed" Height="600" Width="600">
-    <Grid>
+        Title="ModifMed" Height="390" Width="470">
+    <Grid Margin="0,0,0,-4">
         <Grid.RowDefinitions>
-            <RowDefinition Height="328*"/>
-            <RowDefinition Height="241*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="36" Margin="42,109,0,0" VerticalAlignment="Top" Width="173" BorderThickness="0,0,0,3" BorderBrush="#FF3599CC"/>
-        <Label Content="Pass word " HorizontalAlignment="Left" Height="29" Margin="51,109,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <TextBox x:Name="username"  HorizontalAlignment="Left" Height="36" Margin="42,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="User Name" HorizontalAlignment="Left" Height="34" Margin="44,34,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Button Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="451,154.667,0,0" Padding="0" BorderThickness="0" Background="#FFEA3999" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6" Grid.Row="1"/>
-        <Label Content="Veuillez saisir vos nouveaux champs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,181,0,0" Foreground="#DD3599CC" FontWeight="Bold" FontSize="16"/>
-        <PasswordBox x:Name="npassword" HorizontalAlignment="Left" Height="36" Margin="112,248,0,0" VerticalAlignment="Top" Width="173" BorderThickness="0,0,0,3" BorderBrush="#FF3599CC"/>
-        <Label Content="Nouveau mot de passe" HorizontalAlignment="Left" Height="29" Margin="121,248,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <TextBox x:Name="nTel"  HorizontalAlignment="Left" Height="36" Margin="112,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold" Grid.RowSpan="2"/>
-        <Label Content="Nouveau numéro de Tel" HorizontalAlignment="Left" Height="34" Margin="120,322,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold" Grid.RowSpan="2"/>
-        <TextBox x:Name="nadresse" HorizontalAlignment="Left" Height="36" Margin="119,61.667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold" Grid.Row="1"/>
-        <Label Content="Nouvelle adresse" HorizontalAlignment="Left" Height="34" Margin="127,63.667,0,0" VerticalAlignment="Top" Width="143" Foreground="#FF3599CC" FontWeight="Bold" Grid.Row="1"/>
+        <Label Content="Password" HorizontalAlignment="Left" Height="29" Margin="38,123,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <TextBox x:Name="username2"  HorizontalAlignment="Left" Height="36" Margin="147,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Username" HorizontalAlignment="Left" Height="34" Margin="37,52,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="318,258,0,0" Padding="0" BorderThickness="0" Background="#FFEA3999" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
+        <TextBox x:Name="password2" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="173" Margin="147,109,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
+        <Image Margin="12,154,362,129" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="69.111"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="194,123,212,158" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-31.602"/>
+                    <TranslateTransform X="182.112" Y="-104.668"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF3E3E40" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Image Margin="147,339,255,-30" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-137.704"/>
+                    <TranslateTransform X="219.646" Y="-171.58"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label Content="Veuillez saisir les  champs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,7,0,0" Foreground="#DD3599CC" FontWeight="Bold" FontSize="16"/>
 
     </Grid>
 </Window>

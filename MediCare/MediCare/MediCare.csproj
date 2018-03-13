@@ -64,6 +64,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -85,6 +88,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AgendaMenu.xaml.cs">
+      <DependentUpon>AgendaMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AjoutRdvPerso.xaml.cs">
       <DependentUpon>AjoutRdvPerso.xaml</DependentUpon>
     </Compile>
@@ -94,16 +100,44 @@
     <Compile Include="AjoutConsultation.xaml.cs">
       <DependentUpon>AjoutConsultation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CheminAcces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheminAcces.Designer.cs">
+      <DependentUpon>CheminAcces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheminScanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheminScanner.Designer.cs">
+      <DependentUpon>CheminScanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultation_Patient.xaml.cs">
+      <DependentUpon>Consultation_Patient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MCDataClass.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MCDataClass.dbml</DependentUpon>
     </Compile>
-    <Compile Include="MenuConsultation.xaml.cs">
-      <DependentUpon>MenuConsultation.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Medic.cs" />
     <Compile Include="ModifMed.xaml.cs">
       <DependentUpon>ModifMed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModifMed_2.xaml.cs">
+      <DependentUpon>ModifMed_2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModSuppRdv.xaml.cs">
+      <DependentUpon>ModSuppRdv.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientMenu.xaml.cs">
+      <DependentUpon>PatientMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupPatient.xaml.cs">
+      <DependentUpon>PopupPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RechercheMenu.xaml.cs">
+      <DependentUpon>RechercheMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -117,9 +151,17 @@
     </Compile>
     <Compile Include="ClassePersonne.cs" />
     <Compile Include="Traite.cs" />
-    <Page Include="AgendaMediCare.xaml">
+    <Page Include="Consultation_Patient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AgendaMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AjoutRdvPerso.xaml">
       <SubType>Designer</SubType>
@@ -129,11 +171,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MenuConsultation.xaml">
+    <Page Include="ModifMed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifMed_2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ModifMed.xaml">
+    <Page Include="ModSuppRdv.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RechercheMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,22 +199,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="Agenda.cs" />
-    <Compile Include="AgendaMediCare.xaml.cs">
-      <DependentUpon>AgendaMediCare.xaml</DependentUpon>
+    <Compile Include="MenuPrincipal.xaml.cs">
+      <DependentUpon>MenuPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="AjoutRdvPro.xaml.cs">
       <DependentUpon>AjoutRdvPro.xaml</DependentUpon>
     </Compile>
     <Compile Include="Consult.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="AjoutConsultation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +237,12 @@
     <None Include="MCDataClass.dbml.layout">
       <DependentUpon>MCDataClass.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="CheminAcces.resx">
+      <DependentUpon>CheminAcces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheminScanner.resx">
+      <DependentUpon>CheminScanner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -274,6 +330,7 @@
     <Content Include="MCDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="ressources\images\medicare_blanc.PNG" />
     <Resource Include="ressources\icones\icones png\64 Pixels\013-technology-2.png" />
     <Resource Include="ressources\icones\icones png\64 Pixels\notification.png" />
   </ItemGroup>

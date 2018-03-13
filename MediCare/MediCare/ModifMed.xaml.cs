@@ -26,8 +26,17 @@ namespace MediCare
         Medecin2 med = new Medecin2();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           // med.ModifMed(username.Text, password.Text, npassword.TextInput, nTel.Text, nadresse.Text);
-         //   MessageBox.Show("Tout  a été modifié ! ");
+           bool verif= med.VerifMed(password2.Text, username2.Text);
+            if ( verif == false)
+            {
+                MessageBox.Show("Vos données sont erronées ! Veuillez les resaisir  ");
+            }
+            else
+            {
+                ModifMed_2 tt = new ModifMed_2(username2.Text,password2.Text);
+                tt.Show();
+                this.Close();
+            }
         }
     }
 }

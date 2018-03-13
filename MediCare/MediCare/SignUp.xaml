@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MediCare"
       mc:Ignorable="d"
-      Title="SignUp" Height="657.85" Width="418" WindowStartupLocation="CenterScreen">
+      Title="SignUp" Height="657.85" Width="418" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
     <Grid Margin="0,1,2,1" Background="White">
         <Grid.RowDefinitions>
@@ -28,6 +28,7 @@
         <TextBox x:Name="nom" HorizontalAlignment="Left" Height="36" Margin="92,169,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold" Text="User name"/>
         <Image Margin="30,28,4,347" Source="ressources/images/logo_final.PNG" Stretch="Fill" Grid.Row="1"/>
         <Button Content="Sign in" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="122,395,0,0" Padding="0" BorderThickness="0" Background="#FFEA3999" Foreground="White" Height="34" Click="Button_Click" Grid.Row="1"/>
+        <Button Grid.ColumnSpan="3" Content="Ignorer et passer aux tests &gt;&gt;" HorizontalAlignment="Left" Height="37" Margin="164,463,0,0" Grid.Row="1" VerticalAlignment="Top" Width="234" Click="Button_Click_2"/>
 
     </Grid>
 </Window>
