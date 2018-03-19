@@ -30,8 +30,15 @@ namespace MediCare
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sexe.Text,  clef.Text, username.Text, password.Text);
-          MessageBox.Show("Le medecin a été inséré ! ");
+            if (num_tel.Text.Length == 10)
+            {
+                med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Text);
+                MessageBox.Show("Le medecin a été inséré ! ");
+                MenuPrincipal t = new MenuPrincipal();
+                t.Show();
+                this.Close();
+            }
+            else MessageBox.Show("Votre numero est incorrect ");
         }
 
     }

@@ -22,11 +22,18 @@ namespace MediCare
         Traite TraitementEnreg = new Traite();
         List<string> radioList = new List<string>();
         List<Traite> traitementList = new List<Traite>();
+        Consultation_Patient CP = new Consultation_Patient();
 
         public AjoutConsultation()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            /*Medic medicament = new Medic();
+            foreach (string p in medicament.medoc)
+            {
+                medicamentCB.Items.Add(p);
+            }*/
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -74,7 +81,7 @@ namespace MediCare
                     TraitementEnreg.NomMed = medicamentT.Text;
                     TraitementEnreg.Indication = indicationT.Text;
                     traitementList.Add(TraitementEnreg);
-                    consultation.AddConsult(nomPatientT.Text, prenomPatientT.Text, nomMedecinT.Text, prenomMedecinT.Text, diagnosticT.Text, descriptionT.Text, certificatT.Text, lettreT.Text, scannerT.Text, bilanT.Text, ordoT.Text, radioList, traitementList);
+                    consultation.AddConsult(nomPatientT.Text, prenomPatientT.Text, nomMedecinT.Text, prenomMedecinT.Text, diagnosticT.Text, descriptionT.Text, certificatT.Text, lettreT.Text, scannerT.Text, bilanT.Text, ordoT.Text, radioList, traitementList,labelT.Text);
                     MessageBox.Show("Rendez-vous ajouté avec succés !");
                 }
                 catch (Exception)
@@ -88,9 +95,9 @@ namespace MediCare
         }
 
 
-            private void DELETE_Click(object sender, RoutedEventArgs e)
-            {
-                Consult consultation = new Consult();
+        private void DELETE_Click(object sender, RoutedEventArgs e)
+        {
+            Consult consultation = new Consult();
             try
             {
                 consultation.SuppConsultation(nomPatientT.Text, prenomPatientT.Text, DateTime.Parse(dateT.Text));
@@ -101,6 +108,10 @@ namespace MediCare
                 MessageBox.Show("Une erreur s'est produite !");
             }
         }
-       
+
+        //private void medicamentCB_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+
+        //}
     }
 }

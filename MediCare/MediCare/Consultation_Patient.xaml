@@ -1,0 +1,88 @@
+﻿<Window
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MediCare"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.Consultation_Patient"
+             mc:Ignorable="d" d:DesignWidth="300" Width="760" Height="661.704">
+    <Grid>
+
+        <Image Margin="-167.08,284.661,866.721,249.47" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.997" ScaleX="1.003"/>
+                    <SkewTransform AngleY="-0.532"/>
+                    <RotateTransform Angle="-31.337"/>
+                    <TranslateTransform X="182.112" Y="-104.668"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="186.353,33.123,479.487,503.078" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.991" ScaleX="1.009"/>
+                    <SkewTransform AngleY="0.397"/>
+                    <RotateTransform Angle="68.912"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="434.166,400.579,265.475,133.552" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.997" ScaleX="1.003"/>
+                    <SkewTransform AngleY="-0.532"/>
+                    <RotateTransform Angle="-31.337"/>
+                    <TranslateTransform X="182.112" Y="-104.668"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="30.281,489.11,652.972,49.162" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.054"/>
+                    <RotateTransform Angle="-2.569"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="683.124,6.214,19.59,549.652" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.992" ScaleX="1.008"/>
+                    <SkewTransform AngleY="-0.522"/>
+                    <RotateTransform Angle="-59.146"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="430.5,220.5,288.5,356.5" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-488.234"/>
+                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51.213" Height="Auto" Margin="705.787,567.251,0,0" Foreground="#FF183A83" HorizontalAlignment="Left">
+            <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40"/>
+        </Button>
+        <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="655,567,46,0" Foreground="#FF183A83">
+            <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40"/>
+        </Button>
+        <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="607,569.5,0,0.5" Foreground="#FF183A83" HorizontalAlignment="Left">
+            <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
+        </Button>
+        <TextBox x:Name="Nompatient" HorizontalAlignment="Left" Height="52" Margin="357,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="18" TextChanged="Nompatient_TextChanged" PreviewTextInput ="Nompatient_PreviewTextInput"/>
+        <TextBox x:Name="Prenompatient" HorizontalAlignment="Left" Height="51" Margin="357,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="18" TextChanged="Prenompatient_TextChanged" PreviewTextInput ="Prenompatient_PreviewTextInput"/>
+        <Label x:Name="nomL" Content="Nom du Patient :" HorizontalAlignment="Left" Height="37" Margin="171,47,0,0" VerticalAlignment="Top" Width="181" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
+        <Label x:Name="prenomL" Content="Prénom du Patient :" HorizontalAlignment="Left" Height="37" Margin="155,183,0,0" VerticalAlignment="Top" Width="197" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
+        <Button Content="OK" HorizontalAlignment="Left" Height="52" Margin="357,501,0,0" VerticalAlignment="Top" Width="127" Background="Gray" Click="Button_Click"/>
+        <TextBlock x:Name="patientsT" HorizontalAlignment="Left" Height="210" Margin="171,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="473" Background="#3377B3B4"/>
+
+    </Grid>
+</Window>

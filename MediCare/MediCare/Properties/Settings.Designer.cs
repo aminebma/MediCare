@@ -44,16 +44,5 @@ namespace MediCare.Properties {
                 return ((string)(this["MCDatabaseConnectionString1"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\MCDatabase.md" +
-            "f;Integrated Security=True;Connect Timeout=30")]
-        public string MCDatabaseConnectionString2 {
-            get {
-                return ((string)(this["MCDatabaseConnectionString2"]));
-            }
-        }
     }
 }
