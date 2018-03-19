@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Reflection;
+using System.Threading;
 
 namespace MediCare
 {
@@ -21,27 +22,27 @@ namespace MediCare
     /// </summary>
     public partial class MenuPrincipal : Window
     {
+        
         public MenuPrincipal()
         {
+            Notifications ClassNotif = new Notifications();
+            //Timer clock = new Timer(, null, 0, 1000);
             InitializeComponent();
-            GenererNotification();
+            ClassNotif.GenererNotification(ListeNotif/*, NbNotifText, NbNotif*/);
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-    
-
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
-            ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            ButtonCloseMenu.Visibility = Visibility.Visible;
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
-            ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
+            ButtonCloseMenu.Visibility = Visibility.Collapsed;
         }
-
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -57,7 +58,7 @@ namespace MediCare
                     SelectionGrid.Children.Add(usc);
                     break;
                 case "ItemConsultation":
-                    usc = new Consultation_Patient();
+                    usc = new MenuConsultation();
                     SelectionGrid.Children.Add(usc);
                     break;
                 case "ItemPatient":
@@ -73,24 +74,21 @@ namespace MediCare
             }
         }
 
-            private void GenererNotification()
-            {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<RendezVous> NotifRdv = (from rendezVous in dataClass.RendezVous
-                                               select rendezVous);
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            LogOutPop logout = new LogOutPop();
+            logout.Show();
+        }
 
-    
-            if ( NotifRdv.Count() != 0)
-            {
-                NotificationsExpender.Foreground = Brushes.Red;
-                foreach ( RendezVous rdv in NotifRdv)
-                {
-                    TextBlock TextNotif = new TextBlock();
-                    TextNotif.Text = " Rendez Vous \n Date :" + rdv.Date + " \n patient :" + rdv.IdPatient + "\n important :" + rdv.Important + "\n Note : " + rdv.Note;
-                    ListeNotif.Items.Add(TextNotif);
-                }
-            }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ModifMed tt = new ModifMed();
+            tt.Show();
+        }
+
+        private void ListeNotif_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

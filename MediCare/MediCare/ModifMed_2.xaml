@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="ModifMed_2" Height="400" Width="650">
     <Grid Margin="0,-4,2,4">
-        <Button Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="479,307,0,0" Padding="0" BorderThickness="0" Background="#FFEA3999" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
-        <Label Content="Veuillez saisir les nouveaux champs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,37,0,0" Foreground="#DD3599CC" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Confirmer le mot de passe" HorizontalAlignment="Left" Height="29" Margin="46,213,0,0" VerticalAlignment="Top" Width="157" Foreground="#FFCC35CC" FontWeight="Bold"/>
-        <TextBox x:Name="nTel"  HorizontalAlignment="Left" Height="36" Margin="219,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <TextBox x:Name="nadresse" HorizontalAlignment="Left" Height="36" Margin="218,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Nouveau mot de passse" HorizontalAlignment="Left" Height="29" Margin="46,136,0,0" VerticalAlignment="Top" Width="157" Foreground="#FFCC35CC" FontWeight="Bold"/>
+        <Button Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="479,307,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
+        <Label Content="Veuillez saisir les nouveaux champs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,37,0,0" Foreground="#FF4E7576" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Confirmer le mot de passe" HorizontalAlignment="Left" Height="29" Margin="46,243,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF4E7576" FontWeight="Bold"/>
+        <TextBox x:Name="npass"  HorizontalAlignment="Left" Height="36" Margin="219,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <TextBox x:Name="pass" HorizontalAlignment="Left" Height="36" Margin="218,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Nouveau mot de passse" HorizontalAlignment="Left" Height="29" Margin="46,196,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF4E7576" FontWeight="Bold"/>
         <Image Margin="12,4,540,285" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -49,6 +49,8 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <TextBox x:Name="user"  HorizontalAlignment="Left" Height="36" Margin="219,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Le nom de l'utilisateur" HorizontalAlignment="Left" Height="29" Margin="46,136,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF4E7576" FontWeight="Bold"/>
 
     </Grid>
 </Window>

@@ -13,22 +13,41 @@
             <RowDefinition Height="311*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
+        <Image Margin="0,207,332,195" Grid.Row="1" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-22.383"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
         <TextBox HorizontalAlignment="Left" Height="29.032" Margin="116.742,154.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200.836" FontSize="72" Background="White" BorderBrush="#FFF9FAFF" Grid.Row="1" Visibility="Hidden" Opacity="0.985" Cursor="UpArrow"/>
-        <Button Content="Log in " HorizontalAlignment="Left" Height="32" Margin="100,333,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182" Background="#FF3599CC" FontSize="16" Foreground="White" BorderThickness="0" BorderBrush="{x:Null}" Click="Button_Click_1"/>
-        <Image Margin="10,414,252,3" Grid.Row="1" Source="ressources/images/bulles.PNG" Stretch="Fill"/>
-        <Image Margin="0,251,2,151" Grid.Row="1" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="83" Grid.ColumnSpan="3" Opacity="0.8"/>
-        <Image Margin="323,78,1,340" Grid.Row="1" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Grid.ColumnSpan="3"/>
+        <Button Content="Log in " HorizontalAlignment="Left" Height="32" Margin="120,333,0,0" Grid.Row="1" VerticalAlignment="Top" Width="190" Background="#FF77B3B4" FontSize="16" Foreground="White" BorderThickness="0" BorderBrush="{x:Null}" Click="Button_Click_1"/>
+        <Image Margin="10,450,326,10" Grid.Row="1" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="323,78,1,340" Grid.Row="1" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Grid.ColumnSpan="3" Opacity="0.5"/>
         <Image Margin="1,0,0,397" Source="ressources/images/mde.PNG" Stretch="Fill" Grid.RowSpan="2" Opacity="0.8" Grid.ColumnSpan="3"/>
-        <Label Content=" Forget password ?" HorizontalAlignment="Left" Height="34" Margin="92,285,0,0" Grid.Row="1" VerticalAlignment="Top" Width="157" Foreground="#FFC51D8F" FontWeight="Bold"/>
-        <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="36" Margin="92,244,0,0" Grid.Row="1" VerticalAlignment="Top" Width="173" BorderThickness="0,0,0,3" BorderBrush="#FF3599CC" AutomationProperties.Name="password" Password="password "/>
-        <TextBox x:Name="nom" HorizontalAlignment="Left" Height="36" Margin="92,169,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold" Text="User name"/>
-        <Image Margin="30,28,4,347" Source="ressources/images/logo_final.PNG" Stretch="Fill" Grid.Row="1"/>
-        <Button Content="Sign in" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="122,395,0,0" Padding="0" BorderThickness="0" Background="#FFEA3999" Foreground="White" Height="34" Click="Button_Click" Grid.Row="1"/>
-        <Button Grid.ColumnSpan="3" Content="Ignorer et passer aux tests &gt;&gt;" HorizontalAlignment="Left" Height="37" Margin="164,463,0,0" Grid.Row="1" VerticalAlignment="Top" Width="234" Click="Button_Click_2"/>
+        <Label Content=" Forget password ?" HorizontalAlignment="Left" Height="34" Margin="120,285,0,0" Grid.Row="1" VerticalAlignment="Top" Width="190" Foreground="#FFC51D8F" FontWeight="Bold"/>
+        <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="36" Margin="120,244,0,0" Grid.Row="1" VerticalAlignment="Top" Width="192" BorderThickness="0,0,0,3" BorderBrush="#FF3599CC" AutomationProperties.Name="password" Password="password "/>
+        <TextBox x:Name="nom" HorizontalAlignment="Left" Height="36" Margin="120,189,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold" Text="User name"/>
+        <Image Margin="52,28,52,347" Source="ressources/images/logo_final.PNG" Stretch="Fill" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <Button Content="Sign Up" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="148,395,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="Button_Click" Grid.Row="1"/>
+        <Button Content="Ignorer et passer aux tests &gt;&gt;" HorizontalAlignment="Left" Height="37" Margin="100,482,0,0" Grid.Row="1" VerticalAlignment="Top" Width="234" Click="Button_Click_2"/>
+        <Image Margin="0,305,-4,98" Grid.Row="1" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-22.383"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
     </Grid>
 </Window>

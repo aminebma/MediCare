@@ -63,8 +63,8 @@ namespace MediCare
                 MessageBox.Show("Veuillez remplir toutes les informations!");
                 if (nomMedecinT.Text == "") NomMedecin.Foreground = Brushes.Red; else NomMedecin.Foreground = Brushes.Black;
                 if (nomPatientT.Text == "") NomPatient.Foreground = Brushes.Red; else NomPatient.Foreground = Brushes.Black;
-                //if (prenomMedecinT.Text == "") PrenomMedecin.Foreground = Brushes.Red; else PrenomMedecin.Foreground = Brushes.Black;
-                //if (prenomPatientT.Text == "") PrenomPatient.Foreground = Brushes.Red; else PrenomPatient.Foreground = Brushes.Black;
+                if (prenomMedecinT.Text == "") PrenomMedecin.Foreground = Brushes.Red; else PrenomMedecin.Foreground = Brushes.Black;
+                if (prenomPatientT.Text == "") PrenomPatient.Foreground = Brushes.Red; else PrenomPatient.Foreground = Brushes.Black;
                 if (diagnosticT.Text == "") Diagnostic.Foreground = Brushes.Red; else Diagnostic.Foreground = Brushes.Black;
                 if (descriptionT.Text == "") Description.Foreground = Brushes.Red; else Description.Foreground = Brushes.Black;
                 if (medicamentT.Text == "") Medicament.Foreground = Brushes.Red; else Medicament.Foreground = Brushes.Black;
@@ -81,7 +81,7 @@ namespace MediCare
                     TraitementEnreg.NomMed = medicamentT.Text;
                     TraitementEnreg.Indication = indicationT.Text;
                     traitementList.Add(TraitementEnreg);
-                    consultation.AddConsult(CP.NomPatient, CP.PrenomPatient, nomMedecinT.Text, prenomMedecinT.Text, diagnosticT.Text, descriptionT.Text, certificatT.Text, lettreT.Text, scannerT.Text, bilanT.Text, ordoT.Text, radioList, traitementList);
+                    consultation.AddConsult(nomPatientT.Text, prenomPatientT.Text, nomMedecinT.Text, prenomMedecinT.Text, diagnosticT.Text, descriptionT.Text, certificatT.Text, lettreT.Text, scannerT.Text, bilanT.Text, ordoT.Text, radioList, traitementList,labelT.Text);
                     MessageBox.Show("Rendez-vous ajouté avec succés !");
                 }
                 catch (Exception)

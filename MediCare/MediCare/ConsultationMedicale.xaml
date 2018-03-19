@@ -1,0 +1,31 @@
+﻿<Window x:Class="MediCare.ConsultationMedicale"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediCare"
+        mc:Ignorable="d"
+        Title="Test" Height="720" Width="1080">
+    <Grid Margin="2,0,0,2">
+        <StackPanel HorizontalAlignment="Left" Height="102" Margin="-2,-3,0,0" VerticalAlignment="Top" Width="1072" Background="#FF6A97AC">
+            <Label  Width="334" FontSize="48" FontFamily="Century Gothic" Foreground="White" Height="84" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Consultation :" Margin="0"/>
+        </StackPanel>
+        <Label x:Name="Diagnostic" HorizontalAlignment="Left" Height="58" Margin="23,123,0,0" VerticalAlignment="Top" Width="219" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Content="Diagnostic :"/>
+        <Label x:Name="Description" Content="Description :" HorizontalAlignment="Left" Height="42" Margin="20,322,0,0" VerticalAlignment="Top" Width="226" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
+        <Image Margin="217,200,772,392" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.282,0.241"/>
+        <TextBlock HorizontalAlignment="Left" Height="134" Margin="162,320,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="356"/>
+        <TextBlock HorizontalAlignment="Left" Height="165" Margin="163,123,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="355"/>
+        <Button Content="Ajouter un fichier" HorizontalAlignment="Left" Height="62" Margin="125,575,0,0" VerticalAlignment="Top" Width="385" Background="#FF77B3B4"/>
+        <Button Content="Valider" HorizontalAlignment="Left" Height="65" Margin="792,577,0,0" VerticalAlignment="Top" Width="168" Background="#FF77B3B4"/>
+        <Label x:Name="Diagnostic_Copy" HorizontalAlignment="Left" Height="39" Margin="563,117,0,0" VerticalAlignment="Top" Width="231" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
+        <ListView x:Name="ListeTraitement" HorizontalAlignment="Left" Height="424" Margin="655,113,0,0" VerticalAlignment="Top" Width="341" Background="White" Foreground="#DDFFFFFF">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="AjoutTraitement" Content="Button" HorizontalAlignment="Left" Height="27" Margin="1015,175,0,0" VerticalAlignment="Top" Width="37" Click="AjoutTraitement_Click"/>
+
+    </Grid>
+</Window>

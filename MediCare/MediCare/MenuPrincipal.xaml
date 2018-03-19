@@ -4,19 +4,70 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MediCare"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="Agenda" x:Class="MediCare.MenuPrincipal"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="fenetre_principal" x:Class="MediCare.MenuPrincipal"
              mc:Ignorable="d" Height="720" Width="1080" Background="White" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="240"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMain">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="GridMain">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="50"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="StackPanelMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemHome">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemConsultation">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemAgenda">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemRecherche">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemSuivi">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="240"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="70"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMain">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="GridMain">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="StackPanelMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -25,112 +76,176 @@
             <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
+            <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid x:Name="MainGrid">
-        <Grid x:Name="SelectionGrid" HorizontalAlignment="Left" Height="620" Margin="75,70,0,0" VerticalAlignment="Top" Width="760"/>
-        <Grid Height="86" VerticalAlignment="Top" Background="#FF77B3B4">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
-            </Grid.Effect>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock VerticalAlignment="Center" FontSize="24" FontFamily="Century Gothic" Foreground="White"><Run Text="Option"/><Run Text="s"/></TextBlock>
-                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="White">
-                    <StackPanel Width="150">
-                        <Button Content="Settings"/>
-                        <Button Content="Account"/>
-                        <Button Content="Help"/>
-                        <Separator/>
-                        <Button Content="Logout"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>
-            </StackPanel>
-        </Grid>
-        <Image Margin="985,136,28,499" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
+    <Grid Background="#FF77B3B4" Margin="0,0,2,1">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+        </Grid.Effect>
+        <StackPanel x:Name="StackPanelMenu" Width="250" HorizontalAlignment="Left" Margin="-250 0 0 0" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="72.589"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="1012,575,20,62" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.356,0.478">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-12.993"/>
-                    <TranslateTransform X="-0.124" Y="0.55"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-            <Image.OpacityMask>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FF3E3E40" Offset="1"/>
-                </LinearGradientBrush>
-            </Image.OpacityMask>
-        </Image>
-        <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FF77B3B4">
-            <StackPanel>
-                <Grid Width="268" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Background="#FF183A83" Height="86">
-                    <Grid.Effect>
-                        <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
-                    </Grid.Effect>
-                    <Grid.RenderTransform>
+            </StackPanel.RenderTransform>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="100" HorizontalAlignment="Center">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="10" Foreground="#DDFFFFFF" Click="Button_Click">
+                    <materialDesign:PackIcon Kind="Settings" Width="40" Height="40"/>
+                </Button>
+                <Button x:Name="button" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" BorderBrush="{x:Null}" Padding="0" Width="80" Height="80" Margin="10" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}">
+                    <Button.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
                             <SkewTransform/>
                             <RotateTransform/>
                             <TranslateTransform/>
                         </TransformGroup>
-                    </Grid.RenderTransform>
-                    <Button x:Name="ButtonOpenMenu" Height="60" Width="78" Margin="0,2.5,181.5,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonOpenMenu_Click">
-                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
-                    </Button>
-                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="78" Margin="0,2.5,181.5,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonCloseMenu_Click">
-                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
-                    </Button>
-                </Grid>
-                <ListView Height="649" Foreground="#DD000000" SelectionChanged="ListViewMenu_SelectionChanged">
-                    <ListViewItem x:Name="ItemHome" Height="100" Width="250">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Home" Height="42" Width="40" Margin="10" Foreground="#DDFFFFFF"/>
-                            <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10" FontFamily="Century Gothic" FontSize="22" Foreground="#DDFFFFFF"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="ItemConsultation" Height="100" Width="250">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Height="42" Width="40" Margin="10" Source="ressources/icones/icones png/64 Pixels/dentist.png"/>
-                            <TextBlock Text="Consultation" VerticalAlignment="Center" Margin="20 10" FontFamily="Century Gothic" FontSize="22" Foreground="#DDFFFFFF"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="ItemAgenda" Height="100" Width="250">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Height="42" Width="40" Margin="10" Source="ressources/icones/icones png/64 Pixels/note-on-a-clipboard.png"/>
-                            <TextBlock Text="Agenda" VerticalAlignment="Center"  Margin="20 10" FontFamily="Century Gothic" FontSize="22" Foreground="#DDFFFFFF"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="ItemPatient" Height="100" Width="250">
-                        <StackPanel Orientation="Horizontal">
-                            <Image  Height="42" Width="40" Margin="10" Source="ressources/icones/icones png/64 Pixels/band-aid-forming-a-cross-mark.png"/>
-                            <TextBlock Text="Patient" VerticalAlignment="Center"  Margin="20 10" FontFamily="Century Gothic" FontSize="22" Foreground="#DDFFFFFF"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="ItemRecherche" Height="100" Width="250">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Loupe" Height="42" Width="40" Margin="10" Foreground="#DDFFFFFF"/>
-                            <TextBlock Text="Recherche" VerticalAlignment="Center"  Margin="20 10" FontFamily="Century Gothic" FontSize="22" Foreground="#DDFFFFFF"/>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush ImageSource="ressources/images/logo_white.PNG"/>
+                    </Button.Background>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="10" Foreground="#DDFFFFFF">
+                    <materialDesign:PackIcon Kind="Power" Width="40" Height="40"/>
+                </Button>
+            </StackPanel>
+            <Separator HorizontalAlignment="Left" Height="21" Margin="0,0,-4,0" VerticalAlignment="Top" Width="254" Background="White" Foreground="White"/>
+            <ListView x:Name="ListeViewMenu" SelectionChanged="ListViewMenu_SelectionChanged">
+                <ListViewItem x:Name="ItemHome" Height="74" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Home" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="#DDFFFFFF"/>
+                        <TextBlock Text="Home" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="ItemConsultation" Height="73" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Image  Width="30" Height="35" VerticalAlignment="Top" Margin="5" Source="ressources/icones/icones png/64 Pixels/dentist.png" Stretch="Fill" />
+                        <TextBlock Text="Consultation" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="ItemSuivi" Height="74" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Image  Width="30" Height="35" VerticalAlignment="Top" Margin="5" Source="ressources/icones/icones png/64 Pixels/pulse-line.png" Stretch="Fill" />
+                        <TextBlock Text="Suivi" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="ItemAgenda" Height="73" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Image  Width="30" Height="35" VerticalAlignment="Top" Margin="5" Source="ressources/icones/icones png/64 Pixels/positive-verified-symbol-of-a-clipboard.png" Stretch="Fill" />
+                        <TextBlock Text="Agenda" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="ItemRecherche" Height="74" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Loupe" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="#DDFFFFFF"/>
+                        <TextBlock Text="Recherche" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </StackPanel>
+        <Grid x:Name="GridMain" Background="#FFFBFBFB" RenderTransformOrigin="0.5,0.5" Margin="0,0,30,0">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+            </Grid.Effect>
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="1076" Background="#FF77B3B4" Grid.ColumnSpan="2" Margin="0,0,-28,0">
+                <Button x:Name="ButtonCloseMenu" Width="40" Height="40" Padding="0" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonCloseMenu_Click" Visibility="Collapsed" Foreground="{x:Null}" Margin="0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="ressources/images/bulles_3.PNG"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="ButtonOpenMenu" Width="40" Height="40" Padding="0" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonOpenMenu_Click" Foreground="{x:Null}" Margin="0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="ressources/images/bulles_3.PNG"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+            <Grid x:Name="SelectionGrid"  Margin="0,42,196,0" Grid.ColumnSpan="2"/>
+            <Grid Grid.Column="1" Background="#FF77B3B4" Margin="54,0,-36,0">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+                </Grid.Effect>
+                <ListView x:Name="ListeNotif" Foreground="#FF183A83" Background="#FF1B88D3" Margin="0,160,0,71"/>
+                <Image Height="110" VerticalAlignment="Top" Source="ressources/images/medicare_blue.PNG" Stretch="Fill"/>
+                <Separator HorizontalAlignment="Left" Height="13" Margin="0,617,0,0" VerticalAlignment="Top" Width="232" Background="White" Foreground="White"/>
+                <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51" Height="Auto" Margin="143,630,0,6" Foreground="White" HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40"/>
+                </Button>
+                <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51" Height="Auto" Margin="92,630,0,6" Foreground="White" HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40"/>
+                </Button>
+                <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="44,630,0,8" Foreground="White" HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
+                </Button>
+                <Separator HorizontalAlignment="Left" Height="21" Margin="0,110,0,0" VerticalAlignment="Top" Width="232" Background="White" Foreground="White"/>
+                <Button Content="Espace Notification" HorizontalAlignment="Left" Height="29" Margin="0,131,0,0" VerticalAlignment="Top" Width="232" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Century Gothic"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,196,646" Width="144" Grid.ColumnSpan="2">
+                <TextBlock VerticalAlignment="Center" FontSize="24" FontFamily="Century Gothic" Foreground="White" Margin="0,6" Width="91"><Run Text="Option"/><Run Text="s"/></TextBlock>
+                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10,0" Foreground="White" Width="43">
+                    <StackPanel Width="150">
+                        <Button Content="Paramètre"/>
+                        <Button Content="Aide"/>
+                        <Separator/>
+                        <Button x:Name="Logout" Content="Se déconnecter" Click="Logout_Click"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
             </StackPanel>
         </Grid>
-        <Expander x:Name="NotificationsExpender" Header="Notifications" HorizontalAlignment="Right" Height="600" VerticalAlignment="Top" Width="237" Foreground="#FF183A83" FontFamily="Century Gothic" FontSize="36" FontWeight="Bold" BorderBrush="#FF183A83" Margin="0,86,0,0" Background="#3377B3B4">
-            <ListView x:Name="ListeNotif" Height="569.607" Foreground="#FF183A83" Background="#FF1B88D3"/>
-        </Expander>
-        <Image HorizontalAlignment="Left" Height="86" Margin="438.5,0,0,0" VerticalAlignment="Top" Width="265.5" Source="ressources/images/medicare_blanc.PNG" Stretch="Fill"/>
     </Grid>
 </Window>

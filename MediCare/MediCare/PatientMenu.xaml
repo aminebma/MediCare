@@ -69,15 +69,6 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51.213" Height="Auto" Margin="705.787,567.251,0,0" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40"/>
-        </Button>
-        <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51.214" Height="Auto" Margin="654.573,567.251,0,0" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40"/>
-        </Button>
-        <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="607,569.5,0,0.5" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
-        </Button>
         <StackPanel Orientation="Horizontal" Height="85" Margin="238.358,153.221,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="304.229">
             <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/hospital-medical-signal-of-a-cross-in-a-circle (2).png" Stretch="Fill"/>
             <TextBlock Text="Operation Patient" Margin="10,29.013,390,25" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#FF634523" Height="30.987" Width="393"/>

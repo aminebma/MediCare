@@ -52,7 +52,7 @@
             this.ClientSize = new System.Drawing.Size(381, 214);
             this.Controls.Add(this.button1);
             this.Name = "CheminAcces";
-            this.Text = "CheminAcces";
+            this.Text = "w";
             this.ResumeLayout(false);
 
         }

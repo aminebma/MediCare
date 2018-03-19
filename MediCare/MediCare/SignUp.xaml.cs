@@ -28,17 +28,24 @@ namespace MediCare
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MenuPrincipal main = new MenuPrincipal();
+            Medecin2 MED = new Medecin2();
             //MessageBox.Show(password.Password);
             InscriptionMedecin t = new InscriptionMedecin();
-            t.Show();
             this.Close();
+            t.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        {   
-
-
-            this.Close();
+        {
+            Medecin2 med = new Medecin2();
+            if(med.VerifMed(nom.Text,password.Password))
+            {
+                MenuPrincipal main = new MenuPrincipal();
+                main.Show();
+                this.Close();
+            }
+            else MessageBox.Show("Les informations saisies sont incorrectes");
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

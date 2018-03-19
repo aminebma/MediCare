@@ -38,7 +38,7 @@ namespace MediCare
                 t.Show();
                 this.Close();
             }
-            else MessageBox.Show("Izzan");
+            else MessageBox.Show("Votre numero est incorrect ");
         }
 
     }

@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MediCare
@@ -19,28 +18,23 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour MenuConsultation.xaml
     /// </summary>
-    public partial class MenuConsultation : Window
+    public partial class MenuConsultation : UserControl
     {
         public MenuConsultation()
         {
             InitializeComponent();
         }
 
-        private void AjoutNouvPatient_Click(object sender, RoutedEventArgs e)
+        private void ConsultBTN1_Click(object sender, RoutedEventArgs e)
         {
-
+            Consultation_Patient usc = new Consultation_Patient();
+            usc.Show();
         }
 
-        private void AjoutConsultPatient_Click(object sender, RoutedEventArgs e)
+        private void ConsultBTN2_Click(object sender, RoutedEventArgs e)
         {
-            AjoutConsultation CSLT = new AjoutConsultation();
-            CSLT.Show();
-        }
-
-        private void consutlationItem_Selected(object sender, RoutedEventArgs e)
-        {
-            AgendaMediCare Agd = new AgendaMediCare();
-            Agd.Show();
+            SUIVIS suiv = new SUIVIS();
+            suiv.Show();
         }
     }
 }

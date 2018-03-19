@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
-        mc:Ignorable="d"
-        Title="PopupPatient" Height="173.415" Width="332.195">
+        mc:Ignorable="d" Height="175" Width="330" ResizeMode="NoResize">
     <Grid>
 
         <Image Margin="261,45,-5,-8" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.545,0.479">

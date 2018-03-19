@@ -112,8 +112,23 @@
     <Compile Include="CheminScanner.Designer.cs">
       <DependentUpon>CheminScanner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consulta.cs" />
+    <Compile Include="consultAccess.xaml.cs">
+      <DependentUpon>consultAccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultationMedicale.xaml.cs">
+      <DependentUpon>ConsultationMedicale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultationPatient.xaml.cs">
+      <DependentUpon>ConsultationPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Consultation_Patient.xaml.cs">
       <DependentUpon>Consultation_Patient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultLabel.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="LogOutPop.xaml.cs">
+      <DependentUpon>LogOutPop.xaml</DependentUpon>
     </Compile>
     <Compile Include="MCDataClass.designer.cs">
       <AutoGen>True</AutoGen>
@@ -121,6 +136,9 @@
       <DependentUpon>MCDataClass.dbml</DependentUpon>
     </Compile>
     <Compile Include="Medic.cs" />
+    <Compile Include="MenuConsultation.xaml.cs">
+      <DependentUpon>MenuConsultation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ModifMed.xaml.cs">
       <DependentUpon>ModifMed.xaml</DependentUpon>
     </Compile>
@@ -130,6 +148,7 @@
     <Compile Include="ModSuppRdv.xaml.cs">
       <DependentUpon>ModSuppRdv.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Notifications.cs" />
     <Compile Include="PatientMenu.xaml.cs">
       <DependentUpon>PatientMenu.xaml</DependentUpon>
     </Compile>
@@ -150,8 +169,34 @@
       <DependentUpon>FichePatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClassePersonne.cs" />
+    <Compile Include="SppressionCons.xaml.cs">
+      <DependentUpon>SppressionCons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SUIVIS.xaml.cs">
+      <DependentUpon>SUIVIS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Traite.cs" />
+    <Page Include="consultAccess.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConsultationMedicale.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConsultationPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Consultation_Patient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogOutPop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuConsultation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,6 +263,14 @@
     <Page Include="FichePatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SppressionCons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SUIVIS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -327,12 +380,19 @@
     <Resource Include="ressources\Icones\Icones ico\logo_white.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MCDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="ressources\icones\icones ico\notification.ico" />
     <Resource Include="ressources\images\medicare_blanc.PNG" />
     <Resource Include="ressources\icones\icones png\64 Pixels\013-technology-2.png" />
     <Resource Include="ressources\icones\icones png\64 Pixels\notification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ressources\icones\icones png\64 Pixels\menu-button-of-three-horizontal-lines.png" />
+    <Resource Include="ressources\icones\icones png\64 Pixels\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MCDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

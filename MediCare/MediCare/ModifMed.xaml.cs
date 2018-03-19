@@ -33,8 +33,8 @@ namespace MediCare
             }
             else
             {
-                ModifMed_2 tt = new ModifMed_2(username2.Text,password2.Text);
-                tt.Show();
+                ModifMed_2 tt2 = new ModifMed_2();
+                tt2.Show();
                 this.Close();
             }
         }

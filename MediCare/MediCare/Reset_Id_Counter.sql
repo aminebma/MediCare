@@ -1,0 +1,17 @@
+﻿DBCC CHECKIDENT ( 'MPConsultation', RESEED, 0 )
+
+DBCC CHECKIDENT ( 'Radio', RESEED, 0 )
+
+DBCC CHECKIDENT ( 'Traitement', RESEED, 0 )
+
+DBCC CHECKIDENT ( 'Personne', RESEED, 0 )
+
+DBCC CHECKIDENT ( 'Patient', RESEED, 0 )
+
+DBCC CHECKIDENT ( 'Consultation', RESEED, 0 )
+
+DBCC CHECKIDENT ( 'Medecin', RESEED, 0 )
+
+DBCC CHECKIDENT ( 'RendezVous', RESEED, 0 )
+
+DBCC CHECKIDENT ( 'MPRendezVous', RESEED, 0 )

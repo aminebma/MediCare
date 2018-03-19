@@ -10,9 +10,9 @@
     <Grid>
 
         <StackPanel HorizontalAlignment="Left" Height="59.723" VerticalAlignment="Top" Width="639.063" Background="#FF6A97AC">
-            <Label Content="Modifier/Supprimer un rendez-vous" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center" Width="452" FontFamily="Century Gothic" FontSize="24" Foreground="#DDFFFFFF" Margin="93,0,94,0"/>
+            <Label Content="Modifier/Annuler un rendez-vous" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center" Width="390" FontFamily="Century Gothic" FontSize="24" Foreground="#DDFFFFFF" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </StackPanel>
-        <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,210,0,0" Width="96" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
+        <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,210,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="74"/>
@@ -26,11 +26,11 @@
             <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="74"/>
         </ComboBox>
-        <ComboBox x:Name="ampmBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,344,0,0" Width="96" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="14" Foreground="#FF7C5223" >
+        <ComboBox x:Name="ampmBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,344,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="14" Foreground="#FF7C5223" >
             <ComboBoxItem Content="AM" HorizontalAlignment="Left" Width="75"/>
             <ComboBoxItem Content="PM" HorizontalAlignment="Left" Width="75"/>
         </ComboBox>
-        <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,273,0,0" Width="96" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
+        <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,273,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
             <ComboBoxItem Content="0" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
@@ -93,18 +93,18 @@
             <ComboBoxItem Content="59" HorizontalAlignment="Left" Width="74"/>
         </ComboBox>
         <DatePicker x:Name="NewDateT" HorizontalAlignment="Left" Height="32" Margin="56,257,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
-        <Label x:Name="heuresL" Content="Heure" HorizontalAlignment="Left" Height="34" Margin="278,210,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="minutesL" Content="Minutes" HorizontalAlignment="Left" Height="37" Margin="278,273,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.484,3.516"/>
-        <Label x:Name="ampmL" Content="AM/PM" HorizontalAlignment="Left" Height="35" Margin="278,344,0,0" VerticalAlignment="Top" Width="83" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.472,0.545"/>
-        <Label x:Name="NewDateL" Content="Nouvelle date" HorizontalAlignment="Left" Height="34" Margin="56,199,0,0" VerticalAlignment="Top" Width="163" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.5,0.5"/>
-        <Button x:Name="ModifBtn" Content="Modifier" HorizontalAlignment="Center" Height="53" Margin="69,312,419,109" Width="150" FontFamily="Century Gothic" Background="#FF7C5223" Click="ModifBtn_Click"/>
-        <Button x:Name="SuppBtn" Content="Supprimer&#xA;" HorizontalAlignment="Center" Height="53" Margin="69,393,419,28" Width="150" FontFamily="Century Gothic" Background="#FF7C5223" Click="SuppButton_Click"/>
+        <Label x:Name="heuresL" Content="Heure" HorizontalAlignment="Left" Height="34" Margin="278,210,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="minutesL" Content="Minutes" HorizontalAlignment="Left" Height="37" Margin="278,273,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.484,3.516"/>
+        <Label x:Name="ampmL" Content="AM/PM" HorizontalAlignment="Left" Height="35" Margin="278,344,0,0" VerticalAlignment="Top" Width="83" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.472,0.545"/>
+        <Label x:Name="NewDateL" Content="Nouvelle date" HorizontalAlignment="Left" Height="34" Margin="56,199,0,0" VerticalAlignment="Top" Width="163" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="ModifBtn" Content="Modifier" HorizontalAlignment="Center" Height="53" Margin="69,312,419,109" Width="150" FontFamily="Century Gothic" Background="#FF77B3B4" Click="ModifBtn_Click"/>
+        <Button x:Name="SuppBtn" Content="Annuler" HorizontalAlignment="Center" Height="53" Margin="69,393,419,28" Width="150" FontFamily="Century Gothic" Background="#FF77B3B4" Click="SuppButton_Click"/>
         <DatePicker x:Name="OldDateT" HorizontalAlignment="Left" Height="32" Margin="56,131,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
-        <Label x:Name="OldDateL" Content="Date actuelle" HorizontalAlignment="Left" Height="34" Margin="56,73,0,0" VerticalAlignment="Top" Width="163" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="OldDateL" Content="Date actuelle" HorizontalAlignment="Left" Height="34" Margin="56,73,0,0" VerticalAlignment="Top" Width="163" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.5,0.5"/>
         <TextBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="37" Margin="360,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" PreviewTextInput="nomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" mah:TextBoxHelper.HasText="True" Foreground="#FF7C5223" />
-        <Label x:Name="nomPatientL" Content="Nom*" HorizontalAlignment="Left" Height="38" Margin="266,98,0,0" VerticalAlignment="Top" Width="70" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.58,1.606"/>
+        <Label x:Name="nomPatientL" Content="Nom*" HorizontalAlignment="Left" Height="38" Margin="266,98,0,0" VerticalAlignment="Top" Width="70" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.58,1.606"/>
         <TextBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="32" Margin="360,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
-        <Label x:Name="prenomPatientL" Content="Prenom*" HorizontalAlignment="Left" Height="34" Margin="266,141,0,0" VerticalAlignment="Top" Width="89" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223"/>
+        <Label x:Name="prenomPatientL" Content="Prenom*" HorizontalAlignment="Left" Height="34" Margin="266,141,0,0" VerticalAlignment="Top" Width="89" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70"/>
 
     </Grid>
 </Window>

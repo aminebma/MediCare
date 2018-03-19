@@ -68,15 +68,6 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51.213" Height="Auto" Margin="705.787,567.251,0,0" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40"/>
-        </Button>
-        <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51.214" Height="Auto" Margin="654.573,567.251,0,0" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40"/>
-        </Button>
-        <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="607,569.5,0,0.5" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
-        </Button>
 
         <Button Content="Consultation" HorizontalAlignment="Left" Height="145.5" Margin="114,147,0,0" VerticalAlignment="Top" Width="213" Background="#FF77B3B4" FontFamily="Century Gothic" FontSize="22"/>
         <Button Content="Patient" HorizontalAlignment="Left" Height="145.5" Margin="441,147,0,0" VerticalAlignment="Top" Width="213" Background="#FF77B3B4" FontFamily="Century Gothic" FontSize="22"/>

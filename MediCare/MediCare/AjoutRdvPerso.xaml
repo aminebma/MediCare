@@ -11,7 +11,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel HorizontalAlignment="Left" Height="59.723" VerticalAlignment="Top" Width="639.063" Background="#FF6A97AC" Grid.ColumnSpan="2" Margin="0,0,-3,0">
+        <StackPanel HorizontalAlignment="Left" Height="59.723" VerticalAlignment="Top" Width="639.063" Background="#FF77B3B4" Grid.ColumnSpan="2" Margin="0,0,-3,0">
             <Label Content="Ajout rendez-vous personnel" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center" Width="346" FontFamily="Century Gothic" FontSize="24" Foreground="#DDFFFFFF" Margin="150,0,143,0"/>
         </StackPanel>
         <Image Margin="553,388,7,3" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
@@ -45,7 +45,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="316,411,261,10" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+        <Image Margin="320,258,257,163" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -65,7 +65,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,246,0,0" Width="96" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
+        <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,246,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="74"/>
@@ -79,11 +79,11 @@
             <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="74"/>
         </ComboBox>
-        <ComboBox x:Name="ampmBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,362,0,0" Width="96" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="14" Foreground="#FF7C5223" >
+        <ComboBox x:Name="ampmBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,362,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="14" Foreground="#FF7C5223" >
             <ComboBoxItem Content="AM" HorizontalAlignment="Left" Width="75"/>
             <ComboBoxItem Content="PM" HorizontalAlignment="Left" Width="75"/>
         </ComboBox>
-        <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,310,0,0" Width="96" Background="#FFD4A269" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
+        <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="421,310,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
             <ComboBoxItem Content="0" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
@@ -145,14 +145,14 @@
             <ComboBoxItem Content="58" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="59" HorizontalAlignment="Left" Width="74"/>
         </ComboBox>
-        <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="56,257,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
-        <Label x:Name="heuresL" Content="Heure*" HorizontalAlignment="Left" Height="34" Margin="344,247,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="minutesL" Content="Minutes*" HorizontalAlignment="Left" Height="37" Margin="336,308,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.484,3.516"/>
-        <Label x:Name="ampmL" Content="AM/PM*" HorizontalAlignment="Left" Height="35" Margin="338,362,0,0" VerticalAlignment="Top" Width="83" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.472,0.545"/>
-        <Label x:Name="dateL" Content="Date*" HorizontalAlignment="Left" Height="34" Margin="110,223,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223" RenderTransformOrigin="0.5,0.5"/>
+        <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="56,257,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" BorderBrush="#89673AB7" />
+        <Label x:Name="heuresL" Content="Heure*" HorizontalAlignment="Left" Height="34" Margin="344,247,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="minutesL" Content="Minutes*" HorizontalAlignment="Left" Height="37" Margin="336,308,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.484,3.516"/>
+        <Label x:Name="ampmL" Content="AM/PM*" HorizontalAlignment="Left" Height="35" Margin="338,362,0,0" VerticalAlignment="Top" Width="83" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.472,0.545"/>
+        <Label x:Name="dateL" Content="Date*" HorizontalAlignment="Left" Height="34" Margin="110,223,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
         <TextBox x:Name="notesT" HorizontalAlignment="Left" Height="80" Margin="76,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="505" BorderBrush="#FF673AB7" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
-        <Label x:Name="notesL" Content="Description du rendez vous" HorizontalAlignment="Left" Height="35" Margin="201,85,0,0" VerticalAlignment="Top" Width="249" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF7C5223"/>
-        <Button x:Name="AddButton" Content="Ajouter" HorizontalAlignment="Center" Height="53" Margin="69,344,417,78" Width="150" FontFamily="Century Gothic" Background="#FF7C5223" Click="AddButton_Click"/>
+        <Label x:Name="notesL" Content="Description du rendez vous" HorizontalAlignment="Left" Height="35" Margin="201,85,0,0" VerticalAlignment="Top" Width="249" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859"/>
+        <Button x:Name="AddButton" Content="Ajouter" HorizontalAlignment="Center" Height="53" Margin="69,344,417,78" Width="150" FontFamily="Century Gothic" Background="#FF77B3B4" Click="AddButton_Click"/>
     </Grid>
 </Window>
  

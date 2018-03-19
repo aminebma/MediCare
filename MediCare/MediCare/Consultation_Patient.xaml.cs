@@ -19,11 +19,12 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour Consultation_Patient.xaml
     /// </summary>
-    public partial class Consultation_Patient : UserControl
+    public partial class Consultation_Patient : Window
     {
         public Consultation_Patient()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         Agenda pat = new Agenda();

@@ -5,138 +5,73 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MediCare"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.AgendaMenu"
-             mc:Ignorable="d" Height="620" Width="760">
+             mc:Ignorable="d" Height="646" Width="844">
     <Grid>
-        <Image Margin="-167.08,284.661,866.721,249.47" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
+
+        <Image Margin="-126,335,900,192" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleY="0.997" ScaleX="1.003"/>
-                    <SkewTransform AngleY="-0.532"/>
-                    <RotateTransform Angle="-31.337"/>
+                    <ScaleTransform ScaleY="1.024" ScaleX="0.977"/>
+                    <SkewTransform AngleX="4.866"/>
+                    <RotateTransform Angle="-29.221"/>
                     <TranslateTransform X="182.112" Y="-104.668"/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="186.353,33.123,479.487,503.078" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+        <Image Margin="173,34,561,518" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleY="0.991" ScaleX="1.009"/>
-                    <SkewTransform AngleY="0.397"/>
-                    <RotateTransform Angle="68.912"/>
+                    <ScaleTransform ScaleY="1.085" ScaleX="0.921"/>
+                    <SkewTransform AngleX="-3.637"/>
+                    <RotateTransform Angle="48.283"/>
                     <TranslateTransform X="-26.399" Y="-16.964"/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="434.166,400.579,265.475,133.552" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
+        <Image Margin="445,336,328,191" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleY="0.997" ScaleX="1.003"/>
-                    <SkewTransform AngleY="-0.532"/>
-                    <RotateTransform Angle="-31.337"/>
+                    <ScaleTransform ScaleY="1.024" ScaleX="0.977"/>
+                    <SkewTransform AngleX="4.866"/>
+                    <RotateTransform Angle="-29.221"/>
                     <TranslateTransform X="182.112" Y="-104.668"/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="30.281,489.11,652.972,49.162" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
+        <Image Margin="121,499,631,42" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
-                    <SkewTransform AngleY="-0.054"/>
-                    <RotateTransform Angle="-2.569"/>
+                    <SkewTransform AngleX="0.495"/>
+                    <RotateTransform Angle="-4.013"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="683.124,6.214,19.59,549.652" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+        <Image Margin="815,-1,-38,551" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleY="0.992" ScaleX="1.008"/>
-                    <SkewTransform AngleY="-0.522"/>
-                    <RotateTransform Angle="-59.146"/>
+                    <ScaleTransform ScaleY="1.071" ScaleX="0.934"/>
+                    <SkewTransform AngleX="4.779"/>
+                    <RotateTransform Angle="-56.964"/>
                     <TranslateTransform X="-26.399" Y="-16.964"/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="430.5,220.5,288.5,356.5" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+        <Image Margin="697,518,98,54" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-488.234"/>
+                    <ScaleTransform ScaleY="1.071" ScaleX="0.935"/>
+                    <SkewTransform AngleY="-5.876"/>
+                    <RotateTransform Angle="-125.332"/>
                     <TranslateTransform X="-26.399" Y="-16.964"/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51.213" Height="Auto" Margin="705.787,567.251,0,0" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40"/>
-        </Button>
-        <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51.214" Height="Auto" Margin="654.573,567.251,0,0" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40"/>
-        </Button>
-        <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="607,569.5,0,0.5" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
-        </Button>
-
-        <StackPanel Orientation="Horizontal" Height="85" Margin="204,106.364,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="453">
-            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/hospital-medical-signal-of-a-cross-in-a-circle (2).png" Stretch="Fill"/>
-            <TextBlock Text="Ajouter un rendez-vous proffesionnel" Margin="10,29.013,390,25" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="Black" Height="30.987" Width="393"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Height="85" Margin="204,227.364,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="428">
-            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/hospital-medical-signal-of-a-cross-in-a-circle (2).png" Stretch="Fill"/>
-            <TextBlock Margin="10,10,390,10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="Black"><Run Text="Ajouter un rendez-vous p"/><Run Text="ersonnel"/></TextBlock>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Height="85" Margin="204,333.364,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="453">
-            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,20,0,22.5" Source="ressources/icones/icones png/64 Pixels/men-silhouette.png" Stretch="Fill"/>
-            <TextBlock Text="Modifier ou Suprimer un rendez vous" Margin="10,29.013,390,25" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="Black" Height="30.987" Width="393"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Height="86" Margin="204,439.364,0,0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="428">
-            <Image HorizontalAlignment="Left" Height="40" Width="40" VerticalAlignment="Center" Margin="0,23.497,0,22.5" Source="ressources/icones/icones png/64 Pixels/phone-book.png" Stretch="Fill"/>
-            <TextBlock Text="Consulter mon agenda" Margin="10,10,390,10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="Black"/>
-        </StackPanel>
-        <Button x:Name="ModifRdv_Btn" HorizontalAlignment="Left" Height="85" Margin="204,333.364,0,0" VerticalAlignment="Top" Width="453" Click="ModifRdv_Btn_Click">
-            <Button.Foreground>
-                <SolidColorBrush Color="#DDFFFFFF" Opacity="0"/>
-            </Button.Foreground>
-            <Button.BorderBrush>
-                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
-            </Button.BorderBrush>
-            <Button.Background>
-                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="AjtRDVProBtn" HorizontalAlignment="Left" Height="85" Margin="204,105.364,0,0" VerticalAlignment="Top" Width="453" Click="AjtRDVpro_Click">
-            <Button.Foreground>
-                <SolidColorBrush Color="#DDFFFFFF" Opacity="0"/>
-            </Button.Foreground>
-            <Button.BorderBrush>
-                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
-            </Button.BorderBrush>
-            <Button.Background>
-                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="AjtRDVPersBtn" Content="Button" HorizontalAlignment="Left" Height="85" Margin="204,225.364,0,0" VerticalAlignment="Top" Width="453" Click="AjtRDVPersBtn_click">
-            <Button.Foreground>
-                <SolidColorBrush Color="#DDFFFFFF" Opacity="0"/>
-            </Button.Foreground>
-            <Button.BorderBrush>
-                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
-            </Button.BorderBrush>
-            <Button.Background>
-                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="CsltAgdBtn" Content="Button" HorizontalAlignment="Left" Height="86" Margin="204,436.364,0,0" VerticalAlignment="Top" Width="453">
-            <Button.Foreground>
-                <SolidColorBrush Color="#DDFFFFFF" Opacity="0"/>
-            </Button.Foreground>
-            <Button.BorderBrush>
-                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
-            </Button.BorderBrush>
-            <Button.Background>
-                <SolidColorBrush Color="#FF673AB7" Opacity="0"/>
-            </Button.Background>
-        </Button>
+        <Button x:Name="AjtRDVProBtn" Content="Ajouter un rendez vous proffesionnel" HorizontalAlignment="Left" Height="86" Margin="222,112,0,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" Click="AjtRDVpro_Click" FontFamily="Century Gothic" FontSize="20"/>
+        <Button x:Name="AjtRDVPersBtn" Content="Ajouter un rendez vous personnel" HorizontalAlignment="Left" Height="86" Margin="222,232,0,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" Click="AjtRDVPersBtn_click" FontFamily="Century Gothic" FontSize="20"/>
+        <Button x:Name="ModifRdv_Btn" Content="Modifier ou Annuler un rendez vous" HorizontalAlignment="Left" Height="86" Margin="222,352,0,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" Click="ModifRdv_Btn_Click" FontFamily="Century Gothic" FontSize="20"/>
+        <Button x:Name="CsltAgdBtn" Content="Consulter mon agenda" HorizontalAlignment="Left" Height="86" Margin="222,468,0,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" FontFamily="Century Gothic" FontSize="20"/>
 
     </Grid>
 </UserControl>

@@ -39,56 +39,86 @@ namespace MediCare
 
         //il me faudra une fonction de vérification du nom d'utilisateur et du mot de passe
 
-        public bool VerifMed(string mot_pass, string nom)
+        public bool VerifMed(string nom, string mot_pass)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataclass = new MCDataClassDataContext(con);
 
-            IQueryable<Medecin> medverif = (from medecin in dataclass.Medecin
-                                            where medecin.username == nom && medecin.password == mot_pass
-                                            select medecin);
-            medverif.ToList();
-            if (medverif == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            IQueryable<Medecin> medverif = (from Medecin in dataclass.Medecin
+                                            where Medecin.username == nom && Medecin.password == mot_pass
+                                            select Medecin);
+            int nbr = medverif.Count();
+            if (nbr == 0) return false;
+            else return true;
 
 
+            /*  bool rep = medverif.Any();
+              if (rep == false) return false;
+              else return true;*/
+            // List<int> liste = medverif.ToList < int > ();
+            //  int rep = medverif.AsQueryable().DefaultIfEmpty(1);
 
+            //  if ( medverif.AsQueryable().FirstOrDefault()== null) return false;
+            //   else return true;
+            //   FirstOrDefault<Medecin>();
+            //List<Medecin> s = medverif.ToList();
+            /*    if (s.Count()== 0) {
+                    return true ;
+                }
+                else { return false ; }
+            }*/
+
+            //  Array < Medecin >  array =  medverif.ToArray<Medecin>();
+            //List<Medecin> list = medverif.ToList<Medecin>();
+
+            /*   //  String.IsNullOrEmpty(s)
+             if (String.IsNullOrEmpty(s))
+             {
+                 return true;
+             }
+             else
+             {*/
         }
 
 
 
-        public void ModifMed(string nom, string mot_pass, string new_username, string new_password)
+
+        public void ModifMed(string username2, string mot_pass, string new_password)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<Medecin> medToModify = (from medecin in dataClass.Medecin
-                                               where nom == medecin.username && mot_pass == medecin.password
-                                               select medecin);
-            List<Medecin> list = medToModify.ToList<Medecin>();
-            //medToModify.username = new_username;
-            foreach(Medecin med in list)
-            {
-                med.password = new_password;
-                dataClass.SubmitChanges();
-            }
+            Medecin medModif = (from medecin in dataClass.Medecin
+                                where medecin.username == username2 && medecin.password == mot_pass
+                                select medecin).First<Medecin>();
+            medModif.password = new_password;
+            dataClass.SubmitChanges();
+
+            /* medModif.ToList();
+             List <Medecin> list = medModif.ToList<Medecin>();
+           foreach (Medecin med in list)
+           {
+               med.username = new_username;
+               med.password = new_password;
+               dataClass.SubmitChanges();*/
         }
 
 
-    } 
-    
+
+
+
+    }
+
+
 }
 
-    
 
 
 
-   
- 
-      
+
+
+
+
+
+
+
 
