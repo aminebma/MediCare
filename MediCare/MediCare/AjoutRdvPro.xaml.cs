@@ -57,14 +57,14 @@ namespace MediCare
                     minutesL.Foreground = Brushes.Black;
                     try
                     {
-                        if (rdv.AddRdv(DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"), 2, nomPatientT.Text.ToUpper(), prenomPatientT.Text.ToUpper(), (bool)isImportant.IsChecked, notesT.Text)) MessageBox.Show("Rendez-vous ajouté avec succés !");
+                        if (rdv.AddRdv(DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"), Globals.IdMedecin, nomPatientT.Text.ToUpper(), prenomPatientT.Text.ToUpper(), (bool)isImportant.IsChecked, notesT.Text)) MessageBox.Show("Rendez-vous ajouté avec succés !");
                         else MessageBox.Show("Vous avez déjà un rendez-vous à cette date");
                     }
                     catch (Exception)
                     {
                         MessageBox.Show("Database error");
                     }
-                }
+                }   
                 else if (!checkTime)
                 {
                     MessageBox.Show("Horaire invalide");

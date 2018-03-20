@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Reflection;
 
 namespace MediCare
 {
@@ -11,7 +10,7 @@ namespace MediCare
     {
         //public Agenda(/*byte idMedecin*/)
         //{
-        //    string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+        //    string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
         //    DataClassesDataContext dataClass = new DataClassesDataContext(con);
         //    IQueryable<RendezVous> list = from p in dataClass.RendezVous
         //                                  /*where idMedecin==p.idMedecin*/
@@ -32,7 +31,7 @@ namespace MediCare
 
         public bool AddRdv(DateTime date, byte idMedecin, string nomPatient, string prenomPatient, bool important, string notes)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             IQueryable<RendezVous> checkRdv = (from rdvCheck in dataClass.RendezVous
                                                where date == rdvCheck.Date
@@ -74,7 +73,7 @@ namespace MediCare
                 {
 
                     PersonneClasse newPatient = new PersonneClasse();
-                    newPatient.AddPatientPersonne(nomPatient, prenomPatient, "01/01/1998", "Indéfini", "0123456789", "Indéfini", "Indéfini", "Indéfini", "Indéfini", "Indéfini", "Indéfini");
+                    newPatient.AddPatientPersonne(nomPatient, prenomPatient, "01/01/1998", "Indéfini", "0123456789", "Indéfini", "170", "60", "/", "Indéfini", "Indéfini");
                     Patient addedPatient = (from personne in dataClass.Personne
                                             where nomPatient == personne.nom && prenomPatient == personne.prenom
                                             join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
@@ -110,7 +109,7 @@ namespace MediCare
 
         public bool AddRdv(DateTime date, byte idMedecin, string notes)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             IQueryable<RendezVous> checkRdv = (from rdvCheck in dataClass.RendezVous
                                                where date == rdvCheck.Date
@@ -135,7 +134,7 @@ namespace MediCare
 
         public void SuppRdv(string nomPatient, string prenomPatient)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             RendezVous rdvToDelete = (from personne in dataClass.Personne
                                       where nomPatient == personne.nom && prenomPatient == personne.prenom
@@ -157,7 +156,7 @@ namespace MediCare
 
         public void SuppRdv(DateTime date)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             RendezVous rdvToDelete = (from rdv in dataClass.RendezVous
                                       where date == rdv.Date
@@ -176,7 +175,7 @@ namespace MediCare
 
         public void ModifRdv(string nomPatient, string prenomPatient, DateTime newDate)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             RendezVous rdvToModify = (from personne in dataClass.Personne
                                       where nomPatient == personne.nom && prenomPatient == personne.prenom
@@ -191,7 +190,7 @@ namespace MediCare
 
         public void ModifRdv(DateTime date, DateTime newDate)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             RendezVous rdvToModify = (from rdv in dataClass.RendezVous
                                       where date == rdv.Date
@@ -202,7 +201,7 @@ namespace MediCare
 
         //public void ModifRdv(DateTime date, DateTime newDate, byte idMedecin)
         //{
-        //    string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+        //    string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
         //    MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
         //    RendezVous rdvToModify = (from rdv in dataClass.RendezVous
         //                              where date == rdv.Date && idMedecin == rdv.IdMedecin
@@ -214,7 +213,7 @@ namespace MediCare
 
         public List<Personne> RechercherPatientNom(string nom)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             IQueryable<Personne> patients = (from personne in dataClass.Personne
                                              where personne.nom.Contains(nom)
@@ -225,7 +224,7 @@ namespace MediCare
 
         public List<Personne> RechercherPatientPrenom(string nom)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             IQueryable<Personne> patients = (from personne in dataClass.Personne
                                              where personne.prenom.Contains(nom)
@@ -236,7 +235,7 @@ namespace MediCare
 
         public List<Personne> RechercherPatient(string nom, string prenom)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
+            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             IQueryable<Personne> patients = (from personne in dataClass.Personne
                                              where personne.nom.Contains(nom) && personne.prenom.Contains(prenom)

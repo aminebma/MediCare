@@ -25,7 +25,6 @@ namespace MediCare
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
         PersonneClasse pers = new PersonneClasse();
-        Consultation_Patient cp = new Consultation_Patient();
 
         private void Oui_Click(object sender, RoutedEventArgs e)
         {
@@ -37,7 +36,7 @@ namespace MediCare
 
         private void Non_Click(object sender, RoutedEventArgs e)
         {
-            pers.AddPatientPersonne(cp.NomPatient,cp.PrenomPatient,null,null,null,null,null,null,null,null,null);
+            pers.AddPatientPersonne(Globals.NomPatient,Globals.PrenomPatient,null,null,null,null,null,null,null,null,null);
             AjoutConsultation CSLT = new AjoutConsultation();
             CSLT.Show();
         }

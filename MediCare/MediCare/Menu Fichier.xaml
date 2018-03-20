@@ -1,0 +1,25 @@
+﻿<Window x:Class="MediCare.Menu_Fichier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediCare"
+        mc:Ignorable="d"
+        Title="Menu_Fichier" Height="700" Width="1000">
+    <Grid>
+        <Image Margin="906,520,32,63" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="340,206,606,389" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="542,449,354,141" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657"/>
+
+        <Image Margin="0,107,46,425" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="92" Opacity="0.8"/>
+        <Image Margin="87,575,829,-18" Source="ressources/images/bulles.PNG" Stretch="Fill"/>
+        <Image Margin="87,150,863,461" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Button x:Name="AjouterRadio" Content="Radio" HorizontalAlignment="Left" Height="68" Margin="139,160,0,0" VerticalAlignment="Top" Width="219" Click="Button_Click" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4"/>
+        <Button x:Name="AjouterScanner" Content="Scanner" HorizontalAlignment="Left" Height="68" Margin="599,160,0,0" VerticalAlignment="Top" Width="218" Click="Button_Click" FontFamily="Century Gothic" FontSize="20" Background="#FF75B0BB"/>
+        <Button x:Name="AjouterBilan" Content="Bilan" HorizontalAlignment="Left" Height="68" Margin="139,312,0,0" VerticalAlignment="Top" Width="219" Click="Button_Click" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4"/>
+        <Button x:Name="LettreOrientation" Content="Lettre D'orientation" HorizontalAlignment="Left" Height="68" Margin="599,312,0,0" VerticalAlignment="Top" Width="218" Click="Button_Click" FontFamily="Century Gothic" FontSize="20" Background="#FF75B0BB"/>
+        <Button x:Name="CertificatMedical" Content="Certificat Medical&#xD;&#xA;" HorizontalAlignment="Left" Height="68" Margin="378,500,0,0" VerticalAlignment="Top" Width="218" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4"/>
+        <Button Content="Ok " HorizontalAlignment="Left" Height="59" Margin="808,575,0,0" VerticalAlignment="Top" Width="138" Background="#FFADAF9F" FontFamily="Century Gothic" FontSize="20"/>
+
+    </Grid>
+</Window>

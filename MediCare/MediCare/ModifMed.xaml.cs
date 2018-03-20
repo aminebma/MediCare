@@ -22,6 +22,7 @@ namespace MediCare
         public ModifMed()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
         Medecin2 med = new Medecin2();
         private void Button_Click(object sender, RoutedEventArgs e)
