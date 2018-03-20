@@ -61,9 +61,9 @@ namespace MediCare
                     usc = new MenuConsultation();
                     SelectionGrid.Children.Add(usc);
                     break;
-                case "ItemPatient":
-                    usc = new PatientMenu();
-                    SelectionGrid.Children.Add(usc);
+                case "Compte":
+                    ModifMed tt = new ModifMed();
+                    tt.Show();
                     break;
                 case "ItemRecherche":
                     usc = new RechercheMenu();
@@ -82,8 +82,7 @@ namespace MediCare
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ModifMed tt = new ModifMed();
-            tt.Show();
+            
         }
 
         private void ListeNotif_SelectionChanged(object sender, SelectionChangedEventArgs e)

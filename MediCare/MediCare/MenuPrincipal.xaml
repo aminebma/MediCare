@@ -40,7 +40,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemSuivi">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Compte">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
@@ -143,20 +143,6 @@
                         <TextBlock Text="Consultation" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem x:Name="ItemSuivi" Height="74" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="10 0">
-                        <Image  Width="30" Height="35" VerticalAlignment="Top" Margin="5" Source="ressources/icones/icones png/64 Pixels/pulse-line.png" Stretch="Fill" />
-                        <TextBlock Text="Suivi" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
-                    </StackPanel>
-                </ListViewItem>
                 <ListViewItem x:Name="ItemAgenda" Height="73" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
@@ -183,6 +169,20 @@
                     <StackPanel Orientation="Horizontal" Margin="10 0">
                         <materialDesign:PackIcon Kind="Loupe" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="#DDFFFFFF"/>
                         <TextBlock Text="Recherche" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="Compte" Height="74" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Account" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="#DDFFFFFF"/>
+                        <TextBlock Text="Compte" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
                     </StackPanel>
                 </ListViewItem>
             </ListView>

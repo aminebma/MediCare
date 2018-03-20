@@ -7,10 +7,6 @@
         mc:Ignorable="d"
         Title="FichePatient" Height="772.5" Width="1107.5">
     <Grid Background="#FFE5E8ED" Margin="0,-20,0,20">
-        <TextBox x:Name="Nom" HorizontalAlignment="Left" Height="40" Margin="240,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" PreviewTextInput="Nom_PreviewTextInput"/>
-        <Label Content="Nom" HorizontalAlignment="Left" Height="42" Margin="37,75,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <TextBox x:Name="Prenom" HorizontalAlignment="Left" Height="40" Margin="798,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" PreviewTextInput="Prenom_PreviewTextInput"/>
-        <Label x:Name="Prénom1" Content="Prénom" HorizontalAlignment="Left" Height="42" Margin="604,85,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
         <Label Content="Date de naissance" HorizontalAlignment="Left" Height="42" Margin="37,177,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
         <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="42" Margin="798,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
         <Label x:Name="Adresse1" Content="Adresse" HorizontalAlignment="Left" Height="42" Margin="602,177,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>

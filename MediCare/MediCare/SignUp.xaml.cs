@@ -24,6 +24,12 @@ namespace MediCare
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            string currentDirectoryPath = System.IO.Directory.GetCurrentDirectory();
+            if (!System.IO.File.Exists($@"{currentDirectoryPath}\\MCDatabase.mdf"))
+            {
+                System.IO.File.Copy($@"{currentDirectoryPath}\\restauration\\MCDatabase.mdf", $@"{currentDirectoryPath}\\MCDatabase.mdf", true);
+                MessageBox.Show("La base de données a rencontré un problème, la version la plus récente a été restaurée");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

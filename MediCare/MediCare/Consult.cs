@@ -36,7 +36,7 @@ namespace MediCare
 				tableRadio.IdConsultation = table.Id;
 				dataClass.Radio.InsertOnSubmit(tableRadio);
 				dataClass.SubmitChanges();
-			};
+			}
 
 			Traitement tableTraitement = new Traitement();
 
@@ -56,7 +56,7 @@ namespace MediCare
 				dataClass.Traitement.InsertOnSubmit(tableTraitement);
 				dataClass.SubmitChanges();
 
-			};
+			}
 
 			Patient patientConsultation = (from personne in dataClass.Personne
 										   where nomPatient == personne.nom && prenomPatient == personne.prenom
@@ -111,7 +111,7 @@ namespace MediCare
 			{
 				dataClass.Radio.DeleteOnSubmit(p);
 				dataClass.SubmitChanges();
-			};
+			}
 
 			IQueryable<Traitement> trait = (from traitement in dataClass.Traitement
 											where traitement.IdConsultation == cnsltToDelete.Id
@@ -119,11 +119,10 @@ namespace MediCare
 											select traitement);
 
 			foreach (Traitement p in trait)
-
 			{
 				dataClass.Traitement.DeleteOnSubmit(p);
 				dataClass.SubmitChanges();
-			};
+			}
 
 
 

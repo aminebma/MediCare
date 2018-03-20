@@ -79,7 +79,7 @@
         </Button>
         <TextBox x:Name="Nompatient" HorizontalAlignment="Left" Height="52" Margin="357,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="18" TextChanged="Nompatient_TextChanged" PreviewTextInput ="Nompatient_PreviewTextInput"/>
         <TextBox x:Name="Prenompatient" HorizontalAlignment="Left" Height="51" Margin="357,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="18" TextChanged="Prenompatient_TextChanged" PreviewTextInput ="Prenompatient_PreviewTextInput"/>
-        <Label x:Name="nomL" Content="Nom du Patient :" HorizontalAlignment="Left" Height="37" Margin="171,47,0,0" VerticalAlignment="Top" Width="181" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
+        <Label x:Name="nomL" Content="Nom du Patient :" HorizontalAlignment="Left" Height="37" Margin="160,47,0,0" VerticalAlignment="Top" Width="182" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
         <Label x:Name="prenomL" Content="Prénom du Patient :" HorizontalAlignment="Left" Height="37" Margin="155,183,0,0" VerticalAlignment="Top" Width="197" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
         <Button Content="OK" HorizontalAlignment="Left" Height="52" Margin="357,501,0,0" VerticalAlignment="Top" Width="127" Background="Gray" Click="Button_Click"/>
         <TextBlock x:Name="patientsT" HorizontalAlignment="Left" Height="210" Margin="171,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="473" Background="#3377B3B4"/>

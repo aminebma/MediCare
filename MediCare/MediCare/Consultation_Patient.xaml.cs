@@ -31,8 +31,7 @@ namespace MediCare
         List<Personne> patients;
         Regex charControl = new Regex(@"[A-Za-z]+");
 
-        internal string NomPatient;
-        internal string PrenomPatient;
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -44,9 +43,9 @@ namespace MediCare
             }
             else
             {
-                NomPatient = Nompatient.Text;
-                PrenomPatient = Prenompatient.Text;
-                patients = pat.RechercherPatient(NomPatient, PrenomPatient);
+                Globals.NomPatient = Nompatient.Text;
+                Globals.PrenomPatient = Prenompatient.Text;
+                patients = pat.RechercherPatient(Globals.NomPatient, Globals.PrenomPatient);
                 if (patients.Count() != 0)
                 {
                     AjoutConsultation CSLT = new AjoutConsultation();

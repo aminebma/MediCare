@@ -62,7 +62,7 @@ namespace MediCare
                     minutesL.Foreground = Brushes.Black;
                     try
                     {
-                        rdv.AddRdv(DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"), 2, notesT.Text);
+                        rdv.AddRdv(DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"), Globals.IdMedecin, notesT.Text);
                         MessageBox.Show("Rendez-vous ajouté avec succés !");
                     }
                     catch (Exception)

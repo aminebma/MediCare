@@ -49,7 +49,11 @@ namespace MediCare
                                             select Medecin);
             int nbr = medverif.Count();
             if (nbr == 0) return false;
-            else return true;
+            else
+            {
+                Globals.IdMedecin = (byte)medverif.First<Medecin>().Id;
+                return true;
+            }
 
 
             /*  bool rep = medverif.Any();

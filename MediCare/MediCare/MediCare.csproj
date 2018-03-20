@@ -113,9 +113,6 @@
       <DependentUpon>CheminScanner.cs</DependentUpon>
     </Compile>
     <Compile Include="Consulta.cs" />
-    <Compile Include="consultAccess.xaml.cs">
-      <DependentUpon>consultAccess.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ConsultationMedicale.xaml.cs">
       <DependentUpon>ConsultationMedicale.xaml</DependentUpon>
     </Compile>
@@ -138,6 +135,9 @@
     <Compile Include="Medic.cs" />
     <Compile Include="MenuConsultation.xaml.cs">
       <DependentUpon>MenuConsultation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuFichier.xaml.cs">
+      <DependentUpon>MenuFichier.xaml</DependentUpon>
     </Compile>
     <Compile Include="ModifMed.xaml.cs">
       <DependentUpon>ModifMed.xaml</DependentUpon>
@@ -176,10 +176,6 @@
       <DependentUpon>SUIVIS.xaml</DependentUpon>
     </Compile>
     <Compile Include="Traite.cs" />
-    <Page Include="consultAccess.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="ConsultationMedicale.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -199,6 +195,10 @@
     <Page Include="MenuConsultation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuFichier.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MenuPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -391,6 +391,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MCDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MCDatabase_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>MCDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="restauration\MCDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="restauration\MCDatabase_log.ldf">
+      <DependentUpon>MCDatabase.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
