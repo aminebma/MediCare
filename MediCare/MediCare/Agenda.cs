@@ -11,7 +11,7 @@ namespace MediCare
         //public Agenda(/*byte idMedecin*/)
         //{
         //    string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-        //    DataClassesDataContext dataClass = new DataClassesDataContext(con);
+        //    MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
         //    IQueryable<RendezVous> list = from p in dataClass.RendezVous
         //                                  /*where idMedecin==p.idMedecin*/
         //                                  select p;
@@ -151,7 +151,7 @@ namespace MediCare
             dataClass.MPRendezVous.DeleteOnSubmit(mPRendezVous);
             dataClass.SubmitChanges();
             dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
-            dataClass.SubmitChanges();      
+            dataClass.SubmitChanges();
         }
 
         public void SuppRdv(DateTime date)
@@ -244,5 +244,14 @@ namespace MediCare
             return patients.ToList<Personne>();
         }
 
+        public List<Personne> RechercherPatient(List<Personne> patients, string nom)
+        {
+            List<Personne> filtrePatient = new List<Personne>();
+            foreach (Personne patient in patients)
+                if ((patient.nom+" "+patient.prenom).StartsWith(nom))
+                    filtrePatient.Add(patient);
+            return filtrePatient;
+        }
+        
     }
 }

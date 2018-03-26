@@ -77,7 +77,6 @@
         </StackPanel>
         <Label x:Name="heuresL" Content="Heure*" HorizontalAlignment="Left" Height="34.458" Margin="218.759,206.78,0,0" VerticalAlignment="Top" Width="71.955" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
         <Label x:Name="minutesL" Content="Minutes*" HorizontalAlignment="Left" Height="37" Margin="201,266,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.484,3.516"/>
-        <TextBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="37" Margin="118,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" PreviewTextInput="nomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" mah:TextBoxHelper.HasText="True" Foreground="#FF7C5223" TextChanged="nomPatientT_TextChanged"/>
         <Label x:Name="nomPatientL" Content="Nom*" HorizontalAlignment="Left" Height="38" Margin="24,83,0,0" VerticalAlignment="Top" Width="70" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.58,1.606"/>
         <CheckBox x:Name="isImportant" Content="Important" HorizontalAlignment="Left" Height="53" Margin="291,372,0,0" VerticalAlignment="Top" Width="107" FontFamily="Century Gothic" Foreground="#FF3C5859" FontWeight="Bold" FontSize="16" Background="{x:Null}" BorderBrush="#FF3C5859"/>
         <TextBox x:Name="notesT" HorizontalAlignment="Left" Height="194.128" Margin="418.566,131.267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194.982" BorderBrush="#FF673AB7" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
@@ -168,5 +167,7 @@
             <ComboBoxItem Content="59" HorizontalAlignment="Left" Width="74"/>
         </ComboBox>
         <TextBlock x:Name="patientsT" HorizontalAlignment="Left" Height="113" Margin="24,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <local:AgendaMenu HorizontalAlignment="Left" Height="100" Margin="-98,214,0,0" VerticalAlignment="Top" Width="100"/>
+        <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="38" Margin="118,83,0,0" VerticalAlignment="Top" Width="229" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False"/>
     </Grid>
 </Window>

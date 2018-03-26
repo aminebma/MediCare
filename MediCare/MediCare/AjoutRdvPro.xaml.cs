@@ -21,10 +21,18 @@ namespace MediCare
     /// </summary>
     public partial class AjoutRdvPro : Window
     {
+        MCDataClassDataContext dataClass = new MCDataClassDataContext($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True");
+        List<Personne> listPatients,listPatientsTmp;
+        
         public AjoutRdvPro()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            listPatients = (from patient in dataClass.Patient
+                           join personne in dataClass.Personne on patient.IdPersonne equals personne.Id
+                           select personne).ToList<Personne>();
+            foreach(Personne patient in listPatients)
+                nomPatientT.Items.Add(patient.nom+" "+patient.prenom); 
         }
 
         //List<string> caract = new List<string> { ",", ".", ":", ";", "!", "*", "$", "/", "?", "+", "_", "=", "§", "<", ">", "{", "}", "[", "]", "(", ")", "'", "\"", "&", "²", "@", "|", "#", "£", "µ", "%", "€", "¤" };
@@ -35,7 +43,7 @@ namespace MediCare
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             bool checkDate = false,
-                checkTime = false;
+                 checkTime = false;
             int realHour = 0;
             if (dateT.Text == "" || heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" || prenomPatientT.Text == "" || nomPatientT.Text == "")
             {
@@ -115,20 +123,20 @@ namespace MediCare
             e.Handled = true;
         }
 
-        private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (nomPatientT.Text == "") patientsT.Text = "";
-            else
-            {
-                if(prenomPatientT.Text == "") patients = rdv.RechercherPatientNom(nomPatientT.Text);
-                else patients = rdv.RechercherPatient(nomPatientT.Text,prenomPatientT.Text);
-                patientsT.Text = "";
-                foreach (Personne p in patients)
-                {
-                    patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
-                }
-            }  
-        }
+        //private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //if (nomPatientT.Text == "") patientsT.Text = "";
+        //else
+        //{
+        //    if(prenomPatientT.Text == "") patients = rdv.RechercherPatientNom(nomPatientT.Text);
+        //    else patients = rdv.RechercherPatient(nomPatientT.Text,prenomPatientT.Text);
+        //    patientsT.Text = "";
+        //    foreach (Personne p in patients)
+        //    {
+        //        patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
+        //    }
+        //}  
+        //}
 
         private void prenomPatientT_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -142,6 +150,17 @@ namespace MediCare
                 {
                     patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
                 }
+            }
+        }
+
+        private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            listPatientsTmp = rdv.RechercherPatient(listPatients, nomPatientT.Text.ToUpper());
+            nomPatientT.Items.Clear();
+            foreach (Personne patient in listPatientsTmp)
+            {
+                nomPatientT.Items.Add(nomPatientT.Items.Add(patient.nom + " " + patient.prenom));
+                if (nomPatientT.Items.Count != 0) nomPatientT.Items.RemoveAt(nomPatientT.Items.Count - 1);
             }
         }
     }
