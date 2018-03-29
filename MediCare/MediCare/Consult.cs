@@ -12,9 +12,9 @@ namespace MediCare
 
 		public void AddConsult(string nomPatient, string prenomPatient, string nomMedecin, string prenomMedecin, string diagnostic, string description, string cheminCertificat, string cheminLettreOrientation, string cheminScanner, string cheminBilan, string cheminOrdo, List<string> cheminRadio, List<Traite> traitement, string label   )
 		{
-			string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-			MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-			Consultation table = new Consultation
+            nomPatient = nomPatient.ToUpper();
+            prenomMedecin = prenomMedecin.ToUpper();
+            Consultation table = new Consultation
 			{
 				date = DateTime.Today,
 				diagnostic = diagnostic,
@@ -26,45 +26,47 @@ namespace MediCare
 				cheminOrdo = cheminOrdo,
                 label = label
 			};
-			dataClass.Consultation.InsertOnSubmit(table);
-			dataClass.SubmitChanges();
+			Globals.DataClass.Consultation.InsertOnSubmit(table);
+			Globals.DataClass.SubmitChanges();
 
-			Radio tableRadio = new Radio();
+			
 			foreach (var chemin in cheminRadio)
 			{
-				tableRadio.chemin = chemin;
+                Radio tableRadio = new Radio();
+                tableRadio.chemin = chemin;
 				tableRadio.IdConsultation = table.Id;
-				dataClass.Radio.InsertOnSubmit(tableRadio);
-				dataClass.SubmitChanges();
+				Globals.DataClass.Radio.InsertOnSubmit(tableRadio);
+				Globals.DataClass.SubmitChanges();
 			}
 
-			Traitement tableTraitement = new Traitement();
+			
 
 			foreach (var trait in traitement)
 			{
-				tableTraitement.Dose = trait.Dose;
+                Traitement tableTraitement = new Traitement();
+                tableTraitement.Dose = trait.Dose;
 				tableTraitement.Indication = trait.Indication;
 				tableTraitement.IdConsultation = table.Id;
 
 
-				Medicaments medTraitement = (from medicament in dataClass.Medicaments
+				Medicaments medTraitement = (from medicament in Globals.DataClass.Medicaments
 											 where trait.NomMed == medicament.nom
 											 select medicament).First<Medicaments>();
 
 				tableTraitement.IdMedicament = medTraitement.Id;
 
-				dataClass.Traitement.InsertOnSubmit(tableTraitement);
-				dataClass.SubmitChanges();
+				Globals.DataClass.Traitement.InsertOnSubmit(tableTraitement);
+				Globals.DataClass.SubmitChanges();
 
 			}
 
-			Patient patientConsultation = (from personne in dataClass.Personne
+			Patient patientConsultation = (from personne in Globals.DataClass.Personne
 										   where nomPatient == personne.nom && prenomPatient == personne.prenom
-										   join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+										   join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
 										   select patient).First<Patient>();
-			Medecin medecinConsultation = (from personne in dataClass.Personne
+			Medecin medecinConsultation = (from personne in Globals.DataClass.Personne
 										   where nomMedecin == personne.nom && prenomMedecin == personne.prenom
-										   join medecin in dataClass.Medecin on personne.Id equals medecin.IdPersonne
+										   join medecin in Globals.DataClass.Medecin on personne.Id equals medecin.IdPersonne
 										   select medecin).First<Medecin>();
 
 			MPConsultation tableMPC = new MPConsultation
@@ -74,87 +76,86 @@ namespace MediCare
 				IdMedecin = medecinConsultation.Id
 			};
 
-			dataClass.MPConsultation.InsertOnSubmit(tableMPC);
-			dataClass.SubmitChanges();
-
-		}
-
-
+			Globals.DataClass.MPConsultation.InsertOnSubmit(tableMPC);
+			Globals.DataClass.SubmitChanges();
+            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
+        }
 
 
 
-		public void SuppConsultation(string nomPatient, string prenomPatient, DateTime date)
+
+
+        public void SuppConsultation(string nomPatient, string prenomPatient, DateTime date)
 		{
-			string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-			MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-			Personne Pers = (from personne in dataClass.Personne
+            nomPatient = nomPatient.ToUpper();
+            prenomPatient = prenomPatient.ToUpper();
+
+			Personne Pers = (from personne in Globals.DataClass.Personne
 							 where nomPatient == personne.nom && prenomPatient == personne.prenom
 							 select personne).First<Personne>();
 
-			Patient Pat = (from patient in dataClass.Patient
+			Patient Pat = (from patient in Globals.DataClass.Patient
 						   where patient.IdPersonne == Pers.Id
 						   select patient).First<Patient>();
 
-			MPConsultation mpcnsltToDelete = (from cns in dataClass.Consultation
+			MPConsultation mpcnsltToDelete = (from cns in Globals.DataClass.Consultation
 											  where cns.date == date
-											  join mpc in dataClass.MPConsultation on cns.Id equals mpc.IdConsultation
+											  join mpc in Globals.DataClass.MPConsultation on cns.Id equals mpc.IdConsultation
 											  where mpc.IdPatient == Pat.Id
 											  select mpc).First<MPConsultation>();
 
-			Consultation cnsltToDelete = (from cns in dataClass.Consultation
+			Consultation cnsltToDelete = (from cns in Globals.DataClass.Consultation
 										  where cns.Id == mpcnsltToDelete.IdConsultation
 										  select cns).First<Consultation>();
-			IQueryable<Radio> rdi = (from radio in dataClass.Radio
+			IQueryable<Radio> rdi = (from radio in Globals.DataClass.Radio
 									 where radio.IdConsultation == cnsltToDelete.Id
 									 select radio);
 			foreach (Radio p in rdi)
 			{
-				dataClass.Radio.DeleteOnSubmit(p);
-				dataClass.SubmitChanges();
+				Globals.DataClass.Radio.DeleteOnSubmit(p);
+				Globals.DataClass.SubmitChanges();
 			}
 
-			IQueryable<Traitement> trait = (from traitement in dataClass.Traitement
+			IQueryable<Traitement> trait = (from traitement in Globals.DataClass.Traitement
 											where traitement.IdConsultation == cnsltToDelete.Id
 
 											select traitement);
 
 			foreach (Traitement p in trait)
 			{
-				dataClass.Traitement.DeleteOnSubmit(p);
-				dataClass.SubmitChanges();
+				Globals.DataClass.Traitement.DeleteOnSubmit(p);
+				Globals.DataClass.SubmitChanges();
 			}
 
 
 
-			dataClass.MPConsultation.DeleteOnSubmit(mpcnsltToDelete);
-			dataClass.SubmitChanges();
-			dataClass.Consultation.DeleteOnSubmit(cnsltToDelete);
-			dataClass.SubmitChanges();
+			Globals.DataClass.MPConsultation.DeleteOnSubmit(mpcnsltToDelete);
+			Globals.DataClass.SubmitChanges();
+			Globals.DataClass.Consultation.DeleteOnSubmit(cnsltToDelete);
+			Globals.DataClass.SubmitChanges();
+            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
+        }
 
-		}
-	
 
-		public List<ConsultLabel> RechercheConsultationDate(DateTime date)
+        public List<ConsultLabel> RechercheConsultationDate(DateTime date)
 		{
-			string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-			MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
 			List<ConsultLabel> list = new List<ConsultLabel>();
 
 
-			IQueryable<Consultation> cnslt = (from cns in dataClass.Consultation
+			IQueryable<Consultation> cnslt = (from cns in Globals.DataClass.Consultation
 											  where cns.date == date
 											  select cns);
 
 
 			foreach (Consultation p in cnslt)
 			{
-				MPConsultation mpcnslt = (from mpc in dataClass.MPConsultation
+				MPConsultation mpcnslt = (from mpc in Globals.DataClass.MPConsultation
 										  where mpc.IdConsultation == p.Id
 										  select mpc).First();
-				Patient pat = (from patient in dataClass.Patient
+				Patient pat = (from patient in Globals.DataClass.Patient
 							   where patient.Id == mpcnslt.IdPatient
 							   select patient).First();
-				Personne pers = (from personne in dataClass.Personne
+				Personne pers = (from personne in Globals.DataClass.Personne
 								 where personne.Id == pat.IdPersonne
 								 select personne).First();
 
@@ -162,26 +163,25 @@ namespace MediCare
 				ConsultLabel q = new ConsultLabel((DateTime)p.date, p.label , p.Id, pers.nom, pers.prenom);
 				list.Add(q);
 			}
-			return list;
-
+            return list;
 		}
 
 		public List<ConsultLabel> Suivie(string nomPatient, string prenomPatient)
 		{
-			string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-			MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+            nomPatient = nomPatient.ToUpper();
+            prenomPatient = prenomPatient.ToUpper();
             List <ConsultLabel> list = new List<ConsultLabel>();
 
-			Personne Pers = (from personne in dataClass.Personne
+			Personne Pers = (from personne in Globals.DataClass.Personne
 							 where nomPatient == personne.nom && prenomPatient == personne.prenom
 							 select personne).First<Personne>();
 
-            Patient Pat = (from patient in dataClass.Patient
+            Patient Pat = (from patient in Globals.DataClass.Patient
                            where patient.IdPersonne == Pers.Id
                            select patient).First<Patient>();
-			IQueryable<Consultation> cnslt = (from cns in dataClass.MPConsultation
+			IQueryable<Consultation> cnslt = (from cns in Globals.DataClass.MPConsultation
 											  where cns.IdPatient == Pat.Id
-											  join mpc in dataClass.Consultation on cns.IdConsultation equals mpc.Id
+											  join mpc in Globals.DataClass.Consultation on cns.IdConsultation equals mpc.Id
 											  select mpc);
 
 			foreach (Consultation p in cnslt)
@@ -189,36 +189,33 @@ namespace MediCare
 
 				ConsultLabel q = new ConsultLabel((DateTime)p.date, p.label, p.Id, nomPatient, prenomPatient);
                 list.Add(q);
-
 			}
 			return list;
 
 		}
 		public Consulta AcceeConsultationId(int Id)
 		{
-			string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-			MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
 			List<string> radio = new List<string>();
 			List<Traite> traitement = new List<Traite>();
 
-			Consultation cnslt = (from cns in dataClass.Consultation
+			Consultation cnslt = (from cns in Globals.DataClass.Consultation
 								  where cns.Id == Id
 								  select cns).First<Consultation>();
-			IQueryable<Radio> rdi = (from radi in dataClass.Radio
+			IQueryable<Radio> rdi = (from radi in Globals.DataClass.Radio
 									 where radi.IdConsultation == cnslt.Id
 									 select radi);
 			foreach (Radio p in rdi)
 			{
 				radio.Add(p.chemin);
 			}
-			IQueryable<Traitement> trait = (from traitemen in dataClass.Traitement
+			IQueryable<Traitement> trait = (from traitemen in Globals.DataClass.Traitement
 											where traitemen.IdConsultation == cnslt.Id
                                             select traitemen);
 
 			foreach (Traitement p in trait)
 
 			{
-				Medicaments Med = (from med in dataClass.Medicaments
+				Medicaments Med = (from med in Globals.DataClass.Medicaments
 								   where med.Id == p.IdMedicament
 								   select med).First<Medicaments>();
 				Traite q = new Traite(p.Dose, p.Indication, Med.nom);
@@ -232,23 +229,21 @@ namespace MediCare
 
 		public List<ConsultLabel> Historique ( )
 		{
-			string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-			MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
 			List<ConsultLabel> list = new List<ConsultLabel>();
 
 
-			IQueryable<Consultation> cnslt = (from cns in dataClass.Consultation
+			IQueryable<Consultation> cnslt = (from cns in Globals.DataClass.Consultation
 											  select cns);
 
 			foreach (Consultation p in cnslt)
 			{
-				MPConsultation mpcnslt = (from mpc in dataClass.MPConsultation
+				MPConsultation mpcnslt = (from mpc in Globals.DataClass.MPConsultation
 										  where mpc.IdConsultation == p.Id
 										  select mpc).First<MPConsultation>();
-				Patient pat = (from patient in dataClass.Patient
+				Patient pat = (from patient in Globals.DataClass.Patient
 							   where patient.Id == mpcnslt.IdPatient
 							   select patient).First();
-				Personne pers = (from personne in dataClass.Personne
+				Personne pers = (from personne in Globals.DataClass.Personne
 								 where personne.Id == pat.IdPersonne
 								 select personne).First();
 

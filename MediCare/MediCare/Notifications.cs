@@ -19,17 +19,15 @@ namespace MediCare
 {
     class Notifications
     {
-        public void GenererNotification(ListView ListeNotif/*, TextBlock NbNotifText , Border NbNotif*/)
+        public void GenererRDVduJour(ListView ListeRDV)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
             IQueryable<RendezVous> NotifRdv = (from rendezVous in dataClass.RendezVous
                                                orderby rendezVous.Date
                                                select rendezVous);
-            int cpt = 0;
             if (NotifRdv.Count() != 0)
             {
-
                 foreach (RendezVous rdv in NotifRdv)
                 {
                     string dateRdv, dateAJRD;
@@ -37,27 +35,59 @@ namespace MediCare
                     dateAJRD = DateTime.Today.ToString().Substring(0, 10);
                     if (string.Compare(dateRdv, dateAJRD) == 0)
                     {
-                        TextBlock TextNotif = new TextBlock();
-                        TextNotif.Text = " Rendez Vous \n Date :" + rdv.Date + " \n patient :" + rdv.IdPatient + "\n important :" + rdv.Important + "\n Note : " + rdv.Note;
-                        if (string.Compare(rdv.Important.ToString(), "True") == 0) TextNotif.Foreground = Brushes.Red;
-                        ListeNotif.Items.Add(TextNotif);
-                        cpt++;
+                        TextBlock TextRDV = new TextBlock();
+                        IQueryable<Patient> patientRDV = (from patient in dataClass.Patient
+                                                           where rdv.IdPatient == patient.Id
+                                                           select patient);
+                        IQueryable<Personne> personneRDV = (from personne in dataClass.Personne
+                                                            where patientRDV.First().IdPersonne == personne.Id
+                                                            select personne);
+                        if (patientRDV.Count() != 0)
+                        {
+                            if (patientRDV.First().Id != 0)
+                            {
+                                string NomPatient = personneRDV.First().nom;
+                                string PrenomPatient = personneRDV.First().prenom;
+                                string heureRDV = rdv.Date.ToString().Substring(10, 9);
+                                TextRDV.Text = " Heure : " + heureRDV + " \n Patient : " + NomPatient + " " + PrenomPatient + "\n Note :" + rdv.Note;
+                                TextRDV.TextAlignment = TextAlignment.Center;
+                                if (rdv.Important == true)
+                                {
+                                    TextRDV.Foreground = Brushes.Red;
+                                    TextRDV.ToolTip = "Rendez Vous Important";
+                                }
+
+                                else
+                                {
+                                    Color color = (Color)ColorConverter.ConvertFromString("#FF42919E");
+                                    TextRDV.Foreground = new SolidColorBrush(color);
+                                }
+                                ListeRDV.Items.Add(TextRDV);
+                            }
+
+                            else
+                            {
+                                string heureRDV = rdv.Date.ToString().Substring(10, 9);
+                                TextRDV.Text = " Rendez vous personnel: \n " + rdv.Note + "\n Heure: " + heureRDV;
+                                if (rdv.Important == true)
+                                {
+                                    TextRDV.Foreground = Brushes.Red;
+                                    TextRDV.ToolTip = "Rendez Vous Important";
+                                }
+                                else
+                                {
+                                    Color color = (Color)ColorConverter.ConvertFromString("#FF42919E");
+                                    TextRDV.Foreground = new SolidColorBrush(color);
+                                }
+                                ListeRDV.Items.Add(TextRDV);
+                            }
+                        }
                     }
-                }
-                if (cpt != 0)
-                {
-                   // NbNotifText.Text = cpt.ToString();
-                    System.Windows.Forms.NotifyIcon notif = new System.Windows.Forms.NotifyIcon();
-                    notif.Visible = true;
-                    notif.Icon = new System.Drawing.Icon(@"../../ressources/Icones/icones ico/logo_white.ico");
-                    notif.ShowBalloonTip(5000, "Medicare", "Vous avez de nouvelles notifications", System.Windows.Forms.ToolTipIcon.Info);
-                }
-                else
-                {
-                    //NbNotifText.Text = "0";
-                    //NbNotif.Background = Brushes.Green;
                 }
             }
         }
+
+        
+
     }
 }

@@ -6,72 +6,12 @@
              xmlns:local="clr-namespace:MediCare"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.MenuConsultation"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Width="844" Height="646">
-    <Grid Width="844">
-        <Image Margin="-150,289,924,238" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.024" ScaleX="0.977"/>
-                    <SkewTransform AngleX="4.866"/>
-                    <RotateTransform Angle="-29.221"/>
-                    <TranslateTransform X="182.112" Y="-104.668"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="230,25,503,503" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.085" ScaleX="0.921"/>
-                    <SkewTransform AngleX="-3.637"/>
-                    <RotateTransform Angle="67.228"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="563,412,210,115" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.024" ScaleX="0.977"/>
-                    <SkewTransform AngleX="4.866"/>
-                    <RotateTransform Angle="-29.221"/>
-                    <TranslateTransform X="182.112" Y="-104.668"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="49,513,703,18" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0.495"/>
-                    <RotateTransform Angle="-2.36"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="819,-3,-42,553" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.071" ScaleX="0.934"/>
-                    <SkewTransform AngleX="4.779"/>
-                    <RotateTransform Angle="-56.964"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="701,516,94,56" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.071" ScaleX="0.935"/>
-                    <SkewTransform AngleY="-5.876"/>
-                    <RotateTransform Angle="-125.332"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+             d:DesignHeight="300" d:DesignWidth="300" Width="1072" Height="548">
+    <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
-        <Button x:Name="ConsultBTN1" Content="AJOUT" HorizontalAlignment="Left" Height="74" Margin="314,168,0,0" VerticalAlignment="Top" Width="248" Click="ConsultBTN1_Click" Background="#FF77B3B4"/>
-        <Button x:Name="ConsultBTN2" Content="SUIVI" HorizontalAlignment="Left" Height="74" Margin="314,272,0,0" VerticalAlignment="Top" Width="248" Click="ConsultBTN2_Click" Background="#FF77B3B4"/>
-        <Button x:Name="ConsultBTN3" Content="HISTORIQUE" HorizontalAlignment="Left" Height="74" Margin="314,380,0,0" VerticalAlignment="Top" Width="248" Background="#FF77B3B4"/>
+        <Button x:Name="ConsultBTN1" Content="AJOUT" HorizontalAlignment="Left" Height="74" Margin="138,122,0,0" VerticalAlignment="Top" Width="248" Click="ConsultBTN1_Click" Background="#FF77B3B4"/>
+        <Button x:Name="ConsultBTN2" Content="SUIVI" HorizontalAlignment="Left" Height="74" Margin="648,122,0,0" VerticalAlignment="Top" Width="248" Click="ConsultBTN2_Click" Background="#FF77B3B4"/>
+        <Button x:Name="ConsultBTN3" Content="HISTORIQUE" HorizontalAlignment="Left" Height="74" Margin="398,295,0,0" VerticalAlignment="Top" Width="248" Background="#FF77B3B4"/>
 
     </Grid>
 </UserControl>

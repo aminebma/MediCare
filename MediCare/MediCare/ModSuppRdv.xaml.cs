@@ -109,7 +109,7 @@ namespace MediCare
         private void ModifBtn_Click(object sender, RoutedEventArgs e)
         {
             bool checkDate = false,
-               checkTime = false;
+                checkTime = false;
             int realHour = 0;
             if (NewDateT.Text == "" || OldDateT.Text == "" || heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" || nomPatientT.Text == "" || prenomPatientT.Text == "")
             {

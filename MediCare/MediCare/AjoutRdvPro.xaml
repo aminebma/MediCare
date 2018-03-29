@@ -1,89 +1,28 @@
-﻿<Window
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<UserControl
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MediCare"
-             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="addRdvPro" x:Class="MediCare.AjoutRdvPro"
-             mc:Ignorable="d" Height="505.149" Width="646.063">
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="AjoutRdvPro1" x:Class="MediCare.AjoutRdvPro"
+             mc:Ignorable="d" Height="548" Width="1072">
     <Grid Margin="0,0,2,-1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Image Margin="-166,254,747,152" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.029" ScaleX="0.972"/>
-                    <SkewTransform AngleX="5.796"/>
-                    <RotateTransform Angle="-28.778"/>
-                    <TranslateTransform X="182.112" Y="-104.668"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="243,65,307,342" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.102" ScaleX="0.907"/>
-                    <SkewTransform AngleX="-4.333"/>
-                    <RotateTransform Angle="66.853"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="380,348,201,59" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.029" ScaleX="0.972"/>
-                    <SkewTransform AngleX="5.796"/>
-                    <RotateTransform Angle="-28.778"/>
-                    <TranslateTransform X="182.112" Y="-104.668"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="83,380,483,29" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0.59"/>
-                    <RotateTransform Angle="-2.317"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="530,83,54,341" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.084" ScaleX="0.922"/>
-                    <SkewTransform AngleX="5.689"/>
-                    <RotateTransform Angle="-56.486"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="439,338,160,101" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.084" ScaleX="0.924"/>
-                    <SkewTransform AngleY="-6.883"/>
-                    <RotateTransform Angle="-124.842"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button x:Name="addBtn" Content="Ajouter" HorizontalAlignment="Center" Height="53" Margin="447,390,0,0" Width="150" Click="addBtn_Click" FontFamily="Century Gothic" Background="#FF77B3B4"/>
-        <StackPanel HorizontalAlignment="Left" Height="59.723" VerticalAlignment="Top" Width="639.063" Background="#FF77B3B4" Grid.ColumnSpan="2" Margin="0,0,-3,0">
+        <Button x:Name="addBtn" Content="Ajouter" HorizontalAlignment="Center" Height="53" Margin="807,456,113,40" Width="150" Click="addBtn_Click" FontFamily="Century Gothic" Background="#FF77B3B4"/>
+        <StackPanel VerticalAlignment="Top" Background="#FF77B3B4" Grid.ColumnSpan="2" Margin="0">
             <Label Content="Ajout rendez Vous Pro" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center" Width="281" FontFamily="Century Gothic" FontSize="24" Foreground="#DDFFFFFF" Margin="179,0"/>
         </StackPanel>
-        <Label x:Name="heuresL" Content="Heure*" HorizontalAlignment="Left" Height="34.458" Margin="218.759,206.78,0,0" VerticalAlignment="Top" Width="71.955" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="minutesL" Content="Minutes*" HorizontalAlignment="Left" Height="37" Margin="201,266,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.484,3.516"/>
-        <Label x:Name="nomPatientL" Content="Nom*" HorizontalAlignment="Left" Height="38" Margin="24,83,0,0" VerticalAlignment="Top" Width="70" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.58,1.606"/>
-        <CheckBox x:Name="isImportant" Content="Important" HorizontalAlignment="Left" Height="53" Margin="291,372,0,0" VerticalAlignment="Top" Width="107" FontFamily="Century Gothic" Foreground="#FF3C5859" FontWeight="Bold" FontSize="16" Background="{x:Null}" BorderBrush="#FF3C5859"/>
-        <TextBox x:Name="notesT" HorizontalAlignment="Left" Height="194.128" Margin="418.566,131.267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194.982" BorderBrush="#FF673AB7" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
-        <Label x:Name="notesL" Content="Notes" HorizontalAlignment="Left" Height="34.856" Margin="485.766,325.395,0,0" VerticalAlignment="Top" Width="66.5" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859"/>
-        <TextBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="31.993" Margin="117.725,126.187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229.183" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" TextChanged="prenomPatientT_TextChanged"/>
-        <Label x:Name="prenomPatientL" Content="Prenom*" HorizontalAlignment="Left" Height="34" Margin="24,126,0,0" VerticalAlignment="Top" Width="89" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859"/>
-        <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="290.714,206.78,0,0" Width="95.992" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35.073" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
+        <Label x:Name="heuresL" Content="Heure*" HorizontalAlignment="Left" Height="34" Margin="403,278,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="minutesL" Content="Minutes*" HorizontalAlignment="Left" Height="37" Margin="385,337,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.484,3.516"/>
+        <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="37" Margin="155,110,0,0" VerticalAlignment="Top" Width="231" PreviewTextInput="nomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False"/>
+        <Label x:Name="nomPatientL" Content="Nom*" HorizontalAlignment="Left" Height="38" Margin="64,110,0,0" VerticalAlignment="Top" Width="66" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.58,1.606"/>
+        <CheckBox x:Name="isImportant" Content="Important" HorizontalAlignment="Left" Height="53" Margin="475,443,0,0" VerticalAlignment="Top" Width="107" FontFamily="Century Gothic" Foreground="#FF3C5859" FontWeight="Bold" FontSize="16" Background="{x:Null}" BorderBrush="#FF3C5859"/>
+        <TextBox x:Name="notesT" HorizontalAlignment="Left" Height="195" Margin="792,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" BorderBrush="#FF673AB7" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
+        <Label x:Name="notesL" Content="Notes" HorizontalAlignment="Left" Height="35" Margin="859,280,0,0" VerticalAlignment="Top" Width="66" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859"/>
+        <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,278,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="74"/>
@@ -97,14 +36,14 @@
             <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="74"/>
         </ComboBox>
-        <Label x:Name="ampmL" Content="AM/PM*" HorizontalAlignment="Left" Height="41" Margin="208,325,0,0" VerticalAlignment="Top" Width="83" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.472,0.545"/>
-        <ComboBox x:Name="ampmBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="291,325,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="14" Foreground="#FF7C5223" >
+        <Label x:Name="ampmL" Content="AM/PM*" HorizontalAlignment="Left" Height="41" Margin="392,396,0,0" VerticalAlignment="Top" Width="83" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.472,0.545"/>
+        <ComboBox x:Name="ampmBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,396,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="14" Foreground="#FF7C5223" >
             <ComboBoxItem Content="AM" HorizontalAlignment="Left" Width="75"/>
             <ComboBoxItem Content="PM" HorizontalAlignment="Left" Width="75"/>
         </ComboBox>
-        <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="18,266,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput"/>
-        <Label x:Name="dateL" Content="Date*" HorizontalAlignment="Left" Height="34" Margin="17,214,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
-        <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="291,266,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
+        <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="108,322,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput"/>
+        <Label x:Name="dateL" Content="Date*" HorizontalAlignment="Left" Height="34" Margin="147,275,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
+        <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,337,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
             <ComboBoxItem Content="0" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
@@ -166,8 +105,7 @@
             <ComboBoxItem Content="58" HorizontalAlignment="Left" Width="74"/>
             <ComboBoxItem Content="59" HorizontalAlignment="Left" Width="74"/>
         </ComboBox>
-        <TextBlock x:Name="patientsT" HorizontalAlignment="Left" Height="113" Margin="24,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
-        <local:AgendaMenu HorizontalAlignment="Left" Height="100" Margin="-98,214,0,0" VerticalAlignment="Top" Width="100"/>
-        <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="38" Margin="118,83,0,0" VerticalAlignment="Top" Width="229" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False"/>
+        <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="37" Margin="520,110,0,0" VerticalAlignment="Top" Width="210" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False"/>
+        <Label x:Name="prenomPatientL" Content="Prenom*" HorizontalAlignment="Left" Height="38" Margin="403,110,0,0" VerticalAlignment="Top" Width="92" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.58,1.606"/>
     </Grid>
-</Window>
+</UserControl>

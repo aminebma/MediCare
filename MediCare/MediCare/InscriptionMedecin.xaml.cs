@@ -32,9 +32,14 @@ namespace MediCare
         {
             if (num_tel.Text.Length == 10)
             {
+                Globals.NomMedecin = nom.Text;
+                Globals.PrenomMedecin = prenom.Text;
                 med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Text);
                 MessageBox.Show("Le medecin a été inséré ! ");
                 MenuPrincipal t = new MenuPrincipal();
+                Globals.ListPatients = (from patient in Globals.DataClass.Patient
+                                        join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+                                        select personne).ToList<Personne>();
                 t.Show();
                 this.Close();
             }

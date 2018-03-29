@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
         mc:Ignorable="d"
-        Title="ModifMed" Height="390" Width="470">
+        Title="ModifMed" Height="400" Width="650">
     <Grid Margin="0,0,0,-4">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="Password" HorizontalAlignment="Left" Height="29" Margin="38,123,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <TextBox x:Name="username2"  HorizontalAlignment="Left" Height="36" Margin="147,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Username" HorizontalAlignment="Left" Height="34" Margin="37,52,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Button Content="Modifier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="318,258,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
-        <TextBox x:Name="password2" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="173" Margin="147,109,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
-        <Image Margin="12,154,362,129" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
+        <Label Content="Password" HorizontalAlignment="Left" Height="29" Margin="38,165,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <TextBox x:Name="username2"  HorizontalAlignment="Left" Height="36" Margin="147,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Username" HorizontalAlignment="Left" Height="31" Margin="37,94,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="465,258,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
+        <TextBox x:Name="password2" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="173" Margin="147,151,0,0" BorderBrush="#FF3597CC" Foreground="#FF3599CC" BorderThickness="0,0,0,3"/>
+        <Image Margin="124,216,412,56" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -25,7 +25,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="194,123,212,158" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
+        <Image Margin="216,196,372,104" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -41,7 +41,7 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
-        <Image Margin="147,339,255,-30" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+        <Image Margin="327,321,259,-7" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

@@ -4,14 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="MediCare.AjoutConsultation"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.AjoutConsultation"
         mc:Ignorable="d"
         Title="Consultation" Height="772.5" Width="1107.5">
-    <Grid Margin="0,-12,0,12" Background="White" RenderTransformOrigin="0.64,0.508">
+    <Grid Margin="0,-12,0,0" Background="White" RenderTransformOrigin="0.48,0.496">
         <Grid.RowDefinitions>
             <RowDefinition Height="83*"/>
             <RowDefinition Height="658*"/>
         </Grid.RowDefinitions>
+        <Image Margin="673,234,379,348" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" Grid.Row="1" RenderTransformOrigin="-6.604,3.328"/>
+        <Image Margin="230,394,799,196" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" Grid.Row="1" RenderTransformOrigin="3.282,0.241"/>
         <Image Margin="28,167,1028,423" Grid.Row="1" Source="ressources/images/bulles_2.PNG" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -31,28 +34,32 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
-        <TextBox x:Name="nomMedecinT" Height="40" Margin="268,116,604,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
-        <TextBox x:Name="prenomMedecinT" Height="40" Margin="266,204,603,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
-        <TextBox x:Name="medicamentT" HorizontalAlignment="Left" Height="40" Margin="744,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1" RenderTransformOrigin="0.448,-5.488"/>
-        <TextBox x:Name="doseT" HorizontalAlignment="Left" Height="40" Margin="746,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
-        <TextBox x:Name="radioT" Height="34" Margin="265,603,641,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" BorderBrush="#FF6A97AC" CaretBrush="#FF6A97AC" SelectionBrush="#FF6A94A8" Grid.Row="1"/>
-        <TextBox x:Name="certificatT" HorizontalAlignment="Left" Height="47" Margin="754,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" SelectionBrush="#FF688A9A" BorderBrush="#FF6A97AC" CaretBrush="#FF6A97AC" Grid.Row="1"/>
-        <TextBox x:Name="lettreT" HorizontalAlignment="Left" Height="40" Margin="752,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" SelectionBrush="#FF688A9A" BorderBrush="#FF6A97AC" CaretBrush="#FF6A97AC" Grid.Row="1"/>
-        <TextBox x:Name="scannerT" HorizontalAlignment="Left" Height="36" Margin="754,454,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
-        <TextBox x:Name="bilanT" HorizontalAlignment="Left" Height="39" Margin="762,508,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
-        <Label x:Name="NomMedecin" Content="Nom du Médecin :" HorizontalAlignment="Left" Height="42" Margin="68,128,0,0" VerticalAlignment="Top" Width="174" FontSize="18" FontFamily="Century Gothic" RenderTransformOrigin="0.497,-0.845" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="PrenomMedecin" Content="Prénom du Médecin:" HorizontalAlignment="Left" Height="42" Margin="68,213,0,0" VerticalAlignment="Top" Width="192" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Diagnostic" Content="Diagnostic :" HorizontalAlignment="Left" Height="42" Margin="56,385,0,0" VerticalAlignment="Top" Width="192" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Description" Content="Description :" HorizontalAlignment="Left" Height="42" Margin="50,519,0,0" VerticalAlignment="Top" Width="192" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Medicament" Content="Médicament :" HorizontalAlignment="Left" Height="42" Margin="563,47,0,0" VerticalAlignment="Top" Width="192" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Dose" Content="Dose :" HorizontalAlignment="Left" Height="42" Margin="568,131,0,0" VerticalAlignment="Top" Width="146" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Indication" Content="Indication :" HorizontalAlignment="Left" Height="42" Margin="562,216,0,0" VerticalAlignment="Top" Width="138" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Certificat" Content="Certificat :" HorizontalAlignment="Left" Height="31" Margin="564,331,0,0" VerticalAlignment="Top" Width="158" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Lettre" Content="Lettre :" HorizontalAlignment="Left" Height="31" Margin="568,392,0,0" VerticalAlignment="Top" Width="151" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Scanner" Content="Scanner :" HorizontalAlignment="Left" Height="31" Margin="568,447,0,0" VerticalAlignment="Top" Width="139" FontSize="18" FontFamily="Century Gothic" Background="{x:Null}" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Bilan" Content="Bilan :" HorizontalAlignment="Left" Height="32" Margin="566,531,0,0" VerticalAlignment="Top" Width="136" FontSize="18" FontFamily="Century Gothic" Background="{x:Null}" Grid.Row="1" FontWeight="Bold"/>
-        <Label x:Name="Radio" Content="Radio :" HorizontalAlignment="Left" Height="36" Margin="47,585,0,0" VerticalAlignment="Top" Width="182" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
-        <Button x:Name="Add_Consultation" Content="Ajouter" HorizontalAlignment="Left" Height="46" Margin="922,619,0,-7" VerticalAlignment="Top" Width="154" FontWeight="Bold" FontFamily="Century Gothic" FontSize="24" Background="#FFADA49F" Click="Add_Consultation_Click" Foreground="#FF000003" Grid.Row="1"/>
+        <TextBox x:Name="doseT" materialDesign:HintAssist.Hint="Dose" HorizontalAlignment="Left" Height="40" Margin="282,390,0,0" TextWrapping="Wrap"  BorderThickness="0,0,0,3" VerticalAlignment="Top" Width="104" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1" Foreground="Black"/>
+        <TextBox x:Name="radioT" Height="42" Margin="890,274,90,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,3" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" BorderBrush="#FF6A97AC" CaretBrush="#FF6A97AC" SelectionBrush="#FF6A94A8" Grid.Row="1" Width="120"/>
+        <TextBox x:Name="certificatT" HorizontalAlignment="Left" Height="42" Margin="891,38,0,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" SelectionBrush="#FF688A9A" BorderBrush="#FF6A97AC" CaretBrush="#FF6A97AC" Grid.Row="1"/>
+        <TextBox x:Name="lettreT" HorizontalAlignment="Left" Height="42" Margin="888,114,0,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" SelectionBrush="#FF688A9A" BorderBrush="#FF6A97AC" CaretBrush="#FF6A97AC" Grid.Row="1"/>
+        <TextBox x:Name="scannerT" HorizontalAlignment="Left" Height="42" Margin="889,198,0,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
+        <TextBox x:Name="bilanT" HorizontalAlignment="Left" Height="42" Margin="888,436,0,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
+        <Label x:Name="Diagnostic" Content="Diagnostic * :" HorizontalAlignment="Left" Height="42" Margin="8,156,0,0" VerticalAlignment="Top" Width="160" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="Description" Content="Description :" HorizontalAlignment="Left" Height="42" Margin="8,258,0,0" VerticalAlignment="Top" Width="160" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="Medicament" Content="Médicament * :" HorizontalAlignment="Left" Height="42" Margin="8,354,0,0" VerticalAlignment="Top" Width="160" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="Dose" Content="Dose * :" HorizontalAlignment="Left" Height="42" Margin="280,352,0,0" VerticalAlignment="Top" Width="80" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="Indication" Content="Indication :" HorizontalAlignment="Left" Height="42" Margin="426,354,0,0" VerticalAlignment="Top" Width="120" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="Certificat" Content="Certificat :" HorizontalAlignment="Left" Height="42" Margin="711,54,0,0" VerticalAlignment="Top" Width="120" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="Lettre" Content="Lettre :" HorizontalAlignment="Left" Height="42" Margin="710,134,0,0" VerticalAlignment="Top" Width="120" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="Scanner" Content="Scanner :" HorizontalAlignment="Left" Height="42" Margin="710,214,0,0" VerticalAlignment="Top" Width="120" FontSize="18" FontFamily="Century Gothic" Background="{x:Null}" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="Bilan" Content="Bilan :" HorizontalAlignment="Left" Height="42" Margin="708,295,0,0" VerticalAlignment="Top" Width="120" FontSize="18" FontFamily="Century Gothic" Background="{x:Null}" Grid.Row="1" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.015"/>
+                    <RotateTransform Angle="0.268"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="Radio" Content="Radio :" HorizontalAlignment="Left" Height="42" Margin="712,454,0,0" VerticalAlignment="Top" Width="120" FontSize="18" FontFamily="Century Gothic" Grid.Row="1" FontWeight="Bold"/>
+        <Button x:Name="Add_Consultation" Content="Ajouter" HorizontalAlignment="Left" Height="46" Margin="883,590,0,0" VerticalAlignment="Top" Width="154" FontWeight="Bold" FontFamily="Century Gothic" FontSize="24" Background="#FF6A97AC" Click="Add_Consultation_Click" Foreground="#FF000003" Grid.Row="1"/>
         <StackPanel HorizontalAlignment="Left" Height="88" Margin="-2,-3,-1,0" VerticalAlignment="Top" Width="1103" Background="#FF6A97AC" Grid.RowSpan="2">
             <Label  Width="335" FontSize="48" FontFamily="Century Gothic" Foreground="White" Height="84" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Consultation :" Margin="0"/>
         </StackPanel>
@@ -73,8 +80,6 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
-        <Image Margin="673,234,379,348" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" Grid.Row="1" RenderTransformOrigin="-6.604,3.328"/>
-        <Image Margin="230,394,799,196" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" Grid.Row="1" RenderTransformOrigin="3.282,0.241"/>
         <Image Margin="1015,18,26,574" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" Grid.Row="1" RenderTransformOrigin="0.515,1.012">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -95,15 +100,51 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button x:Name="AjouterTraitement" Content="+" HorizontalAlignment="Left" Height="45" Margin="1014,247,0,0" Grid.Row="1" VerticalAlignment="Top" Width="52" Background="#FFADA49F" FontSize="24" Click="AjouterTraitement_Click" RenderTransformOrigin="0.505,0.417"/>
-        <Button Content="+" HorizontalAlignment="Left" Height="42" Margin="471,597,0,0" Grid.Row="1" VerticalAlignment="Top" Width="52" Background="#FFADA49F" FontSize="24" Click="Button_Click"/>
-        <Label x:Name="Ordo" Content="Ordonnance :" HorizontalAlignment="Left" Height="36" Margin="565,573,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="ordoT" HorizontalAlignment="Left" Height="40" Margin="770,559,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" FontSize="18" FontFamily="Century Gothic"/>
-        <TextBox x:Name="labelT" Height="40" Margin="265,34,604,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FFADA49F" BorderBrush="#FF6A94A8" CaretBrush="#FF6990A1" SelectionBrush="#FF6A97AC" mah:TextBoxHelper.AutoWatermark="True" mah:TextBoxHelper.Watermark="Nom du Patient" Grid.Row="1"/>
-        <Label x:Name="NomPatient_Copy" Content="Label :" HorizontalAlignment="Left" Height="42" Margin="68,44,0,0" VerticalAlignment="Top" Width="160" FontSize="18" RenderTransformOrigin="0.906,-0.274" FontFamily="Century Gothic" Background="{x:Null}" FontWeight="Bold" Grid.Row="1"/>
-        <TextBox x:Name="diagnosticT" Height="119" Margin="266,300,604,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
-        <TextBox x:Name="descriptionT" Height="119" Margin="266,444,604,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
-        <TextBox x:Name="indicationT" Height="119" Margin="753,177,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
+        <TextBox x:Name="medicamentT"  materialDesign:HintAssist.Hint="Medicament" Height="42" Margin="14,387,862,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="Ordo" Content="Ordonnance :" HorizontalAlignment="Left" Height="40" Margin="708,374,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="ordoT" HorizontalAlignment="Left" Height="42" Margin="888,356,0,0" Grid.Row="1" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Width="120" FontSize="18" FontFamily="Century Gothic"/>
+        <TextBox x:Name="labelT" materialDesign:HintAssist.Hint="Label" Height="40" Margin="242,40,626,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" Foreground="Black" BorderBrush="#FF77B3B4" CaretBrush="#FF6990A1" SelectionBrush="#FF4A87A4" mah:TextBoxHelper.AutoWatermark="True" mah:TextBoxHelper.Watermark="Nom du Patient" Grid.Row="1" RenderTransformOrigin="0.355,0.937" Cursor="Arrow"/>
+        <Label x:Name="NomPatient_Copy" Content="Label * :" HorizontalAlignment="Left" Height="42" Margin="7,53,0,0" VerticalAlignment="Top" Width="160" FontSize="18" RenderTransformOrigin="0.906,-0.274" FontFamily="Century Gothic" Background="{x:Null}" FontWeight="Bold" Grid.Row="1"/>
+        <TextBox x:Name="diagnosticT"  materialDesign:HintAssist.Hint="Diagnostic" Height="81" Margin="242,101,541,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF77B3B4" Grid.Row="1" OpacityMask="#FF6A97AC"/>
+        <TextBox x:Name="descriptionT"  materialDesign:HintAssist.Hint="Description" Height="82" Margin="243,199,540,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF77B3B4" Grid.Row="1" Width="317"/>
+        <TextBox x:Name="indicationT"  materialDesign:HintAssist.Hint="Indication" Height="42" Margin="427,389,509,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
+        <DataGrid x:Name="DataGridTrait" Margin="6,462,451,24" ItemsSource="{Binding Treatement}" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False"   materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Traitement}" Header="Traitement"  EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"/>
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding Medicament}" Header="Medicament" MaxLength="255" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding Dose}" Header="Dose" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" >
+                    
+                    <materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right"  />
+                        </Style>
+                    </materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                </materialDesign:MaterialDataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Indication}" Header="Indication" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="DimGray" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Edit" />
+                    <MenuItem Header="Delete" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            
+            
+        </DataGrid>
+        <Button x:Name="AjouterTraitement" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}" materialDesign:ShadowAssist.ShadowDepth="Depth4" Click="AjouterTraitement_Click" RenderTransformOrigin="-0.577,1.848" Margin="600,402,440,215" Grid.Row="1" Background="#FF768790" FontSize="20" Height="Auto" Width="Auto">+</Button>
+        <Button x:Name="AjouterRadio"  Content="+" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}" materialDesign:ShadowAssist.ShadowDepth="Depth4" HorizontalAlignment="Left"  RenderTransformOrigin="-0.577,1.848" Margin="1035,448,0,0" Grid.Row="1" VerticalAlignment="Top" Background="#FF768790" Click="AjouterRadio_Click" FontSize="20" Height="52" Width="60"/>
+        
+        
+        
     </Grid>
 </Window>
 

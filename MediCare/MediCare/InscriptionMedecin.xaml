@@ -8,14 +8,18 @@
       Title="Medecin2" Height="442" Width="642">
 
     <Grid Background="White" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270*"/>
+            <ColumnDefinition Width="47*"/>
+        </Grid.ColumnDefinitions>
         <TextBox x:Name="nom" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Nom " VerticalAlignment="Top" Width="145" Margin="297,42,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="prenom" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Prenom" VerticalAlignment="Top" Width="145" Margin="479,42,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="prenom" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Prenom" VerticalAlignment="Top" Width="145" Margin="479,42,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" Grid.ColumnSpan="2"/>
         <TextBox x:Name="adresse" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="144" Margin="296,97,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="num_tel" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="Numéro de Tel" VerticalAlignment="Top" Width="144" Margin="480,97,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="clef" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Clé d'activation" VerticalAlignment="Top" Width="144" Margin="474,223,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <Button Content="S'inscrire" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="467,328,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="Button_Click"/>
-        <Image Margin="562,0,31,354" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
-        <Image Margin="388,328,199,8" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="num_tel" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="Numéro de Tel" VerticalAlignment="Top" Width="144" Margin="480,97,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="clef" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Clé d'activation" VerticalAlignment="Top" Width="144" Margin="474,223,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" Grid.ColumnSpan="2"/>
+        <Button Content="S'inscrire" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="467,328,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Image Margin="21.642,0,31,354" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5" Grid.Column="1"/>
+        <Image Margin="388,328,105.358,8" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -25,13 +29,13 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Margin="258,182,317,175" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="258,182,223.358,175" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5"/>
         <DockPanel HorizontalAlignment="Left" Height="413" LastChildFill="False" VerticalAlignment="Top" Width="253" Background="#FF77B3B4" Margin="0,0,0,-2"/>
-        <Image Margin="2,139,387,160" Source="ressources/images/medicare_blue.PNG" Stretch="Fill"/>
-        <TextBox x:Name="username" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Nom utilisateur" VerticalAlignment="Top" Width="144" Margin="479,155,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <Image Margin="2,139,293.358,160" Source="ressources/images/medicare_blue.PNG" Stretch="Fill"/>
+        <TextBox x:Name="username" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Nom utilisateur" VerticalAlignment="Top" Width="144" Margin="479,155,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" Grid.ColumnSpan="2"/>
         <TextBox x:Name="password" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Mot de passe" VerticalAlignment="Top" Width="144" Margin="296,259,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
         <DatePicker x:Name="date_naiss" HorizontalAlignment="Left" Height="30" Margin="297,152,0,0" VerticalAlignment="Top" Width="138"/>
-        <ComboBox x:Name="sex" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="472,266,0,0" Width="148" Background="White" BorderBrush="#FF3599CC" Height="26" FontFamily="Century Gothic" FontSize="14" Foreground="#FF3599CC" >
+        <ComboBox x:Name="sex" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="472,266,0,0" Width="148" Background="White" BorderBrush="#FF3599CC" Height="26" FontFamily="Century Gothic" FontSize="14" Foreground="#FF3599CC" Grid.ColumnSpan="2" >
             <ComboBoxItem Content="homme" HorizontalAlignment="Left" Width="100"/>
             <ComboBoxItem Content="femme" HorizontalAlignment="Left" Width="100" Foreground="#FF3599CC"/>
         </ComboBox>

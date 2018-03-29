@@ -60,7 +60,7 @@ namespace MediCare
             else
             {
                 if (Prenompatient.Text == "") patients = pat.RechercherPatientNom(Nompatient.Text);
-                else patients = pat.RechercherPatient(Nompatient.Text, Prenompatient.Text);
+                else patients = pat.RechercherPatient(Nompatient.Text+" "+Prenompatient.Text);
                 patientsT.Text = "";
                 foreach (Personne p in patients)
                 {
@@ -76,7 +76,7 @@ namespace MediCare
             else
             {
                 if (Nompatient.Text == "") patients = pat.RechercherPatientPrenom(Prenompatient.Text);
-                else patients = pat.RechercherPatient(Nompatient.Text, Prenompatient.Text);
+                else patients = pat.RechercherPatient(Nompatient.Text+" "+Prenompatient.Text);
                 patientsT.Text = "";
                 foreach (Personne p in patients)
                 {

@@ -27,14 +27,18 @@ namespace MediCare
 
         private void AjtRDVpro_Click(object sender, RoutedEventArgs e)
         {
-            AjoutRdvPro RDVPRO = new AjoutRdvPro();
-            RDVPRO.Show();
+            var parent = (Grid)this.Parent;
+            UserControl usc = new AjoutRdvPro();
+            parent.Children.Clear();
+            parent.Children.Add(usc);
         }
 
         private void AjtRDVPersBtn_click(object sender, RoutedEventArgs e)
         {
-            AjoutRdvPerso RDVPERSO = new AjoutRdvPerso();
-            RDVPERSO.Show();
+            var parent = (Grid)this.Parent;
+            UserControl usc = new AjoutRdvPerso();
+            parent.Children.Clear();
+            parent.Children.Add(usc);
         }
 
         private void ModifRdv_Btn_Click(object sender, RoutedEventArgs e)

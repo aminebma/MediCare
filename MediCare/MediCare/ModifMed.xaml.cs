@@ -27,7 +27,7 @@ namespace MediCare
         Medecin2 med = new Medecin2();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           bool verif= med.VerifMed(password2.Text, username2.Text);
+            bool verif= med.VerifMed(username2.Text, password2.Text);
             if ( verif == false)
             {
                 MessageBox.Show("Vos données sont erronées ! Veuillez les resaisir  ");

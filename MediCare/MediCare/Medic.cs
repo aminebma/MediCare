@@ -13,9 +13,7 @@ namespace MediCare
         public List<String> medoc = new List<String>();
         public Medic()
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<Medicaments> ListMed = from nomMed in dataClass.Medicaments
+            IQueryable<Medicaments> ListMed = from nomMed in Globals.DataClass.Medicaments
                                               select nomMed;
             foreach ( Medicaments p in ListMed )
             {

@@ -17,12 +17,12 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour AjoutRdvPerso.xaml
     /// </summary>
-    public partial class AjoutRdvPerso : Window
+    public partial class AjoutRdvPerso : UserControl
     {
         public AjoutRdvPerso()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+           
         }
         
         Agenda rdv = new Agenda();

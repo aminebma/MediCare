@@ -19,31 +19,31 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour AjoutRdvPro.xaml
     /// </summary>
-    public partial class AjoutRdvPro : Window
+    public partial class AjoutRdvPro : UserControl
     {
-        MCDataClassDataContext dataClass = new MCDataClassDataContext($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True");
-        List<Personne> listPatients,listPatientsTmp;
-        
+
+        List<Personne> listPatientsTmp;
+
         public AjoutRdvPro()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            listPatients = (from patient in dataClass.Patient
-                           join personne in dataClass.Personne on patient.IdPersonne equals personne.Id
-                           select personne).ToList<Personne>();
-            foreach(Personne patient in listPatients)
-                nomPatientT.Items.Add(patient.nom+" "+patient.prenom); 
+            foreach (Personne patient in Globals.ListPatients)
+            {
+                nomPatientT.Items.Add(patient.nom);
+                prenomPatientT.Items.Add(patient.prenom);
+            }
+                
         }
 
         //List<string> caract = new List<string> { ",", ".", ":", ";", "!", "*", "$", "/", "?", "+", "_", "=", "§", "<", ">", "{", "}", "[", "]", "(", ")", "'", "\"", "&", "²", "@", "|", "#", "£", "µ", "%", "€", "¤" };
         Agenda rdv = new Agenda();
-        List<Personne> patients;
+        //List<Personne> patients;
         Regex charControl = new Regex(@"[A-Za-z]+");
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             bool checkDate = false,
-                 checkTime = false;
+                checkTime = false;
             int realHour = 0;
             if (dateT.Text == "" || heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" || prenomPatientT.Text == "" || nomPatientT.Text == "")
             {
@@ -65,7 +65,7 @@ namespace MediCare
                     minutesL.Foreground = Brushes.Black;
                     try
                     {
-                        if (rdv.AddRdv(DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"), Globals.IdMedecin, nomPatientT.Text.ToUpper(), prenomPatientT.Text.ToUpper(), (bool)isImportant.IsChecked, notesT.Text)) MessageBox.Show("Rendez-vous ajouté avec succés !");
+                        if (rdv.AddRdv(DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"), Globals.IdMedecin, nomPatientT.Text, prenomPatientT.Text, (bool)isImportant.IsChecked, notesT.Text)) MessageBox.Show("Rendez-vous ajouté avec succés !");
                         else MessageBox.Show("Vous avez déjà un rendez-vous à cette date");
                     }
                     catch (Exception)
@@ -123,44 +123,49 @@ namespace MediCare
             e.Handled = true;
         }
 
-        //private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //if (nomPatientT.Text == "") patientsT.Text = "";
-        //else
-        //{
-        //    if(prenomPatientT.Text == "") patients = rdv.RechercherPatientNom(nomPatientT.Text);
-        //    else patients = rdv.RechercherPatient(nomPatientT.Text,prenomPatientT.Text);
-        //    patientsT.Text = "";
-        //    foreach (Personne p in patients)
-        //    {
-        //        patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
-        //    }
-        //}  
-        //}
-
-        private void prenomPatientT_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (prenomPatientT.Text == "") patientsT.Text = "";
-            else
-            {
-                if (nomPatientT.Text == "") patients = rdv.RechercherPatientPrenom(prenomPatientT.Text);
-                else patients = rdv.RechercherPatient(nomPatientT.Text, prenomPatientT.Text);
-                patientsT.Text = "";
-                foreach (Personne p in patients)
-                {
-                    patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
-                }
-            }
-        }
-
         private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)
         {
-            listPatientsTmp = rdv.RechercherPatient(listPatients, nomPatientT.Text.ToUpper());
+            //if (nomPatientT.Text == "") patientsT.Text = "";
+            //else
+            //{
+            //    if(prenomPatientT.Text == "") patients = rdv.RechercherPatientNom(nomPatientT.Text);
+            //    else patients = rdv.RechercherPatient(nomPatientT.Text,prenomPatientT.Text);
+            //    patientsT.Text = "";
+            //    foreach (Personne p in patients)
+            //    {
+            //        patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
+            //    }
+            //}  
+            if (prenomPatientT.Text == "") listPatientsTmp = rdv.RechercherPatientNom(nomPatientT.Text);
+            else listPatientsTmp = rdv.RechercherPatient(nomPatientT.Text + " " + prenomPatientT.Text);
             nomPatientT.Items.Clear();
             foreach (Personne patient in listPatientsTmp)
             {
-                nomPatientT.Items.Add(nomPatientT.Items.Add(patient.nom + " " + patient.prenom));
+                nomPatientT.Items.Add(nomPatientT.Items.Add(patient.nom));
                 if (nomPatientT.Items.Count != 0) nomPatientT.Items.RemoveAt(nomPatientT.Items.Count - 1);
+            }
+        }
+
+        private void prenomPatientT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //if (prenomPatientT.Text == "") patientsT.Text = "";
+            //else
+            //{
+            //    if (nomPatientT.Text == "") patients = rdv.RechercherPatientPrenom(prenomPatientT.Text);
+            //    else patients = rdv.RechercherPatient(nomPatientT.Text, prenomPatientT.Text);
+            //    patientsT.Text = "";
+            //    foreach (Personne p in patients)
+            //    {
+            //        patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
+            //    }
+            //}
+            if(nomPatientT.Text == "") listPatientsTmp = rdv.RechercherPatientPrenom(prenomPatientT.Text);
+            else listPatientsTmp = rdv.RechercherPatient(nomPatientT.Text+" "+prenomPatientT.Text);
+            prenomPatientT.Items.Clear();
+            foreach (Personne patient in listPatientsTmp)
+            {
+                prenomPatientT.Items.Add(prenomPatientT.Items.Add(patient.prenom));
+                if (prenomPatientT.Items.Count != 0) prenomPatientT.Items.RemoveAt(prenomPatientT.Items.Count - 1);
             }
         }
     }

@@ -5,73 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MediCare"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.AgendaMenu"
-             mc:Ignorable="d" Height="646" Width="844">
+             mc:Ignorable="d" Width="1072" Height="548">
     <Grid>
-
-        <Image Margin="-126,335,900,192" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.024" ScaleX="0.977"/>
-                    <SkewTransform AngleX="4.866"/>
-                    <RotateTransform Angle="-29.221"/>
-                    <TranslateTransform X="182.112" Y="-104.668"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="173,34,561,518" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.085" ScaleX="0.921"/>
-                    <SkewTransform AngleX="-3.637"/>
-                    <RotateTransform Angle="48.283"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="445,336,328,191" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.024" ScaleX="0.977"/>
-                    <SkewTransform AngleX="4.866"/>
-                    <RotateTransform Angle="-29.221"/>
-                    <TranslateTransform X="182.112" Y="-104.668"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="121,499,631,42" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0.495"/>
-                    <RotateTransform Angle="-4.013"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="815,-1,-38,551" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.071" ScaleX="0.934"/>
-                    <SkewTransform AngleX="4.779"/>
-                    <RotateTransform Angle="-56.964"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="697,518,98,54" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1.071" ScaleX="0.935"/>
-                    <SkewTransform AngleY="-5.876"/>
-                    <RotateTransform Angle="-125.332"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button x:Name="AjtRDVProBtn" Content="Ajouter un rendez vous proffesionnel" HorizontalAlignment="Left" Height="86" Margin="222,112,0,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" Click="AjtRDVpro_Click" FontFamily="Century Gothic" FontSize="20"/>
-        <Button x:Name="AjtRDVPersBtn" Content="Ajouter un rendez vous personnel" HorizontalAlignment="Left" Height="86" Margin="222,232,0,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" Click="AjtRDVPersBtn_click" FontFamily="Century Gothic" FontSize="20"/>
-        <Button x:Name="ModifRdv_Btn" Content="Modifier ou Annuler un rendez vous" HorizontalAlignment="Left" Height="86" Margin="222,352,0,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" Click="ModifRdv_Btn_Click" FontFamily="Century Gothic" FontSize="20"/>
-        <Button x:Name="CsltAgdBtn" Content="Consulter mon agenda" HorizontalAlignment="Left" Height="86" Margin="222,468,0,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" FontFamily="Century Gothic" FontSize="20"/>
+        <Button x:Name="AjtRDVProBtn" Content="Ajouter un rendez vous proffesionnel" HorizontalAlignment="Center" Height="86" Margin="62,130,602,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" Click="AjtRDVpro_Click" FontFamily="Century Gothic" FontSize="20"/>
+        <Button x:Name="AjtRDVPersBtn" Content="Ajouter un rendez vous personnel" HorizontalAlignment="Center" Height="86" Margin="588,130,76,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" Click="AjtRDVPersBtn_click" FontFamily="Century Gothic" FontSize="20"/>
+        <Button x:Name="ModifRdv_Btn" Content="Modifier ou Annuler un rendez vous" HorizontalAlignment="Center" Height="86" Margin="62,325,602,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" Click="ModifRdv_Btn_Click" FontFamily="Century Gothic" FontSize="20"/>
+        <Button x:Name="CsltAgdBtn" Content="Consulter mon agenda" HorizontalAlignment="Center" Height="86" Margin="588,325,76,0" VerticalAlignment="Top" Width="408" Background="#FF77B3B4" FontFamily="Century Gothic" FontSize="20"/>
 
     </Grid>
 </UserControl>
