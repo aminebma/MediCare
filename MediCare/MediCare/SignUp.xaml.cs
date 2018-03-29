@@ -72,5 +72,29 @@ namespace MediCare
             Menu.Show();
             this.Close();
         }
+
+        private void signUpGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Globals.IdMedecin = 1;
+                MenuPrincipal Menu = new MenuPrincipal();
+                Globals.ListPatients = (from patient in Globals.DataClass.Patient
+                                        join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+                                        select personne).ToList<Personne>();
+                Menu.Show();
+                this.Close();
+            }
+        }
+
+        private void nom_MouseEnter(object sender, MouseEventArgs e)
+        {
+            nom.Focus();
+        }
+
+        private void password_MouseEnter(object sender, MouseEventArgs e)
+        {
+            password.Focus();
+        }
     }
 }
