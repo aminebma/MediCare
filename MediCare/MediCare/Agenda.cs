@@ -8,14 +8,16 @@ namespace MediCare
 {
     class Agenda
     {
-        //public Agenda(/*byte idMedecin*/)
-        //{
-        //    string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-        //    DataClassesDataContext dataClass = new DataClassesDataContext(con);
-        //    IQueryable<RendezVous> list = from p in dataClass.RendezVous
-        //                                  /*where idMedecin==p.idMedecin*/
-        //                                  select p;
-        //}
+        public List<RendezVous> listRdv;
+
+        public Agenda(byte idMedecin)
+        {
+            listRdv = (from p in Globals.DataClass.RendezVous
+                       where idMedecin == p.IdMedecin
+                       select p).ToList<RendezVous>();
+        }
+
+        public Agenda() { }
 
         List<string> mois = new List<string> { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre" };
 
@@ -31,16 +33,16 @@ namespace MediCare
 
         public bool AddRdv(DateTime date, byte idMedecin, string nomPatient, string prenomPatient, bool important, string notes)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<RendezVous> checkRdv = (from rdvCheck in dataClass.RendezVous
+            nomPatient=nomPatient.ToUpper();
+            prenomPatient=prenomPatient.ToUpper();
+            IQueryable<RendezVous> checkRdv = (from rdvCheck in Globals.DataClass.RendezVous
                                                where date == rdvCheck.Date
                                                select rdvCheck);
             if (checkRdv.Count() == 0)
             {
-                IQueryable<Patient> patientRdv = (from personne in dataClass.Personne
+                IQueryable<Patient> patientRdv = (from personne in Globals.DataClass.Personne
                                                   where nomPatient == personne.nom && prenomPatient == personne.prenom
-                                                  join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                                  join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
                                                   select patient);
                 if (patientRdv.Count() != 0)
                 {
@@ -55,8 +57,8 @@ namespace MediCare
                         Note = notes
                     };
 
-                    dataClass.RendezVous.InsertOnSubmit(rdv);
-                    dataClass.SubmitChanges();
+                    Globals.DataClass.RendezVous.InsertOnSubmit(rdv);
+                    Globals.DataClass.SubmitChanges();
 
 
                     MPRendezVous mPRdv = new MPRendezVous
@@ -66,17 +68,17 @@ namespace MediCare
                         IdRendezVous = rdv.Id
                     };
 
-                    dataClass.MPRendezVous.InsertOnSubmit(mPRdv);
-                    dataClass.SubmitChanges();
+                    Globals.DataClass.MPRendezVous.InsertOnSubmit(mPRdv);
+                    Globals.DataClass.SubmitChanges();
                 }
                 else
                 {
 
                     PersonneClasse newPatient = new PersonneClasse();
                     newPatient.AddPatientPersonne(nomPatient, prenomPatient, "01/01/1998", "Indéfini", "0123456789", "Indéfini", "170", "60", "/", "Indéfini", "Indéfini");
-                    Patient addedPatient = (from personne in dataClass.Personne
+                    Patient addedPatient = (from personne in Globals.DataClass.Personne
                                             where nomPatient == personne.nom && prenomPatient == personne.prenom
-                                            join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                            join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
                                             select patient).First<Patient>();
 
                     RendezVous rdv = new RendezVous
@@ -89,8 +91,8 @@ namespace MediCare
                         Note = notes
                     };
 
-                    dataClass.RendezVous.InsertOnSubmit(rdv);
-                    dataClass.SubmitChanges();
+                    Globals.DataClass.RendezVous.InsertOnSubmit(rdv);
+                    Globals.DataClass.SubmitChanges();
 
                     MPRendezVous mPRdv = new MPRendezVous
                     {
@@ -99,9 +101,10 @@ namespace MediCare
                         IdRendezVous = rdv.Id
                     };
 
-                    dataClass.MPRendezVous.InsertOnSubmit(mPRdv);
-                    dataClass.SubmitChanges();
+                    Globals.DataClass.MPRendezVous.InsertOnSubmit(mPRdv);
+                    Globals.DataClass.SubmitChanges();
                 }
+                //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
                 return true;
             }
             else return false;
@@ -109,9 +112,7 @@ namespace MediCare
 
         public bool AddRdv(DateTime date, byte idMedecin, string notes)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<RendezVous> checkRdv = (from rdvCheck in dataClass.RendezVous
+            IQueryable<RendezVous> checkRdv = (from rdvCheck in Globals.DataClass.RendezVous
                                                where date == rdvCheck.Date
                                                select rdvCheck);
             if (checkRdv.Count() == 0)
@@ -125,8 +126,9 @@ namespace MediCare
                     Fait = false,
                     Note = notes
                 };
-                dataClass.RendezVous.InsertOnSubmit(rdvPerso);
-                dataClass.SubmitChanges();
+                Globals.DataClass.RendezVous.InsertOnSubmit(rdvPerso);
+                Globals.DataClass.SubmitChanges();
+                //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
                 return true;
             }
             else return false;
@@ -134,115 +136,142 @@ namespace MediCare
 
         public void SuppRdv(string nomPatient, string prenomPatient)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            RendezVous rdvToDelete = (from personne in dataClass.Personne
+            nomPatient=nomPatient.ToUpper();
+            prenomPatient=prenomPatient.ToUpper();
+            RendezVous rdvToDelete = (from personne in Globals.DataClass.Personne
                                       where nomPatient == personne.nom && prenomPatient == personne.prenom
-                                      join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                      join rdv in dataClass.RendezVous on patient.Id equals rdv.IdPatient
+                                      join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
+                                      join rdv in Globals.DataClass.RendezVous on patient.Id equals rdv.IdPatient
                                       orderby rdv.Id descending
                                       select rdv).First<RendezVous>();
 
-            MPRendezVous mPRendezVous = (from rdv in dataClass.MPRendezVous
+            MPRendezVous mPRendezVous = (from rdv in Globals.DataClass.MPRendezVous
                                          where rdvToDelete.Id == rdv.IdRendezVous && rdvToDelete.IdPatient == rdv.IdPatient && rdvToDelete.IdMedecin == rdv.IdMedecin
                                          orderby rdv.Id descending
                                          select rdv).First<MPRendezVous>();
 
-            dataClass.MPRendezVous.DeleteOnSubmit(mPRendezVous);
-            dataClass.SubmitChanges();
-            dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
-            dataClass.SubmitChanges();      
+            Globals.DataClass.MPRendezVous.DeleteOnSubmit(mPRendezVous);
+            Globals.DataClass.SubmitChanges();
+            Globals.DataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
+            Globals.DataClass.SubmitChanges();
+            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
         }
 
         public void SuppRdv(DateTime date)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            RendezVous rdvToDelete = (from rdv in dataClass.RendezVous
+            RendezVous rdvToDelete = (from rdv in Globals.DataClass.RendezVous
                                       where date == rdv.Date
                                       select rdv).First<RendezVous>();
 
-            MPRendezVous mPRendezVous = (from rdv in dataClass.MPRendezVous
+            MPRendezVous mPRendezVous = (from rdv in Globals.DataClass.MPRendezVous
                                          where rdvToDelete.Id == rdv.IdRendezVous && rdvToDelete.IdPatient == rdv.IdPatient && rdvToDelete.IdMedecin == rdv.IdMedecin
                                          orderby rdv.Id descending
                                          select rdv).First<MPRendezVous>();
 
-            dataClass.MPRendezVous.DeleteOnSubmit(mPRendezVous);
-            dataClass.SubmitChanges();
-            dataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
-            dataClass.SubmitChanges();
+            Globals.DataClass.MPRendezVous.DeleteOnSubmit(mPRendezVous);
+            Globals.DataClass.SubmitChanges();
+            Globals.DataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
+            Globals.DataClass.SubmitChanges();
+            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
         }
 
         public void ModifRdv(string nomPatient, string prenomPatient, DateTime newDate)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            RendezVous rdvToModify = (from personne in dataClass.Personne
+            nomPatient=nomPatient.ToUpper();
+            prenomPatient=prenomPatient.ToUpper();
+            RendezVous rdvToModify = (from personne in Globals.DataClass.Personne
                                       where nomPatient == personne.nom && prenomPatient == personne.prenom
-                                      join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                      join rdv in dataClass.RendezVous on patient.Id equals rdv.IdPatient
+                                      join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
+                                      join rdv in Globals.DataClass.RendezVous on patient.Id equals rdv.IdPatient
                                       orderby rdv.Id descending
                                       select rdv).First<RendezVous>();
 
             rdvToModify.Date = newDate;
-            dataClass.SubmitChanges();
+            Globals.DataClass.SubmitChanges();
+            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
         }
 
         public void ModifRdv(DateTime date, DateTime newDate)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            RendezVous rdvToModify = (from rdv in dataClass.RendezVous
+            RendezVous rdvToModify = (from rdv in Globals.DataClass.RendezVous
                                       where date == rdv.Date
                                       select rdv).First<RendezVous>();
             rdvToModify.Date = newDate;
-            dataClass.SubmitChanges();
+            Globals.DataClass.SubmitChanges();
+            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
         }
 
         //public void ModifRdv(DateTime date, DateTime newDate, byte idMedecin)
         //{
         //    string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-        //    MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-        //    RendezVous rdvToModify = (from rdv in dataClass.RendezVous
+        //    RendezVous rdvToModify = (from rdv in Globals.DataClass.RendezVous
         //                              where date == rdv.Date && idMedecin == rdv.IdMedecin
         //                              select rdv).First();
         //    rdvToModify.Date = newDate;
-        //    dataClass.RendezVous.InsertOnSubmit(rdvToModify);
-        //    dataClass.SubmitChanges();
+        //    Globals.DataClass.RendezVous.InsertOnSubmit(rdvToModify);
+        //    Globals.DataClass.SubmitChanges();
         //}
+
+        public List<Personne> RechercherPatientNomBDD(string nom)
+        {
+            nom=nom.ToUpper();
+            IQueryable<Personne> patients = (from personne in Globals.DataClass.Personne
+                                             where personne.nom.Contains(nom)
+                                             join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
+                                             select personne);
+            return patients.ToList<Personne>();
+        }
 
         public List<Personne> RechercherPatientNom(string nom)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<Personne> patients = (from personne in dataClass.Personne
-                                             where personne.nom.Contains(nom)
-                                             join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+            nom=nom.ToUpper();
+            List<Personne> filtrePatient = new List<Personne>();
+            foreach (Personne patient in Globals.ListPatients)
+                if ((patient.nom).Contains(nom))
+                    filtrePatient.Add(patient);
+            return filtrePatient;
+        }
+
+        public List<Personne> RechercherPatientPrenomBDD(string prenom)
+        {
+            prenom=prenom.ToUpper();
+            IQueryable<Personne> patients = (from personne in Globals.DataClass.Personne
+                                             where personne.prenom.Contains(prenom)
+                                             join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
                                              select personne);
             return patients.ToList<Personne>();
         }
 
-        public List<Personne> RechercherPatientPrenom(string nom)
+        public List<Personne> RechercherPatientPrenom(string prenom)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<Personne> patients = (from personne in dataClass.Personne
-                                             where personne.prenom.Contains(nom)
-                                             join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
-                                             select personne);
-            return patients.ToList<Personne>();
+            prenom=prenom.ToUpper();
+            List<Personne> filtrePatient = new List<Personne>();
+            foreach (Personne patient in Globals.ListPatients)
+                if ((patient.prenom).Contains(prenom))
+                    filtrePatient.Add(patient);
+            return filtrePatient;
         }
 
-        public List<Personne> RechercherPatient(string nom, string prenom)
+        public List<Personne> RechercherPatientBDD(string nom, string prenom)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Directory.GetCurrentDirectory()}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<Personne> patients = (from personne in dataClass.Personne
+            nom=nom.ToUpper();
+            prenom=prenom.ToUpper();
+            IQueryable<Personne> patients = (from personne in Globals.DataClass.Personne
                                              where personne.nom.Contains(nom) && personne.prenom.Contains(prenom)
-                                             join patient in dataClass.Patient on personne.Id equals patient.IdPersonne
+                                             join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
                                              select personne);
             return patients.ToList<Personne>();
         }
 
+        public List<Personne> RechercherPatient(string nom)
+        {
+            nom=nom.ToUpper();
+            List<Personne> filtrePatient = new List<Personne>();
+            foreach (Personne patient in Globals.ListPatients)
+                if ((patient.nom+" "+patient.prenom).Contains(nom))
+                    filtrePatient.Add(patient);
+            return filtrePatient;
+        }
+        
     }
 }

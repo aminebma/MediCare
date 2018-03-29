@@ -39,13 +39,21 @@ namespace MediCare
                 {
                     foreach (ConsultLabel p in list)
                     {
+                        Expander expSuivi = new Expander();
+                        expSuivi.Header = p.Label + " " + p.Date;
+                        StackSuivi.Children.Add(expSuivi);
+                        consulta = consultation.AcceeConsultationId(p.Id);
+                        expSuivi.Content = consulta.Date + " " + consulta.Diagnostic + " " + consulta.Description;
+                        foreach (string d in consulta.Radio)
+                        {
+                            expSuivi.Content = expSuivi.Content + "\n" + d;
+                        }
+                        foreach (Traite d in consulta.traitement)
+                        {
+                            expSuivi.Content =expSuivi.Content + "\n" + d.NomMed + " " + d.Dose + " " + d.Indication;
 
-                        Button ButtonSuivi = new Button();
-                        ButtonSuivi.Background = Brushes.Gray;
-                        ButtonSuivi.Content = p.Label + " " + p.Date;
-                        ListSuivi.Items.Add(ButtonSuivi);
-                        ////ButtonSuivi.Click += ButtonSuivi_Click;
-                        ButtonSuivi.Click += NewMethod(p);
+                        }
+
 
                     }
 
@@ -53,41 +61,7 @@ namespace MediCare
 
             }
         }
-
-        private RoutedEventHandler NewMethod(ConsultLabel p)
-        {
-            return delegate
-            {
-                Globals.Id = p.Id;
-                consulta = consultation.AcceeConsultationId(Globals.Id);
-                consAccessT.Text = consulta.Date + " " + consulta.Diagnostic + " " + consulta.Description;
-                foreach (string d in consulta.Radio)
-                {
-                    consAccessT.Text = "\n" + d;
-                }
-                foreach (Traite d in consulta.traitement)
-                {
-                    consAccessT.Text = "\n" + d.NomMed + " " + d.Dose + " " + d.Indication;
-
-                }
-            };
-        }
-        //protected void ButtonSuivi_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //    consulta = consultation.AcceeConsultationId(Id);
-        //    TextBox consBox = new TextBox();
-
-
-        //}
-        //Button button = new Button();
-        //button.Click += new EventHandler(button_Click);
-
-        //protected void button_Click(object sender, EventArgs e)
-        //{
-        //    Button button = sender as Button;
-        //    // identify which button was clicked and perform necessary actions
-        //}
+        
     }
 }
  

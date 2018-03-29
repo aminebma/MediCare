@@ -1,251 +1,121 @@
 ﻿<Window
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MediCare"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="fenetre_principal" x:Class="MediCare.MenuPrincipal"
-             mc:Ignorable="d" Height="720" Width="1080" Background="White" WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <Storyboard x:Key="OpenMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMain">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="250"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="GridMain">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="50"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="StackPanelMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="250"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemHome">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemConsultation">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemAgenda">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ItemRecherche">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Compte">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="button">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="button">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="CloseMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMain">
-                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="GridMain">
-                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="StackPanelMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-    </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
-            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
-        </EventTrigger>
-    </Window.Triggers>
-    <Grid Background="#FF77B3B4" Margin="0,0,2,1">
-        <Grid.Effect>
-            <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
-        </Grid.Effect>
-        <StackPanel x:Name="StackPanelMenu" Width="250" HorizontalAlignment="Left" Margin="-250 0 0 0" RenderTransformOrigin="0.5,0.5">
-            <StackPanel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </StackPanel.RenderTransform>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="100" HorizontalAlignment="Center">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="10" Foreground="#DDFFFFFF" Click="Button_Click">
-                    <materialDesign:PackIcon Kind="Settings" Width="40" Height="40"/>
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:MediCare"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="fenetre_principal" x:Class="MediCare.MenuPrincipal"
+            mc:Ignorable="d" Height="720" Width="1080" WindowStartupLocation="CenterScreen"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}" MinWidth="1080" MinHeight="720">
+    <Grid>
+        <ToolBarTray Margin="0,0,0,598">
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="0" Width="1070" Background="{x:Null}" Height="91">
+                <ToolBar.Header>
+                    <Image Height="84" Width="294" Source="ressources/images/medicare_white.PNG" Stretch="Fill" VerticalAlignment="Center"/>
+                </ToolBar.Header>
+                <Button x:Name="Home" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Home_Click">
+                    <materialDesign:PackIcon Kind="Home" Foreground="#FF42919E" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button.ToolTip>
+                        <TextBlock>Acceuil</TextBlock>
+                    </Button.ToolTip>
                 </Button>
-                <Button x:Name="button" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" BorderBrush="{x:Null}" Padding="0" Width="80" Height="80" Margin="10" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}">
-                    <Button.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Button.RenderTransform>
-                    <Button.Background>
-                        <ImageBrush ImageSource="ressources/images/logo_white.PNG"/>
-                    </Button.Background>
+                <Separator />
+                <Button x:Name="Compte" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Account" Foreground="#FF42919E" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button.ToolTip>
+                        <TextBlock>Mon Compte</TextBlock>
+                    </Button.ToolTip>
                 </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="10" Foreground="#DDFFFFFF">
-                    <materialDesign:PackIcon Kind="Power" Width="40" Height="40"/>
+                <Separator />
+                <Button x:Name="Consultation" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="MedicalBag" Foreground="#FF42919E" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button.ToolTip>
+                        <TextBlock>Consultation</TextBlock>
+                    </Button.ToolTip>
                 </Button>
-            </StackPanel>
-            <Separator HorizontalAlignment="Left" Height="21" Margin="0,0,-4,0" VerticalAlignment="Top" Width="254" Background="White" Foreground="White"/>
-            <ListView x:Name="ListeViewMenu" SelectionChanged="ListViewMenu_SelectionChanged">
-                <ListViewItem x:Name="ItemHome" Height="74" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="10 0">
-                        <materialDesign:PackIcon Kind="Home" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="#DDFFFFFF"/>
-                        <TextBlock Text="Home" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem x:Name="ItemConsultation" Height="73" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="10 0">
-                        <Image  Width="30" Height="35" VerticalAlignment="Top" Margin="5" Source="ressources/icones/icones png/64 Pixels/dentist.png" Stretch="Fill" />
-                        <TextBlock Text="Consultation" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem x:Name="ItemAgenda" Height="73" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="10 0">
-                        <Image  Width="30" Height="35" VerticalAlignment="Top" Margin="5" Source="ressources/icones/icones png/64 Pixels/positive-verified-symbol-of-a-clipboard.png" Stretch="Fill" />
-                        <TextBlock Text="Agenda" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem x:Name="ItemRecherche" Height="74" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="10 0">
-                        <materialDesign:PackIcon Kind="Loupe" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="#DDFFFFFF"/>
-                        <TextBlock Text="Recherche" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem x:Name="Compte" Height="74" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="10 0">
-                        <materialDesign:PackIcon Kind="Account" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="#DDFFFFFF"/>
-                        <TextBlock Text="Compte" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16" Foreground="#DDFFFFFF"/>
-                    </StackPanel>
-                </ListViewItem>
-            </ListView>
-        </StackPanel>
-        <Grid x:Name="GridMain" Background="#FFFBFBFB" RenderTransformOrigin="0.5,0.5" Margin="0,0,30,0">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
-            </Grid.Effect>
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="250"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="1076" Background="#FF77B3B4" Grid.ColumnSpan="2" Margin="0,0,-28,0">
-                <Button x:Name="ButtonCloseMenu" Width="40" Height="40" Padding="0" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonCloseMenu_Click" Visibility="Collapsed" Foreground="{x:Null}" Margin="0">
-                    <Button.Background>
-                        <ImageBrush ImageSource="ressources/images/bulles_3.PNG"/>
-                    </Button.Background>
+                <Separator />
+                <Button x:Name="Agenda" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Calendar" Foreground="#FF42919E" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button.ToolTip>
+                        <TextBlock>Agenda</TextBlock>
+                    </Button.ToolTip>
                 </Button>
-                <Button x:Name="ButtonOpenMenu" Width="40" Height="40" Padding="0" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonOpenMenu_Click" Foreground="{x:Null}" Margin="0">
-                    <Button.Background>
-                        <ImageBrush ImageSource="ressources/images/bulles_3.PNG"/>
-                    </Button.Background>
+                <Separator />
+                <StackPanel x:Name="SearchPanel" materialDesign:RippleAssist.IsCentered="True" Width="354" Margin="0" Orientation="Horizontal">
+                    <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16,27,0,27" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="289" VerticalAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                            </Button>
+                            <TextBox Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Rechercher un élément..." materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" MinWidth="200" VerticalContentAlignment="Bottom" />
+                        </Grid>
+                    </materialDesign:ColorZone>
+                    <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8,31,0,31" Panel.ZIndex="0" Width="27">
+                        <materialDesign:PackIcon Kind="Send" Foreground="#FF42919E" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Button>
+                </StackPanel>
+                <Separator />
+                <StackPanel x:Name="OptionPopUp" Orientation="Horizontal" Height="78" Margin="0,6,0,5" Width="51">
+                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="#FF42919E" Width="27">
+                        <StackPanel Width="150">
+                            <Button x:Name="SettingBTN" Content="Settings"/>
+                            <Button x:Name="HelpBTN" Content="Help"/>
+                            <Separator/>
+                            <Button x:Name="LogoutBTN" Content="Logout" Click="LogoutBTN_Click" />
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </StackPanel>
+                <Separator />
+            </ToolBar>
+        </ToolBarTray>
+        <StackPanel HorizontalAlignment="Right" Height="40" Margin="0" VerticalAlignment="Bottom" Width="150">
+            <Grid Height="50" VerticalAlignment="Center" Width="150">
+                <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="Auto" Margin="0" Foreground="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                    <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Button>
-            </StackPanel>
-            <Grid x:Name="SelectionGrid"  Margin="0,42,196,0" Grid.ColumnSpan="2"/>
-            <Grid Grid.Column="1" Background="#FF77B3B4" Margin="54,0,-36,0">
-                <Grid.Effect>
-                    <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
-                </Grid.Effect>
-                <ListView x:Name="ListeNotif" Foreground="#FF183A83" Background="#FF1B88D3" Margin="0,160,0,71"/>
-                <Image Height="110" VerticalAlignment="Top" Source="ressources/images/medicare_blue.PNG" Stretch="Fill"/>
-                <Separator HorizontalAlignment="Left" Height="13" Margin="0,617,0,0" VerticalAlignment="Top" Width="232" Background="White" Foreground="White"/>
-                <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51" Height="Auto" Margin="143,630,0,6" Foreground="White" HorizontalAlignment="Left">
-                    <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40"/>
+                <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="Auto" Foreground="{x:Null}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                    <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Button>
-                <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51" Height="Auto" Margin="92,630,0,6" Foreground="White" HorizontalAlignment="Left">
-                    <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40"/>
+                <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="Auto" Margin="0" Foreground="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Button>
-                <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="44,630,0,8" Foreground="White" HorizontalAlignment="Left">
-                    <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
-                </Button>
-                <Separator HorizontalAlignment="Left" Height="21" Margin="0,110,0,0" VerticalAlignment="Top" Width="232" Background="White" Foreground="White"/>
-                <Button Content="Espace Notification" HorizontalAlignment="Left" Height="29" Margin="0,131,0,0" VerticalAlignment="Top" Width="232" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Century Gothic"/>
             </Grid>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,196,646" Width="144" Grid.ColumnSpan="2">
-                <TextBlock VerticalAlignment="Center" FontSize="24" FontFamily="Century Gothic" Foreground="White" Margin="0,6" Width="91"><Run Text="Option"/><Run Text="s"/></TextBlock>
-                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10,0" Foreground="White" Width="43">
-                    <StackPanel Width="150">
-                        <Button Content="Paramètre"/>
-                        <Button Content="Aide"/>
-                        <Separator/>
-                        <Button x:Name="Logout" Content="Se déconnecter" Click="Logout_Click"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>
-            </StackPanel>
-        </Grid>
+        </StackPanel>
+        <Grid x:Name="SelectionGrid" Margin="0,85,0,56"/>
+        <materialDesign:DrawerHost BorderThickness="2" Margin="0" d:IsHidden="True">
+            <materialDesign:DrawerHost.RightDrawerContent>
+                <StackPanel Margin="70">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Notification" FontFamily="Century Gothic" Foreground="#FF1D3E44"></TextBlock>
+                    <Button Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Right}" Margin="4" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#FF42919E" FontFamily="Century Gothic">
+                        Fermer
+                    </Button>
+                    <Button  Margin="4" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#FF42919E" FontFamily="Century Gothic" Click="EffacerNotif_Click">
+                        Effacer
+                    </Button>
+                    <ListView x:Name="ListeNotif">
+                    </ListView>
+                </StackPanel>
+            </materialDesign:DrawerHost.RightDrawerContent>
+            <materialDesign:Badged x:Name="NotificationBadge" Badge="0" HorizontalAlignment="Right" BadgeBackground="Green" BadgeForeground="White" VerticalAlignment="Top" Margin="0,16,8,0" Height="60" Width="55">
+                <Button  Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}" x:Name="ClocheNotif" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Margin="0" Foreground="Black" Width="Auto" Height="Auto" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Bell" Foreground="#FF42919E" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                </Button>
+            </materialDesign:Badged>
+        </materialDesign:DrawerHost>
+        <Button x:Name="Settings" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="Auto" Margin="0" Foreground="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+            <materialDesign:PackIcon Kind="Settings" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Button>
     </Grid>
 </Window>

@@ -1,17 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MCDatabase" Class="MCDataClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MCDatabase.mdf;Integrated Security=True" SettingsObjectName="MediCare.Properties.Settings" SettingsPropertyName="MCDatabaseConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.RendezVous" Member="RendezVous">
-    <Type Name="RendezVous">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Column Name="IdPatient" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdMedecin" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="Important" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Fait" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="RendezVous_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdRendezVous" Type="MPRendezVous" />
-    </Type>
-  </Table>
   <Table Name="dbo.Radio" Member="Radio">
     <Type Name="Radio">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -54,8 +42,8 @@
       <Column Name="IdMedecin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdRendezVous" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Patient_MPRendezVous" Member="Patient" ThisKey="IdPatient" OtherKey="Id" Type="Patient" IsForeignKey="true" />
-      <Association Name="RendezVous_MPRendezVous" Member="RendezVous" ThisKey="IdRendezVous" OtherKey="Id" Type="RendezVous" IsForeignKey="true" />
       <Association Name="Medecin_MPRendezVous" Member="Medecin" ThisKey="IdMedecin" OtherKey="Id" Type="Medecin" IsForeignKey="true" />
+      <Association Name="RendezVous_MPRendezVous" Member="RendezVous" ThisKey="IdRendezVous" OtherKey="Id" Type="RendezVous" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.MPConsultation" Member="MPConsultation">
@@ -117,6 +105,19 @@
       <Association Name="Consultation_Radio" Member="Radio" ThisKey="Id" OtherKey="IdConsultation" Type="Radio" />
       <Association Name="Consultation_MPConsultation" Member="MPConsultation" ThisKey="Id" OtherKey="IdConsultation" Type="MPConsultation" />
       <Association Name="Consultation_Traitement" Member="Traitement" ThisKey="Id" OtherKey="IdConsultation" Type="Traitement" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RendezVous" Member="RendezVous">
+    <Type Name="RendezVous">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="IdPatient" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdMedecin" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Important" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Fait" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Notified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="RendezVous_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdRendezVous" Type="MPRendezVous" />
     </Type>
   </Table>
 </Database>

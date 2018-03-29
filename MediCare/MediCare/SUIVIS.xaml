@@ -4,21 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="SUIVIS" Height="700" Width="1000">
     <Grid>
-        <Label Content="Nom :" HorizontalAlignment="Left" Height="54" Margin="71,71,0,0" VerticalAlignment="Top" Width="123" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
-        <TextBox x:Name="nomT" HorizontalAlignment="Left" Height="36" Margin="235,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" FontSize="18" FontFamily="Century Gothic"/>
-        <Label Content="Prénom :" HorizontalAlignment="Left" Height="54" Margin="501,71,0,0" VerticalAlignment="Top" Width="123" RenderTransformOrigin="3.303,0.568" FontWeight="Bold" FontFamily="Century Gothic" FontSize="18"/>
-        <TextBox x:Name="prenomT" HorizontalAlignment="Left" Height="36" Margin="698,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" FontSize="18" FontFamily="Century Gothic"/>
-        <Button x:Name="suivi" Content="Afficher le suivi" HorizontalAlignment="Left" Height="51" Margin="673,172,0,0" VerticalAlignment="Top" Width="217" Background="Gray" Click="suivi_Click"/>
-        <ListView x:Name="ListSuivi" HorizontalAlignment="Left" Height="333" Margin="58,259,0,0" VerticalAlignment="Top" Width="508">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <TextBlock x:Name="consAccessT" HorizontalAlignment="Left" Height="291" Margin="652,299,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="308"/>
+        <Label Content="Nom * :" HorizontalAlignment="Left" Height="37" Margin="71,123,0,0" VerticalAlignment="Top" Width="123" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
+        <TextBox x:Name="nomT" materialDesign:HintAssist.Hint="Nom" BorderThickness="0,0,0,3" HorizontalAlignment="Left" Height="42" Margin="235,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" FontFamily="Century Gothic"  Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF77B3B4"/>
+        <Label Content="Prénom * :" HorizontalAlignment="Left" Height="37" Margin="501,123,0,0" VerticalAlignment="Top" Width="123" RenderTransformOrigin="3.303,0.568" FontWeight="Bold" FontFamily="Century Gothic" FontSize="18"/>
+        <TextBox x:Name="prenomT" materialDesign:HintAssist.Hint="Nom" BorderThickness="0,0,0,3" HorizontalAlignment="Left" Height="42" Margin="698,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" FontFamily="Century Gothic" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF77B3B4"/>
+        <Button x:Name="suivi" Content="Afficher le suivi" HorizontalAlignment="Left" Height="51" Margin="673,190,0,0" VerticalAlignment="Top" Width="217" Background="#FF6A97AC" Click="suivi_Click"/>
+        <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Width="992" Margin="-3,264,0,-1" Height="406">
+            <StackPanel Name="StackSuivi" Height="406" Margin="-3,-264,3,1">
+                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+            </StackPanel>
+        </materialDesign:Card>
+        <StackPanel HorizontalAlignment="Left" Height="102" Margin="-2,-3,-3,0" VerticalAlignment="Top" Width="997" Background="#FF6A97AC">
+            <Label  Width="345" FontSize="48" FontFamily="Century Gothic" Foreground="White" Height="84" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Suivi médical :" Margin="321,0,331,0"/>
+        </StackPanel>
     </Grid>
 </Window>

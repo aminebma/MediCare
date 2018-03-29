@@ -1,63 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Controls;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour Consultation.xaml
-    /// </summary>
     public partial class AjoutConsultation : Window
     {
         Traite TraitementEnreg = new Traite();
         List<string> radioList = new List<string>();
         List<Traite> traitementList = new List<Traite>();
-        
+        public int i = 0;
 
         public AjoutConsultation()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        internal class Treatement
+        {
+
+            public int Traitement { get; set; }
+            public string Dose { get; set; }
+            public string Medicament { get; set; }
+            public string Indication { get; set; }
+
+        } 
+
+        private void AjouterRadio_Click(object sender, RoutedEventArgs e)
         {
             radioList.Add(radioT.Text);
             radioT.Text = "";
         }
 
+
+
         private void AjouterTraitement_Click(object sender, RoutedEventArgs e)
         {
+            i++;
             TraitementEnreg.Dose = doseT.Text;
             TraitementEnreg.NomMed = medicamentT.Text;
             TraitementEnreg.Indication = indicationT.Text;
             traitementList.Add(TraitementEnreg);
-            doseT.Text = "";
-            indicationT.Text = "";
-            medicamentT.Text = "";
-
+            var data = new Treatement { Traitement = i, Dose = doseT.Text, Indication = indicationT.Text,Medicament = medicamentT.Text };
+            DataGridTrait.Items.Add(data);
+            medicamentT.Clear();
+            doseT.Clear();
+            indicationT.Clear();
         }
 
+       
 
 
 
         private void Add_Consultation_Click(object sender, RoutedEventArgs e)
         {
-            if (nomMedecinT.Text == "" || prenomMedecinT.Text == "" || diagnosticT.Text == "" || descriptionT.Text == "" || medicamentT.Text == "" || doseT.Text == "")
+            if (diagnosticT.Text == "" || descriptionT.Text == "" || medicamentT.Text == "" || doseT.Text == "")
             {
                 MessageBox.Show("Veuillez remplir toutes les informations!");
-                if (nomMedecinT.Text == "") NomMedecin.Foreground = Brushes.Red; else NomMedecin.Foreground = Brushes.Black;
-                if (prenomMedecinT.Text == "") PrenomMedecin.Foreground = Brushes.Red; else PrenomMedecin.Foreground = Brushes.Black;
                 if (diagnosticT.Text == "") Diagnostic.Foreground = Brushes.Red; else Diagnostic.Foreground = Brushes.Black;
                 if (descriptionT.Text == "") Description.Foreground = Brushes.Red; else Description.Foreground = Brushes.Black;
                 if (medicamentT.Text == "") Medicament.Foreground = Brushes.Red; else Medicament.Foreground = Brushes.Black;
@@ -67,25 +72,33 @@ namespace MediCare
             {
 
                 Consult consultation = new Consult();
-                //try
-                //{
-                    radioList.Add(radioT.Text);
-                    TraitementEnreg.Dose = doseT.Text;
-                    TraitementEnreg.NomMed = medicamentT.Text;
-                    TraitementEnreg.Indication = indicationT.Text;
-                    traitementList.Add(TraitementEnreg);
-                    consultation.AddConsult(Globals.NomPatient, Globals.PrenomPatient, nomMedecinT.Text, prenomMedecinT.Text, diagnosticT.Text, descriptionT.Text, certificatT.Text, lettreT.Text, scannerT.Text, bilanT.Text, ordoT.Text, radioList, traitementList,labelT.Text);
+                try
+                {
+                    if (radioT.Text != "")
+                    {
+                        radioList.Add(radioT.Text);
+                    }
+                    if (doseT.Text != "" && medicamentT.Text != "" && indicationT.Text != "")
+                    {
+                        TraitementEnreg.Dose = doseT.Text;
+                        TraitementEnreg.NomMed = medicamentT.Text;
+                        TraitementEnreg.Indication = indicationT.Text;
+                        traitementList.Add(TraitementEnreg);
+                    }
+                    consultation.AddConsult(Globals.NomPatient, Globals.PrenomPatient, Globals.NomMedecin, Globals.PrenomMedecin, diagnosticT.Text, descriptionT.Text, certificatT.Text, lettreT.Text, scannerT.Text, bilanT.Text, ordoT.Text, radioList, traitementList, labelT.Text);
                     MessageBox.Show("Consultation ajoutée avec succés !");
-                //}
-                //catch (Exception)
-                //{
-                //    MessageBox.Show("Une erreur s'est produite !");
-                //}
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Une erreur s'est produite !");
+                }
 
 
 
             }
         }
-
     }
+
 }
+
+

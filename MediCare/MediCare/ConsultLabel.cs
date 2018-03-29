@@ -22,6 +22,7 @@ namespace MediCare
 			this.nom = nom;
 			this.prenom = prenom;
 		}
+
         public ConsultLabel()
         {
 

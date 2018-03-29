@@ -33,6 +33,8 @@ namespace MediCare
 
         private void Oui_Click(object sender, RoutedEventArgs e)
         {
+           /* var parent = (Window)this.Parent;
+            parent.Close();*/
             this.Close();
             SignUp sgnup = new SignUp();
             sgnup.Show();
