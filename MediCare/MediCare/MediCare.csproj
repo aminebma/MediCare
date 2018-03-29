@@ -135,14 +135,6 @@
       <DependentUpon>Consultation_Patient.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConsultLabel.cs" />
-    <Compile Include="Controls\Calendar.cs" />
-    <Compile Include="Controls\CalendarAppointmentItem.cs" />
-    <Compile Include="Controls\CalendarDay.cs" />
-    <Compile Include="Controls\CalendarLedger.cs" />
-    <Compile Include="Controls\CalendarLedgerItem.cs" />
-    <Compile Include="Controls\CalendarTimeslotItem.cs" />
-    <Compile Include="Controls\Filters.cs" />
-    <Compile Include="Controls\TimeslotPanel.cs" />
     <Compile Include="GenererOrdonnance.xaml.cs">
       <DependentUpon>GenererOrdonnance.xaml</DependentUpon>
     </Compile>
@@ -177,9 +169,6 @@
     <Compile Include="MenuFichier.xaml.cs">
       <DependentUpon>MenuFichier.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Appointment.cs" />
-    <Compile Include="Model\Appointments.cs" />
-    <Compile Include="Model\BindableObject.cs" />
     <Compile Include="ModifMed.xaml.cs">
       <DependentUpon>ModifMed.xaml</DependentUpon>
     </Compile>
@@ -220,9 +209,6 @@
       <DependentUpon>TestCons.xaml</DependentUpon>
     </Compile>
     <Compile Include="Traite.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
     <Page Include="ConsultationMedicale.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -347,14 +333,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Window1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -388,7 +366,6 @@
       <LastGenOutput>MCDataClass.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Model\Model.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -477,16 +454,14 @@
     <Resource Include="ressources\icones\icones png\64 Pixels\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Next.png" />
-    <Resource Include="Images\Previous.png" />
     <Content Include="MCDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="restauration\MCDatabase.mdf">
+    <Content Include="MCDatabase_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="restauration\MCDatabase_log.ldf">
       <DependentUpon>MCDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="restauration\MCDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\jquery-2.1.1.intellisense.js" />

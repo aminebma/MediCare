@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       Title="SignUp" Height="657.85" Width="418" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
-    <Grid Margin="0,1,2,1" Background="White">
+    <Grid x:Name="signUpGrid" Margin="0,1,2,1" Background="White" PreviewKeyDown="signUpGrid_PreviewKeyDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="70*"/>
             <RowDefinition Height="311*"/>
@@ -32,8 +32,8 @@
         <Image Margin="10,450,326,10" Grid.Row="1" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
         <Image Margin="323,78,1,340" Grid.Row="1" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Grid.ColumnSpan="3" Opacity="0.5"/>
         <Image Margin="1,0,0,397" Source="ressources/images/mde.PNG" Stretch="Fill" Grid.RowSpan="2" Opacity="0.8" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="nom" HorizontalAlignment="Left" Height="36" Margin="117,230,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="36" Margin="117,323,0,0" Grid.Row="1" VerticalAlignment="Top" Width="192" BorderThickness="0,0,0,3" BorderBrush="#FF3599CC" AutomationProperties.Name="password"/>
+        <TextBox x:Name="nom" HorizontalAlignment="Left" Height="36" Margin="117,230,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" BorderBrush="#FF3599C8" BorderThickness="0,0,0,3" Foreground="#FF3599CC" FontWeight="Bold" MouseEnter="nom_MouseEnter"/>
+        <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="36" Margin="117,323,0,0" Grid.Row="1" VerticalAlignment="Top" Width="192" BorderThickness="0,0,0,3" BorderBrush="#FF3599CC" AutomationProperties.Name="password" MouseEnter="password_MouseEnter"/>
         <Image Margin="52,28,52,347" Source="ressources/images/logo_final.PNG" Stretch="Fill" Grid.Row="1" Grid.ColumnSpan="3"/>
         <Button x:Name="signUpBtn" Content="Sign Up" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="148,448,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="signUpBtn_Click" Grid.Row="1"/>
         <Button x:Name="ignoreBtn" Content="Ignorer et passer aux tests &gt;&gt;" HorizontalAlignment="Left" Height="30" Margin="160,496,0,0" Grid.Row="1" VerticalAlignment="Top" Width="234" Click="ignoreBtn_Click"/>
