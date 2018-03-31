@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +57,8 @@ namespace MediCare
                 Globals.ListPatients= (from patient in Globals.DataClass.Patient
                                        join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
                                        select personne).ToList<Personne>();
+                //Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
+                //                           select medicament).ToList<Medicaments>();
                 main.Show();
                 this.Close();
             }
@@ -69,6 +72,8 @@ namespace MediCare
             Globals.ListPatients = (from patient in Globals.DataClass.Patient
                                     join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
                                     select personne).ToList<Personne>();
+            //Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
+            //                           select medicament).ToList<Medicaments>();
             Menu.Show();
             this.Close();
         }
@@ -77,13 +82,23 @@ namespace MediCare
         {
             if (e.Key == Key.Enter)
             {
-                Globals.IdMedecin = 1;
-                MenuPrincipal Menu = new MenuPrincipal();
-                Globals.ListPatients = (from patient in Globals.DataClass.Patient
-                                        join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
-                                        select personne).ToList<Personne>();
-                Menu.Show();
-                this.Close();
+                Medecin2 med = new Medecin2();
+                if (med.VerifMed(nom.Text, password.Password))
+                {
+                    List<Personne> pers = new List<Personne>();
+                    pers = med.RechercherMedecin(nom.Text);
+                    Globals.NomMedecin = pers[0].nom;
+                    Globals.PrenomMedecin = pers[0].prenom;
+                    MenuPrincipal main = new MenuPrincipal();
+                    Globals.ListPatients = (from patient in Globals.DataClass.Patient
+                                            join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+                                            select personne).ToList<Personne>();
+                    //Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
+                    //                           select medicament).ToList<Medicaments>();
+                    main.Show();
+                    this.Close();
+                }
+                else MessageBox.Show("Les informations saisies sont incorrectes");
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace MediCare
         public Menu(ListView ListRDV)
         {   
             InitializeComponent();
-            ClassNotif.GenererRDVduJour(ListeRDV);
+            ClassNotif.GenererRDVduJour(ListeRDV);            
         }
 
         private void refreshRDVListe_Click(object sender, RoutedEventArgs e)
@@ -36,7 +37,7 @@ namespace MediCare
         private void ConsultationBTN_Click(object sender, RoutedEventArgs e)
         {
             var parent = (Grid)this.Parent;
-            UserControl usc = new MenuConsultation();
+            UserControl usc = new Consultation_Patient();
             parent.Children.Clear();
             parent.Children.Add(usc);
         }
@@ -48,5 +49,13 @@ namespace MediCare
             parent.Children.Clear();
             parent.Children.Add(usc);
         }
+        private void SuivieBTN_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            UserControl usc = new MenuSuivi();
+            parent.Children.Clear();
+            parent.Children.Add(usc);
+        }
     }
+
 }

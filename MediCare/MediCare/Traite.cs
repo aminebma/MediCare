@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediCare
 {
-    class Traite
+    public class Traite
     {
             private string dose;
             private string indication;

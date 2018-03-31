@@ -21,5 +21,25 @@ namespace MediCare
             }
         
         }
+
+        public List<Medicaments> RechercheMedicamentBDD(string nom)
+        {
+            nom = nom.ToUpper();
+            IQueryable<Medicaments> medicaments = (from medic in Globals.DataClass.Medicaments
+                                             where medic.nom.Contains(nom)
+                                             select medic);
+            return medicaments.ToList<Medicaments>();
+        }
+
+
+        public List<Medicaments> RechercheMedicament(string nom)
+        {
+            nom = nom.ToUpper();
+            List<Medicaments> filtremedic = new List<Medicaments>();
+            foreach (Medicaments medic in Globals.ListMedicaments)
+                if ((medic.nom).Contains(nom))
+                    filtremedic.Add(medic);
+            return filtremedic;
+        }
     }
 }

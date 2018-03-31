@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +25,31 @@ namespace MediCare
 			InitializeComponent();
 		}
 
-		//private void Button_Click(object sender, RoutedEventArgs e)
-	
+        private void AjouterRadio_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == true)
+            {
+                MessageBox.Show(ofd.FileName);
 
-		//	.
+            }
+        }
 
-		//}
-	}
+        private void AjouterScanner_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == true)
+            {
+                MessageBox.Show(ofd.FileName);
+
+            }
+        }
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+
+
+        //	.
+
+        //}
+    }
 }

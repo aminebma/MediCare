@@ -46,10 +46,11 @@ namespace MediCare
             bool checkDate = false;
                 //checkTime = false;
             //int realHour = 0;
-            if (dateT.Text == "" /*|| heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" */|| prenomPatientT.Text == "" || nomPatientT.Text == "")
+            if (dateT.Text == "" /*|| heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" */|| horaire.Text == "" || prenomPatientT.Text == "" || nomPatientT.Text == "")
             {
                 MessageBox.Show("Veuillez remplir toutes les informations!");
                 if (dateT.Text == "") dateL.Foreground = Brushes.Red; else dateL.Foreground = Brushes.Black;
+                if (horaire.Text == "") horaireL.Foreground = Brushes.Red; else horaireL.Foreground = Brushes.Black;
                 //if (heureBox.Text == "") heuresL.Foreground = Brushes.Red; else heuresL.Foreground = Brushes.Black;
                 //if (minutesBox.Text == "") minutesL.Foreground = Brushes.Red; else minutesL.Foreground = Brushes.Black;
                 //if (ampmBox.Text == "") ampmL.Foreground = Brushes.Red; else ampmL.Foreground = Brushes.Black;
@@ -85,7 +86,7 @@ namespace MediCare
                 {
                     MessageBox.Show("Veuillez rentrer une date valide");
                     dateL.Foreground = Brushes.Red;
-                    horaire.Foreground = Brushes.Red;
+                    horaireL.Foreground = Brushes.Red;
                     //minutesL.Foreground = Brushes.Red;
                     //heuresL.Foreground = Brushes.Red;
                 } 

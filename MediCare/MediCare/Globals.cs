@@ -8,19 +8,6 @@ namespace MediCare
 {
     public class Globals
     {
-        private static int _id;
-        public static int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
-
         private static byte _idMedecin;
         public static byte IdMedecin
         {
@@ -137,6 +124,31 @@ namespace MediCare
                 _listPatients = value;
             }
         }
-        
+        private static List<Medicaments> _listMedicaments;
+        public static List<Medicaments> ListMedicaments
+        {
+            get
+            {
+                return _listMedicaments;
+            }
+            set
+            {
+                _listMedicaments = value;
+            }
+        }
+
+        private static List<Traite> _listTraitement;
+        public static List<Traite> ListTraitement
+        {
+            get
+            {
+                return _listTraitement;
+            }
+            set
+            {
+                _listTraitement = value;
+            }
+        }
+
     }
 }
