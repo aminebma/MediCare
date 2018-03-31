@@ -21,9 +21,7 @@ namespace MediCare
     {
         public void GenererRDVduJour(ListView ListeRDV)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            IQueryable<RendezVous> NotifRdv = (from rendezVous in dataClass.RendezVous
+            IQueryable<RendezVous> NotifRdv = (from rendezVous in Globals.DataClass.RendezVous
                                                orderby rendezVous.Date
                                                select rendezVous);
             if (NotifRdv.Count() != 0)
@@ -36,10 +34,10 @@ namespace MediCare
                     if (string.Compare(dateRdv, dateAJRD) == 0)
                     {
                         TextBlock TextRDV = new TextBlock();
-                        IQueryable<Patient> patientRDV = (from patient in dataClass.Patient
+                        IQueryable<Patient> patientRDV = (from patient in Globals.DataClass.Patient
                                                            where rdv.IdPatient == patient.Id
                                                            select patient);
-                        IQueryable<Personne> personneRDV = (from personne in dataClass.Personne
+                        IQueryable<Personne> personneRDV = (from personne in Globals.DataClass.Personne
                                                             where patientRDV.First().IdPersonne == personne.Id
                                                             select personne);
                         if (patientRDV.Count() != 0)

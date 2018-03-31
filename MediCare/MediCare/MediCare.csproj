@@ -112,25 +112,7 @@
     <Compile Include="AjoutConsultation.xaml.cs">
       <DependentUpon>AjoutConsultation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CheminAcces.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CheminAcces.Designer.cs">
-      <DependentUpon>CheminAcces.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CheminScanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CheminScanner.Designer.cs">
-      <DependentUpon>CheminScanner.cs</DependentUpon>
-    </Compile>
     <Compile Include="Consulta.cs" />
-    <Compile Include="ConsultationMedicale.xaml.cs">
-      <DependentUpon>ConsultationMedicale.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultationPatient.xaml.cs">
-      <DependentUpon>ConsultationPatient.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Consultation_Patient.xaml.cs">
       <DependentUpon>Consultation_Patient.xaml</DependentUpon>
     </Compile>
@@ -141,6 +123,9 @@
     <Compile Include="Globals.cs" />
     <Compile Include="Historique.xaml.cs">
       <DependentUpon>Historique.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriqueMedecin.xaml.cs">
+      <DependentUpon>HistoriqueMedecin.xaml</DependentUpon>
     </Compile>
     <Compile Include="impression.xaml.cs">
       <DependentUpon>impression.xaml</DependentUpon>
@@ -157,17 +142,17 @@
       <DependentUpon>MCDataClass.dbml</DependentUpon>
     </Compile>
     <Compile Include="Medic.cs" />
-    <Compile Include="Menu Fichier.xaml.cs">
-      <DependentUpon>Menu Fichier.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuConsultation.xaml.cs">
-      <DependentUpon>MenuConsultation.xaml</DependentUpon>
+    <Compile Include="MenuSuivi.xaml.cs">
+      <DependentUpon>MenuSuivi.xaml</DependentUpon>
     </Compile>
     <Compile Include="MenuFichier.xaml.cs">
       <DependentUpon>MenuFichier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuHistorique.xaml.cs">
+      <DependentUpon>MenuHistorique.xaml</DependentUpon>
     </Compile>
     <Compile Include="ModifMed.xaml.cs">
       <DependentUpon>ModifMed.xaml</DependentUpon>
@@ -205,18 +190,7 @@
     <Compile Include="SUIVIS.xaml.cs">
       <DependentUpon>SUIVIS.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestCons.xaml.cs">
-      <DependentUpon>TestCons.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Traite.cs" />
-    <Page Include="ConsultationMedicale.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ConsultationPatient.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Consultation_Patient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -228,6 +202,10 @@
     <Page Include="Historique.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HistoriqueMedecin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="impression.xaml">
       <SubType>Designer</SubType>
@@ -241,21 +219,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Menu Fichier.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MenuConsultation.xaml">
+    <Page Include="MenuSuivi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MenuFichier.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MenuHistorique.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MenuPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -329,10 +307,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TestCons.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -351,12 +325,6 @@
     <None Include="MCDataClass.dbml.layout">
       <DependentUpon>MCDataClass.dbml</DependentUpon>
     </None>
-    <EmbeddedResource Include="CheminAcces.resx">
-      <DependentUpon>CheminAcces.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CheminScanner.resx">
-      <DependentUpon>CheminScanner.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -454,15 +422,16 @@
     <Resource Include="ressources\icones\icones png\64 Pixels\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MCDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MCDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>MCDatabase.mdf</DependentUpon>
-    </Content>
     <Content Include="restauration\MCDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="restauration\MCDatabase_log.ldf">
+      <DependentUpon>MCDatabase.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="restauration\MCDatabase_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>MCDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -474,5 +443,6 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\nugetexample.js" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

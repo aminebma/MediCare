@@ -1,11 +1,11 @@
-﻿<Window
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MediCare"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.Consultation_Patient"
-             mc:Ignorable="d" d:DesignWidth="300" Width="760" Height="661.704">
+             mc:Ignorable="d" d:DesignWidth="300" Width="760" Height="400">
     <Grid>
 
         <Image Margin="-167.08,284.661,866.721,249.47" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
@@ -77,13 +77,12 @@
         <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="607,569.5,0,0.5" Foreground="#FF183A83" HorizontalAlignment="Left">
             <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
         </Button>
-        <TextBox x:Name="Nompatient" materialDesign:HintAssist.Hint="Nom" BorderThickness="0,0,0,3" HorizontalAlignment="Left" Height="42" Margin="139,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" TextChanged="Nompatient_TextChanged" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF77B3B4" PreviewTextInput ="Nompatient_PreviewTextInput"/>
-        <TextBox x:Name="Prenompatient" materialDesign:HintAssist.Hint="Prenom" BorderThickness="0,0,0,3"  HorizontalAlignment="Left" Height="42" Margin="480,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" TextChanged="Prenompatient_TextChanged" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF77B3B4" PreviewTextInput ="Prenompatient_PreviewTextInput"/>
         <Label x:Name="nomL" Content="Nom * :" HorizontalAlignment="Left" Height="37" Margin="14,125,0,0" VerticalAlignment="Top" Width="182" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
         <Label x:Name="prenomL" Content="Prénom * :" HorizontalAlignment="Left" Height="37" Margin="342,123,0,0" VerticalAlignment="Top" Width="105" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
-        <Button Content="OK" HorizontalAlignment="Left" Height="52" Margin="357,501,0,0" VerticalAlignment="Top" Width="127" Background="#FF6A97AC" Click="Button_Click"/>
-        <TextBlock x:Name="patientsT" HorizontalAlignment="Left" Height="239" Margin="161,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="438" Background="#3377B3B4"/>
+        <Button Content="OK" HorizontalAlignment="Left" Height="52" Margin="274,267,0,0" VerticalAlignment="Top" Width="204" Background="#FF6A97AC" Click="Button_Click"/>
         <Label x:Name="recherche" Content="Sélectionnez le nom et prénom du patient à consulter : " HorizontalAlignment="Left" Height="37" Margin="8,22,0,0" VerticalAlignment="Top" Width="576" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Background="White"/>
+        <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" BorderThickness="0,0,0,3" Height="38" Margin="89,123,0,0" VerticalAlignment="Top" Width="231"  BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="nomPatientT_MouseEnter" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown" />
+        <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" BorderThickness="0,0,0,3" Height="36" Margin="466,124,0,0" VerticalAlignment="Top" Width="234"   BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="prenomPatientT_MouseEnter" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus"/>
 
     </Grid>
-</Window>
+</UserControl>

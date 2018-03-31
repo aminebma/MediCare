@@ -242,10 +242,10 @@ namespace MediCare
 										  select mpc).First<MPConsultation>();
 				Patient pat = (from patient in Globals.DataClass.Patient
 							   where patient.Id == mpcnslt.IdPatient
-							   select patient).First();
+							   select patient).First<Patient>();
 				Personne pers = (from personne in Globals.DataClass.Personne
 								 where personne.Id == pat.IdPersonne
-								 select personne).First();
+								 select personne).First<Personne>();
 
 				ConsultLabel q = new ConsultLabel((DateTime)p.date, p.label, p.Id,  pers.nom, pers.prenom);
 				list.Add(q);
@@ -253,6 +253,43 @@ namespace MediCare
 			}
 			return list;
 
+		}
+
+
+		 
+		public List<ConsultLabel> HistoriqueMedecin(string nomMedecin, string prenomMedecin)
+		{
+			List<ConsultLabel> list = new List<ConsultLabel>();
+
+			Personne perso = (from personne in Globals.DataClass.Personne
+							  where nomMedecin == personne.nom && prenomMedecin == personne.prenom
+							  select personne).First<Personne>();
+			Medecin med = (from medecin in Globals.DataClass.Medecin
+						   where perso.Id == medecin.IdPersonne
+						   select medecin).First<Medecin>();
+
+			IQueryable<Consultation> cnslt = (from mpc in Globals.DataClass.MPConsultation
+											  where mpc.IdMedecin == med.Id
+											  join cns in Globals.DataClass.Consultation on mpc.IdConsultation equals cns.Id
+											  select cns);
+
+			foreach (Consultation p in cnslt)
+			{
+				MPConsultation mpcnslt = (from mpc in Globals.DataClass.MPConsultation
+										  where mpc.IdConsultation == p.Id
+										  select mpc).First<MPConsultation>();
+				Patient pat = (from patient in Globals.DataClass.Patient
+							   where patient.Id == mpcnslt.IdPatient
+							   select patient).First<Patient>();
+				Personne pers = (from personne in Globals.DataClass.Personne
+								 where personne.Id == pat.IdPersonne
+								 select personne).First<Personne>();
+
+				ConsultLabel q = new ConsultLabel((DateTime)p.date, p.label, p.Id, pers.nom, pers.prenom);
+				list.Add(q);
+
+			}
+			return list;
 		}
 
 	}
