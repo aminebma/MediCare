@@ -16,17 +16,23 @@ namespace MediCare
         List<string> radioList = new List<string>();
         List<Traite> traitementList = new List<Traite>();
         Medic med = new Medic();
-        //List<Medicaments> medicListTmp;
+        List<Medicaments> medicListTmp;
         public int i = 0;
 
         public AjoutConsultation()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            //foreach (Medicaments medicament in Globals.ListMedicaments)
-            //{
-            //    medicamentT.Items.Add(medicament);
-            //}
+            foreach (Medicaments medicament in Globals.ListMedicaments)
+            {
+                medicamentT.Items.Add(medicament.nom);
+                i++;
+                if (i > 100)
+                {
+                    i = 0;
+                    break;
+                }
+            }
         }
 
         internal class Treatement
@@ -56,7 +62,7 @@ namespace MediCare
             traitementList.Add(TraitementEnreg);
             var data = new Treatement { Traitement = i, Dose = doseT.Text, Indication = indicationT.Text,Medicament = medicamentT.Text };
             DataGridTrait.Items.Add(data);
-            medicamentT.Clear();
+            medicamentT.Items.Clear();
             doseT.Clear();
             indicationT.Clear();
         }
@@ -106,34 +112,41 @@ namespace MediCare
             }
         }
 
-       //private void medicamentT_TextChanged(object sender, TextChangedEventArgs e)
-       //{
-       //     medicListTmp = med.RechercheMedicament(medicamentT.Text);
-       //     medicamentT.Items.Clear();
-       //     foreach (Medicaments medicament in medicListTmp)
-       //     {
-       //         medicamentT.Items.Add(medicamentT.Items.Add(medicament.nom));
-       //         if (medicamentT.Items.Count != 0) medicamentT.Items.RemoveAt(medicamentT.Items.Count - 1);
-       //     }
-       //}
+        
+        private void medicamentT_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            medicamentT.Focus();
+            medicamentT.IsDropDownOpen = true;
+        }
+
+        private void medicamentT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            medicListTmp = med.RechercheMedicament(medicamentT.Text);
+            medicamentT.Items.Clear();
+            foreach (Medicaments medicament in medicListTmp)
+            {
+                medicamentT.Items.Add(medicamentT.Items.Add(medicament.nom));
+                if (medicamentT.Items.Count != 0) medicamentT.Items.RemoveAt(medicamentT.Items.Count - 1);
+            }
+        }
 
 
-        //private void medicamentT_MouseEnter(object sender, MouseEventArgs e)
-        //{
-        //    medicamentT.Focus();
-        //    medicamentT.IsDropDownOpen = true;
-        //}
+        private void medicamentT_MouseEnter(object sender, MouseEventArgs e)
+        {
+            medicamentT.Focus();
+            medicamentT.IsDropDownOpen = true;
+        }
 
-       
-        //private void medicamentT_GotFocus(object sender, RoutedEventArgs e)
-        //{
-        //    medicamentT.IsDropDownOpen = true;
-        //}
 
-        //private void medicamentT_PreviewKeyDown(object sender, KeyEventArgs e)
-        //{
-        //    if (e.Key == Key.Tab && medicamentT.IsDropDownOpen && medicamentT.HasItems) medicamentT.Text = medicamentT.Items.GetItemAt(0).ToString();
-        //}
+        private void medicamentT_GotFocus(object sender, RoutedEventArgs e)
+        {
+            medicamentT.IsDropDownOpen = true;
+        }
+
+        private void medicamentT_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab && medicamentT.IsDropDownOpen && medicamentT.HasItems) medicamentT.Text = medicamentT.Items.GetItemAt(0).ToString();
+        }
     }
 
 }

@@ -229,9 +229,16 @@ namespace MediCare
         {
             nom=nom.ToUpper();
             List<Personne> filtrePatient = new List<Personne>();
+            int nbMaxElem = 0;
             foreach (Personne patient in Globals.ListPatients)
+            {
                 if ((patient.nom).Contains(nom))
+                {
                     filtrePatient.Add(patient);
+                    nbMaxElem++;
+                    if (nbMaxElem > 100) break;
+                }                  
+            }               
             return filtrePatient;
         }
 
@@ -249,9 +256,16 @@ namespace MediCare
         {
             prenom=prenom.ToUpper();
             List<Personne> filtrePatient = new List<Personne>();
+            int nbMaxElem = 0;
             foreach (Personne patient in Globals.ListPatients)
+            {
                 if ((patient.prenom).Contains(prenom))
+                {
                     filtrePatient.Add(patient);
+                    nbMaxElem++;
+                    if (nbMaxElem > 100) break;
+                }      
+            }              
             return filtrePatient;
         }
 
@@ -270,11 +284,17 @@ namespace MediCare
         {
             nom=nom.ToUpper();
             List<Personne> filtrePatient = new List<Personne>();
+            int nbMaxElem = 0;
             foreach (Personne patient in Globals.ListPatients)
-                if ((patient.nom+" "+patient.prenom).Contains(nom))
+            {
+                if ((patient.nom + " " + patient.prenom).Contains(nom))
+                {
                     filtrePatient.Add(patient);
+                    nbMaxElem++;
+                    if (nbMaxElem > 100) break;
+                }                 
+            }
             return filtrePatient;
         }
-        
     }
 }

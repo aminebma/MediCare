@@ -57,8 +57,8 @@ namespace MediCare
                 Globals.ListPatients= (from patient in Globals.DataClass.Patient
                                        join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
                                        select personne).ToList<Personne>();
-                //Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
-                //                           select medicament).ToList<Medicaments>();
+                Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
+                                           select medicament).ToList<Medicaments>();
                 main.Show();
                 this.Close();
             }
@@ -72,8 +72,8 @@ namespace MediCare
             Globals.ListPatients = (from patient in Globals.DataClass.Patient
                                     join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
                                     select personne).ToList<Personne>();
-            //Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
-            //                           select medicament).ToList<Medicaments>();
+            Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
+                                       select medicament).ToList<Medicaments>();
             Menu.Show();
             this.Close();
         }
@@ -93,8 +93,8 @@ namespace MediCare
                     Globals.ListPatients = (from patient in Globals.DataClass.Patient
                                             join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
                                             select personne).ToList<Personne>();
-                    //Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
-                    //                           select medicament).ToList<Medicaments>();
+                    Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
+                                               select medicament).ToList<Medicaments>();
                     main.Show();
                     this.Close();
                 }

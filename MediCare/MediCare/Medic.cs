@@ -36,9 +36,16 @@ namespace MediCare
         {
             nom = nom.ToUpper();
             List<Medicaments> filtremedic = new List<Medicaments>();
+            int tmp = 0;
             foreach (Medicaments medic in Globals.ListMedicaments)
-                if ((medic.nom).Contains(nom))
+            {               
+                if ((medic.nom).StartsWith(nom))
+                {
                     filtremedic.Add(medic);
+                    tmp++;
+                    if (tmp > 100) break;
+                }  
+            }
             return filtremedic;
         }
     }

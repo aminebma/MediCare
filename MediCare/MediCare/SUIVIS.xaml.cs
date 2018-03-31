@@ -21,8 +21,16 @@ namespace MediCare
     {
         public SUIVIS()
         {
+            int nbMaxElem = 0;
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            foreach (Personne patient in Globals.ListPatients)
+            {
+                nomPatientT.Items.Add(patient.nom);
+                prenomPatientT.Items.Add(patient.prenom);
+                nbMaxElem++;
+                if (nbMaxElem > 100) break;
+            }
         }
 
         List<Personne> listPatientsTmp;
@@ -54,12 +62,8 @@ namespace MediCare
                             expSuivi.Content =expSuivi.Content + "\n" + d.NomMed + " " + d.Dose + " " + d.Indication;
 
                         }
-
-
                     }
-
                 }
-
             }
         }
         private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)

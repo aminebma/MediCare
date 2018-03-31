@@ -25,7 +25,15 @@ namespace MediCare
         List<Personne> listPatientsTmp;
         public Consultation_Patient()
         {
+            int nbMaxElem = 0;
             InitializeComponent();
+            foreach (Personne patient in Globals.ListPatients)
+            {
+                nomPatientT.Items.Add(patient.nom);
+                prenomPatientT.Items.Add(patient.prenom);
+                nbMaxElem++;
+                if (nbMaxElem > 100) break;
+            }
         }
 
         Agenda pat = new Agenda();
