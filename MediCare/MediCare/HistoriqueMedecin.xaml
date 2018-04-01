@@ -12,13 +12,13 @@
             <Label  Width="753" FontSize="48" FontFamily="Century Gothic" Foreground="White" Height="84" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Historique de vos consultations :" Margin="157,0"/>
         </StackPanel>
         <Button Content="Afficher l'historique de toutes vos consultations : " HorizontalAlignment="Left" Height="33" Margin="252,71,0,0" VerticalAlignment="Top" Width="463" Background="White" Click="Button_Click" Foreground="#FF040407" BorderBrush="White"/>
-        <ScrollViewer>
-            <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Width="1064" Margin="0,102,0,0" Height="406">
+        <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Width="1064" Margin="0,102,0,0" Height="406">
+            <ScrollViewer>
                 <StackPanel Name="StackSuivi" Height="406" Margin="2,-100,0,0">
                     <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
                 </StackPanel>
-            </materialDesign:Card>
-        </ScrollViewer>
+            </ScrollViewer>
+        </materialDesign:Card>
 
     </Grid>
 </Window>

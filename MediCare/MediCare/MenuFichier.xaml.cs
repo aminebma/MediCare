@@ -18,12 +18,29 @@ namespace MediCare
 	/// <summary>
 	/// Logique d'interaction pour Menu_Fichier.xaml
 	/// </summary>
-	public partial class MenuFichier : Window
+	public partial class MenuFichier : UserControl
 	{
-		public MenuFichier()
+        string label;
+        string diagnostic;
+        string description;
+        List<Traite> traitement = new List<Traite>();
+        List<string> radio = new List<string>();
+        string CheminScanner;
+        string CheminBilan;
+        string CheminCertificat;
+        string CheminLettre;
+        public MenuFichier(string label, string diagnostic, string description, List<Traite> traitement)
 		{
-			InitializeComponent();
+            this.label = label;
+            this.diagnostic = diagnostic;
+            this.description = description;
+            this.traitement = traitement;
+            InitializeComponent();
 		}
+        public MenuFichier()
+        {
+            InitializeComponent();
+        }
 
         private void AjouterRadio_Click(object sender, RoutedEventArgs e)
         {
@@ -31,7 +48,7 @@ namespace MediCare
             if (ofd.ShowDialog() == true)
             {
                 MessageBox.Show(ofd.FileName);
-
+                this.radio.Add(ofd.FileName);
             }
         }
 
@@ -41,15 +58,28 @@ namespace MediCare
             if (ofd.ShowDialog() == true)
             {
                 MessageBox.Show(ofd.FileName);
+                this.CheminCertificat = ofd.FileName;
+                this.CheminLettre = ofd.FileName;
+                this.CheminScanner = ofd.FileName;
 
             }
         }
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
+        private void Valider_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            UserControl ordo = new GenererOrdonnance(label,diagnostic,description,traitement,this.radio,this.CheminBilan,this.CheminScanner,this.CheminCertificat,this.CheminLettre);
+            parent.Children.Clear();
+            parent.Children.Add(ordo);
+        }
 
-
-        //	.
-
-        //}
+        private void AjouterBilan_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == true)
+            {
+                this.CheminBilan = ofd.FileName;
+            }
+        }
     }
 }

@@ -92,7 +92,11 @@
                 </Button>
             </Grid>
         </StackPanel>
-        <Grid x:Name="SelectionGrid" Margin="0,85,0,56"/>
+        <Grid x:Name="SelectionGrid" Margin="0,85,0,56">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
+        </Grid>
         <materialDesign:DrawerHost BorderThickness="2" Margin="0" d:IsHidden="True">
             <materialDesign:DrawerHost.RightDrawerContent>
                 <StackPanel Margin="70">

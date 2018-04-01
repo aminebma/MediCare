@@ -34,7 +34,7 @@ namespace MediCare
             {
                 Globals.NomMedecin = nom.Text;
                 Globals.PrenomMedecin = prenom.Text;
-                med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Text);
+                med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Text,email.Text);
                 MessageBox.Show("Le medecin a été inséré ! ");
                 MenuPrincipal t = new MenuPrincipal();
                 Globals.ListPatients = (from patient in Globals.DataClass.Patient

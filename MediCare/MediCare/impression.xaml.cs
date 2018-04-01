@@ -21,7 +21,7 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour impression.xaml
     /// </summary>
-    public partial class impression : Window
+    public partial class impression : UserControl 
     {
         public impression()
         {
@@ -54,7 +54,7 @@ namespace MediCare
 
             if ((bool)femme.IsChecked)
             {
-                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Mademoiselle  " + nom.Text + "  Née le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
+                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Mademoiselle  " + Globals.NomPatient +" "+Globals.PrenomPatient + "  Née le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
                 doc.Add(para3);
 
                 if ((bool)sport.IsChecked)
@@ -90,7 +90,7 @@ namespace MediCare
 
             if ((bool)femme2.IsChecked)
             {
-                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Madame  " + nom.Text + "  Née le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
+                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Madame  " + Globals.NomPatient +" "+Globals.PrenomPatient+ "  Née le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
                 doc.Add(para3);
 
                 if ((bool)sport.IsChecked)
@@ -126,7 +126,7 @@ namespace MediCare
 
             if ((bool)homme.IsChecked)
             {
-                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Monsieur " + nom.Text + "  Né le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
+                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Monsieur " + Globals.NomPatient+" "+Globals.PrenomPatient + "  Né le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
                 doc.Add(para3);
 
                 if ((bool)sport.IsChecked)

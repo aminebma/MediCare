@@ -56,6 +56,14 @@ namespace MediCare
             parent.Children.Clear();
             parent.Children.Add(usc);
         }
+
+        private void PAtientBTN_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            UserControl usc = new MenuPatient();
+            parent.Children.Clear();
+            parent.Children.Add(usc);
+        }
     }
 
 }

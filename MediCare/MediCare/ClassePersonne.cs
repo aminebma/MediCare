@@ -21,8 +21,6 @@ namespace MediCare
                 dateNaissance = DateTime.Parse(date),
                 adresse = adresse,
                 telephone = int.Parse(num_tel)
-
-
             };
             if (homme)
             {
@@ -131,6 +129,16 @@ namespace MediCare
             dataClass.SubmitChanges();
             dataClass.Personne.DeleteOnSubmit(personasupp);
             dataClass.SubmitChanges();
+        }
+        public List<Personne> RechercherPatientBDD(string nom, string prenom)
+        {
+            nom = nom.ToUpper();
+            prenom = prenom.ToUpper();
+            IQueryable<Personne> patients = (from personne in Globals.DataClass.Personne
+                                             where personne.nom.Contains(nom) && personne.prenom.Contains(prenom)
+                                             join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
+                                             select personne);
+            return patients.ToList<Personne>();
         }
     }
 }

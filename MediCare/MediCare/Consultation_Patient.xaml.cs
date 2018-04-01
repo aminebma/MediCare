@@ -26,6 +26,12 @@ namespace MediCare
         public Consultation_Patient()
         {
             InitializeComponent();
+            popup.Visibility = Visibility.Hidden;
+            foreach (Personne patient in Globals.ListPatients)
+            {
+                nomPatientT.Items.Add(patient.nom);
+                prenomPatientT.Items.Add(patient.prenom);
+            }
         }
 
         Agenda pat = new Agenda();
@@ -34,7 +40,7 @@ namespace MediCare
 
         
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void okBtn_Click(object sender, RoutedEventArgs e)
         {
             if (nomPatientT.Text == "" || prenomPatientT.Text == "")
             {
@@ -49,13 +55,18 @@ namespace MediCare
                 patients = pat.RechercherPatient(Globals.NomPatient+" "+Globals.PrenomPatient);
                 if (patients.Count() != 0)
                 {
-                    AjoutConsultation CSLT = new AjoutConsultation();
-                    CSLT.Show();
+                    UserControl usc = new AjoutConsultation();
+                    nomPatientT.IsEnabled = false;
+                    prenomPatientT.IsEnabled = false;
+                    okBtn.IsEnabled = false;
+                    this.GridDroit.Children.Add(usc);
                 }
                 else
                 {
-                    PopupPatient pop = new PopupPatient();
-                    pop.Show();
+                    nomPatientT.IsEnabled = false;
+                    prenomPatientT.IsEnabled = false;
+                    okBtn.IsEnabled = false;
+                    popup.Visibility = Visibility.Visible;
                 }
             }
 
@@ -132,6 +143,18 @@ namespace MediCare
         private void nomPatientT_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Tab && nomPatientT.IsDropDownOpen && nomPatientT.HasItems) nomPatientT.Text = nomPatientT.Items.GetItemAt(0).ToString();
+        }
+
+        private void nomPatientT_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            nomPatientT.Focus();
+            nomPatientT.IsDropDownOpen = true;
+        }
+
+        private void prenomPatientT_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            prenomPatientT.Focus();
+            prenomPatientT.IsDropDownOpen = true;
         }
     }
 }

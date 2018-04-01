@@ -15,6 +15,8 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Windows.Navigation;
 using System.IO;
+using Microsoft.Win32;
+
 
 
 namespace MediCare
@@ -22,31 +24,72 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour GenererOrdonnance.xaml
     /// </summary>
-    public partial class GenererOrdonnance : Window
+    public partial class GenererOrdonnance : UserControl
     {
+        string label;
+        string diagnostic;
+        string description;
+        List<Traite> traitment = new List<Traite>();
+        List<string> radio = new List<string>();
+        string ordonnance;
+        string bilan;
+        string scanner;
+        string certificat;
+        string Lettre;
+
+        public GenererOrdonnance(string label ,string diagnostic, string description,List<Traite> traitment, List<string> radio, string bilan, string scanner, string certificat, string Lettre  )
+        {
+            InitializeComponent();
+            this.label = label;
+            this.diagnostic = diagnostic;
+            this.description = description;
+            this.traitment = traitment;
+            this.radio = radio;
+            this.bilan = bilan;
+            this.scanner = scanner;
+            this.certificat =certificat;
+            this.Lettre  = Lettre;
+
+        }
+        public GenererOrdonnance(string label, string diagnostic, string description, List<Traite> traitment)
+        {
+            InitializeComponent();
+            this.label = label;
+            this.diagnostic = diagnostic;
+            this.description = description;
+            this.traitment = traitment;
+
+        }
         public GenererOrdonnance()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            //Document doc = new Document();
-            //PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Test.pdf", FileMode.Create));
-            //doc.Open();
-
-            //BaseFont bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
-            //Font times = new Font(bfTimes, 10, Font.BOLD);
-            //Font times1 = new Font(bfTimes, 12, Font.NORMAL);
-
-            //iTextSharp.text.Paragraph para = new iTextSharp.text.Paragraph("République Algérienne Démocratique et Populaire \n الجمهورية الجزائرية الديمقراطية الشعبية\n " +
-            //    "Ministère de l'Enseignement Supérieur et de la Recherche Scientifique \n وزارة التعليم العالي و البحث العلمي", times);
-           
-            //doc.Add(para);
-            //iTextSharp.text.Paragraph para1 = new iTextSharp.text.Paragraph("DR HAOUCHINE \n ", times);
-
-
+            Consult consultation = new Consult();
+            try
+            {
+                consultation.AddConsult(Globals.NomPatient, Globals.PrenomPatient, Globals.NomMedecin, Globals.PrenomMedecin, diagnostic, description, certificat, Lettre, scanner, bilan, ordonnance, radio, traitment, label,Globals.Age);
+                MessageBox.Show("Consultation ajoutée avec succés !");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Une erreur s'est produite !");
+            }
 
         }
+
+        private void VisualiserOrdo_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == true)
+            {
+                MessageBox.Show(ofd.FileName);
+                this.ordonnance = ofd.FileName;
+                
+            }
+        }
+        
     }
 }

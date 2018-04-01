@@ -57,8 +57,8 @@
                     materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="774,28,146,229" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Suivie" FontFamily="Century Gothic" FontSize="24" Click="SuivieBTN_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFFA176" Offset="0.155"/>
-                            <GradientStop Color="#FFFF819A" Offset="1"/>
+                            <GradientStop Color="#FF5CE29F"/>
+                            <GradientStop Color="#FF7637B6" Offset="1"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
@@ -74,7 +74,7 @@
                 </Button>
                 <Button x:Name="PAtientBTN"
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="381,208,518,38" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Patient" FontFamily="Century Gothic" FontSize="24">
+                    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="381,208,518,38" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Patient" FontFamily="Century Gothic" FontSize="24" Click="PAtientBTN_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                             <GradientStop Color="#FF81CCFF" Offset="0"/>
@@ -84,7 +84,7 @@
                 </Button>
                 <Button x:Name="CompteBTN"
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="162,250,786,38" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Compte" FontFamily="Century Gothic" FontSize="24">
+                    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="162,250,786,38" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Historique" FontFamily="Century Gothic" FontSize="24">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                             <GradientStop Color="#FF42919E"/>

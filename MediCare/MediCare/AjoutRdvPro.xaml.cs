@@ -27,13 +27,14 @@ namespace MediCare
         public AjoutRdvPro()
         {
             InitializeComponent();
+            int nbElemMax = 0;
             foreach (Personne patient in Globals.ListPatients)
             {
                 nomPatientT.Items.Add(patient.nom);
                 prenomPatientT.Items.Add(patient.prenom);
+                nbElemMax++;
+                if (nbElemMax > 100) break;
             }
-            nomPatientT.Focus();
-            nomPatientT.IsDropDownOpen = true;
         }
 
         //List<string> caract = new List<string> { ",", ".", ":", ";", "!", "*", "$", "/", "?", "+", "_", "=", "§", "<", ">", "{", "}", "[", "]", "(", ")", "'", "\"", "&", "²", "@", "|", "#", "£", "µ", "%", "€", "¤" };

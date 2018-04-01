@@ -17,11 +17,11 @@
         </StackPanel>
         <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="107,357,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput"/>
         <Label x:Name="dateL" Content="Date*" HorizontalAlignment="Left" Height="34" Margin="107,323,0,0" VerticalAlignment="Top" Width="84" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
-        <TextBox x:Name="notesT" HorizontalAlignment="Left" Height="115" Margin="107,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="852" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
+        <TextBox x:Name="notesT" HorizontalAlignment="Left" Height="115" Margin="107,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="852" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" SpellCheck.IsEnabled="True"/>
         <Label x:Name="notesL" Content="Description du rendez vous" HorizontalAlignment="Left" Height="35" Margin="107,85,0,0" VerticalAlignment="Top" Width="249" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859"/>
-        <Button x:Name="AddButton" Content="Ajouter" HorizontalAlignment="Center" Height="53" Margin="809,447,111,49" Width="150" FontFamily="Century Gothic" Background="#FF77B3B4" Click="AddButton_Click"/>
+        <Button x:Name="AddButton" Content="Ajouter" HorizontalAlignment="Center" Height="53" Margin="689,419,231,77" Width="150" FontFamily="Century Gothic" Background="#FF77B3B4" Click="AddButton_Click"/>
         <materialDesign:TimePicker Is24Hours="True" x:Name="horaire" Margin="387,363,541,0" PreviewTextInput="horaire_PreviewTextInput" Height="26" />
-        <Label x:Name="horaireL" Content="Horaire*" HorizontalAlignment="Left" Height="34" Margin="387,307,0,0" VerticalAlignment="Top" Width="115" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="horaireL" Content="Horaire*" HorizontalAlignment="Left" Height="34" Margin="387,317,0,0" VerticalAlignment="Top" Width="115" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF3C5859" RenderTransformOrigin="0.5,0.5"/>
     </Grid>
 </UserControl>
  

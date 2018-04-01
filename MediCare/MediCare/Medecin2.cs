@@ -9,7 +9,7 @@ namespace MediCare
 {
     class Medecin2
     {
-        public void AddMed(string nom, string prenom, DateTime date, string adresse, string num_tel, string sexe, string key, string username, string password)
+        public void AddMed(string nom, string prenom, DateTime date, string adresse, string num_tel, string sexe, string key, string username, string password,string email)
         {
             nom=nom.ToUpper();
             prenom=prenom.ToUpper();
@@ -31,6 +31,7 @@ namespace MediCare
                 key = key,
                 username = username,
                 password = password,
+                email = email,
                 IdPersonne = t.Id
             };
             Globals.DataClass.Medecin.InsertOnSubmit(tabmedecin);

@@ -15,18 +15,26 @@ using System.Windows.Shapes;
 namespace MediCare
 {
     /// <summary>
-    /// Logique d'interaction pour PopupPatient.xaml
+    /// Logique d'interaction pour MenuPatient.xaml
     /// </summary>
-    public partial class PopupPatient : UserControl
+    public partial class MenuPatient : UserControl
     {
-        public PopupPatient()
+        public MenuPatient()
         {
             InitializeComponent();
+        }
+
+        private void Rechercher_pat_Click(object sender, RoutedEventArgs e)
+        {
 
         }
-        PersonneClasse pers = new PersonneClasse();
 
-        private void Oui_Click(object sender, RoutedEventArgs e)
+        private void Rech_pat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Ajout_pat_Click(object sender, RoutedEventArgs e)
         {
             var parent = (Grid)this.Parent;
             UserControl usc = new FichePatient();
@@ -34,12 +42,10 @@ namespace MediCare
             parent.Children.Add(usc);
         }
 
-        private void Non_Click(object sender, RoutedEventArgs e)
+        private void Supr_pat_Click(object sender, RoutedEventArgs e)
         {
-            var parent = (Grid)this.Parent;
-            pers.AddPatientPersonne(Globals.NomPatient,Globals.PrenomPatient,null,null,null,true,null,null,null,null,null);
-            //UserControl usc = new AjoutConsultation();
-            //parent.Children.Add(usc);
+            PatientASupp p = new PatientASupp();
+            p.Show();
         }
     }
 }
