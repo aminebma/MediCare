@@ -21,7 +21,7 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour LettreOrientation.xaml
     /// </summary>
-    public partial class LettreOrientation : Window
+    public partial class LettreOrientation : UserControl
     {
         public LettreOrientation()
         {
@@ -54,18 +54,14 @@ namespace MediCare
             doc.Add(para5);
             iTextSharp.text.Paragraph para6 = new iTextSharp.text.Paragraph("Je vous adresse Monsieur "+nom.Text+" agé de " +age.Text+" ans qui présente "+sit.Text, times1);
             doc.Add(para6);
-            iTextSharp.text.Paragraph para7 = new iTextSharp.text.Paragraph("Je souhaiterais que vous le preniez en main en lui faisant des examens complémentaires pour ensuite me donner votre avis.\n\n "+"Je vous remercie et vous prie d'agréer, mon cher confrere, mes salutations distinguées.  ", times1);
+            iTextSharp.text.Paragraph para7 = new iTextSharp.text.Paragraph("Je souhaiterais que vous le preniez en main en lui faisant des examens complémentaires pour ensuite me donner votre avis.\n\n "+"Je vous remercie et vous prie d'agréer, mon cher confrère, mes salutations distinguées.  ", times1);
             doc.Add(para7);
 
             if ((bool)femme.IsChecked)
             {
-                iTextSharp.text.Paragraph para55 = new iTextSharp.text.Paragraph("                                                           Docteur   "   , times1);
+                iTextSharp.text.Paragraph para55 = new iTextSharp.text.Paragraph("                                                           Docteur :"+ Globals.NomMedecin+" "+Globals.PrenomMedecin   , times1);
                 doc.Add(para55);
-
-                
             }
-
-
             }
         }
 }

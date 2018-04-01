@@ -5,84 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MediCare"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.Consultation_Patient"
-             mc:Ignorable="d" d:DesignWidth="300" Width="760" Height="400">
-    <Grid>
-
-        <Image Margin="-167.08,284.661,866.721,249.47" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="0.997" ScaleX="1.003"/>
-                    <SkewTransform AngleY="-0.532"/>
-                    <RotateTransform Angle="-31.337"/>
-                    <TranslateTransform X="182.112" Y="-104.668"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="186.353,33.123,479.487,503.078" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="0.991" ScaleX="1.009"/>
-                    <SkewTransform AngleY="0.397"/>
-                    <RotateTransform Angle="68.912"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="434.166,400.579,265.475,133.552" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.516,0.502">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="0.997" ScaleX="1.003"/>
-                    <SkewTransform AngleY="-0.532"/>
-                    <RotateTransform Angle="-31.337"/>
-                    <TranslateTransform X="182.112" Y="-104.668"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="30.281,489.11,652.972,49.162" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="3.057,0.951">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.054"/>
-                    <RotateTransform Angle="-2.569"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="683.124,6.214,19.59,549.652" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="0.992" ScaleX="1.008"/>
-                    <SkewTransform AngleY="-0.522"/>
-                    <RotateTransform Angle="-59.146"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="430.5,220.5,288.5,356.5" Source="ressources/images/bulles_3.PNG" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.515,1.012">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-488.234"/>
-                    <TranslateTransform X="-26.399" Y="-16.964"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="51.213" Height="Auto" Margin="705.787,567.251,0,0" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40"/>
-        </Button>
-        <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="655,567,46,0" Foreground="#FF183A83">
-            <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40"/>
-        </Button>
-        <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="50" Margin="607,569.5,0,0.5" Foreground="#FF183A83" HorizontalAlignment="Left">
-            <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40"/>
-        </Button>
-        <Label x:Name="nomL" Content="Nom * :" HorizontalAlignment="Left" Height="37" Margin="14,125,0,0" VerticalAlignment="Top" Width="182" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
-        <Label x:Name="prenomL" Content="Prénom * :" HorizontalAlignment="Left" Height="37" Margin="342,123,0,0" VerticalAlignment="Top" Width="105" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
-        <Button Content="OK" HorizontalAlignment="Left" Height="52" Margin="274,267,0,0" VerticalAlignment="Top" Width="204" Background="#FF6A97AC" Click="Button_Click"/>
-        <Label x:Name="recherche" Content="Sélectionnez le nom et prénom du patient à consulter : " HorizontalAlignment="Left" Height="37" Margin="8,22,0,0" VerticalAlignment="Top" Width="576" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Background="White"/>
-        <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" BorderThickness="0,0,0,3" Height="38" Margin="89,123,0,0" VerticalAlignment="Top" Width="231"  BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="nomPatientT_MouseEnter" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown" />
-        <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" BorderThickness="0,0,0,3" Height="36" Margin="466,124,0,0" VerticalAlignment="Top" Width="234"   BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="prenomPatientT_MouseEnter" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus"/>
-
+             mc:Ignorable="d" d:DesignWidth="300" Width="1072" Height="548">
+    <Grid Margin="0">
+        <Grid x:Name="GridDroit" HorizontalAlignment="Right" Margin="0" Width="780"/>
+        <Label x:Name="nomL" Content="Nom * :" Height="37" Margin="13,138,996,373" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF6A97AC"/>
+        <Label x:Name="prenomL" Content="Prénom * :" Height="37" Margin="1,254,962,257" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF6A97AC"/>
+        <Button x:Name="okBtn" Content="OK" Height="52" Margin="157,333,0,163" Background="#FF6A97AC" Click="okBtn_Click" HorizontalAlignment="Left" Width="130"/>
+        <Label x:Name="recherche" Content="Sélectionnez le nom et prénom&#xA; du patient à consulter : " Margin="13,52,785,419" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Background="{x:Null}" Foreground="#FF6A97AC"/>
+        <ComboBox x:Name="nomPatientT" BorderThickness="0,0,0,3" Height="38" Margin="137,138,785,372" VerticalAlignment="Stretch"  BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="nomPatientT_MouseEnter" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown" MouseLeftButtonDown="nomPatientT_MouseLeftButtonDown" />
+        <ComboBox x:Name="prenomPatientT" BorderThickness="0,0,0,3" Height="36" Margin="137,254,785,258" VerticalAlignment="Stretch"   BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="prenomPatientT_MouseEnter" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus" MouseLeftButtonDown="prenomPatientT_MouseLeftButtonDown"/>
+        <local:PopupPatient x:Name="popup" HorizontalAlignment="Left" Height="153" Margin="5,393,0,0" VerticalAlignment="Top" Width="287"/>
     </Grid>
+
 </UserControl>

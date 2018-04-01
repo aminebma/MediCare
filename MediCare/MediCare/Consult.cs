@@ -10,75 +10,75 @@ namespace MediCare
 	class Consult
 	{
 
-		public void AddConsult(string nomPatient, string prenomPatient, string nomMedecin, string prenomMedecin, string diagnostic, string description, string cheminCertificat, string cheminLettreOrientation, string cheminScanner, string cheminBilan, string cheminOrdo, List<string> cheminRadio, List<Traite> traitement, string label   )
-		{
+        public void AddConsult(string nomPatient, string prenomPatient, string nomMedecin, string prenomMedecin, string diagnostic, string description, string cheminCertificat, string cheminLettreOrientation, string cheminScanner, string cheminBilan, string cheminOrdo, List<string> cheminRadio, List<Traite> traitement, string label, int age)
+        {
             nomPatient = nomPatient.ToUpper();
             prenomMedecin = prenomMedecin.ToUpper();
             Consultation table = new Consultation
-			{
-				date = DateTime.Today,
-				diagnostic = diagnostic,
-				description = description,
-				cheminCertificat = cheminCertificat,
-				cheminLettreOrientation = cheminLettreOrientation,
-				cheminScanner = cheminScanner,
-				cheminBilan = cheminBilan,
-				cheminOrdo = cheminOrdo,
+            {
+                date = DateTime.Today,
+                diagnostic = diagnostic,
+                description = description,
+                cheminCertificat = cheminCertificat,
+                cheminLettreOrientation = cheminLettreOrientation,
+                cheminScanner = cheminScanner,
+                cheminBilan = cheminBilan,
+                cheminOrdo = cheminOrdo,
+                age = age,
                 label = label
-			};
-			Globals.DataClass.Consultation.InsertOnSubmit(table);
-			Globals.DataClass.SubmitChanges();
+            };
+            Globals.DataClass.Consultation.InsertOnSubmit(table);
+            Globals.DataClass.SubmitChanges();
 
-			
-			foreach (var chemin in cheminRadio)
-			{
+
+            foreach (var chemin in cheminRadio)
+            {
                 Radio tableRadio = new Radio();
                 tableRadio.chemin = chemin;
-				tableRadio.IdConsultation = table.Id;
-				Globals.DataClass.Radio.InsertOnSubmit(tableRadio);
-				Globals.DataClass.SubmitChanges();
-			}
+                tableRadio.IdConsultation = table.Id;
+                Globals.DataClass.Radio.InsertOnSubmit(tableRadio);
+                Globals.DataClass.SubmitChanges();
+            }
 
-			
 
-			foreach (var trait in traitement)
-			{
+
+            foreach (var trait in traitement)
+            {
                 Traitement tableTraitement = new Traitement();
                 tableTraitement.Dose = trait.Dose;
-				tableTraitement.Indication = trait.Indication;
-				tableTraitement.IdConsultation = table.Id;
+                tableTraitement.Indication = trait.Indication;
+                tableTraitement.IdConsultation = table.Id;
 
 
-				Medicaments medTraitement = (from medicament in Globals.DataClass.Medicaments
-											 where trait.NomMed == medicament.nom
-											 select medicament).First<Medicaments>();
+                Medicaments medTraitement = (from medicament in Globals.DataClass.Medicaments
+                                             where trait.NomMed == medicament.nom
+                                             select medicament).First<Medicaments>();
 
-				tableTraitement.IdMedicament = medTraitement.Id;
+                tableTraitement.IdMedicament = medTraitement.Id;
 
-				Globals.DataClass.Traitement.InsertOnSubmit(tableTraitement);
-				Globals.DataClass.SubmitChanges();
+                Globals.DataClass.Traitement.InsertOnSubmit(tableTraitement);
+                Globals.DataClass.SubmitChanges();
 
-			}
+            }
 
-			Patient patientConsultation = (from personne in Globals.DataClass.Personne
-										   where nomPatient == personne.nom && prenomPatient == personne.prenom
-										   join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
-										   select patient).First<Patient>();
-			Medecin medecinConsultation = (from personne in Globals.DataClass.Personne
-										   where nomMedecin == personne.nom && prenomMedecin == personne.prenom
-										   join medecin in Globals.DataClass.Medecin on personne.Id equals medecin.IdPersonne
-										   select medecin).First<Medecin>();
+            Patient patientConsultation = (from personne in Globals.DataClass.Personne
+                                           where nomPatient == personne.nom && prenomPatient == personne.prenom
+                                           join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
+                                           select patient).First<Patient>();
+            Medecin medecinConsultation = (from personne in Globals.DataClass.Personne
+                                           where nomMedecin == personne.nom && prenomMedecin == personne.prenom
+                                           join medecin in Globals.DataClass.Medecin on personne.Id equals medecin.IdPersonne
+                                           select medecin).First<Medecin>();
 
-			MPConsultation tableMPC = new MPConsultation
-			{
-				IdConsultation = table.Id,
-				IdPatient = patientConsultation.Id,
-				IdMedecin = medecinConsultation.Id
-			};
+            MPConsultation tableMPC = new MPConsultation
+            {
+                IdConsultation = table.Id,
+                IdPatient = patientConsultation.Id,
+                IdMedecin = medecinConsultation.Id
+            };
 
-			Globals.DataClass.MPConsultation.InsertOnSubmit(tableMPC);
-			Globals.DataClass.SubmitChanges();
-            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
+            Globals.DataClass.MPConsultation.InsertOnSubmit(tableMPC);
+            Globals.DataClass.SubmitChanges();
         }
 
 
@@ -86,54 +86,53 @@ namespace MediCare
 
 
         public void SuppConsultation(string nomPatient, string prenomPatient, DateTime date)
-		{
+        {
             nomPatient = nomPatient.ToUpper();
             prenomPatient = prenomPatient.ToUpper();
 
-			Personne Pers = (from personne in Globals.DataClass.Personne
-							 where nomPatient == personne.nom && prenomPatient == personne.prenom
-							 select personne).First<Personne>();
+            Personne Pers = (from personne in Globals.DataClass.Personne
+                             where nomPatient == personne.nom && prenomPatient == personne.prenom
+                             select personne).First<Personne>();
 
-			Patient Pat = (from patient in Globals.DataClass.Patient
-						   where patient.IdPersonne == Pers.Id
-						   select patient).First<Patient>();
+            Patient Pat = (from patient in Globals.DataClass.Patient
+                           where patient.IdPersonne == Pers.Id
+                           select patient).First<Patient>();
 
-			MPConsultation mpcnsltToDelete = (from cns in Globals.DataClass.Consultation
-											  where cns.date == date
-											  join mpc in Globals.DataClass.MPConsultation on cns.Id equals mpc.IdConsultation
-											  where mpc.IdPatient == Pat.Id
-											  select mpc).First<MPConsultation>();
+            MPConsultation mpcnsltToDelete = (from cns in Globals.DataClass.Consultation
+                                              where cns.date == date
+                                              join mpc in Globals.DataClass.MPConsultation on cns.Id equals mpc.IdConsultation
+                                              where mpc.IdPatient == Pat.Id
+                                              select mpc).First<MPConsultation>();
 
-			Consultation cnsltToDelete = (from cns in Globals.DataClass.Consultation
-										  where cns.Id == mpcnsltToDelete.IdConsultation
-										  select cns).First<Consultation>();
-			IQueryable<Radio> rdi = (from radio in Globals.DataClass.Radio
-									 where radio.IdConsultation == cnsltToDelete.Id
-									 select radio);
-			foreach (Radio p in rdi)
-			{
-				Globals.DataClass.Radio.DeleteOnSubmit(p);
-				Globals.DataClass.SubmitChanges();
-			}
+            Consultation cnsltToDelete = (from cns in Globals.DataClass.Consultation
+                                          where cns.Id == mpcnsltToDelete.IdConsultation
+                                          select cns).First<Consultation>();
+            IQueryable<Radio> rdi = (from radio in Globals.DataClass.Radio
+                                     where radio.IdConsultation == cnsltToDelete.Id
+                                     select radio);
+            foreach (Radio p in rdi)
+            {
+                Globals.DataClass.Radio.DeleteOnSubmit(p);
+                Globals.DataClass.SubmitChanges();
+            }
 
-			IQueryable<Traitement> trait = (from traitement in Globals.DataClass.Traitement
-											where traitement.IdConsultation == cnsltToDelete.Id
+            IQueryable<Traitement> trait = (from traitement in Globals.DataClass.Traitement
+                                            where traitement.IdConsultation == cnsltToDelete.Id
 
-											select traitement);
+                                            select traitement);
 
-			foreach (Traitement p in trait)
-			{
-				Globals.DataClass.Traitement.DeleteOnSubmit(p);
-				Globals.DataClass.SubmitChanges();
-			}
+            foreach (Traitement p in trait)
+            {
+                Globals.DataClass.Traitement.DeleteOnSubmit(p);
+                Globals.DataClass.SubmitChanges();
+            }
 
 
 
-			Globals.DataClass.MPConsultation.DeleteOnSubmit(mpcnsltToDelete);
-			Globals.DataClass.SubmitChanges();
-			Globals.DataClass.Consultation.DeleteOnSubmit(cnsltToDelete);
-			Globals.DataClass.SubmitChanges();
-            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
+            Globals.DataClass.MPConsultation.DeleteOnSubmit(mpcnsltToDelete);
+            Globals.DataClass.SubmitChanges();
+            Globals.DataClass.Consultation.DeleteOnSubmit(cnsltToDelete);
+            Globals.DataClass.SubmitChanges();
         }
 
 

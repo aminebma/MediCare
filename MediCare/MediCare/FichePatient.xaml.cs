@@ -18,12 +18,11 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pourFichePatient.xaml
     /// </summary>
-    public partial class FichePatient : Window
+    public partial class FichePatient : UserControl
     {
         public FichePatient()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         PersonneClasse pers = new PersonneClasse();
@@ -65,6 +64,12 @@ namespace MediCare
         private void Groupage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Supprimer_Click(object sender, RoutedEventArgs e)
+        {
+            PatientASupp patsup = new PatientASupp();
+            patsup.Show();
         }
     }
 }

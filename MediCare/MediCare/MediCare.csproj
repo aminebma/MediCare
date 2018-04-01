@@ -145,6 +145,9 @@
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MenuPatient.xaml.cs">
+      <DependentUpon>MenuPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuSuivi.xaml.cs">
       <DependentUpon>MenuSuivi.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,9 @@
       <DependentUpon>ModSuppRdv.xaml</DependentUpon>
     </Compile>
     <Compile Include="Notifications.cs" />
+    <Compile Include="PatientASupp.xaml.cs">
+      <DependentUpon>PatientASupp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatientMenu.xaml.cs">
       <DependentUpon>PatientMenu.xaml</DependentUpon>
     </Compile>
@@ -223,6 +229,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MenuPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MenuSuivi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -260,6 +270,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ModSuppRdv.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientASupp.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -422,11 +436,8 @@
     <Resource Include="ressources\icones\icones png\64 Pixels\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ressources\images\background.png" />
     <Content Include="restauration\MCDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="restauration\MCDatabase_log.ldf">
-      <DependentUpon>MCDatabase.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="restauration\MCDatabase_log.ldf">

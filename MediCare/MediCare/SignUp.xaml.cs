@@ -38,7 +38,6 @@ namespace MediCare
         {
             MenuPrincipal main = new MenuPrincipal();
             Medecin2 MED = new Medecin2();
-            //MessageBox.Show(password.Password);
             InscriptionMedecin t = new InscriptionMedecin();
             this.Close();
             t.Show();

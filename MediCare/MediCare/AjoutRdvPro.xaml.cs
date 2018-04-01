@@ -26,14 +26,14 @@ namespace MediCare
 
         public AjoutRdvPro()
         {
-            int nbMaxElem = 0;
             InitializeComponent();
+            int nbElemMax = 0;
             foreach (Personne patient in Globals.ListPatients)
             {
                 nomPatientT.Items.Add(patient.nom);
                 prenomPatientT.Items.Add(patient.prenom);
-                nbMaxElem++;
-                if (nbMaxElem > 100) break;
+                nbElemMax++;
+                if (nbElemMax > 100) break;
             }
         }
 

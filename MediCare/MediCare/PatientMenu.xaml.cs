@@ -27,8 +27,8 @@ namespace MediCare
 
         private void Operation_Patient_Click(object sender, RoutedEventArgs e)
         {
-            FichePatient Test = new FichePatient();
-            Test.Show();
+            //FichePatient Test = new FichePatient();
+            //Test.Show();
         }
     }
 }

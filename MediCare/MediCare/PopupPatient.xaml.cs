@@ -17,28 +17,29 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour PopupPatient.xaml
     /// </summary>
-    public partial class PopupPatient : Window
+    public partial class PopupPatient : UserControl
     {
         public PopupPatient()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
         }
         PersonneClasse pers = new PersonneClasse();
 
         private void Oui_Click(object sender, RoutedEventArgs e)
         {
-
-            FichePatient TestPatient = new FichePatient();
-            TestPatient.Show();
-           
+            var parent = (Grid)this.Parent;
+            UserControl usc = new FichePatient();
+            parent.Children.Clear();
+            parent.Children.Add(usc);
         }
 
         private void Non_Click(object sender, RoutedEventArgs e)
         {
+            var parent = (Grid)this.Parent;
             pers.AddPatientPersonne(Globals.NomPatient,Globals.PrenomPatient,null,null,null,true,null,null,null,null,null);
-            AjoutConsultation CSLT = new AjoutConsultation();
-            CSLT.Show();
+            //UserControl usc = new AjoutConsultation();
+            //parent.Children.Add(usc);
         }
     }
 }

@@ -85,6 +85,30 @@ namespace MediCare
                 _TempRappelRDV = value;
             }
         }
+        private static string _label;
+        public static string Label
+        {
+            get
+            {
+                return _label;
+            }
+            set
+            {
+                _label = value;
+            }
+        }
+        private static int _age;
+        public static int Age
+        {
+            get
+            {
+                return _age;
+            }
+            set
+            {
+                _age = value;
+            }
+        }
 
         private static string _currentDirectoryPath;
         public static string CurrentDirectoryPath
