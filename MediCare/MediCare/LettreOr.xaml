@@ -1,0 +1,32 @@
+﻿<Window x:Class="MediCare.LettreOr"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediCare"
+        mc:Ignorable="d"
+        Title="LettreOr" Height="550" Width="650">
+    <Grid>
+        <Label Content="Lettre d'orientation" HorizontalAlignment="Left" Height="55" Margin="275,6,0,0" VerticalAlignment="Top" Width="193" Foreground="#FF3599CC" FontSize="20" FontWeight="Bold"/>
+        <TextBox x:Name="nom" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="149" Margin="193,55,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <Label Content="Nom/Prénom du patient" HorizontalAlignment="Left" Height="28" Margin="19,71,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Age " HorizontalAlignment="Left" Height="28" Margin="21,185,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Demeurant" HorizontalAlignment="Left" Height="28" Margin="21,233,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <TextBox x:Name="adresse" HorizontalAlignment="Left" Height="38" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="147" Margin="150,223,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <Label Content="Mademoiselle" HorizontalAlignment="Left" Height="28" Margin="21,127,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Madame" HorizontalAlignment="Left" Height="28" Margin="181,127,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Monsieur" HorizontalAlignment="Left" Height="28" Margin="309,127,0,0" VerticalAlignment="Top" Width="148" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Button  x:Name="PDF" Content="Créer PDF" HorizontalAlignment="Left" VerticalAlignment="Top" Width="141" Margin="481,460,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="36" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
+        <Label Content="Fait à " HorizontalAlignment="Left" Height="28" Margin="128,404,0,0" VerticalAlignment="Top" Width="64" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Le " HorizontalAlignment="Left" Height="28" Margin="405,404,0,0" VerticalAlignment="Top" Width="49" Foreground="#FF3599CC" FontWeight="Bold" RenderTransformOrigin="0.693,-0.799"/>
+        <DatePicker x:Name="date" HorizontalAlignment="Left" Height="30" Margin="474,392,0,0" VerticalAlignment="Top" Width="148" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3"/>
+        <TextBox x:Name="adr" HorizontalAlignment="Left" Height="38" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="149" Margin="240,384,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="age" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="149" Margin="150,170,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <Label Content="Description " HorizontalAlignment="Left" Height="28" Margin="51,280,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <CheckBox x:Name="___op" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,130,0,0" Checked="CheckBox_Checked" Foreground="#FFAAC5B4"/>
+        <CheckBox x:Name="___op_Copy" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="266,130,0,0" Checked="CheckBox_Checked" Foreground="#FFAAC5B4"/>
+        <CheckBox x:Name="___op_Copy1" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,130,0,0" Checked="CheckBox_Checked" Foreground="#FFAAC5B4"/>
+        <TextBlock x:Name="patientsT2" HorizontalAlignment="Left" Height="94" Margin="171,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Background="#3377B3B4"/>
+
+    </Grid>
+</Window>

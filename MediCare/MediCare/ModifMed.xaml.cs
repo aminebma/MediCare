@@ -19,23 +19,49 @@ namespace MediCare
     /// </summary>
     public partial class ModifMed : Window
     {
+        Grid GridAppelant;
+        Grid SelectionGrid;
+
         public ModifMed()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
+
         Medecin2 med = new Medecin2();
+
+        public Grid SetGridAppelant
+        {
+            get { return GridAppelant; }
+            set { GridAppelant = value; }
+        }
+
+        public Grid SetSelectionGrid
+        {
+            get { return SelectionGrid; }
+            set { SelectionGrid = value; }
+        }
+
+        Window fenetrePrincipale;
+        public Window SetFenetrePrincipale
+        {
+            get { return fenetrePrincipale; }
+            set { fenetrePrincipale = value; }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            bool verif= med.VerifMed(username2.Text, password2.Text);
+            bool verif= med.VerifMed(username2.Text, Password.Password);
             if ( verif == false)
             {
                 MessageBox.Show("Vos données sont erronées ! Veuillez les resaisir  ");
             }
             else
             {
-                ModifMed_2 tt2 = new ModifMed_2();
-                tt2.Show();
+                GridAppelant.Children.Clear();
+                ModifMed_2 usc = new ModifMed_2();
+                usc.SetGridAppelant = SelectionGrid;
+                usc.SetFenetrePrincipale = fenetrePrincipale;
+                GridAppelant.Children.Add(usc);
                 this.Close();
             }
         }

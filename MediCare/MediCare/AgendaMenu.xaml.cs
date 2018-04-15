@@ -23,28 +23,36 @@ namespace MediCare
         public AgendaMenu()
         {
             InitializeComponent();
+            TextAJTRDVPRO.Text = "Ajouter un rendez \n vous professionel";
+            TextAJTRDVPERD.Text = "Ajouter un rendez \n vous personnel";
+            TextMODSUPRDV.Text = "Modifier/annuler \n un rendez vous";
+            TextCSLTAGD.Text = "Consulter mon Agenda";
         }
 
-        private void AjtRDVpro_Click(object sender, RoutedEventArgs e)
+     
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var parent = (Grid)this.Parent;
-            UserControl usc = new AjoutRdvPro();
-            parent.Children.Clear();
-            parent.Children.Add(usc);
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "AjtRDVpro":
+                    this.Grid2.Children.Clear();
+                    this.Grid2.Children.Add(new AjoutRdvPro());
+                    break;
+                case "AjtRDVpers":
+                    this.Grid2.Children.Clear();
+                    this.Grid2.Children.Add((new AjoutRdvPerso()));
+                    break;
+                case "ModSupRDV":
+                    this.Grid2.Children.Clear();
+                    this.Grid2.Children.Add(new ModSuppRdv());
+                    break;
+                case "CsltAgd":
+                    this.Grid2.Children.Clear();
+                    break;
+                default:
+                    break;
+            }
         }
 
-        private void AjtRDVPersBtn_click(object sender, RoutedEventArgs e)
-        {
-            var parent = (Grid)this.Parent;
-            UserControl usc = new AjoutRdvPerso();
-            parent.Children.Clear();
-            parent.Children.Add(usc);
-        }
-
-        private void ModifRdv_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            ModSuppRdv MSRDV = new ModSuppRdv();
-            MSRDV.Show();
-        }
     }
 }

@@ -17,23 +17,36 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour ModifMed_2.xaml
     /// </summary>
-    public partial class ModifMed_2 : Window
+    public partial class ModifMed_2 : UserControl
     {
-
+        Grid GridAppelant;
         public ModifMed_2()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        }
+
+        public Grid SetGridAppelant
+        {
+            get { return GridAppelant; }
+            set { GridAppelant = value; }
+        }
+
+        Window fenetrePrincipale;
+        public Window SetFenetrePrincipale
+        {
+            get { return fenetrePrincipale; }
+            set { fenetrePrincipale = value; }
         }
 
         Medecin2 medd = new Medecin2();
          
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-             medd.ModifMed(user.Text, npass.Text, pass.Text);
-             MessageBox.Show("Tout  a été modifié ! ");
-            
+            if (medd.ModifMed(user.Text, pass.Password, npass.Password)) MessageBox.Show("MotDePasse modifié avec succès !");;
+            GridAppelant.Children.Clear();
+            MonCompte usc = new MonCompte();
+            usc.SetFenetrePrincipale = fenetrePrincipale;
+            GridAppelant.Children.Add(usc);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour ModSuppRdv.xaml
     /// </summary>
-    public partial class ModSuppRdv : Window
+    public partial class ModSuppRdv : UserControl
     {
         public ModSuppRdv()
         {
@@ -74,6 +74,10 @@ namespace MediCare
                     {
                         rdv.SuppRdv(DateTime.Parse(OldDateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"));
                         MessageBox.Show("Rendez-vous supprimé avec succés !");
+                        var parent = (Grid)this.Parent;
+                        parent.Children.Clear();
+                        var parent2 = (Grid)parent.Parent;
+                        parent2.Children.Add(new AgendaMenu());
                     }
                     catch (Exception)
                     {
@@ -134,6 +138,10 @@ namespace MediCare
                     {
                         rdv.ModifRdv(nomPatientT.Text,prenomPatientT.Text,DateTime.Parse(OldDateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"));
                         MessageBox.Show("Rendez-vous modifié avec succés !");
+                        var parent = (Grid)this.Parent;
+                        parent.Children.Clear();
+                        var parent2 = (Grid)parent.Parent;
+                        parent2.Children.Add(new AgendaMenu());
                     }
                     catch (Exception)
                     {

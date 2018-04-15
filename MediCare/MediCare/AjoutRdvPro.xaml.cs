@@ -68,8 +68,15 @@ namespace MediCare
                     //minutesL.Foreground = Brushes.Black;
                     try
                     {
-                        
-                        if (rdv.AddRdv(DateTime.Parse(dateT.Text + " " + horaire.Text), Globals.IdMedecin, nomPatientT.Text, prenomPatientT.Text, (bool)isImportant.IsChecked, notesT.Text)) MessageBox.Show("Rendez-vous ajouté avec succés !");
+
+                        if (rdv.AddRdv(DateTime.Parse(dateT.Text + " " + horaire.Text), Globals.IdMedecin, nomPatientT.Text, prenomPatientT.Text, (bool)isImportant.IsChecked, notesT.Text))
+                        {
+                            MessageBox.Show("Rendez-vous ajouté avec succés !");
+                            var parent = (Grid)this.Parent;
+                            parent.Children.Clear();
+                            var parent2 = (Grid)parent.Parent;
+                            parent2.Children.Add(new AgendaMenu());
+                        }
                         else MessageBox.Show("Vous avez déjà un rendez-vous à cette date");
                     }
                     catch (Exception)

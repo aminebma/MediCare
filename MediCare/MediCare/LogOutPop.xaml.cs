@@ -19,11 +19,19 @@ namespace MediCare
     /// </summary>
     public partial class LogOutPop : Window
     {
+        Window creatingForm;
+
         public LogOutPop()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+        }
+
+        public Window setCreatingForm
+        {
+            get { return creatingForm; }
+            set { creatingForm = value; }
         }
 
         private void Non_Click(object sender, RoutedEventArgs e)
@@ -33,11 +41,11 @@ namespace MediCare
 
         private void Oui_Click(object sender, RoutedEventArgs e)
         {
-           /* var parent = (Window)this.Parent;
-            parent.Close();*/
-            this.Close();
             SignUp sgnup = new SignUp();
             sgnup.Show();
+            creatingForm.Close();
+            this.Close();
+            
         }
     }
 }

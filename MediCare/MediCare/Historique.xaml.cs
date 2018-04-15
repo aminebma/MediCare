@@ -17,37 +17,31 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour Historique.xaml
     /// </summary>
-    public partial class Historique : Window
+    public partial class Historique : UserControl
     {
-        public Historique()
-        {
-            InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-        }
-
-
-        List<ConsultLabel> list ;
+        List<ConsultLabel> list;
         Consult cons = new Consult();
         Consulta consulta = new Consulta();
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public Historique()
         {
+            InitializeComponent();
             list = cons.Historique();
             foreach (ConsultLabel p in list)
             {
                 Expander expSuivi = new Expander();
-                expSuivi.Header =p.Nom + " " + p.Prenom+ "\n"+ p.Label + " " + p.Date;
+                expSuivi.Header = "Médecin : " + p.Nomed + " " + p.Prenomed + "\nPatient : " + p.Nom + " " + p.Prenom + "\nLabel :" + p.Label + "\nDate de la consultation : " + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
                 StackSuivi.Children.Add(expSuivi);
                 consulta = cons.AcceeConsultationId(p.Id);
-                expSuivi.Content = consulta.Date + " " + consulta.Diagnostic + " " + consulta.Description ;
-                foreach (string d in consulta.Radio)
+                expSuivi.Content =" " + consulta.Diagnostic + "\n " + consulta.Description;
+                if (consulta.traitement != null)
                 {
-                    expSuivi.Content = expSuivi.Content + "\n" + d;
-                }
-                foreach (Traite d in consulta.traitement)
-                {
-                    expSuivi.Content = expSuivi.Content + "\n" + d.NomMed + " " + d.Dose + " " + d.Indication + "\n";
+                    expSuivi.Content = expSuivi.Content + "\n Traitement : ";
+                    foreach (Traite d in consulta.traitement)
+                    {
+                        expSuivi.Content = expSuivi.Content + "\n " + d.NomMed + " " + d.Dose + " " + d.Indication + "\n";
 
+                    }
                 }
             }
         }

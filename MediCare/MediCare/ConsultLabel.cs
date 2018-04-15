@@ -13,6 +13,8 @@ namespace MediCare
 		private int id;
 		private string nom;
 		private string prenom;
+        private string nomed;
+        private string prenomed;
 
 		public ConsultLabel(DateTime date, string label, int id, string nom, string prenom)
 		{
@@ -22,6 +24,16 @@ namespace MediCare
 			this.nom = nom;
 			this.prenom = prenom;
 		}
+        public ConsultLabel(DateTime date, string label, int id, string nom, string prenom, string nomed, string prenomed)
+        {
+            this.date = date;
+            this.label = label;
+            this.id = id;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.nomed = nomed;
+            this.prenomed = prenomed;
+        }
 
         public ConsultLabel()
         {
@@ -55,5 +67,16 @@ namespace MediCare
 			get { return prenom; }
 			set { prenom = value; }
 		}
-	}
+
+        public string Nomed
+        {
+            get { return nomed; }
+            set { nomed = value; }
+        }
+        public string Prenomed
+        {
+            get { return prenomed; }
+            set { prenomed = value; }
+        }
+    }
 }

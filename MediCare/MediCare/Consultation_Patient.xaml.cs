@@ -26,7 +26,6 @@ namespace MediCare
         public Consultation_Patient()
         {
             InitializeComponent();
-            popup.Visibility = Visibility.Hidden;
             foreach (Personne patient in Globals.ListPatients)
             {
                 nomPatientT.Items.Add(patient.nom);
@@ -55,18 +54,20 @@ namespace MediCare
                 patients = pat.RechercherPatient(Globals.NomPatient+" "+Globals.PrenomPatient);
                 if (patients.Count() != 0)
                 {
-                    UserControl usc = new AjoutConsultation();
                     nomPatientT.IsEnabled = false;
                     prenomPatientT.IsEnabled = false;
                     okBtn.IsEnabled = false;
-                    this.GridDroit.Children.Add(usc);
+                    this.GridDroit.Children.Add(new AjoutConsultation());
                 }
                 else
                 {
                     nomPatientT.IsEnabled = false;
                     prenomPatientT.IsEnabled = false;
                     okBtn.IsEnabled = false;
-                    popup.Visibility = Visibility.Visible;
+                    PopupPatient pop = new PopupPatient();
+                    pop.SetGridAppelant =this.GridDroit;
+                    pop.SetTotal = GridTotal;
+                    pop.Show();
                 }
             }
 

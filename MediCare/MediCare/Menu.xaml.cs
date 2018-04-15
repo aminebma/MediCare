@@ -37,32 +37,35 @@ namespace MediCare
         private void ConsultationBTN_Click(object sender, RoutedEventArgs e)
         {
             var parent = (Grid)this.Parent;
-            UserControl usc = new Consultation_Patient();
             parent.Children.Clear();
-            parent.Children.Add(usc);
+            parent.Children.Add(new Consultation_Patient());
         }
 
         private void AgendaBTN_Click(object sender, RoutedEventArgs e)
         {
             var parent = (Grid)this.Parent;
-            UserControl usc = new AgendaMenu();
             parent.Children.Clear();
-            parent.Children.Add(usc);
+            parent.Children.Add(new AgendaMenu());
         }
         private void SuivieBTN_Click(object sender, RoutedEventArgs e)
         {
             var parent = (Grid)this.Parent;
-            UserControl usc = new MenuSuivi();
             parent.Children.Clear();
-            parent.Children.Add(usc);
+            parent.Children.Add(new SUIVIS());
         }
 
         private void PAtientBTN_Click(object sender, RoutedEventArgs e)
         {
             var parent = (Grid)this.Parent;
-            UserControl usc = new MenuPatient();
             parent.Children.Clear();
-            parent.Children.Add(usc);
+            parent.Children.Add(new MenuPatient());
+        }
+
+        private void CompteBTN_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            parent.Children.Add(new MenuHistorique());
         }
     }
 
