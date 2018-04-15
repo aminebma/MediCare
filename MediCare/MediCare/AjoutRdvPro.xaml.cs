@@ -192,18 +192,6 @@ namespace MediCare
             e.Handled = true;
         }
 
-        private void nomPatientT_MouseEnter(object sender, MouseEventArgs e)
-        {
-            nomPatientT.Focus();
-            nomPatientT.IsDropDownOpen = true;
-        }
-
-        private void prenomPatientT_MouseEnter(object sender, MouseEventArgs e)
-        {
-            prenomPatientT.Focus();
-            prenomPatientT.IsDropDownOpen = true;
-        }
-
         private void notesT_MouseEnter(object sender, MouseEventArgs e)
         {
             notesT.Focus();
