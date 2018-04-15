@@ -76,7 +76,7 @@ namespace MediCare
                 {
 
                     PersonneClasse newPatient = new PersonneClasse();
-                    newPatient.AddPatientPersonne(nomPatient, prenomPatient, "01/01/1998", "Indéfini", "0123456789", true, "170", "60", "/", "Indéfini", "Indéfini");
+                    newPatient.AddPatientPersonne(nomPatient, prenomPatient, "01/01/1998", "Indéfini", "0123456789", "homme", "170", "60", "/", "Indéfini", "Indéfini");
                     Patient addedPatient = (from personne in Globals.DataClass.Personne
                                             where nomPatient == personne.nom && prenomPatient == personne.prenom
                                             join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne

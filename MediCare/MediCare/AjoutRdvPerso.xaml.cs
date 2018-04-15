@@ -65,6 +65,10 @@ namespace MediCare
                     {
                         rdv.AddRdv(DateTime.Parse(dateT.Text + " " + horaire.Text), Globals.IdMedecin, notesT.Text);
                         MessageBox.Show("Rendez-vous ajouté avec succés !");
+                        var parent = (Grid)this.Parent;
+                        parent.Children.Clear();
+                        var parent2 = (Grid)parent.Parent;
+                        parent2.Children.Add(new AgendaMenu());
                     }
                     catch (Exception)
                     {

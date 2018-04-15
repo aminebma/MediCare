@@ -59,13 +59,19 @@ namespace MediCare
 
         private void Add_Consultation_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (ageT.Text == "" || diagnosticT.Text == "" || descriptionT.Text == "" || medicamentT.Text == "" || doseT.Text == "")
+            if (medicamentT.Text != "" && doseT.Text != "" && indicationT.Text != "")
+            {
+                TraitementEnreg.Dose = doseT.Text;
+                TraitementEnreg.NomMed = medicamentT.Text;
+                TraitementEnreg.Indication = indicationT.Text;
+                traitementList.Add(TraitementEnreg);
+            }
+
+            if (ageT.Text == "" || diagnosticT.Text == "" || medicamentT.Text == "" || doseT.Text == "")
             {
                 Add_Consultation.Background = Brushes.Red;
                 MessageBox.Show("Veuillez remplir toutes les informations!");
                 if (diagnosticT.Text == "") Diagnostic.Foreground = Brushes.Red; else Diagnostic.Foreground = Brushes.Black;
-                if (descriptionT.Text == "") Description.Foreground = Brushes.Red; else Description.Foreground = Brushes.Black;
                 if (medicamentT.Text == "") Medicament.Foreground = Brushes.Red; else Medicament.Foreground = Brushes.Black;
                 if (doseT.Text == "") Dose.Foreground = Brushes.Red; else Dose.Foreground = Brushes.Black;
             }

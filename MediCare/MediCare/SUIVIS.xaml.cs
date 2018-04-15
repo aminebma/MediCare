@@ -17,12 +17,11 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour SUIVIS.xaml
     /// </summary>
-    public partial class SUIVIS : Window
+    public partial class SUIVIS : UserControl
     {
         public SUIVIS()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         List<Personne> listPatientsTmp;
@@ -41,18 +40,18 @@ namespace MediCare
                     foreach (ConsultLabel p in list)
                     {
                         Expander expSuivi = new Expander();
-                        expSuivi.Header = p.Label + " " + p.Date;
+                        expSuivi.Header ="Label :" + p.Label + "\n Date de la consultation :" + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
                         StackSuivi.Children.Add(expSuivi);
                         consulta = consultation.AcceeConsultationId(p.Id);
-                        expSuivi.Content = consulta.Date + " " + consulta.Diagnostic + " " + consulta.Description;
-                        foreach (string d in consulta.Radio)
+                        expSuivi.Content = "Diagnostic : " + consulta.Diagnostic + "\n Description :" + consulta.Description;
+                        if (consulta.traitement != null)
                         {
-                            expSuivi.Content = expSuivi.Content + "\n" + d;
-                        }
-                        foreach (Traite d in consulta.traitement)
-                        {
-                            expSuivi.Content =expSuivi.Content + "\n" + d.NomMed + " " + d.Dose + " " + d.Indication;
+                            expSuivi.Content = expSuivi.Content + "\n Traitement :";
+                            foreach (Traite d in consulta.traitement)
+                            {
+                                expSuivi.Content = expSuivi.Content + "\n" + d.NomMed + " " + d.Dose + " " + d.Indication;
 
+                            }
                         }
 
 
@@ -91,6 +90,7 @@ namespace MediCare
                 if (nomPatientT.Items.Count != 0) nomPatientT.Items.RemoveAt(nomPatientT.Items.Count - 1);
             }
         }
+       
 
         private void nomPatientT_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -103,8 +103,6 @@ namespace MediCare
             prenomPatientT.Focus();
             prenomPatientT.IsDropDownOpen = true;
         }
-
-        
         private void prenomPatientT_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Tab && prenomPatientT.IsDropDownOpen && prenomPatientT.HasItems) prenomPatientT.Text = prenomPatientT.Items.GetItemAt(0).ToString();
@@ -124,6 +122,10 @@ namespace MediCare
         {
             if (e.Key == Key.Tab && nomPatientT.IsDropDownOpen && nomPatientT.HasItems) nomPatientT.Text = nomPatientT.Items.GetItemAt(0).ToString();
         }
+
+
+
+
 
     }
 }

@@ -24,6 +24,12 @@ namespace MediCare
     /// </summary>
     public partial class MenuPrincipal : Window
     {
+        public int i = 0;
+        List<Personne> listPatientsTmp;
+        List<Medicaments> listMedicTmp;
+        Medic med = new Medic();
+        Agenda pat = new Agenda();
+
         public MenuPrincipal()
         {
             InitializeComponent();
@@ -35,16 +41,14 @@ namespace MediCare
             Globals.TempRappelRDV = 15;
             Task.Factory.StartNew(GenererNotif, TaskCreationOptions.LongRunning);
         }
-
+        
         private async void GenererNotif()
         {
             while (true)
             {
                 try
                 {
-                    string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-                    MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-                    IQueryable<RendezVous> NotifRdv = (from rendezVous in dataClass.RendezVous
+                    IQueryable<RendezVous> NotifRdv = (from rendezVous in Globals.DataClass.RendezVous
                                                        orderby rendezVous.Date
                                                        select rendezVous);
                     if (NotifRdv.Count() != 0)
@@ -59,10 +63,10 @@ namespace MediCare
                             if (string.Compare(dateRdv, dateAJRD) == 0 && t.TotalMinutes > 0 && t.TotalMinutes < Globals.TempRappelRDV && rdv.IdPatient != 0 && rdv.Important == true && rdv.Notified == false)
                             {
 
-                                IQueryable<Patient> patientRDV = (from patient in dataClass.Patient
+                                IQueryable<Patient> patientRDV = (from patient in Globals.DataClass.Patient
                                                                   where rdv.IdPatient == patient.Id
                                                                   select patient);
-                                IQueryable<Personne> personneRDV = (from personne in dataClass.Personne
+                                IQueryable<Personne> personneRDV = (from personne in Globals.DataClass.Personne
                                                                     where patientRDV.First().IdPersonne == personne.Id
                                                                     select personne);
                                 if (personneRDV.Count() != 0 && patientRDV.Count() != 0)
@@ -78,7 +82,7 @@ namespace MediCare
                                          if (NotificationBadge.Badge.Equals("0")) NotificationBadge.BadgeBackground = Brushes.Red;
                                          NotificationBadge.Badge = int.Parse(NotificationBadge.Badge.ToString()) + 1;
                                          rdv.Notified = true;
-                                         dataClass.SubmitChanges();
+                                         Globals.DataClass.SubmitChanges();
                                      }));
                                     System.Windows.Forms.NotifyIcon notif = new System.Windows.Forms.NotifyIcon();
                                     notif.Visible = true;
@@ -114,7 +118,72 @@ namespace MediCare
         private void LogoutBTN_Click(object sender, RoutedEventArgs e)
         {
             LogOutPop wndw = new LogOutPop();
+            wndw.setCreatingForm = this;
             wndw.Show();
         }
+
+        private void Compte_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionGrid.Children.Clear();
+            MonCompte usc = new MonCompte();
+            usc.SetFenetrePrincipale = this;
+            SelectionGrid.Children.Add(usc);
+            
+        }
+
+        private void Consultation_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionGrid.Children.Clear();
+            SelectionGrid.Children.Add(new Consultation_Patient());
+        }
+
+        private void Agenda_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionGrid.Children.Clear();
+            SelectionGrid.Children.Add(new AgendaMenu());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void element_GotFocus(object sender, RoutedEventArgs e)
+        {
+            element.IsDropDownOpen = true;
+        }
+
+        private void element_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab && element.IsDropDownOpen && element.HasItems) element.Text = element.Items.GetItemAt(0).ToString();
+        }
+
+        private void element_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            listPatientsTmp = pat.RechercherPatientNom(element.Text);
+            
+            if (listPatientsTmp.Count() != 0)
+            {
+                element.Items.Clear();
+                foreach (Personne patient in listPatientsTmp)
+                {
+                    element.Items.Add(element.Items.Add(patient.nom + " " + patient.prenom));
+                    if (element.Items.Count != 0) element.Items.RemoveAt(element.Items.Count - 1);
+                }
+            }
+            
+            listMedicTmp = med.RechercheMedicament(element.Text);
+            if (listMedicTmp.Count() != 0)
+            {
+                element.Items.Clear();
+                foreach (Medicaments medicament in listMedicTmp)
+                {
+                    element.Items.Add(element.Items.Add(medicament.nom));
+                    if (element.Items.Count != 0) element.Items.RemoveAt(element.Items.Count - 1);
+                }
+            }
+            
+        }
+
     }
 }

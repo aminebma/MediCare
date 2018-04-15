@@ -14,40 +14,35 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour HistoriqueMedecin.xaml
-    /// </summary>
-    public partial class HistoriqueMedecin : Window
+    public partial class HistoriqueMedecin : UserControl
     {
-        public HistoriqueMedecin()
-        {
-            InitializeComponent();
-        }
 
         List<ConsultLabel> list;
         Consult cons = new Consult();
         Consulta consulta = new Consulta();
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public HistoriqueMedecin()
         {
-            list = cons.HistoriqueMedecin(Globals.NomMedecin,Globals.PrenomMedecin);
+            InitializeComponent();
+            list = cons.HistoriqueMedecin(Globals.NomMedecin, Globals.PrenomMedecin);
             foreach (ConsultLabel p in list)
             {
                 Expander expSuivi = new Expander();
-                expSuivi.Header = p.Nom + " " + p.Prenom + "\n" + p.Label + " " + p.Date;
+                expSuivi.Header =  " Patient : "+p.Nom + " " + p.Prenom + "\n Label : " + p.Label + " " +"\n Date de la consultation : " + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
                 StackSuivi.Children.Add(expSuivi);
                 consulta = cons.AcceeConsultationId(p.Id);
-                expSuivi.Content = consulta.Date + " " + consulta.Diagnostic + " " + consulta.Description;
-                foreach (string d in consulta.Radio)
+                expSuivi.Content = " " + consulta.Diagnostic + "\n " + consulta.Description;
+                if (consulta.traitement != null)
                 {
-                    expSuivi.Content = expSuivi.Content + "\n" + d;
-                }
-                foreach (Traite d in consulta.traitement)
-                {
-                    expSuivi.Content = expSuivi.Content + "\n" + d.NomMed + " " + d.Dose + " " + d.Indication + "\n";
-
+                    expSuivi.Content = expSuivi.Content + "\n Traitement :";
+                    foreach (Traite d in consulta.traitement)
+                    {
+                        expSuivi.Content = expSuivi.Content + "\n -" + d.NomMed + " " + d.Dose + " " + d.Indication + "\n";
+                    }
                 }
             }
         }
+
+      
     }
 }

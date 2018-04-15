@@ -11,37 +11,41 @@
             TextElement.FontSize="13"
             TextOptions.TextFormattingMode="Ideal"
             TextOptions.TextRenderingMode="Auto"
-            Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource MaterialDesignFont}" MinWidth="1080" MinHeight="720">
-    <Grid>
+    <Window.Resources>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
+    <Grid Background="White">
         <ToolBarTray Margin="0,0,0,598">
-            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="0" Width="1070" Background="{x:Null}" Height="91">
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="0" Background="{x:Null}" Height="95.6">
                 <ToolBar.Header>
                     <Image Height="84" Width="294" Source="ressources/images/medicare_white.PNG" Stretch="Fill" VerticalAlignment="Center"/>
                 </ToolBar.Header>
-                <Button x:Name="Home" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Home_Click">
-                    <materialDesign:PackIcon Kind="Home" Foreground="#FF42919E" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button x:Name="Home" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Click="Home_Click">
+                    <materialDesign:PackIcon Kind="Home" Foreground="#FF42919E" Width="35" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <Button.ToolTip>
                         <TextBlock>Acceuil</TextBlock>
                     </Button.ToolTip>
                 </Button>
                 <Separator />
-                <Button x:Name="Compte" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}">
-                    <materialDesign:PackIcon Kind="Account" Foreground="#FF42919E" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button x:Name="Compte" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Click="Compte_Click">
+                    <materialDesign:PackIcon Kind="Account" Foreground="#FF42919E" Width="35" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <Button.ToolTip>
                         <TextBlock>Mon Compte</TextBlock>
                     </Button.ToolTip>
                 </Button>
                 <Separator />
-                <Button x:Name="Consultation" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}">
-                    <materialDesign:PackIcon Kind="MedicalBag" Foreground="#FF42919E" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button x:Name="Consultation" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Click="Consultation_Click">
+                    <materialDesign:PackIcon Kind="MedicalBag" Foreground="#FF42919E" Width="35" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <Button.ToolTip>
                         <TextBlock>Consultation</TextBlock>
                     </Button.ToolTip>
                 </Button>
                 <Separator />
-                <Button x:Name="Agenda" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}">
-                    <materialDesign:PackIcon Kind="Calendar" Foreground="#FF42919E" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button x:Name="Agenda" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Agenda_Click">
+                    <materialDesign:PackIcon Kind="Calendar" Foreground="#FF42919E" Width="35" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <Button.ToolTip>
                         <TextBlock>Agenda</TextBlock>
                     </Button.ToolTip>
@@ -55,14 +59,14 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <Button Style="{DynamicResource MaterialDesignToolButton}" Click="Button_Click">
                                 <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
                             </Button>
-                            <TextBox Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Rechercher un élément..." materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" MinWidth="200" VerticalContentAlignment="Bottom" />
+                            <ComboBox x:Name="element" Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Rechercher un élément..." materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" MinWidth="200" VerticalContentAlignment="Bottom" IsEditable="True" TextBoxBase.TextChanged="element_TextChanged" IsTextSearchEnabled="False" GotFocus="element_GotFocus" PreviewKeyDown="element_PreviewKeyDown" />
                         </Grid>
                     </materialDesign:ColorZone>
                     <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8,31,0,31" Panel.ZIndex="0" Width="27">
-                        <materialDesign:PackIcon Kind="Send" Foreground="#FF42919E" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <materialDesign:PackIcon Kind="Send" Foreground="#FF42919E" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
                 </StackPanel>
                 <Separator />
@@ -121,5 +125,6 @@
         <Button x:Name="Settings" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="50" Height="Auto" Margin="0" Foreground="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
             <materialDesign:PackIcon Kind="Settings" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Button>
+        <Separator Height="2" Margin="0,0,0,53" VerticalAlignment="Bottom" Width="1072" Background="#FF42919E"/>
     </Grid>
 </Window>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MCDatabase" Class="MCDataClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\restauration\MCDatabase.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="MediCare.Properties.Settings" SettingsPropertyName="MCDatabaseConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bin\Debug\MCDatabase.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="MediCare.Properties.Settings" SettingsPropertyName="MCDatabaseConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Radio" Member="Radio">
     <Type Name="Radio">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -53,8 +53,8 @@
       <Column Name="IdPatient" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdMedecin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Patient_MPConsultation" Member="Patient" ThisKey="IdPatient" OtherKey="Id" Type="Patient" IsForeignKey="true" />
-      <Association Name="Medecin_MPConsultation" Member="Medecin" ThisKey="IdMedecin" OtherKey="Id" Type="Medecin" IsForeignKey="true" />
       <Association Name="Consultation_MPConsultation" Member="Consultation" ThisKey="IdConsultation" OtherKey="Id" Type="Consultation" IsForeignKey="true" />
+      <Association Name="Medecin_MPConsultation" Member="Medecin" ThisKey="IdMedecin" OtherKey="Id" Type="Medecin" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Medicaments" Member="Medicaments">
@@ -90,20 +90,6 @@
       <Association Name="RendezVous_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdRendezVous" Type="MPRendezVous" />
     </Type>
   </Table>
-  <Table Name="dbo.Medecin" Member="Medecin">
-    <Type Name="Medecin">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="[key]" Member="key" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="password" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="IdPersonne" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Association Name="Medecin_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdMedecin" Type="MPRendezVous" />
-      <Association Name="Medecin_MPConsultation" Member="MPConsultation" ThisKey="Id" OtherKey="IdMedecin" Type="MPConsultation" />
-      <Association Name="Personne_Medecin" Member="Personne" ThisKey="IdPersonne" OtherKey="Id" Type="Personne" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Consultation" Member="Consultation">
     <Type Name="Consultation">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -120,6 +106,20 @@
       <Association Name="Consultation_Radio" Member="Radio" ThisKey="Id" OtherKey="IdConsultation" Type="Radio" />
       <Association Name="Consultation_MPConsultation" Member="MPConsultation" ThisKey="Id" OtherKey="IdConsultation" Type="MPConsultation" />
       <Association Name="Consultation_Traitement" Member="Traitement" ThisKey="Id" OtherKey="IdConsultation" Type="Traitement" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Medecin" Member="Medecin">
+    <Type Name="Medecin">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[key]" Member="key" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IdPersonne" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Medecin_MPRendezVous" Member="MPRendezVous" ThisKey="Id" OtherKey="IdMedecin" Type="MPRendezVous" />
+      <Association Name="Medecin_MPConsultation" Member="MPConsultation" ThisKey="Id" OtherKey="IdMedecin" Type="MPConsultation" />
+      <Association Name="Personne_Medecin" Member="Personne" ThisKey="IdPersonne" OtherKey="Id" Type="Personne" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

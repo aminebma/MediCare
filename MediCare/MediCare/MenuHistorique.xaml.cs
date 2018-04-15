@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using System.Windows.Navigation;
 
 namespace MediCare
 {
@@ -24,16 +26,21 @@ namespace MediCare
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            HistoriqueMedecin histMed = new HistoriqueMedecin();
-            histMed.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Historique hist = new Historique();
-            hist.Show();
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "hist":
+                    this.GridDroit.Children.Clear();
+                    this.GridDroit.Children.Add(new Historique());
+                    break;
+                case "histmed":
+                    this.GridDroit.Children.Clear();
+                    this.GridDroit.Children.Add(new HistoriqueMedecin());
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

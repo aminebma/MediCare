@@ -9,7 +9,7 @@ namespace MediCare
 {
     class PersonneClasse
     {
-        public void AddPatientPersonne(String nom, String prenom, string date, String adresse, string num_tel, bool homme, string taille, string poids, string groupage, string maladie, string etat_sante)
+        public void AddPatientPersonne(String nom, String prenom, string date, String adresse, string num_tel, string homme, string taille, string poids, string groupage, string maladie, string etat_sante)
         {
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataclass = new MCDataClassDataContext(con);
@@ -20,16 +20,10 @@ namespace MediCare
                 prenom = prenom,
                 dateNaissance = DateTime.Parse(date),
                 adresse = adresse,
-                telephone = int.Parse(num_tel)
+                telephone = int.Parse(num_tel),
+                sexe =homme
             };
-            if (homme)
-            {
-                tabpersonne.sexe = "Homme";
-            }
-            else
-            {
-                tabpersonne.sexe = "Femme";
-            }
+            
 
             dataclass.Personne.InsertOnSubmit(tabpersonne);
             dataclass.SubmitChanges();

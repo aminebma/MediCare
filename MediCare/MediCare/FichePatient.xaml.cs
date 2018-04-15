@@ -31,7 +31,7 @@ namespace MediCare
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
            
-            pers.AddPatientPersonne(Nom.Text, Prenom.Text, Date_naiss.Text, Adresse.Text, Num_tel.Text, (bool)Homme.IsChecked, Taille.Text, Poids.Text, Groupage.Text, Maladie.Text, Etat_santé.Text);
+            pers.AddPatientPersonne(Nom.Text, Prenom.Text, Date_naiss.Text, Adresse.Text, Num_tel.Text, Sexe.Text, Taille.Text, Poids.Text, Groupage.Text, Maladie.Text, Etat_santé.Text);
             MessageBox.Show("Le patient a été inséré ! ");
         }
 
@@ -70,6 +70,11 @@ namespace MediCare
         {
             PatientASupp patsup = new PatientASupp();
             patsup.Show();
+        }
+
+        private void nom_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -4,11 +4,67 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
-        mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
         Height="548" Width="1072">
     <Grid>
-        <Button x:Name="Rech_pat" Content="Rechercher un patient" HorizontalAlignment="Left" Height="74" Margin="448,82,0,0" VerticalAlignment="Top" Width="248" Background="#FF77B3B4" Click="Rech_pat_Click"/>
-        <Button x:Name="Ajout_pat" Content="Ajouter un patient" HorizontalAlignment="Left" Height="74" Margin="448,204,0,0" VerticalAlignment="Top" Width="248" Background="#FF77B3B4" Click="Ajout_pat_Click"/>
-        <Button x:Name="Supr_pat" Content="Supprimer un patient" HorizontalAlignment="Left" Height="74" Margin="448,328,0,0" VerticalAlignment="Top" Width="248" Background="#FF77B3B4" Click="Supr_pat_Click"/>
+        <Grid x:Name="StackPanelMenu" Width="311" HorizontalAlignment="Left" Margin="0" RenderTransformOrigin="0.5,0.5" Background="#FF42919E">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <ListView VerticalAlignment="Center" Margin="0" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged">
+                <ListViewItem x:Name="SearchPatient" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <materialDesign:PackIcon Kind="History" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
+                        <TextBlock Text="Rechercher un patient" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="AjtPatient" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <materialDesign:PackIcon Kind="History" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
+                        <TextBlock Text="Ajouter un patient" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="SupPatient" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <materialDesign:PackIcon Kind="History" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
+                        <TextBlock Text="Supprimer un patient" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="311,0,0,0" Width="15">
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="0" Width="15" />
+        </StackPanel>
+        <Grid x:Name="GridDroit" Height="548" Margin="326,0,0,0"/>
     </Grid>
 </UserControl>

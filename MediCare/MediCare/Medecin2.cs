@@ -30,7 +30,7 @@ namespace MediCare
                 active = true,
                 key = key,
                 username = username,
-                password = password,
+                password = EncryptPassword(password),
                 email = email,
                 IdPersonne = t.Id
             };
@@ -40,13 +40,11 @@ namespace MediCare
 
         }
 
-        //il me faudra une fonction de vérification du nom d'utilisateur et du mot de passe
-
         public bool VerifMed(string nom, string mot_pass)
         {
-
+            string cryptedPass=EncryptPassword(mot_pass);
             IQueryable<Medecin> medverif = (from Medecin in Globals.DataClass.Medecin
-                                            where Medecin.username == nom && Medecin.password == mot_pass
+                                            where Medecin.username == nom && Medecin.password == cryptedPass
                                             select Medecin);
             int nbr = medverif.Count();
             if (nbr == 0) return false;
@@ -55,43 +53,24 @@ namespace MediCare
                 Globals.IdMedecin = (byte)medverif.First<Medecin>().Id;
                 return true;
             }
-
-
-            /*  bool rep = medverif.Any();
-              if (rep == false) return false;
-              else return true;*/
-            // List<int> liste = medverif.ToList < int > ();
-            //  int rep = medverif.AsQueryable().DefaultIfEmpty(1);
-
-            //  if ( medverif.AsQueryable().FirstOrDefault()== null) return false;
-            //   else return true;
-            //   FirstOrDefault<Medecin>();
-            //List<Medecin> s = medverif.ToList();
-            /*    if (s.Count()== 0) {
-                    return true ;
-                }
-                else { return false ; }
-            }*/
-
-            //  Array < Medecin >  array =  medverif.ToArray<Medecin>();
-            //List<Medecin> list = medverif.ToList<Medecin>();
-
-            /*   //  String.IsNullOrEmpty(s)
-             if (String.IsNullOrEmpty(s))
-             {
-                 return true;
-             }
-             else
-             {*/
+                
         }
 
-        public void ModifMed(string username2, string mot_pass, string new_password)
+        public bool ModifMed(string username, string mot_pass, string new_password)
         {
-            Medecin medModif = (from medecin in Globals.DataClass.Medecin
-                                where medecin.username == username2 && medecin.password == mot_pass
-                                select medecin).First<Medecin>();
-            medModif.password = new_password;
-            Globals.DataClass.SubmitChanges();
+            string cryptedPass = EncryptPassword(mot_pass);
+            IQueryable<Medecin> medModif = (from medecin in Globals.DataClass.Medecin
+                                where medecin.username == username && medecin.password == cryptedPass
+                                select medecin);
+            if (medModif.Count() != 0)
+            {
+                medModif.First().password = EncryptPassword(new_password);
+                //Globals.DataClass.Medecin
+                Globals.DataClass.SubmitChanges();
+                return true;
+            }
+            else return false;
+            
 
             /* medModif.ToList();
              List <Medecin> list = medModif.ToList<Medecin>();
@@ -110,6 +89,20 @@ namespace MediCare
                                              select personne);
             return medecins.ToList<Personne>();
         }
+
+        public string EncryptPassword(string password)
+        {
+            byte[] passBytes = Encoding.Unicode.GetBytes(password);
+            string encryptedPass = Convert.ToBase64String(passBytes);
+            return encryptedPass;
+        }
+
+        /*public string DecryptPassword(string encryptedPass)
+        {
+            byte[] passBytes = Convert.FromBase64String(encryptedPass);
+            string originalPassword = System.Text.Encoding.Unicode.GetString(passBytes);
+            return originalPassword;
+        }*/
     }
 }
 

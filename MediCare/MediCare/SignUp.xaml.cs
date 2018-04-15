@@ -53,29 +53,30 @@ namespace MediCare
                 Globals.NomMedecin = pers[0].nom;
                 Globals.PrenomMedecin = pers[0].prenom;
                 MenuPrincipal main = new MenuPrincipal();
+                main.Show();
                 Globals.ListPatients= (from patient in Globals.DataClass.Patient
                                        join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
                                        select personne).ToList<Personne>();
                 Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
                                            select medicament).ToList<Medicaments>();
-                main.Show();
+               
                 this.Close();
             }
             else MessageBox.Show("Les informations saisies sont incorrectes");
         }
 
-        private void ignoreBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Globals.IdMedecin = 1;
-            MenuPrincipal Menu = new MenuPrincipal();
-            Globals.ListPatients = (from patient in Globals.DataClass.Patient
-                                    join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
-                                    select personne).ToList<Personne>();
-            Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
-                                       select medicament).ToList<Medicaments>();
-            Menu.Show();
-            this.Close();
-        }
+        //private void ignoreBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Globals.IdMedecin = 1;
+        //    MenuPrincipal Menu = new MenuPrincipal();
+        //    Globals.ListPatients = (from patient in Globals.DataClass.Patient
+        //                            join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+        //                            select personne).ToList<Personne>();
+        //    Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
+        //                               select medicament).ToList<Medicaments>();
+        //    Menu.Show();
+        //    this.Close();
+        //}
 
         private void signUpGrid_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -89,12 +90,12 @@ namespace MediCare
                     Globals.NomMedecin = pers[0].nom;
                     Globals.PrenomMedecin = pers[0].prenom;
                     MenuPrincipal main = new MenuPrincipal();
+                    main.Show();
                     Globals.ListPatients = (from patient in Globals.DataClass.Patient
                                             join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
                                             select personne).ToList<Personne>();
                     Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
                                                select medicament).ToList<Medicaments>();
-                    main.Show();
                     this.Close();
                 }
                 else MessageBox.Show("Les informations saisies sont incorrectes");

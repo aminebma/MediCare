@@ -17,29 +17,43 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour PopupPatient.xaml
     /// </summary>
-    public partial class PopupPatient : UserControl
+    public partial class PopupPatient : Window
     {
+        Grid GridAppelant;
+        Grid Total;
+
         public PopupPatient()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
         }
         PersonneClasse pers = new PersonneClasse();
 
+        public Grid SetGridAppelant
+        {
+            get { return GridAppelant; }
+            set { GridAppelant = value; }
+        }
+
+        public Grid SetTotal
+        {
+            get { return Total; }
+            set { Total = value; }
+        }
+
+
         private void Oui_Click(object sender, RoutedEventArgs e)
         {
-            var parent = (Grid)this.Parent;
-            UserControl usc = new FichePatient();
-            parent.Children.Clear();
-            parent.Children.Add(usc);
+            Total.Children.Add(new FichePatient());
+            this.Close();
         }
 
         private void Non_Click(object sender, RoutedEventArgs e)
         {
-            var parent = (Grid)this.Parent;
-            pers.AddPatientPersonne(Globals.NomPatient,Globals.PrenomPatient,null,null,null,true,null,null,null,null,null);
-            //UserControl usc = new AjoutConsultation();
-            //parent.Children.Add(usc);
+            //pers.AddPatientPersonne(Globals.NomPatient,Globals.PrenomPatient,null,null,null,true,null,null,null,null,null);
+            GridAppelant.Children.Add(new AjoutConsultation());
+            this.Close();
         }
     }
 }

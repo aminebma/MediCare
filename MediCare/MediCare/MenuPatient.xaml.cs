@@ -47,5 +47,24 @@ namespace MediCare
             PatientASupp p = new PatientASupp();
             p.Show();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "SearchPatient":
+                    GridDroit.Children.Clear();
+                    GridDroit.Children.Add(new AffichPatient());
+                    break;
+                case "AjtPatient":
+                    GridDroit.Children.Clear();
+                    GridDroit.Children.Add(new FichePatient());
+                    break;
+                case "SupPatient":
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

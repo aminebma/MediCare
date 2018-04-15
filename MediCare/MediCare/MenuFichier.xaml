@@ -4,50 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
-        mc:Ignorable="d" Height="548" Width="702" FontFamily="Century Gothic" Background="White">
-    <Grid Width="702" Height="548">
+        mc:Ignorable="d" Height="548" Width="702" FontFamily="Century Gothic">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image Margin="0,107,46,363" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="92" Opacity="0.8"/>
-        <Image Margin="0,375,566,109" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="76" Opacity="0.8" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-1.403"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-
-        <Image Margin="0,455,212,29" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="76" Opacity="0.8" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-1.403"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-
-        <Image Margin="0,129,588,341" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="92" Opacity="0.8"/>
-
-        <Image Margin="906,520,32,63" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5"/>
-        <Image Margin="340,206,606,389" Source="ressources/images/bulles_2.PNG" Stretch="Fill" Opacity="0.5"/>
-        <Image Margin="542,449,354,141" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657"/>
-
-        <Image Margin="87,575,829,-18" Source="ressources/images/bulles.PNG" Stretch="Fill"/>
-        <Image Margin="87,150,863,461" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
-        <Button x:Name="AjouterRadio" Content="Radio" HorizontalAlignment="Left" Height="42" Margin="485,380,0,0" VerticalAlignment="Top" Width="150" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4" Click="AjouterRadio_Click"/>
-        <Button x:Name="AjouterScanner" Content="Scanner" HorizontalAlignment="Left" Height="42" Margin="259,380,0,0" VerticalAlignment="Top" Width="150" FontFamily="Century Gothic" FontSize="20" Background="#FF75B0BB" Click="AjouterScanner_Click"/>
-        <Button x:Name="AjouterBilan" Content="Bilan" HorizontalAlignment="Left" Height="42" Margin="37,380,0,0" VerticalAlignment="Top" Width="150" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4" Click="AjouterBilan_Click"/>
-        <Button x:Name="LettreOrientation" Content="Lettre D'orientation" HorizontalAlignment="Left" Height="42" Margin="405,194,0,0" VerticalAlignment="Top" Width="218"  FontFamily="Century Gothic" FontSize="20" Background="#FF75B0BB"/>
-        <Button x:Name="CertificatMedical" Content="Certificat Medical&#xA;" HorizontalAlignment="Left" Height="42" Margin="100,192,0,0" VerticalAlignment="Top" Width="216" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4"/>
-        <Button Content="Valider " HorizontalAlignment="Left" Height="42" Margin="532,495,0,0" VerticalAlignment="Top" Width="142" Background="#FFADAF9F" FontFamily="Century Gothic" FontSize="20" Click="Valider_Click"/>
-        <StackPanel HorizontalAlignment="Left" Height="64" Margin="-2,-3,0,0" VerticalAlignment="Top" Width="703" Background="#FF6A97AC">
-            <Label  Width="345" FontSize="36" FontFamily="Century Gothic" Foreground="White" Height="84" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Fichiers Médicaux :" Margin="184,10,174,0"/>
+        <Button x:Name="AjouterRadio" Content="Radio" HorizontalAlignment="Left" Height="42" Margin="485,380,0,0" VerticalAlignment="Top" Width="150" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4" Click="AjouterRadio_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="AjouterScanner" Content="Scanner" HorizontalAlignment="Left" Height="42" Margin="259,380,0,0" VerticalAlignment="Top" Width="150" FontFamily="Century Gothic" FontSize="20" Background="#FF75B0BB" Click="AjouterScanner_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="AjouterBilan" Content="Bilan" HorizontalAlignment="Left" Height="42" Margin="37,380,0,0" VerticalAlignment="Top" Width="150" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4" Click="AjouterBilan_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="LettreOrientation" Content="Lettre D'orientation" HorizontalAlignment="Left" Height="42" Margin="405,194,0,0" VerticalAlignment="Top" Width="218"  FontFamily="Century Gothic" FontSize="20" Background="#FF75B0BB" BorderBrush="{x:Null}"/>
+        <Button x:Name="CertificatMedical" Content="Certificat Medical&#xA;" HorizontalAlignment="Left" Height="42" Margin="100,192,0,0" VerticalAlignment="Top" Width="216" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4" BorderBrush="{x:Null}"/>
+        <Button Content="Valider " HorizontalAlignment="Left" Height="42" Margin="532,495,0,0" VerticalAlignment="Top" Width="142" Background="#FFADAF9F" FontFamily="Century Gothic" FontSize="20" Click="Valider_Click" BorderBrush="{x:Null}"/>
+        <StackPanel Height="64" Margin="0" VerticalAlignment="Top" Width="703" Background="#FF6A97AC">
+            <Label FontSize="36" FontFamily="Century Gothic" Foreground="White" VerticalAlignment="Center" Content="Fichiers Médicaux :" Margin="0" HorizontalAlignment="Center"/>
         </StackPanel>
         <Label Content="Cliquez ci-dessous si vous voulez faire un certificat de bonne santé &#xD;&#xA;ou une lettre d'orientation :" HorizontalAlignment="Left" Height="48" Margin="20,89,0,0" VerticalAlignment="Top" Width="634" FontWeight="Bold" FontFamily="Century Gothic" FontSize="16"/>
         <Label Content="Cliquer ci-dessous si vous voulez ajouter un bilan, radio ou un scanner &#xD;&#xA;au dossier de ce patient :" HorizontalAlignment="Left" Height="48" Margin="20,312,0,0" VerticalAlignment="Top" Width="634" FontWeight="Bold" FontFamily="Century Gothic" FontSize="16"/>

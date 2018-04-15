@@ -100,6 +100,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AffichPatient.xaml.cs">
+      <DependentUpon>AffichPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AgendaMenu.xaml.cs">
       <DependentUpon>AgendaMenu.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,9 @@
     </Compile>
     <Compile Include="AjoutConsultation.xaml.cs">
       <DependentUpon>AjoutConsultation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Certificat.xaml.cs">
+      <DependentUpon>Certificat.xaml</DependentUpon>
     </Compile>
     <Compile Include="Consulta.cs" />
     <Compile Include="Consultation_Patient.xaml.cs">
@@ -130,6 +136,9 @@
     <Compile Include="impression.xaml.cs">
       <DependentUpon>impression.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LettreOr.xaml.cs">
+      <DependentUpon>LettreOr.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LettreOrientation.xaml.cs">
       <DependentUpon>LettreOrientation.xaml</DependentUpon>
     </Compile>
@@ -148,9 +157,6 @@
     <Compile Include="MenuPatient.xaml.cs">
       <DependentUpon>MenuPatient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuSuivi.xaml.cs">
-      <DependentUpon>MenuSuivi.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MenuFichier.xaml.cs">
       <DependentUpon>MenuFichier.xaml</DependentUpon>
     </Compile>
@@ -166,6 +172,9 @@
     <Compile Include="ModSuppRdv.xaml.cs">
       <DependentUpon>ModSuppRdv.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MonCompte.xaml.cs">
+      <DependentUpon>MonCompte.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Notifications.cs" />
     <Compile Include="PatientASupp.xaml.cs">
       <DependentUpon>PatientASupp.xaml</DependentUpon>
@@ -173,6 +182,7 @@
     <Compile Include="PatientMenu.xaml.cs">
       <DependentUpon>PatientMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Perso.cs" />
     <Compile Include="PopupPatient.xaml.cs">
       <DependentUpon>PopupPatient.xaml</DependentUpon>
     </Compile>
@@ -197,6 +207,14 @@
       <DependentUpon>SUIVIS.xaml</DependentUpon>
     </Compile>
     <Compile Include="Traite.cs" />
+    <Page Include="AffichPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Certificat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Consultation_Patient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -217,6 +235,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LettreOr.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LettreOrientation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -232,10 +254,6 @@
     <Page Include="MenuPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MenuSuivi.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MenuFichier.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -272,6 +290,10 @@
     <Page Include="ModSuppRdv.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MonCompte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PatientASupp.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -353,6 +375,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="ressources\images\background.psd" />
     <None Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Scripts\jquery-3.3.1.slim.min.map" />
@@ -437,6 +460,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ressources\images\background.png" />
+    <Content Include="ressources\images\avatar-medecins_0.ico" />
     <Content Include="restauration\MCDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

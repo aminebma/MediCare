@@ -1,37 +1,16 @@
-﻿<UserControl x:Class="MediCare.FichePatient"
+﻿<UserControl
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.FichePatient"
         mc:Ignorable="d"
-        Height="548" Width="1072">
-    <Grid Background="#FFE5E8ED">
-        <TextBox x:Name="Nom" HorizontalAlignment="Left" Height="40" Margin="228,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" PreviewTextInput="Nom_PreviewTextInput"/>
-        <Label Content="Nom" HorizontalAlignment="Left" Height="42" Margin="37,10,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <TextBox x:Name="Prenom" HorizontalAlignment="Left" Height="40" Margin="801,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" PreviewTextInput="Prenom_PreviewTextInput"/>
-        <Label x:Name="Prénom1" Content="Prénom" HorizontalAlignment="Left" Height="42" Margin="607,28,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <Label Content="Date de naissance" HorizontalAlignment="Left" Height="42" Margin="37,85,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="42" Margin="798,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
-        <Label x:Name="Adresse1" Content="Adresse" HorizontalAlignment="Left" Height="42" Margin="602,110,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <TextBox x:Name="Num_tel" HorizontalAlignment="Left" Height="42" Margin="240,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" PreviewTextInput="Num_tel_PreviewTextInput"/>
-        <Label Content=" Numero de téléphone" HorizontalAlignment="Left" Height="42" Margin="37,177,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <TextBox x:Name="Taille" HorizontalAlignment="Left" Height="42" Margin="801,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
-        <Label x:Name="Taille1" Content="Taille" HorizontalAlignment="Left" Height="42" Margin="605,312,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <TextBox x:Name="Poids" HorizontalAlignment="Left" Height="42" Margin="240,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
-        <Label Content="Poids" HorizontalAlignment="Left" Height="42" Margin="37,287,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <Label Content="Groupage" HorizontalAlignment="Left" Height="42" Margin="37,484,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <TextBox x:Name="Maladie" HorizontalAlignment="Left" Height="42" Margin="801,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
-        <Label Content="Maladie" HorizontalAlignment="Left" Height="42" Margin="605,396,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <TextBox x:Name="Etat_santé" HorizontalAlignment="Left" Height="42" Margin="240,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
-        <Label Content="État de santé" HorizontalAlignment="Left" Height="42" Margin="37,396,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <Button x:Name="Ajouter" Content="Ajouter un patient" HorizontalAlignment="Left" Height="39" Margin="607,484,0,0" VerticalAlignment="Top" Width="165" Background="#FF3599CA" Foreground="White" Click="Ajouter_Click"/>
-        <DatePicker x:Name="Date_naiss" HorizontalAlignment="Left" Margin="216,88,0,0" VerticalAlignment="Top" Height="39" Width="252" FirstDayOfWeek="Sunday" PreviewTextInput="DatePicker_PreviewTextInput"/>
-        <CheckBox x:Name="Homme" Content="Homme" HorizontalAlignment="Left" Height="42" Margin="801,188,0,0" VerticalAlignment="Top" Width="240" FontSize="18" Background="#FF3A5CB7" Foreground="#FF3599CC" ClickMode="Press" RenderTransformOrigin="0.5,0.5"/>
-        <CheckBox x:Name="Femme" Content="Femme" HorizontalAlignment="Left" Height="42" Margin="801,260,0,0" VerticalAlignment="Top" Width="240" FontSize="18" Foreground="#FF3599CC"/>
-        <Label x:Name="Adresse1_Copy" Content="Sexe" HorizontalAlignment="Left" Height="42" Margin="607,217,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Foreground="#FF3599CC"/>
-        <Button x:Name="Supprimer" Content="Supprimer un patient" HorizontalAlignment="Left" Height="39" Margin="803,484,0,0" VerticalAlignment="Top" Width="170" Background="#FF932D49" />
-        <ComboBox x:Name="Groupage" HorizontalAlignment="Left" Height="39" Margin="240,487,0,0" VerticalAlignment="Top" Width="240" Cursor="Arrow" SelectionChanged="Groupage_SelectionChanged">
+        Height="548" Width="746">
+    <Grid>
+        <Button x:Name="Ajouter" Content="Ajouter un patient" HorizontalAlignment="Left" Height="41" Margin="424,478,0,0" VerticalAlignment="Top" Width="248" Background="#FF6A97AC" Foreground="White" Click="Ajouter_Click" BorderBrush="#FF2196F3"/>
+        <DatePicker x:Name="Date_naiss" HorizontalAlignment="Left" Margin="174,103,0,0" VerticalAlignment="Top" Height="40" Width="149" FirstDayOfWeek="Sunday" PreviewTextInput="DatePicker_PreviewTextInput" BorderBrush="#FF77B3B4"/>
+        <ComboBox x:Name="Groupage" HorizontalAlignment="Left" Height="40" Margin="178,477,0,0" VerticalAlignment="Top" Width="145" Cursor="Arrow" SelectionChanged="Groupage_SelectionChanged" BorderBrush="#FF77B3B4" Background="White" Foreground="White">
             <ListBoxItem Content="A+"/>
             <ListBoxItem Content="A-"/>
             <ListBoxItem Content="O+"/>
@@ -39,6 +18,17 @@
             <ListBoxItem Content="AB+"/>
             <ListBoxItem Content="AB-"/>
         </ComboBox>
+
+        <TextBox x:Name="Nom" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Nom" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="178,28,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" TextChanged="nom_TextChanged"/>
+        <TextBox x:Name="Num_tel" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Numéro de téléphone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="174,199,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="Poids" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Poids" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="178,307,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="Etat_santé" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Etat de santé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="178,389,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="Prenom" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Prénom" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="475,18,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Adresse" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="475,103,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="Sexe" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Sexe" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="475,199,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="Taille" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Taille" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="475,297,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="Maladie" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Maladie" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="475,378,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <Label Content="Groupage" HorizontalAlignment="Left" Height="42" Margin="55,477,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </UserControl>

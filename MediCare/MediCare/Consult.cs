@@ -226,27 +226,31 @@ namespace MediCare
 
 		}
 
-		public List<ConsultLabel> Historique ( )
+		public List<ConsultLabel> Historique()
 		{
 			List<ConsultLabel> list = new List<ConsultLabel>();
-
-
 			IQueryable<Consultation> cnslt = (from cns in Globals.DataClass.Consultation
 											  select cns);
 
 			foreach (Consultation p in cnslt)
 			{
-				MPConsultation mpcnslt = (from mpc in Globals.DataClass.MPConsultation
-										  where mpc.IdConsultation == p.Id
-										  select mpc).First<MPConsultation>();
-				Patient pat = (from patient in Globals.DataClass.Patient
+                MPConsultation mpcnslt = (from mpc in Globals.DataClass.MPConsultation
+                                          where mpc.IdConsultation == p.Id
+                                          select mpc).First<MPConsultation>();
+                Patient pat = (from patient in Globals.DataClass.Patient
 							   where patient.Id == mpcnslt.IdPatient
 							   select patient).First<Patient>();
 				Personne pers = (from personne in Globals.DataClass.Personne
 								 where personne.Id == pat.IdPersonne
 								 select personne).First<Personne>();
+                Medecin patmed = (from medecin in Globals.DataClass.Medecin
+                               where medecin.Id == mpcnslt.IdMedecin
+                               select medecin).First<Medecin>();
+                Personne persmed = (from personne in Globals.DataClass.Personne
+                                 where personne.Id == patmed.IdPersonne
+                                 select personne).First<Personne>();
 
-				ConsultLabel q = new ConsultLabel((DateTime)p.date, p.label, p.Id,  pers.nom, pers.prenom);
+                ConsultLabel q = new ConsultLabel((DateTime)p.date, p.label, p.Id,  pers.nom, pers.prenom,persmed.nom,persmed.prenom);
 				list.Add(q);
 
 			}
