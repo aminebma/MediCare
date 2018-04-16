@@ -68,8 +68,8 @@ namespace MediCare
 
         private void Supprimer_Click(object sender, RoutedEventArgs e)
         {
-            PatientASupp patsup = new PatientASupp();
-            patsup.Show();
+            //PatientASupp patsup = new PatientASupp();
+            //patsup.Show();
         }
 
         private void nom_TextChanged(object sender, TextChangedEventArgs e)

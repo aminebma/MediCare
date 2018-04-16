@@ -6,18 +6,17 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MediCare"
       mc:Ignorable="d"
-      Title="SignUp" Height="657.85" Width="418" WindowStartupLocation="CenterScreen" WindowStyle="None">
+      Title="MediCare" Height="657.85" Width="418" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
 
     <Grid x:Name="signUpGrid" Margin="0,1,2,1" Background="White" PreviewKeyDown="signUpGrid_PreviewKeyDown">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70*"/>
-            <RowDefinition Height="311*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Image Margin="0,207,332,195" Grid.Row="1" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+        <Image Margin="0,322,332,195" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -28,16 +27,16 @@
             </Image.RenderTransform>
         </Image>
 
-        <TextBox HorizontalAlignment="Left" Height="29.032" Margin="116.742,154.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200.836" FontSize="72" Background="White" BorderBrush="#FFF9FAFF" Grid.Row="1" Visibility="Hidden" Opacity="0.985" Cursor="UpArrow"/>
-        <Button x:Name="logBtn" Content="Log in " HorizontalAlignment="Left" Height="32" Margin="120,393,0,0" Grid.Row="1" VerticalAlignment="Top" Width="190" Background="#FF77B3B4" FontSize="16" Foreground="White" BorderThickness="0" BorderBrush="{x:Null}" Click="logBtn_Click"/>
-        <Image Margin="10,450,326,10" Grid.Row="1" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
-        <Image Margin="323,78,1,340" Grid.Row="1" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Grid.ColumnSpan="3" Opacity="0.5"/>
-        <Image Margin="1,0,0,397" Source="ressources/images/mde.PNG" Stretch="Fill" Grid.RowSpan="2" Opacity="0.8" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="nom" materialDesign:HintAssist.Hint="Identifiant" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="110,210,98,275" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
-        <PasswordBox x:Name="password" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="110,293,98,189" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
-        <Image Margin="52,28,52,347" Source="ressources/images/logo_final.PNG" Stretch="Fill" Grid.Row="1" Grid.ColumnSpan="3"/>
-        <Button x:Name="signUpBtn" Content="Sign Up" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="148,448,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="signUpBtn_Click" Grid.Row="1"/>
-        <Image Margin="0,305,-4,98" Grid.Row="1" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="117,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="72" Background="White" BorderBrush="#FFF9FAFF" Visibility="Hidden" Opacity="0.985" Cursor="UpArrow"/>
+        <Button x:Name="logBtn" Content="Log in " HorizontalAlignment="Left" Height="32" Margin="120,508,0,0" VerticalAlignment="Top" Width="190" Background="#FF77B3B4" FontSize="16" Foreground="White" BorderThickness="0" BorderBrush="{x:Null}" Click="logBtn_Click"/>
+        <Image Margin="10,565,326,10" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="323,193,1,340" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
+        <Image Margin="1,0,0,397" Source="ressources/images/mde.PNG" Stretch="Fill" Opacity="0.8"/>
+        <TextBox x:Name="nom" materialDesign:HintAssist.Hint="Identifiant" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="110,304,98,275" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
+        <PasswordBox x:Name="password" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="110,392,98,185" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
+        <Image Margin="52,143,52,347" Source="ressources/images/logo_final.PNG" Stretch="Fill"/>
+        <Button x:Name="signUpBtn" Content="Sign Up" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="148,563,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="signUpBtn_Click"/>
+        <Image Margin="0,420,-4,98" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

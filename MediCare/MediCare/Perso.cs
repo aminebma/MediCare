@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace MediCare
 {
-    class Perso
+    public class Perso
     {
 
         private string nom;
-        private string prenom;
-        private DateTime datenaiss;
-        private string adresse;
-        private int numtel;
-        private string sexe;
-        public Perso (string nom,string prenom1 , DateTime datenaiss1,string adresse1, int numtel1,string sexe1)
+		private string prenom;
+		private DateTime datenaiss;
+		private string adresse;
+	    private int numtel;
+		private string sexe;
+        protected Perso (string nom,string prenom , DateTime datenaiss,string adresse, int numtel,string sexe)
         {
             this.nom = nom;
-            this.prenom = prenom1;
-            this.datenaiss = datenaiss1;
-            this.adresse = adresse1;
-            this.numtel = numtel1;
-            this.sexe = sexe1;
+            this.prenom = prenom;
+            this.datenaiss = datenaiss;
+            this.adresse = adresse;
+            this.numtel = numtel;
+            this.sexe = sexe;
         }
         public string Nom
         {

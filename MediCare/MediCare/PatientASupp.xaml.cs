@@ -17,7 +17,7 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour PatientASupp.xaml
     /// </summary>
-    public partial class PatientASupp : Window
+    public partial class PatientASupp : UserControl
     {
         public PatientASupp()
         {

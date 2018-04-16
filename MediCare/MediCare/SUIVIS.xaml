@@ -15,15 +15,11 @@
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </StackPanel>
         </ScrollViewer>
-
-
-        <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" BorderThickness="0,0,0,3" Height="38" Margin="135,178,0,0" VerticalAlignment="Top" Width="231"  BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="nomPatientT_MouseEnter" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown"/>
-        <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" BorderThickness="0,0,0,3" Height="36" Margin="544,181,0,0" VerticalAlignment="Top" Width="234"  BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="prenomPatientT_MouseEnter" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus"/>
-        <Label Content="Nom * :" HorizontalAlignment="Left" Height="37" Margin="41,177,0,0" VerticalAlignment="Top" Width="123" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
-        <Label Content="Prénom * :" HorizontalAlignment="Left" Height="37" Margin="425,177,0,0" VerticalAlignment="Top" Width="123" RenderTransformOrigin="3.303,0.568" FontWeight="Bold" FontFamily="Century Gothic" FontSize="18"/>
-        <Button x:Name="suivi" Content="Afficher le suivi" HorizontalAlignment="Left" Height="39" Margin="863,198,0,0" VerticalAlignment="Top" Width="147" Background="#FF42919E" Click="suivi_Click" RenderTransformOrigin="0.497,0.487" BorderBrush="{x:Null}"/>
+        <Button x:Name="suivi" Content="Afficher le suivi" HorizontalAlignment="Left" Height="50" Margin="849,167,0,0" VerticalAlignment="Top" Width="161" Background="#FF42919E" Click="suivi_Click" RenderTransformOrigin="0.497,0.487" BorderBrush="{x:Null}"/>
         <StackPanel Margin="0" VerticalAlignment="Top" Background="#FF42919E">
             <Label FontSize="48" FontFamily="Century Gothic" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Suivi médical :" Margin="0"/>
         </StackPanel>
+        <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="52" Margin="104,165,0,0" VerticalAlignment="Top" Width="273"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Nom*" PreviewTextInput="nomPatientT_PreviewTextInput" Background="#FFFAFAFA" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown"/>
+        <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="50" Margin="496,167,0,0" VerticalAlignment="Top" Width="273"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Prenom*" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="#FFFAFAFA" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus"/>
     </Grid>
 </UserControl>

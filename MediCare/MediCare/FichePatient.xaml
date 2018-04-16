@@ -10,7 +10,7 @@
     <Grid>
         <Button x:Name="Ajouter" Content="Ajouter un patient" HorizontalAlignment="Left" Height="41" Margin="424,478,0,0" VerticalAlignment="Top" Width="248" Background="#FF6A97AC" Foreground="White" Click="Ajouter_Click" BorderBrush="#FF2196F3"/>
         <DatePicker x:Name="Date_naiss" HorizontalAlignment="Left" Margin="174,103,0,0" VerticalAlignment="Top" Height="40" Width="149" FirstDayOfWeek="Sunday" PreviewTextInput="DatePicker_PreviewTextInput" BorderBrush="#FF77B3B4"/>
-        <ComboBox x:Name="Groupage" HorizontalAlignment="Left" Height="40" Margin="178,477,0,0" VerticalAlignment="Top" Width="145" Cursor="Arrow" SelectionChanged="Groupage_SelectionChanged" BorderBrush="#FF77B3B4" Background="White" Foreground="White">
+        <ComboBox x:Name="Groupage" HorizontalAlignment="Left" Height="40" Margin="178,477,0,0" VerticalAlignment="Top" Width="145" Cursor="Arrow" SelectionChanged="Groupage_SelectionChanged" BorderBrush="#FF77B3B4" Background="White" Foreground="#FF080000">
             <ListBoxItem Content="A+"/>
             <ListBoxItem Content="A-"/>
             <ListBoxItem Content="O+"/>

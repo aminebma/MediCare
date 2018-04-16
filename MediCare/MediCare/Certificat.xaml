@@ -1,37 +1,31 @@
-﻿<Window x:Class="MediCare.Certificat"
+﻿<UserControl x:Class="MediCare.Certificat"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="AjoutRdvPro1"
         mc:Ignorable="d"
-        Title="Certificat" Height="750" Width="820">
-    <Grid>
-        <TextBox x:Name="nom" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="149" Margin="193,4,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <Label Content="Nom/Prénom du patient" HorizontalAlignment="Left" Height="28" Margin="19,20,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content=" Sexe" HorizontalAlignment="Left" Height="28" Margin="21,71,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <ComboBox x:Name="sex" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="196,71,0,0" Width="148" Background="White" BorderBrush="#FF77B3B4" Height="26" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2D8D97" BorderThickness="0,0,0,3" >
+         Height="548" Width="820">
+    <Grid Margin="0,0,0,-102">
+        <TextBox x:Name="nom" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Nom et Prénom*" HorizontalAlignment="Left" Height="41" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="311" Margin="31,20,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" PreviewTextInput="nom_PreviewTextInput"/>
+        <ComboBox x:Name="sex" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Sexe*" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,84,0,0" Width="148" Background="White" BorderBrush="#FF77B3B4" Height="50" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2D8D97" BorderThickness="0,0,0,3" >
             <ComboBoxItem Content="homme" HorizontalAlignment="Left" Width="100"/>
             <ComboBoxItem Content="femme" HorizontalAlignment="Left" Width="100" Foreground="#FF3599CC"/>
         </ComboBox>
-        <Label Content=" Né(e) le " HorizontalAlignment="Left" Height="28" Margin="21,164,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <DatePicker x:Name="date_naiss" HorizontalAlignment="Left" Height="30" Margin="194,158,0,0" VerticalAlignment="Top" Width="148" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3"/>
-        <Label Content="Demeurant" HorizontalAlignment="Left" Height="28" Margin="21,212,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <TextBox x:Name="adresse" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="149" Margin="195,202,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="nom_sport" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="543,306,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="3" SelectionBrush="#FF77B3B4"/>
-        <Label Content="Mademoiselle" HorizontalAlignment="Left" Height="28" Margin="21,121,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Madame" HorizontalAlignment="Left" Height="28" Margin="181,121,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Monsieur" HorizontalAlignment="Left" Height="28" Margin="309,121,0,0" VerticalAlignment="Top" Width="148" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Fait à " HorizontalAlignment="Left" Height="28" Margin="295,550,0,0" VerticalAlignment="Top" Width="64" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Le " HorizontalAlignment="Left" Height="28" Margin="572,550,0,0" VerticalAlignment="Top" Width="49" Foreground="#FF3599CC" FontWeight="Bold" RenderTransformOrigin="0.693,-0.799"/>
-        <DatePicker x:Name="date" HorizontalAlignment="Left" Height="30" Margin="641,538,0,0" VerticalAlignment="Top" Width="148" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3"/>
-        <TextBox x:Name="adr" HorizontalAlignment="Left" Height="38" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="149" Margin="407,530,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <DatePicker x:Name="date_naiss" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date de naissance*" HorizontalAlignment="Left" Height="30" Margin="31,165,0,0" VerticalAlignment="Top" Width="148" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" BorderThickness="0,0,0,3" PreviewTextInput="date_naiss_PreviewTextInput"/>
+        <TextBox x:Name="adresse" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Demeurant*" HorizontalAlignment="Left" Height="41" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="740" Margin="30,209,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="nom_sport" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="543,310,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="3" SelectionBrush="#FF77B3B4"/>
+        <Label Content="Fait à " HorizontalAlignment="Left" Height="28" Margin="309,511,0,0" VerticalAlignment="Top" Width="64" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Le " HorizontalAlignment="Left" Height="28" Margin="570,511,0,0" VerticalAlignment="Top" Width="49" Foreground="#FF3599CC" FontWeight="Bold" RenderTransformOrigin="0.693,-0.799"/>
+        <DatePicker x:Name="date" HorizontalAlignment="Left" Height="30" Margin="639,509,0,0" VerticalAlignment="Top" Width="148" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3" PreviewTextInput="date_PreviewTextInput"/>
+        <TextBox x:Name="adr" HorizontalAlignment="Left" Height="38" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="149" Margin="391,501,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
         <Label Content="Doit etre dispensé d'activité physique et sportive pendant " HorizontalAlignment="Left" Height="28" Margin="69,264,0,0" VerticalAlignment="Top" Width="345" Foreground="#FF3599CC" FontWeight="Bold"/>
         <Label Content=" Ne présente aucune contre-indication apparente à la pratique du sport suivant " HorizontalAlignment="Left" Height="28" Margin="69,312,0,0" VerticalAlignment="Top" Width="461" Foreground="#FF3599CC" FontWeight="Bold"/>
         <Label Content="Ne présente actuellement aucun signe cliniquement décelable d'affectation contagieuse" HorizontalAlignment="Left" Height="28" Margin="69,360,0,0" VerticalAlignment="Top" Width="532" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Ne pourra fréquenter l'école pendant " HorizontalAlignment="Left" Height="28" Margin="69,452,0,0" VerticalAlignment="Top" Width="225" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Label Content="Inapte à la vie en collectivité " HorizontalAlignment="Left" Height="28" Margin="69,406,0,0" VerticalAlignment="Top" Width="225" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <ComboBox x:Name="jour" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="434,256,0,0" Width="96" Background="White" BorderBrush="#FF77B3B4" Height="26" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2D8D97" BorderThickness="0,0,0,3" >
+        <Label Content="Ne pourra fréquenter l'école pendant " HorizontalAlignment="Left" Height="28" Margin="69,422,0,0" VerticalAlignment="Top" Width="225" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <Label Content="Inapte à la vie en collectivité " HorizontalAlignment="Left" Height="28" Margin="69,388,0,0" VerticalAlignment="Top" Width="225" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <ComboBox x:Name="jour" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="419,264,0,0" Width="96" Background="White" BorderBrush="#FF77B3B4" Height="26" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2D8D97" BorderThickness="0,0,0,3" >
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="100"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="100"/>
 
@@ -47,44 +41,9 @@
 
             <ComboBoxItem Content="30" HorizontalAlignment="Left" Width="100" Foreground="#FF3599CC"/>
         </ComboBox>
-        <Label Content="à compter du" HorizontalAlignment="Left" Height="28" Margin="547,260,0,0" VerticalAlignment="Top" Width="92" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <DatePicker x:Name="date_naiss2" HorizontalAlignment="Left" Height="30" Margin="674,252,0,0" VerticalAlignment="Top" Width="116" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3"/>
-        <ComboBox x:Name="jour2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="306,446,0,0" Width="96" Background="White" BorderBrush="#FF77B3B4" Height="26" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2D8D97" BorderThickness="0,0,0,3" >
-            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="6" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="7" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="8" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="9" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="10" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="13" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="14" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="15" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="16" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="17" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="18" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="19" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="20" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="21" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="22" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="23" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="24" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="25" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="26" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="27" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="28" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="29" HorizontalAlignment="Left" Width="100"/>
-            <ComboBoxItem Content="30" HorizontalAlignment="Left" Width="100" Foreground="#FF3599CC"/>
-        </ComboBox>
-        <Label Content="à compter du" HorizontalAlignment="Left" Height="28" Margin="435,452,0,0" VerticalAlignment="Top" Width="92" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <DatePicker x:Name="jour22" HorizontalAlignment="Left" Height="30" Margin="546,444,0,0" VerticalAlignment="Top" Width="116" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3"/>
-        <Label Content="Présente un état de santé nécessitant un arrêt de travail  pendant" HorizontalAlignment="Left" Height="28" Margin="65,500,0,0" VerticalAlignment="Top" Width="427" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <ComboBox x:Name="jour3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="446,494,0,0" Width="96" Background="White" BorderBrush="#FF77B3B4" Height="26" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2D8D97" BorderThickness="0,0,0,3" >
+        <Label Content="à compter du" HorizontalAlignment="Left" Height="28" Margin="546,264,0,0" VerticalAlignment="Top" Width="92" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <DatePicker x:Name="date_naiss2" HorizontalAlignment="Left" Height="30" Margin="654,262,0,0" VerticalAlignment="Top" Width="116" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3" PreviewTextInput="date_naiss2_PreviewTextInput"/>
+        <ComboBox x:Name="jour2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,422,0,0" Width="96" Background="White" BorderBrush="#FF77B3B4" Height="26" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2D8D97" BorderThickness="0,0,0,3" >
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="100"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="100"/>
             <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="100"/>
@@ -116,18 +75,54 @@
             <ComboBoxItem Content="29" HorizontalAlignment="Left" Width="100"/>
             <ComboBoxItem Content="30" HorizontalAlignment="Left" Width="100" Foreground="#FF3599CC"/>
         </ComboBox>
-        <Label Content="à compter du" HorizontalAlignment="Left" Height="28" Margin="561,496,0,0" VerticalAlignment="Top" Width="92" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <DatePicker x:Name="jour33" HorizontalAlignment="Left" Height="30" Margin="684,488,0,0" VerticalAlignment="Top" Width="116" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3"/>
-        <Label Content="Certificat médical" HorizontalAlignment="Left" Height="55" Margin="581,6,0,0" VerticalAlignment="Top" Width="193" Foreground="#FF3599CC" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Créer PDF" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="646,600,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
-        <CheckBox  x:Name="moiselle" Content=" " HorizontalAlignment="Left" Height="34" Margin="132,117,0,0" VerticalAlignment="Top" Width="38"/>
-        <CheckBox  x:Name="moiselle_Copy" Content=" " HorizontalAlignment="Left" Height="34" Margin="252,117,0,0" VerticalAlignment="Top" Width="38"/>
-        <CheckBox  x:Name="moiselle_Copy1" Content=" " HorizontalAlignment="Left" Height="34" Margin="387,117,0,0" VerticalAlignment="Top" Width="38" Checked="moiselle_Copy1_Checked"/>
+        <Label Content="à compter du" HorizontalAlignment="Left" Height="28" Margin="435,422,0,0" VerticalAlignment="Top" Width="92" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <DatePicker x:Name="jour22" HorizontalAlignment="Left" Height="30" Margin="546,422,0,0" VerticalAlignment="Top" Width="116" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3" PreviewTextInput="jour22_PreviewTextInput"/>
+        <Label Content="Présente un état de santé nécessitant un arrêt de travail  pendant" HorizontalAlignment="Left" Height="28" Margin="65,470,0,0" VerticalAlignment="Top" Width="427" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <ComboBox x:Name="jour3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="444,470,0,0" Width="96" Background="White" BorderBrush="#FF77B3B4" Height="26" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2D8D97" BorderThickness="0,0,0,3" >
+            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="6" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="7" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="8" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="9" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="10" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="13" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="14" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="15" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="16" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="17" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="18" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="19" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="20" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="21" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="22" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="23" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="24" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="25" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="26" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="27" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="28" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="29" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="30" HorizontalAlignment="Left" Width="100" Foreground="#FF3599CC"/>
+        </ComboBox>
+        <Label Content="à compter du" HorizontalAlignment="Left" Height="28" Margin="561,466,0,0" VerticalAlignment="Top" Width="92" Foreground="#FF3599CC" FontWeight="Bold"/>
+        <DatePicker x:Name="jour33" HorizontalAlignment="Left" Height="30" Margin="658,468,0,0" VerticalAlignment="Top" Width="116" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3" PreviewTextInput="jour33_PreviewTextInput"/>
+        <Label Content="Certificat médical" HorizontalAlignment="Left" Height="55" Margin="413,6,0,0" VerticalAlignment="Top" Width="193" Foreground="#FF3599CC" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Créer PDF" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="634,100,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
         <CheckBox  x:Name="option" Content=" " HorizontalAlignment="Left" Height="34" Margin="27,265,0,0" VerticalAlignment="Top" Width="38"/>
         <CheckBox  x:Name="option_Copy" Content=" " HorizontalAlignment="Left" Height="34" Margin="27,309,0,0" VerticalAlignment="Top" Width="38"/>
         <CheckBox  x:Name="option_Copy1" Content=" " HorizontalAlignment="Left" Height="34" Margin="27,354,0,0" VerticalAlignment="Top" Width="38"/>
-        <CheckBox  x:Name="option_Copy2" Content=" " HorizontalAlignment="Left" Height="34" Margin="27,405,0,0" VerticalAlignment="Top" Width="38"/>
-        <CheckBox  x:Name="option_Copy3" Content=" " HorizontalAlignment="Left" Height="34" Margin="27,495,0,0" VerticalAlignment="Top" Width="38"/>
+        <CheckBox  x:Name="option_Copy2" Content=" " HorizontalAlignment="Left" Height="34" Margin="27,387,0,0" VerticalAlignment="Top" Width="38"/>
+        <CheckBox  x:Name="option_Copy3" Content=" " HorizontalAlignment="Left" Height="34" Margin="27,465,0,0" VerticalAlignment="Top" Width="38"/>
+        <ComboBox x:Name="title" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Titre*" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,84,0,0" Width="148" Background="White" BorderBrush="#FF77B3B4" Height="50" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2D8D97" BorderThickness="0,0,0,3" >
+            <ComboBoxItem Content="homme" HorizontalAlignment="Left" Width="100"/>
+            <ComboBoxItem Content="femme" HorizontalAlignment="Left" Width="100" Foreground="#FF3599CC"/>
+        </ComboBox>
 
     </Grid>
-</Window>
+</UserControl>

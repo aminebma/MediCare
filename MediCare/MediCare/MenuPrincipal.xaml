@@ -11,15 +11,10 @@
             TextElement.FontSize="13"
             TextOptions.TextFormattingMode="Ideal"
             TextOptions.TextRenderingMode="Auto"
-            FontFamily="{DynamicResource MaterialDesignFont}" MinWidth="1080" MinHeight="720">
-    <Window.Resources>
-    </Window.Resources>
-    <Window.Background>
-        <ImageBrush/>
-    </Window.Background>
+            FontFamily="{DynamicResource MaterialDesignFont}" MinWidth="1080" MinHeight="720" ResizeMode="CanMinimize">
     <Grid Background="White">
-        <ToolBarTray Margin="0,0,0,598">
-            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="0" Background="{x:Null}" Height="95.6">
+        <ToolBarTray Margin="0,0,0,598" Background="White">
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="0" Background="White" Height="95.6">
                 <ToolBar.Header>
                     <Image Height="84" Width="294" Source="ressources/images/medicare_white.PNG" Stretch="Fill" VerticalAlignment="Center"/>
                 </ToolBar.Header>
@@ -51,8 +46,15 @@
                     </Button.ToolTip>
                 </Button>
                 <Separator />
-                <StackPanel x:Name="SearchPanel" materialDesign:RippleAssist.IsCentered="True" Width="354" Margin="0" Orientation="Horizontal">
-                    <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16,27,0,27" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="289" VerticalAlignment="Stretch">
+                <Button x:Name="AjtMedic" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="AjtMedic_Click">
+                    <materialDesign:PackIcon Kind="DatabasePlus" Foreground="#FF42919E" Width="35" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button.ToolTip>
+                        <TextBlock>Ajouter un médicament à la base de données</TextBlock>
+                    </Button.ToolTip>
+                </Button>
+                <Separator />
+                <StackPanel x:Name="SearchPanel" materialDesign:RippleAssist.IsCentered="True" Width="316" Margin="0" Orientation="Horizontal">
+                    <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16,27,0,27" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="250" VerticalAlignment="Stretch">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
@@ -97,9 +99,6 @@
             </Grid>
         </StackPanel>
         <Grid x:Name="SelectionGrid" Margin="0,85,0,56">
-            <Grid.Background>
-                <ImageBrush/>
-            </Grid.Background>
         </Grid>
         <materialDesign:DrawerHost BorderThickness="2" Margin="0" d:IsHidden="True">
             <materialDesign:DrawerHost.RightDrawerContent>

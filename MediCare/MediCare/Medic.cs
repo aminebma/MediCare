@@ -10,18 +10,18 @@ namespace MediCare
 {
     class Medic
     {
-       // public List<String> medoc = new List<String>();
-        //public Medic()
-        //{
-            //IQueryable<Medicaments> ListMed = from nomMed in Globals.DataClass.Medicaments
-            //                                  select nomMed;
-            //foreach ( Medicaments p in ListMed )
-            //{
-            //    this.medoc.Add(p.nom);
-            //}
-        
-        //}
+	
+        //public List<String> medoc = new List<String>();
+		//public Medic()
+		//{
+		//	IQueryable<Medicaments> ListMed = from nomMed in Globals.DataClass.Medicaments
+		//									  select nomMed;
+		//	foreach (Medicaments p in ListMed)
+		//	{
+		//		this.medoc.Add(p.nom + "  ( " + p.Type + " )  " );
+		//	}
 
+		//}
         public List<Medicaments> RechercheMedicamentBDD(string nom)
         {
             nom = nom.ToUpper();
@@ -45,8 +45,18 @@ namespace MediCare
                     nbElemMax++;
                     if (nbElemMax > 100) break;
                 }
-            }                
+            }
             return filtremedic;
+        }
+
+        public void AjouterMedic(string Nom, string type, string dose)
+        {
+            Medicaments medic = new Medicaments();
+            medic.nom = Nom;
+            medic.Type = type;
+            medic.Dosage = dose;
+            Globals.DataClass.Medicaments.InsertOnSubmit(medic);
+            Globals.DataClass.SubmitChanges();
         }
     }
 }

@@ -20,24 +20,26 @@ namespace MediCare
     /// </summary>
     public partial class ModSuppRdv : UserControl
     {
+        List<Personne> listPatientsTmp;
         public ModSuppRdv()
         {
             InitializeComponent();
+            int nbElemMax = 0;
+            foreach (Personne patient in Globals.ListPatients)
+            {
+                nomPatientT.Items.Add(patient.nom);
+                prenomPatientT.Items.Add(patient.prenom);
+                nbElemMax++;
+                if (nbElemMax > 100) break;
+            }
         }
 
         Agenda rdv = new Agenda();
         Regex charControl = new Regex(@"[A-Za-z]+");
 
-        private bool DateCheck(int realhour)
+        private bool DateCheck(DateTime dateRdv)
         {
-            DateTime dateRdv = DateTime.Parse(NewDateT.Text + " " + realhour + ":" + minutesBox.Text + ":00");
             return (dateRdv < DateTime.Now) ? false : true;
-        }
-
-        private bool TimeCheck(int realHour)
-        {
-            DateTime dateRdv = DateTime.Parse(NewDateT.Text + " " + realHour + ":" + minutesBox.Text + ":00");
-            return ((DateTime.Now > dateRdv && DateTime.Now.Hour > realHour) || (DateTime.Now > dateRdv && DateTime.Now.Hour == realHour && DateTime.Now.Minute > Int16.Parse(minutesBox.Text))) ? false : true;
         }
 
         private void dateT_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -48,31 +50,27 @@ namespace MediCare
 
         private void SuppButton_Click(object sender, RoutedEventArgs e)
         {
-            bool checkDate = false,
-               checkTime = false;
-            int realHour = 0;
-            if (NewDateT.Text == "" || OldDateT.Text == "" || heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" || nomPatientT.Text == "" || prenomPatientT.Text == "")
+            bool checkDate1 = false, checkDate2 = false;
+
+            if (NewDateT.Text == "" || OldDateT.Text == "" || horaire.Text == "" || nomPatientT.Text == "" || prenomPatientT.Text == "")
             {
-                MessageBox.Show("Veuillez remplir toutes les informations!");
+                MessageBox.Show("Veuillez remplir le minimum d'informations!");
                 if (NewDateT.Text == "") NewDateT.Foreground = Brushes.Red; else NewDateT.Foreground = Brushes.Black;
                 if (OldDateT.Text == "") OldDateT.Foreground = Brushes.Red; else OldDateT.Foreground = Brushes.Black;
-                if (heureBox.Text == "") heuresL.Foreground = Brushes.Red; else heuresL.Foreground = Brushes.Black;
-                if (minutesBox.Text == "") minutesL.Foreground = Brushes.Red; else minutesL.Foreground = Brushes.Black;
-                if (ampmBox.Text == "") ampmL.Foreground = Brushes.Red; else ampmL.Foreground = Brushes.Black;
-                if (prenomPatientT.Text == "") prenomPatientL.Foreground = Brushes.Red; else prenomPatientL.Foreground = Brushes.Black;
-                if (nomPatientT.Text == "") nomPatientL.Foreground = Brushes.Red; else nomPatientL.Foreground = Brushes.Black;
+                if (horaire.Text == "") horaire.Foreground = Brushes.Red; else horaire.Foreground = Brushes.Black;
+                if (prenomPatientT.Text == "") prenomPatientT.BorderBrush = Brushes.Red; else prenomPatientT.BorderBrush = Brushes.Black;
+                if (nomPatientT.Text == "") nomPatientT.BorderBrush = Brushes.Red; else nomPatientT.BorderBrush = Brushes.Black;
             }
             else
             {
-                realHour = (ampmBox.Text == "AM") ? Int32.Parse(heureBox.Text) : (Int32.Parse(heureBox.Text) + 12);
-                checkDate = DateCheck(realHour);
-                checkTime = TimeCheck(realHour);
-                if (checkDate && checkTime)
+                checkDate1 = DateCheck(DateTime.Parse(OldDateT.Text + " " + horaire.Text));
+                checkDate2 = DateCheck(DateTime.Parse(NewDateT.Text + " " + horaire.Text));
+
+                if (checkDate1 && checkDate2)
                 {
-                    minutesL.Foreground = Brushes.Black;
                     try
                     {
-                        rdv.SuppRdv(DateTime.Parse(OldDateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"));
+                        rdv.SuppRdv(DateTime.Parse(OldDateT.Text + " " + horaire.Text));
                         MessageBox.Show("Rendez-vous supprimé avec succés !");
                         var parent = (Grid)this.Parent;
                         parent.Children.Clear();
@@ -84,18 +82,16 @@ namespace MediCare
                         MessageBox.Show("Database error");
                     }
                 }
-                else if (!checkTime)
-                {
-                    MessageBox.Show("Horaire invalide");
-                    heuresL.Foreground = Brushes.Red;
-                    minutesL.Foreground = Brushes.Red;
-                }
-                else if (!checkDate)
-                {
+                else
+                { 
                     MessageBox.Show("Veuillez rentrer une date valide");
-                    OldDateL.Foreground = Brushes.Red;
-                    minutesL.Foreground = Brushes.Red;
-                    heuresL.Foreground = Brushes.Red;
+                    if (!checkDate1 && checkDate2) OldDateT.BorderBrush = Brushes.Red;
+                    else if (!checkDate1 && !checkDate2) NewDateT.BorderBrush = Brushes.Red;
+                    else
+                    {
+                        OldDateT.BorderBrush = Brushes.Red;
+                        NewDateT.BorderBrush = Brushes.Red;
+                    }
                 }
             }
         }
@@ -110,33 +106,84 @@ namespace MediCare
             if (!charControl.IsMatch(e.Text)) e.Handled = true;
         }
 
+        private void prenomPatientT_GotFocus(object sender, RoutedEventArgs e)
+        {
+            prenomPatientT.IsDropDownOpen = true;
+        }
+
+        private void nomPatientT_GotFocus(object sender, RoutedEventArgs e)
+        {
+            nomPatientT.IsDropDownOpen = true;
+        }
+
+        private void nomPatientT_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab && nomPatientT.IsDropDownOpen && nomPatientT.HasItems) nomPatientT.Text = nomPatientT.Items.GetItemAt(0).ToString();
+        }
+
+        private void prenomPatientT_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab && prenomPatientT.IsDropDownOpen && prenomPatientT.HasItems) prenomPatientT.Text = prenomPatientT.Items.GetItemAt(0).ToString();
+        }
+
+        private void horaire_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (prenomPatientT.Text == "") listPatientsTmp = rdv.RechercherPatientNom(nomPatientT.Text);
+            else listPatientsTmp = rdv.RechercherPatient(nomPatientT.Text + " " + prenomPatientT.Text);
+            prenomPatientT.Items.Clear();
+            nomPatientT.Items.Clear();
+            foreach (Personne patient in listPatientsTmp)
+            {
+                prenomPatientT.Items.Add(prenomPatientT.Items.Add(patient.prenom));
+                nomPatientT.Items.Add(nomPatientT.Items.Add(patient.nom));
+                if (prenomPatientT.Items.Count != 0) prenomPatientT.Items.RemoveAt(prenomPatientT.Items.Count - 1);
+                if (nomPatientT.Items.Count != 0) nomPatientT.Items.RemoveAt(nomPatientT.Items.Count - 1);
+            }
+        }
+
+        private void prenomPatientT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (nomPatientT.Text == "") listPatientsTmp = rdv.RechercherPatientPrenom(prenomPatientT.Text);
+            else listPatientsTmp = rdv.RechercherPatient(nomPatientT.Text + " " + prenomPatientT.Text);
+            prenomPatientT.Items.Clear();
+            nomPatientT.Items.Clear();
+            foreach (Personne patient in listPatientsTmp)
+            {
+                prenomPatientT.Items.Add(prenomPatientT.Items.Add(patient.prenom));
+                nomPatientT.Items.Add(nomPatientT.Items.Add(patient.nom));
+                if (prenomPatientT.Items.Count != 0) prenomPatientT.Items.RemoveAt(prenomPatientT.Items.Count - 1);
+                if (nomPatientT.Items.Count != 0) nomPatientT.Items.RemoveAt(nomPatientT.Items.Count - 1);
+            }
+        }
+
         private void ModifBtn_Click(object sender, RoutedEventArgs e)
         {
-            bool checkDate = false,
-                checkTime = false;
-            int realHour = 0;
-            if (NewDateT.Text == "" || OldDateT.Text == "" || heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" || nomPatientT.Text == "" || prenomPatientT.Text == "")
+            bool checkDate1 = false, checkDate2 = false;
+
+            if (NewDateT.Text == "" || OldDateT.Text == "" || horaire.Text == "" || nomPatientT.Text == "" || prenomPatientT.Text == "")
             {
-                MessageBox.Show("Veuillez remplir toutes les informations!");
+                MessageBox.Show("Veuillez remplir le minimum d'informations!");
                 if (NewDateT.Text == "") NewDateT.Foreground = Brushes.Red; else NewDateT.Foreground = Brushes.Black;
                 if (OldDateT.Text == "") OldDateT.Foreground = Brushes.Red; else OldDateT.Foreground = Brushes.Black;
-                if (heureBox.Text == "") heuresL.Foreground = Brushes.Red; else heuresL.Foreground = Brushes.Black;
-                if (minutesBox.Text == "") minutesL.Foreground = Brushes.Red; else minutesL.Foreground = Brushes.Black;
-                if (ampmBox.Text == "") ampmL.Foreground = Brushes.Red; else ampmL.Foreground = Brushes.Black;
-                if (prenomPatientT.Text == "") prenomPatientL.Foreground = Brushes.Red; else prenomPatientL.Foreground = Brushes.Black;
-                if (nomPatientT.Text == "") nomPatientL.Foreground = Brushes.Red; else nomPatientL.Foreground = Brushes.Black;
+                if (horaire.Text == "") horaire.Foreground = Brushes.Red; else horaire.Foreground = Brushes.Black;
+                if (prenomPatientT.Text == "") prenomPatientT.BorderBrush = Brushes.Red; else prenomPatientT.BorderBrush = Brushes.Black;
+                if (nomPatientT.Text == "") nomPatientT.BorderBrush = Brushes.Red; else nomPatientT.BorderBrush = Brushes.Black;
             }
             else
             {
-                realHour = (ampmBox.Text == "AM") ? Int32.Parse(heureBox.Text) : (Int32.Parse(heureBox.Text) + 12);
-                checkDate = DateCheck(realHour);
-                checkTime = TimeCheck(realHour);
-                if (checkDate && checkTime)
+                checkDate1 = DateCheck(DateTime.Parse(OldDateT.Text + " " + horaire.Text));
+                checkDate2 = DateCheck(DateTime.Parse(NewDateT.Text + " " + horaire.Text));
+
+                if (checkDate1 && checkDate2)
                 {
-                    minutesL.Foreground = Brushes.Black;
                     try
                     {
-                        rdv.ModifRdv(nomPatientT.Text,prenomPatientT.Text,DateTime.Parse(OldDateT.Text + " " + realHour + ":" + minutesBox.Text + ":00"));
+                        rdv.ModifRdv(nomPatientT.Text, prenomPatientT.Text, DateTime.Parse(OldDateT.Text + " " + horaire.Text));
                         MessageBox.Show("Rendez-vous modifié avec succés !");
                         var parent = (Grid)this.Parent;
                         parent.Children.Clear();
@@ -148,18 +195,16 @@ namespace MediCare
                         MessageBox.Show("Database error");
                     }
                 }
-                else if (!checkTime)
-                {
-                    MessageBox.Show("Horaire invalide");
-                    heuresL.Foreground = Brushes.Red;
-                    minutesL.Foreground = Brushes.Red;
-                }
-                else if (!checkDate)
+                else
                 {
                     MessageBox.Show("Veuillez rentrer une date valide");
-                    OldDateL.Foreground = Brushes.Red;
-                    minutesL.Foreground = Brushes.Red;
-                    heuresL.Foreground = Brushes.Red;
+                    if (!checkDate1 && checkDate2) OldDateT.BorderBrush = Brushes.Red;
+                    else if (!checkDate1 && !checkDate2) NewDateT.BorderBrush = Brushes.Red;
+                    else
+                    {
+                        OldDateT.BorderBrush = Brushes.Red;
+                        NewDateT.BorderBrush = Brushes.Red;
+                    }
                 }
             }
         }

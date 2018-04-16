@@ -20,9 +20,12 @@ namespace MediCare
     public partial class ModifMed_2 : UserControl
     {
         Grid GridAppelant;
-        public ModifMed_2()
+        string username;
+
+        public ModifMed_2(string user)
         {
             InitializeComponent();
+            username = user;
         }
 
         public Grid SetGridAppelant
@@ -40,13 +43,26 @@ namespace MediCare
 
         Medecin2 medd = new Medecin2();
          
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void validateBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (medd.ModifMed(user.Text, pass.Password, npass.Password)) MessageBox.Show("MotDePasse modifié avec succès !");;
-            GridAppelant.Children.Clear();
-            MonCompte usc = new MonCompte();
-            usc.SetFenetrePrincipale = fenetrePrincipale;
-            GridAppelant.Children.Add(usc);
+            if(pass.Password != npass.Password)
+            {
+                MessageBox.Show("Les mots de passes doivent être identiques");
+                pass.Password = "";
+                pass.BorderBrush = Brushes.Red;
+                npass.Password = "";
+                npass.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                if (medd.ModifMed(username, pass.Password, npass.Password)) MessageBox.Show("MotDePasse modifié avec succès !"); ;
+                GridAppelant.Children.Clear();
+                MonCompte usc = new MonCompte
+                {
+                    SetFenetrePrincipale = fenetrePrincipale
+                };
+                GridAppelant.Children.Add(usc);
+            }           
         }
     }
 }
