@@ -185,5 +185,10 @@ namespace MediCare
             
         }
 
+        private void AjtMedic_Click(object sender, RoutedEventArgs e)
+        {
+            AjouterMédic wndw = new AjouterMédic();
+            wndw.Show();
+        }
     }
 }

@@ -23,7 +23,8 @@ namespace MediCare
             InitializeComponent();
             foreach (Medicaments medic in Globals.ListMedicaments)
             {
-                medicamentT.Items.Add(medic.nom);
+                if (medic.nom.Length > 25) medicamentT.Items.Add(medic.nom.Substring(0, 25));
+                else medicamentT.Items.Add(medic.nom);
                 i++;
                 if(i>100)
                 {
@@ -67,17 +68,15 @@ namespace MediCare
                 traitementList.Add(TraitementEnreg);
             }
 
-            if (ageT.Text == "" || diagnosticT.Text == "" || medicamentT.Text == "" || doseT.Text == "")
+            if (diagnosticT.Text == "" || (medicamentT.Text == "" && traitementList.Count==0) || (doseT.Text == "" && traitementList.Count==0))
             {
-                Add_Consultation.Background = Brushes.Red;
+                if (diagnosticT.Text == "") diagnosticT.BorderBrush = Brushes.Red; else diagnosticT.BorderBrush = Brushes.Black;
+                if (medicamentT.Text == "" && traitementList.Count == 0) medicamentT.BorderBrush = Brushes.Red; else medicamentT.BorderBrush = Brushes.Black;
+                if (doseT.Text == "" && traitementList.Count == 0) doseT.BorderBrush = Brushes.Red; else doseT.BorderBrush = Brushes.Black;
                 MessageBox.Show("Veuillez remplir toutes les informations!");
-                if (diagnosticT.Text == "") Diagnostic.Foreground = Brushes.Red; else Diagnostic.Foreground = Brushes.Black;
-                if (medicamentT.Text == "") Medicament.Foreground = Brushes.Red; else Medicament.Foreground = Brushes.Black;
-                if (doseT.Text == "") Dose.Foreground = Brushes.Red; else Dose.Foreground = Brushes.Black;
             }
             else
             {
-                Globals.Age = int.Parse(ageT.Text);
                 var parent = (Grid)this.Parent;
                 UserControl ordo = new GenererOrdonnance(labelT.Text, diagnosticT.Text, descriptionT.Text, traitementList);
                 parent.Children.Clear();
@@ -87,7 +86,14 @@ namespace MediCare
 
         private void AjouterFichier_Click(object sender, RoutedEventArgs e)
         {
-            Globals.Age = int.Parse(ageT.Text);
+            if (medicamentT.Text != "" && doseT.Text != "" && indicationT.Text != "")
+            {
+                TraitementEnreg.Dose = doseT.Text;
+                TraitementEnreg.NomMed = medicamentT.Text;
+                TraitementEnreg.Indication = indicationT.Text;
+                traitementList.Add(TraitementEnreg);
+            }
+
             var parent = (Grid)this.Parent;
             UserControl fich = new MenuFichier(labelT.Text, diagnosticT.Text,descriptionT.Text,traitementList);
             parent.Children.Clear();
@@ -98,10 +104,11 @@ namespace MediCare
         {
             listMedicTmp = med.RechercheMedicament(medicamentT.Text);
             medicamentT.Items.Clear();
-            foreach (Medicaments patient in listMedicTmp)
+            foreach (Medicaments medic in listMedicTmp)
             {
-                medicamentT.Items.Add(medicamentT.Items.Add(patient.nom));
-                if (medicamentT.Items.Count != 0) medicamentT.Items.RemoveAt(medicamentT.Items.Count - 1);
+                if (medic.nom.Length > 25) medicamentT.Items.Add(medic.nom.Substring(0, 25));
+                else medicamentT.Items.Add(medic.nom);
+                //if (medicamentT.Items.Count != 0) medicamentT.Items.RemoveAt(medicamentT.Items.Count - 1);
             }
         }
 

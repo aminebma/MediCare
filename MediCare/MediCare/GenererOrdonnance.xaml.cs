@@ -64,7 +64,7 @@ namespace MediCare
         {
             InitializeComponent();
         }
-
+        Ordonnance ordo = new Ordonnance();
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
             Consult consultation = new Consult();
@@ -80,16 +80,26 @@ namespace MediCare
 
         }
 
-        private void VisualiserOrdo_Click(object sender, RoutedEventArgs e)
+
+        private void VisuaiserOrdo_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == true)
+            //OpenFileDialog ofd = new OpenFileDialog();
+            //if (ofd.ShowDialog() == true)
+            //{
+            //    MessageBox.Show(ofd.FileName);
+            //    this.ordonnance = ofd.FileName;
+
+            //}
+            try
             {
-                MessageBox.Show(ofd.FileName);
-                this.ordonnance = ofd.FileName;
-                
+                this.ordonnance = ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label);
             }
-        }
-        
+            catch (Exception)
+            {
+                MessageBox.Show("Une erreur s'est produite");
+            }
+
+}
+
     }
 }

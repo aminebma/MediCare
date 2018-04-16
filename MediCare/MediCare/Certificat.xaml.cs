@@ -14,26 +14,23 @@ using System.Windows.Shapes;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-
 /*using Syncfusion.Compression;
 using Syncfusion.PdfViewer.Base;
 using Syncfusion.Pdf;*/
-
-
-
-
+using System.Text.RegularExpressions;
 
 namespace MediCare
 {
     /// <summary>
     /// Logique d'interaction pour Certificat.xaml
     /// </summary>
-    public partial class Certificat : Window
+    public partial class Certificat : UserControl
     {
+        Regex charControl = new Regex(@"[A-Za-z]+");
+
         public Certificat()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -56,7 +53,7 @@ namespace MediCare
             iTextSharp.text.Paragraph para2 = new iTextSharp.text.Paragraph("Je sousigné Docteur  " + Globals.NomMedecin + " " + Globals.PrenomMedecin, times1);
             doc.Add(para2);
 
-            if ((bool)moiselle.IsChecked)
+            if (title.Text == "Mademoiselle")
             {
                 iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Mademoiselle  " + nom.Text + "  Née le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
                 doc.Add(para3);
@@ -92,7 +89,7 @@ namespace MediCare
                 }
             }
 
-            if ((bool)moiselle_Copy.IsChecked)
+            if (title.Text == "Madame")
             {
                 iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Madame  " + nom.Text + "  Née le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
                 doc.Add(para3);
@@ -128,7 +125,7 @@ namespace MediCare
                 }
             }
 
-            if ((bool)moiselle_Copy1.IsChecked)
+            if (title.Text == "Monsieur")
             {
                 iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Monsieur " + nom.Text + "  Né le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
                 doc.Add(para3);
@@ -176,10 +173,43 @@ namespace MediCare
 
         }
 
-        private void moiselle_Copy1_Checked(object sender, RoutedEventArgs e)
-        { 
+        private void nom_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!charControl.IsMatch(e.Text)) e.Handled = true;
+        }
+
+        private void date_naiss_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void date_naiss2_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void jour22_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void jour33_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void date_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void Suivant_Click(object sender, RoutedEventArgs e)
+        {
+
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            parent.Children.Add(new MenuFichier());
         }
     }
 }
-
 

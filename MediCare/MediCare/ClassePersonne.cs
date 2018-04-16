@@ -42,6 +42,56 @@ namespace MediCare
             dataclass.SubmitChanges();
         }
 
+        public void SuppRdv(string nomPatient, string prenomPatient)
+        {
+            nomPatient = nomPatient.ToUpper();
+            prenomPatient = prenomPatient.ToUpper();
+            IQueryable<RendezVous> r = (from personne in Globals.DataClass.Personne
+                                        where personne.nom.Contains(nomPatient) && personne.prenom.Contains(prenomPatient)
+                                        join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
+                                        join rdv in Globals.DataClass.RendezVous on patient.Id equals rdv.IdPatient
+                                        orderby rdv.Id descending
+                                        select rdv);
+            
+            foreach (RendezVous p in r )
+            {
+                IQueryable<MPRendezVous> mprdv = (from rdv in Globals.DataClass.MPRendezVous
+                                                         where  p.Id == rdv.IdRendezVous && p.IdPatient == rdv.IdPatient &&  p.IdMedecin == rdv.IdMedecin
+                                                         orderby rdv.Id descending
+                                                         select rdv);
+                foreach (MPRendezVous l in mprdv)
+                {
+                    Globals.DataClass.MPRendezVous.DeleteOnSubmit(l);
+                    Globals.DataClass.SubmitChanges();
+                }
+                Globals.DataClass.RendezVous.DeleteOnSubmit(p);
+                Globals.DataClass.SubmitChanges();
+            }
+
+            //List<Personne> filtrePatient = new List<Personne>();
+            
+            //foreach (Personne patient in Globals.ListPatients)
+            //{
+            //    if ((patient.nom).Contains(nom))
+            //    {
+            //        filtrePatient.Add(patient);
+            //        nbElemMax++;
+            //        if (nbElemMax > 100) break;
+            //    }
+            //}
+
+            //MPRendezVous mPRendezVous = (from rdv in Globals.DataClass.MPRendezVous
+            //                             where rdvToDelete.Id == rdv.IdRendezVous && rdvToDelete.IdPatient == rdv.IdPatient && rdvToDelete.IdMedecin == rdv.IdMedecin
+            //                             orderby rdv.Id descending
+            //                             select rdv).First<MPRendezVous>();
+
+            //Globals.DataClass.MPRendezVous.DeleteOnSubmit(mPRendezVous);
+            //Globals.DataClass.SubmitChanges();
+            //Globals.DataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
+            //Globals.DataClass.SubmitChanges();
+            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
+        }
+
 
         public void SuppConsultation(string nomPatient, string prenomPatient)
         {
@@ -95,18 +145,128 @@ namespace MediCare
         }
         public void SuppPatient(string nom, string prenom)
         {
+            nom = nom.ToUpper();
+            prenom = prenom.ToUpper();
             string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
             MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             Personne personasupp = (from pers in dataClass.Personne
                                     where nom == pers.nom && prenom == pers.prenom
                                     orderby pers.Id descending
                                     select pers).First<Personne>();
             Patient patienasup = (from pat in dataClass.Patient
                                   where personasupp.Id == pat.IdPersonne
-
                                   select pat).First<Patient>();
-
+           SuppRdv(nom, prenom);
             
+
 
             IQueryable<Consultation> consult = (from mpc in dataClass.MPConsultation
                                                 where mpc.IdPatient == patienasup.Id

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,16 +20,25 @@ namespace MediCare
     /// </summary>
     public partial class SUIVIS : UserControl
     {
-        public SUIVIS()
-        {
-            InitializeComponent();
-        }
-
         List<Personne> listPatientsTmp;
+        Regex charControl = new Regex(@"[A-Za-z]+");
         Agenda pat = new Agenda();
         List<ConsultLabel> list;
         Consult consultation = new Consult();
         Consulta consulta = new Consulta();
+
+        public SUIVIS()
+        {
+            InitializeComponent();
+            int nbElemMax = 0;
+            foreach (Personne patient in Globals.ListPatients)
+            {
+                nomPatientT.Items.Add(patient.nom);
+                prenomPatientT.Items.Add(patient.prenom);
+                nbElemMax++;
+                if (nbElemMax > 100) break;
+            }
+        }
 
         private void suivi_Click(object sender, RoutedEventArgs e)
         {
@@ -40,7 +50,7 @@ namespace MediCare
                     foreach (ConsultLabel p in list)
                     {
                         Expander expSuivi = new Expander();
-                        expSuivi.Header ="Label :" + p.Label + "\n Date de la consultation :" + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
+                        expSuivi.Header ="Titre de Consultation :" + p.Label + "\n Date de la consultation :" + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
                         StackSuivi.Children.Add(expSuivi);
                         consulta = consultation.AcceeConsultationId(p.Id);
                         expSuivi.Content = "Diagnostic : " + consulta.Diagnostic + "\n Description :" + consulta.Description;
@@ -56,11 +66,21 @@ namespace MediCare
 
 
                     }
-
                 }
 
             }
         }
+
+        private void nomPatientT_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!charControl.IsMatch(e.Text)) e.Handled = true;
+        }
+
+        private void prenomPatientT_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!charControl.IsMatch(e.Text)) e.Handled = true;
+        }
+
         private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (prenomPatientT.Text == "") listPatientsTmp = pat.RechercherPatientNom(nomPatientT.Text);
@@ -122,11 +142,6 @@ namespace MediCare
         {
             if (e.Key == Key.Tab && nomPatientT.IsDropDownOpen && nomPatientT.HasItems) nomPatientT.Text = nomPatientT.Items.GetItemAt(0).ToString();
         }
-
-
-
-
-
     }
 }
  

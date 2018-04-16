@@ -30,19 +30,19 @@ namespace MediCare
                 active = true,
                 key = key,
                 username = username,
-                password = EncryptPassword(password),
+                password = password,
                 email = email,
                 IdPersonne = t.Id
             };
             Globals.DataClass.Medecin.InsertOnSubmit(tabmedecin);
             Globals.DataClass.SubmitChanges();
-            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
-
         }
+
+        //il me faudra une fonction de vérification du nom d'utilisateur et du mot de passe
 
         public bool VerifMed(string nom, string mot_pass)
         {
-            string cryptedPass=EncryptPassword(mot_pass);
+            string cryptedPass = EncryptPassword(mot_pass);
             IQueryable<Medecin> medverif = (from Medecin in Globals.DataClass.Medecin
                                             where Medecin.username == nom && Medecin.password == cryptedPass
                                             select Medecin);
@@ -53,15 +53,14 @@ namespace MediCare
                 Globals.IdMedecin = (byte)medverif.First<Medecin>().Id;
                 return true;
             }
-                
         }
 
         public bool ModifMed(string username, string mot_pass, string new_password)
         {
             string cryptedPass = EncryptPassword(mot_pass);
             IQueryable<Medecin> medModif = (from medecin in Globals.DataClass.Medecin
-                                where medecin.username == username && medecin.password == cryptedPass
-                                select medecin);
+                                            where medecin.username == username && medecin.password == cryptedPass
+                                            select medecin);
             if (medModif.Count() != 0)
             {
                 medModif.First().password = EncryptPassword(new_password);
@@ -70,7 +69,7 @@ namespace MediCare
                 return true;
             }
             else return false;
-            
+
 
             /* medModif.ToList();
              List <Medecin> list = medModif.ToList<Medecin>();
@@ -89,7 +88,48 @@ namespace MediCare
                                              select personne);
             return medecins.ToList<Personne>();
         }
+		public List<Medecins> RechercheToutMedecin ()
+		{
+			List<Medecins> list = new List<Medecins>();
 
+
+			IQueryable<Medecin> medcin = (from med in Globals.DataClass.Medecin
+											  select med);
+			
+
+			foreach ( Medecin p in medcin)
+			{
+				Personne personne = (from per in Globals.DataClass.Personne
+									 where per.Id == p.IdPersonne
+									 select per).First<Personne>();
+
+				Medecins q = new Medecins(personne.nom, personne.prenom, (DateTime)personne.dateNaissance, personne.adresse, (int)personne.telephone, personne.sexe, (Boolean)p.active, p.key, p.username, p.password);
+				list.Add(q);
+
+			}
+			return list;
+		}
+		public List<Patients> DossiersMedical()
+		{
+			List<Patients> list = new List<Patients>();
+
+
+			IQueryable<Patient> pat = (from med in Globals.DataClass.Patient
+										  select med);
+
+
+			foreach (Patient p in pat)
+			{
+				Personne personne = (from per in Globals.DataClass.Personne
+									 where per.Id == p.IdPersonne
+									 select per).First<Personne>();
+
+			       Patients q = new Patients(personne.nom, personne.prenom, (DateTime)personne.dateNaissance, personne.adresse, (int)personne.telephone, personne.sexe, (int)p.taille, (int)p.poids, p.groupage, p.maladie, p.etatSante);
+				list.Add(q);
+
+			}
+			return list;
+		}
         public string EncryptPassword(string password)
         {
             byte[] passBytes = Encoding.Unicode.GetBytes(password);
@@ -97,12 +137,6 @@ namespace MediCare
             return encryptedPass;
         }
 
-        /*public string DecryptPassword(string encryptedPass)
-        {
-            byte[] passBytes = Convert.FromBase64String(encryptedPass);
-            string originalPassword = System.Text.Encoding.Unicode.GetString(passBytes);
-            return originalPassword;
-        }*/
     }
 }
 

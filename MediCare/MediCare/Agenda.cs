@@ -220,6 +220,7 @@ namespace MediCare
             nom=nom.ToUpper();
             IQueryable<Personne> patients = (from personne in Globals.DataClass.Personne
                                              where personne.nom.Contains(nom)
+                                           
                                              join patient in Globals.DataClass.Patient on personne.Id equals patient.IdPersonne
                                              select personne);
             return patients.ToList<Personne>();
@@ -295,6 +296,52 @@ namespace MediCare
                 }
             }               
             return filtrePatient;
+        }
+
+
+
+
+       
+        public List<RendezVous> RechercherToutRDV()
+        {
+
+            IQueryable<RendezVous> agenda = (from rdv in Globals.DataClass.RendezVous
+                                             select rdv);
+            return agenda.ToList<RendezVous>();
+        }
+        public List<Medicaments> RechercherToutMedicament()
+        {
+
+            IQueryable<Medicaments> medoc = (from medic in Globals.DataClass.Medicaments
+                                             select medic);
+            return medoc.ToList<Medicaments>();
+        }
+        public List<Personne> RechercherToutMedecin()
+        {
+
+            IQueryable<Personne> medecins = (from personne in Globals.DataClass.Personne
+                                             join medecin in Globals.DataClass.Medecin on personne.Id equals medecin.IdPersonne
+                                             select personne);
+            return medecins.ToList<Personne>();
+        }
+        public List<Personne> RechercherMedecin(string nom, string prenom)
+        {
+            nom = nom.ToUpper();
+            prenom = prenom.ToUpper();
+            IQueryable<Personne> medecin = (from personne in Globals.DataClass.Personne
+                                            where personne.nom.Contains(nom) && personne.prenom.Contains(prenom)
+                                            join medcin in Globals.DataClass.Medecin on personne.Id equals medcin.IdPersonne
+                                            select personne);
+            return medecin.ToList<Personne>();
+        }
+        public List<Medicaments> RechercherMedic(string nom)
+        {
+            nom = nom.ToUpper();
+            IQueryable<Medicaments> medic = (from medoc in Globals.DataClass.Medicaments
+                                             where medoc.nom.Contains(nom)
+
+                                             select medoc);
+            return medic.ToList<Medicaments>();
         }
     }
 }

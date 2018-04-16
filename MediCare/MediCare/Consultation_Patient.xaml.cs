@@ -44,8 +44,8 @@ namespace MediCare
             if (nomPatientT.Text == "" || prenomPatientT.Text == "")
             {
                 MessageBox.Show("Veuillez remplir toutes les informations!");
-                if (nomPatientT.Text == "") nomL.Foreground = Brushes.Red; else nomL.Foreground = Brushes.Black;
-                if (prenomPatientT.Text == "") prenomL.Foreground = Brushes.Red; else prenomL.Foreground = Brushes.Black;
+                if (nomPatientT.Text == "") nomPatientT.BorderBrush = Brushes.Red; else nomPatientT.BorderBrush = Brushes.Black;
+                if (prenomPatientT.Text == "") prenomPatientT.BorderBrush = Brushes.Red; else prenomPatientT.BorderBrush = Brushes.Black;
             }
             else
             {
@@ -54,10 +54,14 @@ namespace MediCare
                 patients = pat.RechercherPatient(Globals.NomPatient+" "+Globals.PrenomPatient);
                 if (patients.Count() != 0)
                 {
+                    //(DateTime)patients[0].dateNaissance;
+                    DateTime date = (DateTime) patients[0].dateNaissance;
+                    Globals.Age = DateTime.Today.Year - date.Year;
                     nomPatientT.IsEnabled = false;
                     prenomPatientT.IsEnabled = false;
                     okBtn.IsEnabled = false;
                     this.GridDroit.Children.Add(new AjoutConsultation());
+                    
                 }
                 else
                 {
@@ -113,19 +117,7 @@ namespace MediCare
         {
             if (!charControl.IsMatch(e.Text)) e.Handled = true;
         }
-        private void nomPatientT_MouseEnter(object sender, MouseEventArgs e)
-        {
-            nomPatientT.Focus();
-            nomPatientT.IsDropDownOpen = true;
-        }
-
-        private void prenomPatientT_MouseEnter(object sender, MouseEventArgs e)
-        {
-            prenomPatientT.Focus();
-            prenomPatientT.IsDropDownOpen = true;
-        }
-
-        
+                
         private void prenomPatientT_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Tab && prenomPatientT.IsDropDownOpen && prenomPatientT.HasItems) prenomPatientT.Text = prenomPatientT.Items.GetItemAt(0).ToString();

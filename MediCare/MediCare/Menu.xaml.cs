@@ -67,6 +67,13 @@ namespace MediCare
             parent.Children.Clear();
             parent.Children.Add(new MenuHistorique());
         }
+
+        private void RechercheBTN_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            parent.Children.Add(new MenuRecherche());
+        }
     }
 
 }

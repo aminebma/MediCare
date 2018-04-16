@@ -11,13 +11,11 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="294,0,0,0" Width="15">
             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="0" Width="15" />
         </StackPanel>
-        <Label x:Name="nomL" Content="Nom * :" Height="37" Margin="13,196,996,315" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF6A97AC"/>
-        <Label x:Name="prenomL" Content="Prénom * :" Height="37" Margin="1,312,962,199" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF6A97AC"/>
-        <Button x:Name="okBtn" Content="OK" Height="52" Margin="107,414,0,82" Background="#FF6A97AC" Click="okBtn_Click" HorizontalAlignment="Left" Width="130"/>
+        <Button x:Name="okBtn" Content="OK" Height="52" Margin="33,412,0,84" Background="#FF6A97AC" Click="okBtn_Click" HorizontalAlignment="Left" Width="130"/>
         <Label x:Name="recherche" Content="Sélectionnez le nom et prénom&#xA; du patient à consulter : " Margin="1,76,788,395" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Background="{x:Null}" Foreground="#FF6A97AC"/>
-        <ComboBox x:Name="nomPatientT" BorderThickness="0,0,0,3" Height="38" Margin="134,195,788,315" VerticalAlignment="Stretch"  BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="nomPatientT_MouseEnter" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown" MouseLeftButtonDown="nomPatientT_MouseLeftButtonDown" />
-        <ComboBox x:Name="prenomPatientT" BorderThickness="0,0,0,3" Height="36" Margin="134,312,788,200" VerticalAlignment="Stretch"   BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" MouseEnter="prenomPatientT_MouseEnter" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus" MouseLeftButtonDown="prenomPatientT_MouseLeftButtonDown"/>
+        <ComboBox x:Name="nomPatientT" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Nom*" BorderThickness="0,0,0,3" Margin="33,201,889,301" VerticalAlignment="Stretch"  BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown" MouseLeftButtonDown="nomPatientT_MouseLeftButtonDown" />
+        <ComboBox x:Name="prenomPatientT" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Prenom*" BorderThickness="0,0,0,3" Margin="33,300,889,200" VerticalAlignment="Stretch"   BorderBrush="#FF77B3B4" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus" MouseLeftButtonDown="prenomPatientT_MouseLeftButtonDown"/>
     </Grid>
-    
+
 
 </UserControl>

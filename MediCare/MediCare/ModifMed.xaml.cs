@@ -58,7 +58,7 @@ namespace MediCare
             else
             {
                 GridAppelant.Children.Clear();
-                ModifMed_2 usc = new ModifMed_2();
+                ModifMed_2 usc = new ModifMed_2(username2.Text);
                 usc.SetGridAppelant = SelectionGrid;
                 usc.SetFenetrePrincipale = fenetrePrincipale;
                 GridAppelant.Children.Add(usc);

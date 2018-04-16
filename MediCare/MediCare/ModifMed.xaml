@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Button Content="Modifier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="116,205,0,0" Padding="0" BorderThickness="0" Background="#FF42919E" Foreground="White" Height="34" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
         <Label Content="Veuillez saisir les champs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="81,21,0,0" Foreground="#FF77B3B4" FontWeight="Bold" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBox x:Name="username2" materialDesign:HintAssist.Hint="Identifiant" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="84,67,84,179" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="190" />
-        <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="84,130,84,112" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="190" />
+        <TextBox x:Name="username2" materialDesign:HintAssist.Hint="Identifiant" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="81,67,72,179" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="205" />
+        <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="81,130,72,112" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="205" />
     </Grid>
 </Window>

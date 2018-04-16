@@ -44,8 +44,10 @@ namespace MediCare
 
         private void Supr_pat_Click(object sender, RoutedEventArgs e)
         {
-            PatientASupp p = new PatientASupp();
-            p.Show();
+            var parent = (Grid)this.Parent;
+            UserControl usc = new PatientASupp();
+            parent.Children.Clear();
+            parent.Children.Add(usc);
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -61,10 +63,14 @@ namespace MediCare
                     GridDroit.Children.Add(new FichePatient());
                     break;
                 case "SupPatient":
+                    GridDroit.Children.Clear();
+                    GridDroit.Children.Add(new PatientASupp());
                     break;
                 default:
                     break;
             }
         }
+
+        
     }
 }

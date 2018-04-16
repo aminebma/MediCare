@@ -20,12 +20,11 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour LettreOr.xaml
     /// </summary>
-    public partial class LettreOr : Window
+    public partial class LettreOr : UserControl
     {
         public LettreOr()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -88,6 +87,14 @@ namespace MediCare
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Suivant_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            UserControl fich = new MenuFichier();
+            parent.Children.Clear();
+            parent.Children.Add(fich);
         }
     }
 }

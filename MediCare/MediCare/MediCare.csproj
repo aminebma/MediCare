@@ -48,6 +48,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ressources\icones\icones ico\logo_white.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
@@ -106,6 +109,9 @@
     <Compile Include="AgendaMenu.xaml.cs">
       <DependentUpon>AgendaMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AjouterMédic.xaml.cs">
+      <DependentUpon>AjouterMédic.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AjoutRdvPerso.xaml.cs">
       <DependentUpon>AjoutRdvPerso.xaml</DependentUpon>
     </Compile>
@@ -115,14 +121,17 @@
     <Compile Include="AjoutConsultation.xaml.cs">
       <DependentUpon>AjoutConsultation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Certificat.xaml.cs">
-      <DependentUpon>Certificat.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Consulta.cs" />
     <Compile Include="Consultation_Patient.xaml.cs">
       <DependentUpon>Consultation_Patient.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConsultLabel.cs" />
+    <Compile Include="certificat.xaml.cs">
+      <DependentUpon>certificat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToutMedecins.xaml.cs">
+      <DependentUpon>ToutMedecins.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GenererOrdonnance.xaml.cs">
       <DependentUpon>GenererOrdonnance.xaml</DependentUpon>
     </Compile>
@@ -139,9 +148,6 @@
     <Compile Include="LettreOr.xaml.cs">
       <DependentUpon>LettreOr.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LettreOrientation.xaml.cs">
-      <DependentUpon>LettreOrientation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LogOutPop.xaml.cs">
       <DependentUpon>LogOutPop.xaml</DependentUpon>
     </Compile>
@@ -150,6 +156,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MCDataClass.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Medecins.cs" />
     <Compile Include="Medic.cs" />
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
@@ -162,6 +169,9 @@
     </Compile>
     <Compile Include="MenuHistorique.xaml.cs">
       <DependentUpon>MenuHistorique.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuRecherche.xaml.cs">
+      <DependentUpon>MenuRecherche.xaml</DependentUpon>
     </Compile>
     <Compile Include="ModifMed.xaml.cs">
       <DependentUpon>ModifMed.xaml</DependentUpon>
@@ -176,12 +186,14 @@
       <DependentUpon>MonCompte.xaml</DependentUpon>
     </Compile>
     <Compile Include="Notifications.cs" />
+    <Compile Include="Ordonnance.cs" />
     <Compile Include="PatientASupp.xaml.cs">
       <DependentUpon>PatientASupp.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientMenu.xaml.cs">
       <DependentUpon>PatientMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Patients.cs" />
     <Compile Include="Perso.cs" />
     <Compile Include="PopupPatient.xaml.cs">
       <DependentUpon>PopupPatient.xaml</DependentUpon>
@@ -206,16 +218,33 @@
     <Compile Include="SUIVIS.xaml.cs">
       <DependentUpon>SUIVIS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SupprimerPatient.xaml.cs">
+      <DependentUpon>SupprimerPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="toutMedic.xaml.cs">
+      <DependentUpon>toutMedic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToutPatients.xaml.cs">
+      <DependentUpon>ToutPatients.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Traite.cs" />
     <Page Include="AffichPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Certificat.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="AjouterMédic.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Consultation_Patient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="certificat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToutMedecins.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,10 +267,6 @@
     <Page Include="LettreOr.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="LettreOrientation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LogOutPop.xaml">
       <SubType>Designer</SubType>
@@ -278,6 +303,10 @@
     <Page Include="AjoutRdvPro.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MenuRecherche.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModifMed.xaml">
       <SubType>Designer</SubType>
@@ -343,6 +372,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="SupprimerPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="toutMedic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToutPatients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -376,9 +417,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="ressources\images\background.psd" />
-    <None Include="Scripts\jquery-2.1.1.min.map" />
-    <None Include="Scripts\jquery-3.3.1.min.map" />
-    <None Include="Scripts\jquery-3.3.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -459,24 +497,15 @@
     <Resource Include="ressources\icones\icones png\64 Pixels\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="restauration\MCDatabase_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>MCDatabase.mdf</DependentUpon>
+    </Content>
     <Resource Include="ressources\images\background.png" />
     <Content Include="ressources\images\avatar-medecins_0.ico" />
     <Content Include="restauration\MCDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="restauration\MCDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>MCDatabase.mdf</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-2.1.1.js" />
-    <Content Include="Scripts\jquery-2.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <Content Include="Scripts\nugetexample.js" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

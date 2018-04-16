@@ -5,105 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="MediCare.ModSuppRdv"
-        mc:Ignorable="d" Width="741" Height="548">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="AjoutRdvPro1"
+    mc:Ignorable="d" Width="741" Height="548">
     <Grid>
 
         <StackPanel Height="60" VerticalAlignment="Top" Background="#FF77B3B4" Margin="0">
             <Label Content="Modifier/Annuler un rendez-vous" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center" Width="390" FontFamily="Century Gothic" FontSize="24" Foreground="#DDFFFFFF" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </StackPanel>
-        <ComboBox x:Name="heureBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,305,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
-            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="6" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="7" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="8" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="9" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="10" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="74"/>
-        </ComboBox>
-        <ComboBox x:Name="ampmBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,439,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="14" Foreground="#FF7C5223" >
-            <ComboBoxItem Content="AM" HorizontalAlignment="Left" Width="75"/>
-            <ComboBoxItem Content="PM" HorizontalAlignment="Left" Width="75"/>
-        </ComboBox>
-        <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,368,0,0" Width="96" Background="#FF77B3B4" BorderBrush="#FF673AB7" Height="35" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" >
-            <ComboBoxItem Content="0" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="6" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="7" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="8" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="9" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="10" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="13" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="14" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="15" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="16" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="17" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="18" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="19" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="20" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="21" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="22" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="23" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="24" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="25" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="26" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="27" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="28" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="29" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="30" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="31" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="32" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="33" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="34" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="35" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="36" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="37" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="38" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="39" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="40" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="41" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="42" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="43" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="44" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="45" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="46" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="47" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="48" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="49" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="50" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="51" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="52" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="53" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="54" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="55" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="56" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="57" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="58" HorizontalAlignment="Left" Width="74"/>
-            <ComboBoxItem Content="59" HorizontalAlignment="Left" Width="74"/>
-        </ComboBox>
-        <DatePicker x:Name="NewDateT" HorizontalAlignment="Left" Height="32" Margin="86,245,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
-        <Label x:Name="heuresL" Content="Heure" HorizontalAlignment="Left" Height="34" Margin="407,305,0,0" VerticalAlignment="Top" Width="72" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="minutesL" Content="Minutes" HorizontalAlignment="Left" Height="37" Margin="407,368,0,0" VerticalAlignment="Top" Width="85" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.484,3.516"/>
-        <Label x:Name="ampmL" Content="AM/PM" HorizontalAlignment="Left" Height="35" Margin="407,439,0,0" VerticalAlignment="Top" Width="83" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.472,0.545"/>
-        <Label x:Name="NewDateL" Content="Nouvelle date" HorizontalAlignment="Left" Height="34" Margin="86,187,0,0" VerticalAlignment="Top" Width="164" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.5,0.5"/>
-        <Button x:Name="ModifBtn" Content="Modifier" HorizontalAlignment="Center" Height="53" Margin="90,340,491,156" Width="160" FontFamily="Century Gothic" Background="#FF77B3B4" Click="ModifBtn_Click"/>
-        <Button x:Name="SuppBtn" Content="Annuler" HorizontalAlignment="Center" Height="53" Margin="92,421,492,74" Width="157" FontFamily="Century Gothic" Background="#FF77B3B4" Click="SuppButton_Click"/>
-        <DatePicker x:Name="OldDateT" HorizontalAlignment="Left" Height="32" Margin="86,128,0,0" VerticalAlignment="Top" Width="172" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
-        <Label x:Name="OldDateL" Content="Date actuelle" HorizontalAlignment="Left" Height="34" Margin="86,89,0,0" VerticalAlignment="Top" Width="163" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.5,0.5"/>
-        <TextBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="37" Margin="448,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" PreviewTextInput="nomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" mah:TextBoxHelper.HasText="True" Foreground="#FF7C5223" />
-        <Label x:Name="nomPatientL" Content="Nom*" HorizontalAlignment="Left" Height="38" Margin="354,121,0,0" VerticalAlignment="Top" Width="70" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70" RenderTransformOrigin="0.58,1.606"/>
-        <TextBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="32" Margin="448,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="{x:Null}" BorderBrush="#FF673AB7" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223"/>
-        <Label x:Name="prenomPatientL" Content="Prenom*" HorizontalAlignment="Left" Height="34" Margin="354,164,0,0" VerticalAlignment="Top" Width="90" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Background="{x:Null}" Foreground="#FF496F70"/>
+        <DatePicker x:Name="NewDateT" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Nouvelle date" HorizontalAlignment="Left" Height="38" Margin="52,209,0,0" VerticalAlignment="Top" Width="233" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
+        <Button x:Name="ModifBtn" Content="Modifier" HorizontalAlignment="Center" Height="53" Margin="464,334,117,162" Width="160" FontFamily="Century Gothic" Background="#FF77B3B4" Click="ModifBtn_Click"/>
+        <Button x:Name="SuppBtn" Content="Supprimer" HorizontalAlignment="Center" Height="53" Margin="464,424,120,70" Width="157" FontFamily="Century Gothic" Background="#FF77B3B4" Click="SuppButton_Click"/>
+        <DatePicker x:Name="OldDateT" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Ancienne Date" HorizontalAlignment="Left" Height="32" Margin="52,128,0,0" VerticalAlignment="Top" Width="233" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
+        <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="52" Margin="407,108,0,0" VerticalAlignment="Top" Width="273"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Nom*" PreviewTextInput="nomPatientT_PreviewTextInput" Background="#FFFAFAFA" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown"/>
+        <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="50" Margin="407,192,0,0" VerticalAlignment="Top" Width="273"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Prenom*" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="#FFFAFAFA" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus"/>
+        <materialDesign:TimePicker Is24Hours="True" x:Name="horaire" Margin="52,297,517,0" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Horaire" PreviewTextInput="horaire_PreviewTextInput" Height="43" />
 
     </Grid>
 </UserControl>

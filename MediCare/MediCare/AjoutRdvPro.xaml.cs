@@ -39,35 +39,27 @@ namespace MediCare
 
         //List<string> caract = new List<string> { ",", ".", ":", ";", "!", "*", "$", "/", "?", "+", "_", "=", "§", "<", ">", "{", "}", "[", "]", "(", ")", "'", "\"", "&", "²", "@", "|", "#", "£", "µ", "%", "€", "¤" };
         Agenda rdv = new Agenda();
-        //List<Personne> patients;
         Regex charControl = new Regex(@"[A-Za-z]+");
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             bool checkDate = false;
-                //checkTime = false;
-            //int realHour = 0;
-            if (dateT.Text == "" /*|| heureBox.Text == "" || minutesBox.Text == "" || ampmBox.Text == "" */|| horaire.Text == "" || prenomPatientT.Text == "" || nomPatientT.Text == "")
+            if (dateT.Text == "" || horaire.Text == "" || prenomPatientT.Text == "" || nomPatientT.Text == "")
             {
                 MessageBox.Show("Veuillez remplir toutes les informations!");
-                if (dateT.Text == "") dateL.Foreground = Brushes.Red; else dateL.Foreground = Brushes.Black;
-                if (horaire.Text == "") horaireL.Foreground = Brushes.Red; else horaireL.Foreground = Brushes.Black;
-                //if (heureBox.Text == "") heuresL.Foreground = Brushes.Red; else heuresL.Foreground = Brushes.Black;
-                //if (minutesBox.Text == "") minutesL.Foreground = Brushes.Red; else minutesL.Foreground = Brushes.Black;
-                //if (ampmBox.Text == "") ampmL.Foreground = Brushes.Red; else ampmL.Foreground = Brushes.Black;
-                if (prenomPatientT.Text == "") prenomPatientL.Foreground = Brushes.Red; else prenomPatientL.Foreground = Brushes.Black;
-                if (nomPatientT.Text == "") nomPatientL.Foreground = Brushes.Red; else nomPatientL.Foreground = Brushes.Black;
+                if (dateT.Text == "") dateT.BorderBrush = Brushes.Red; else dateT.BorderBrush = Brushes.Black;
+                if (horaire.Text == null) horaire.BorderBrush = Brushes.Red; else horaire.BorderBrush = Brushes.Black;
+                if (prenomPatientT.Text == "") prenomPatientT.BorderBrush = Brushes.Red; else prenomPatientT.BorderBrush = Brushes.Black;
+                if (nomPatientT.Text == "") nomPatientT.BorderBrush = Brushes.Red; else nomPatientT.BorderBrush = Brushes.Black;
             }
             else
             {
-                //realHour = (ampmBox.Text == "AM") ? Int32.Parse(heureBox.Text) : (Int32.Parse(heureBox.Text) + 12);
                 checkDate = DateCheck();
-                //checkTime = TimeCheck(realHour);
                 if (checkDate)
                 {
-                    //minutesL.Foreground = Brushes.Black;
                     try
                     {
+
                         if (rdv.AddRdv(DateTime.Parse(dateT.Text + " " + horaire.Text), Globals.IdMedecin, nomPatientT.Text, prenomPatientT.Text, (bool)isImportant.IsChecked, notesT.Text))
                         {
                             MessageBox.Show("Rendez-vous ajouté avec succés !");
@@ -83,19 +75,11 @@ namespace MediCare
                         MessageBox.Show("Database error");
                     }
                 }   
-                //else if (!checkTime)
-                //{
-                //    MessageBox.Show("Horaire invalide");
-                //    //heuresL.Foreground = Brushes.Red;
-                //    //minutesL.Foreground = Brushes.Red;
-                //}
                 else
                 {
                     MessageBox.Show("Veuillez rentrer une date valide");
-                    dateL.Foreground = Brushes.Red;
-                    horaireL.Foreground = Brushes.Red;
-                    //minutesL.Foreground = Brushes.Red;
-                    //heuresL.Foreground = Brushes.Red;
+                    dateT.BorderBrush = Brushes.Red;
+                    horaire.BorderBrush = Brushes.Red;
                 } 
             }
         }
@@ -123,12 +107,6 @@ namespace MediCare
             return (dateRdv < DateTime.Now) ? false : true;
         }
 
-        //private bool TimeCheck(int realHour)
-        //{
-        //    DateTime dateRdv = DateTime.Parse(dateT.Text + " " + realHour + ":" + minutesBox.Text + ":00");
-        //    return ( (DateTime.Now>dateRdv && DateTime.Now.Hour > realHour) || (DateTime.Now>dateRdv && DateTime.Now.Hour == realHour && DateTime.Now.Minute > Int16.Parse(minutesBox.Text))) ? false : true;
-        //}
-
         private void dateT_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = true;
@@ -136,17 +114,6 @@ namespace MediCare
 
         private void nomPatientT_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //if (nomPatientT.Text == "") patientsT.Text = "";
-            //else
-            //{
-            //    if(prenomPatientT.Text == "") patients = rdv.RechercherPatientNom(nomPatientT.Text);
-            //    else patients = rdv.RechercherPatient(nomPatientT.Text,prenomPatientT.Text);
-            //    patientsT.Text = "";
-            //    foreach (Personne p in patients)
-            //    {
-            //        patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
-            //    }
-            //}  
             if (prenomPatientT.Text == "") listPatientsTmp = rdv.RechercherPatientNom(nomPatientT.Text);
             else listPatientsTmp = rdv.RechercherPatient(nomPatientT.Text + " " + prenomPatientT.Text);
             prenomPatientT.Items.Clear();
@@ -162,17 +129,6 @@ namespace MediCare
 
         private void prenomPatientT_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //if (prenomPatientT.Text == "") patientsT.Text = "";
-            //else
-            //{
-            //    if (nomPatientT.Text == "") patients = rdv.RechercherPatientPrenom(prenomPatientT.Text);
-            //    else patients = rdv.RechercherPatient(nomPatientT.Text, prenomPatientT.Text);
-            //    patientsT.Text = "";
-            //    foreach (Personne p in patients)
-            //    {
-            //        patientsT.Text = patientsT.Text + "\n" + p.nom + " " + p.prenom;
-            //    }
-            //}
             if(nomPatientT.Text == "") listPatientsTmp = rdv.RechercherPatientPrenom(prenomPatientT.Text);
             else listPatientsTmp = rdv.RechercherPatient(nomPatientT.Text+" "+prenomPatientT.Text);
             prenomPatientT.Items.Clear();
@@ -189,11 +145,6 @@ namespace MediCare
         private void horaire_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = true;
-        }
-
-        private void notesT_MouseEnter(object sender, MouseEventArgs e)
-        {
-            notesT.Focus();
         }
 
         private void prenomPatientT_PreviewKeyDown(object sender, KeyEventArgs e)
