@@ -91,8 +91,30 @@ namespace MediCare
         {
             if (!intControl.IsMatch(e.Text)) e.Handled = true;
         }
+
+        private void password_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (password.Password.Length > 0) validationMdp.Visibility = Visibility.Visible; else validationMdp.Visibility = Visibility.Hidden;
+            if (password.Password.Length > 5) leng.Foreground = Brushes.Green; else leng.Foreground = Brushes.Black;
+            if (password.Password.Any(c => char.IsUpper(c))) maj.Foreground = Brushes.Green; else maj.Foreground = Brushes.Black;
+            if (password.Password.Any(c => char.IsLower(c))) min.Foreground = Brushes.Green; else min.Foreground = Brushes.Black;
+            if (password.Password.Any(c => char.IsDigit(c))) chiff.Foreground = Brushes.Green; else chiff.Foreground = Brushes.Black;
+            if (password.Password == passwordConfirm.Password) passValidation.Foreground = Brushes.Green; else passValidation.Foreground = Brushes.Black;
+            if (leng.Foreground == Brushes.Green && maj.Foreground == Brushes.Green && min.Foreground == Brushes.Green && chiff.Foreground == Brushes.Green && passValidation.Foreground == Brushes.Green) signUpBtn.IsEnabled = true; else signUpBtn.IsEnabled = false;
+        }
+
+        private void passwordConfirm_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (password.Password == passwordConfirm.Password) passValidation.Foreground = Brushes.Green; else passValidation.Foreground = Brushes.Black;
+            if (leng.Foreground == Brushes.Green && maj.Foreground == Brushes.Green && min.Foreground == Brushes.Green && chiff.Foreground == Brushes.Green && passValidation.Foreground == Brushes.Green) signUpBtn.IsEnabled = true; else signUpBtn.IsEnabled = false;
+        }
+
+        private void date_naiss_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
-    }
+}
 
      
 
