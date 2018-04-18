@@ -58,7 +58,7 @@ namespace MediCare
         {
             var parent = (Grid)this.Parent;
             parent.Children.Clear();
-            parent.Children.Add(new MenuPatient());
+            parent.Children.Add(new AffichPatient());
         }
 
         private void CompteBTN_Click(object sender, RoutedEventArgs e)

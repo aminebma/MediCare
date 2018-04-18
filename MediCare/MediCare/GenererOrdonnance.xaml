@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:MediCare"
         mc:Ignorable="d" Height="548" Width="702">
     <Grid Width="702" Height="548" Background="White">
-        <Button x:Name="VisuaiserOrdo" Content="Visualiser ordonnance PDF" HorizontalAlignment="Left" Height="42" Margin="83,199,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC" Click="VisuaiserOrdo_Click"/>
-        <Button x:Name="ImprimerOrdo" Content="Imprimer ordonnance PDF" HorizontalAlignment="Left" Height="42" Margin="83,257,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC"/>
-        <StackPanel HorizontalAlignment="Left" Height="88" Margin="-2,-3,-482,0" VerticalAlignment="Top" Width="702" Background="#FF6A97AC">
-            <Label  Width="271" FontSize="36" FontFamily="Century Gothic" Foreground="White" Height="84" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Ordonnance :" Margin="232,10,199,0"/>
+        <Button x:Name="VisuaiserOrdo" Content="Visualiser ordonnance PDF" HorizontalAlignment="Center" Height="42" Margin="0,199,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC" Click="VisuaiserOrdo_Click"/>
+        <Button x:Name="ImprimerOrdo" Content="Imprimer ordonnance PDF" HorizontalAlignment="Center" Height="42" Margin="0,257,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC" Click="ImprimerOrdo_Click"/>
+        <StackPanel Height="68" Margin="0" VerticalAlignment="Top" Width="702" Background="#FF6A97AC">
+            <Label FontSize="36" FontFamily="Century Gothic" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Ordonnance :" Margin="0"/>
         </StackPanel>
-        <Button x:Name="Valider" Content="Valider la consultation" HorizontalAlignment="Left" Height="41" Margin="332,492,0,0" VerticalAlignment="Top" Width="350" Click="Valider_Click" Background="#FF6A97AC"/>
-        <Label Content="L'ordonnance de cette consultation a été générée, Voulez-vous :" HorizontalAlignment="Left" Height="54" Margin="43,110,0,0" VerticalAlignment="Top" Width="568" FontSize="16" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Button x:Name="Valider" Content="Valider la consultation" HorizontalAlignment="Center" Height="41" Margin="0,470,0,0" VerticalAlignment="Center" Width="350" Click="Valider_Click" Background="#FF6A97AC"/>
+        <Label Content="L'ordonnance de cette consultation a été générée, Voulez-vous :" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontFamily="Century Gothic"/>
 
     </Grid>
 </UserControl>

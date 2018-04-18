@@ -33,10 +33,7 @@ namespace MediCare
         public MenuPrincipal()
         {
             InitializeComponent();
-            UserControl usc = new Menu(ListRDV);
-            SelectionGrid.Children.Add(usc);
-            usc.VerticalAlignment = VerticalAlignment.Stretch;
-            usc.HorizontalAlignment = HorizontalAlignment.Stretch;
+            SelectionGrid.Children.Add(new Menu(ListRDV));
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Globals.TempRappelRDV = 15;
             Task.Factory.StartNew(GenererNotif, TaskCreationOptions.LongRunning);
@@ -143,6 +140,18 @@ namespace MediCare
             SelectionGrid.Children.Add(new AgendaMenu());
         }
 
+        private void AjtMedic_Click(object sender, RoutedEventArgs e)
+        {
+            AjouterMédic wndw = new AjouterMédic();
+            wndw.Show();
+        }
+
+        private void Patient_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionGrid.Children.Clear();
+            SelectionGrid.Children.Add(new MenuPatient());
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -185,10 +194,6 @@ namespace MediCare
             
         }
 
-        private void AjtMedic_Click(object sender, RoutedEventArgs e)
-        {
-            AjouterMédic wndw = new AjouterMédic();
-            wndw.Show();
-        }
+        
     }
 }

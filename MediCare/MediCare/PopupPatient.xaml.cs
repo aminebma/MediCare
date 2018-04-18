@@ -45,14 +45,21 @@ namespace MediCare
 
         private void Oui_Click(object sender, RoutedEventArgs e)
         {
-            Total.Children.Add(new FichePatient());
+            //Total.Children.Add(new FichePatient());
+
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            parent.Children.Add(new FichePatient());
             this.Close();
         }
 
         private void Non_Click(object sender, RoutedEventArgs e)
         {
             //pers.AddPatientPersonne(Globals.NomPatient,Globals.PrenomPatient,null,null,null,true,null,null,null,null,null);
-            GridAppelant.Children.Add(new AjoutConsultation());
+
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            parent.Children.Add(new AjoutConsultation());
             this.Close();
         }
     }

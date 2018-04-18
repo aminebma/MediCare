@@ -129,8 +129,11 @@
     <Compile Include="certificat.xaml.cs">
       <DependentUpon>certificat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ToutMedecins.xaml.cs">
-      <DependentUpon>ToutMedecins.xaml</DependentUpon>
+    <Compile Include="DossierMedical.xaml.cs">
+      <DependentUpon>DossierMedical.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToutPatients.xaml.cs">
+      <DependentUpon>ToutPatients.xaml</DependentUpon>
     </Compile>
     <Compile Include="GenererOrdonnance.xaml.cs">
       <DependentUpon>GenererOrdonnance.xaml</DependentUpon>
@@ -190,16 +193,10 @@
     <Compile Include="PatientASupp.xaml.cs">
       <DependentUpon>PatientASupp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PatientMenu.xaml.cs">
-      <DependentUpon>PatientMenu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Patients.cs" />
     <Compile Include="Perso.cs" />
     <Compile Include="PopupPatient.xaml.cs">
       <DependentUpon>PopupPatient.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RechercheMenu.xaml.cs">
-      <DependentUpon>RechercheMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -224,8 +221,8 @@
     <Compile Include="toutMedic.xaml.cs">
       <DependentUpon>toutMedic.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ToutPatients.xaml.cs">
-      <DependentUpon>ToutPatients.xaml</DependentUpon>
+    <Compile Include="ToutMedecins.xaml.cs">
+      <DependentUpon>ToutMedecins.xaml</DependentUpon>
     </Compile>
     <Compile Include="Traite.cs" />
     <Page Include="AffichPatient.xaml">
@@ -244,7 +241,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ToutMedecins.xaml">
+    <Page Include="DossierMedical.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToutPatients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -328,17 +329,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PatientMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PopupPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="RechercheMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SignUp.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -380,7 +373,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ToutPatients.xaml">
+    <Page Include="ToutMedecins.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

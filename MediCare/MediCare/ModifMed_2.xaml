@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Height="548" Width="746">
     <Grid Margin="0,-4,2,4">
-        <Button x:Name="validateBtn" Content="Valider" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="136" Margin="0,0,0,56" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="validateBtn_Click" RenderTransformOrigin="1.434,-6"/>
-        <Label Content="Veuillez saisir les nouveaux champs" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,3,0" Foreground="#FF4E7576" FontWeight="Bold" FontSize="18" Height="43" Width="332" FontFamily="Century Gothic"/>
-        <PasswordBox x:Name="pass" materialDesign:HintAssist.Hint="Nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="204,188,212,294" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" Width="328" />
-        <PasswordBox x:Name="npass" materialDesign:HintAssist.Hint="Confirmer nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="204,309,208,173" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" Width="332" />
+        <Button x:Name="validateBtn" Content="Valider" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="136" Margin="0,0,0,56" Padding="0" BorderThickness="0" Background="#FF6A97AC" Foreground="White" Height="34" Click="validateBtn_Click" RenderTransformOrigin="1.434,-6"/>
+        <Label Content="Veuillez saisir les nouveaux champs" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,3,0" Foreground="#FF6A97AC" FontWeight="Bold" FontSize="18" Height="43" Width="332" FontFamily="Century Gothic"/>
+        <PasswordBox x:Name="pass" materialDesign:HintAssist.Hint="Nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="204,188,212,294" FontFamily="Century Gothic" FontSize="16" Foreground="#FF6A97AC" HorizontalAlignment="Center" Width="328" />
+        <PasswordBox x:Name="npass" materialDesign:HintAssist.Hint="Confirmer nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="204,309,208,173" FontFamily="Century Gothic" FontSize="16" Foreground="#FF6A97AC" HorizontalAlignment="Center" Width="332" />
     </Grid>
 </UserControl>

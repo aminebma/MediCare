@@ -22,8 +22,8 @@ namespace MediCare
     public partial class SupprimerPatient : UserControl
     {
 
-        List<specCheckBox> listChecked = new List<specCheckBox>();
-        List<specCheckBox> listComplete = new List<specCheckBox>();
+        //List<specCheckBox> listChecked = new List<specCheckBox>();
+        //List<specCheckBox> listComplete = new List<specCheckBox>();
 
         PersonneClasse personne = new PersonneClasse();
         Medecin2 patients = new Medecin2();
@@ -36,12 +36,12 @@ namespace MediCare
             {
                 foreach (Patients p in list)
                 {
-                    specCheckBox expSuivi = new specCheckBox();
-                    expSuivi.Content = p.Nom + " " + p.Prenom;
-                    expSuivi.nom = p.Nom;
-                    expSuivi.prenom = p.Prenom;
-                    listComplete.Add(expSuivi);
-                    StackSuivi.Items.Add(expSuivi);
+                    if (Globals.NomPatient == p.Nom && Globals.PrenomPatient == p.Prenom)
+                    {
+                        TextBlock expSuivi = new TextBlock();
+                        expSuivi.Text ="Nom : " + p.Nom + "    Prénom : " + p.Prenom + "\n Date de naissance : " + p.Datenaiss.Day + "/" + p.Datenaiss.Month +"/" +p.Datenaiss.Year+ "\n Taille : " + p.Taille +" cm "+ "\n Poids : " + p.Poids +" Kg "+ "\n Sexe : " + p.Sexe + "\n Numéro de téléphone : 0" + p.Numtel + "\n Maladie : " + p.Maladie + "\n Groupage : " + p.Groupage + "\n Etat de santé actuel : " + p.EtatSante + "\n Adresse : " + p.Adresse;
+                        StackSuivi.Children.Add(expSuivi);
+                    }
                 }
                 
             }
@@ -53,34 +53,30 @@ namespace MediCare
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach (specCheckBox p in listComplete)
-            {
-                if (p.IsChecked.Value == true)
-                {
-                    listChecked.Add(p);
-                }
-            }
-            if (listChecked.Count != 0)
-            {
-                foreach (specCheckBox p in listChecked)
-                {
-                    personne.SuppPatient(p.nom, p.prenom);
-                    MessageBox.Show("Patient supprimé ");
+            //foreach (specCheckBox p in listComplete)
+            //{
+            //    if (p.IsChecked.Value == true)
+            //    {
+            //        listChecked.Add(p);
+            //    }
+            //}
+            //if (listChecked.Count != 0)
+            //{
+            //    foreach (specCheckBox p in listChecked)
+            //    {
+                 personne.SuppPatient(Globals.NomPatient, Globals.PrenomPatient);
+            //        MessageBox.Show("Patient supprimé ");
 
-                }
-            }
-            else
-            {
-                MessageBox.Show("Non !");
-                Supprimer.IsEnabled = false;
-            }
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Non !");
+            //    Supprimer.IsEnabled = false;
+            //}
             
         }
     }
    
-    public class specCheckBox : CheckBox
-    {
-        public string nom { get; set; }
-        public string prenom { get; set; }
-    }
+    
 }

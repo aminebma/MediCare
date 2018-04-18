@@ -6,20 +6,16 @@
         xmlns:local="clr-namespace:MediCare"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Height="548" Width="1072">
+        Height="548" Width="702">
     <Grid>
-
-        <Label Content="Entrez le nom et prénom du patient suivi voulu :" Margin="0.2,106,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Century Gothic" FontSize="20" HorizontalAlignment="Center"/>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,-250" Height="240" Width="906" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
-            <StackPanel x:Name="StackSuivi"  Height="231" Width="906">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="75,142,77,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+            <StackPanel x:Name="StackSuivi"  Height="368" Width="547">
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </StackPanel>
         </ScrollViewer>
-        <Button x:Name="suivi" Content="Afficher le suivi" HorizontalAlignment="Left" Height="50" Margin="849,167,0,0" VerticalAlignment="Top" Width="161" Background="#FF42919E" Click="suivi_Click" RenderTransformOrigin="0.497,0.487" BorderBrush="{x:Null}"/>
-        <StackPanel Margin="0" VerticalAlignment="Top" Background="#FF42919E">
+        <StackPanel Margin="0,0,2,0" VerticalAlignment="Top" Background="#FF6A97AC">
             <Label FontSize="48" FontFamily="Century Gothic" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Suivi médical :" Margin="0"/>
         </StackPanel>
-        <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="52" Margin="104,165,0,0" VerticalAlignment="Top" Width="273"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Nom*" PreviewTextInput="nomPatientT_PreviewTextInput" Background="#FFFAFAFA" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown"/>
-        <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="50" Margin="496,167,0,0" VerticalAlignment="Top" Width="273"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Prenom*" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="#FFFAFAFA" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus"/>
+        <Label Content="Le suivi médical de cepatient :" HorizontalAlignment="Left" Margin="40,88,0,0" VerticalAlignment="Top" Height="42" Width="451" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
     </Grid>
 </UserControl>

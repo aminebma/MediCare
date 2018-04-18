@@ -17,8 +17,9 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <ListView VerticalAlignment="Center" Margin="0" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged">
-                <ListViewItem x:Name="SearchPatient" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+            <ListView VerticalAlignment="Center" Margin="0,18,0,56" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged" Height="474">
+
+                <ListViewItem x:Name="Consultation" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -28,11 +29,20 @@
                         </TransformGroup>
                     </ListViewItem.RenderTransform>
                     <StackPanel Orientation="Horizontal" Margin="0">
-                        <materialDesign:PackIcon Kind="History" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
-                        <TextBlock Text="Rechercher un patient" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                        <TextBlock Text="Consultation médicale " Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem x:Name="AjtPatient" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <ListViewItem x:Name="Suivi" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -42,11 +52,20 @@
                         </TransformGroup>
                     </ListViewItem.RenderTransform>
                     <StackPanel Orientation="Horizontal" Margin="0">
-                        <materialDesign:PackIcon Kind="History" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
-                        <TextBlock Text="Ajouter un patient" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                        <TextBlock Text="Suivi médical" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem x:Name="SupPatient" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <ListViewItem x:Name="Dossier" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -56,8 +75,30 @@
                         </TransformGroup>
                     </ListViewItem.RenderTransform>
                     <StackPanel Orientation="Horizontal" Margin="0">
-                        <materialDesign:PackIcon Kind="History" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
-                        <TextBlock Text="Supprimer un patient" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                        <TextBlock Text="Dossier médical " Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </ListViewItem>
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <ListViewItem x:Name="Supprimer" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <TextBlock Text="Supprimer le patient " Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
                     </StackPanel>
                 </ListViewItem>
             </ListView>

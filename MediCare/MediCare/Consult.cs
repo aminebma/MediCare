@@ -238,8 +238,8 @@ namespace MediCare
                                           where mpc.IdConsultation == p.Id
                                           select mpc).First<MPConsultation>();
                 Patient pat = (from patient in Globals.DataClass.Patient
-							   where patient.Id == mpcnslt.IdPatient
-							   select patient).First<Patient>();
+                               where patient.Id == mpcnslt.IdPatient
+                               select patient).First<Patient>();
 				Personne pers = (from personne in Globals.DataClass.Personne
 								 where personne.Id == pat.IdPersonne
 								 select personne).First<Personne>();

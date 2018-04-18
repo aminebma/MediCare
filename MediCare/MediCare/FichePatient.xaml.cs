@@ -32,7 +32,11 @@ namespace MediCare
         {
            
             pers.AddPatientPersonne(Nom.Text, Prenom.Text, Date_naiss.Text, Adresse.Text, Num_tel.Text, Sexe.Text, Taille.Text, Poids.Text, Groupage.Text, Maladie.Text, Etat_santé.Text);
+            Globals.NomPatient = Nom.Text;
+            Globals.PrenomPatient = Prenom.Text;
             MessageBox.Show("Le patient a été inséré ! ");
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
         }
 
         private void Nom_PreviewTextInput(object sender, TextCompositionEventArgs e)

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="548" d:DesignWidth="744">
     <Grid>
-        <Label Content="Les patients enregistrés : " HorizontalAlignment="Left" Height="40" Margin="60,30,0,0" VerticalAlignment="Top" Width="625" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Label Content="La liste de tous les patients enregistrés : " HorizontalAlignment="Left" Height="40" Margin="60,30,0,0" VerticalAlignment="Top" Width="625" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="25,90,24,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
             <StackPanel x:Name="StackSuivi"  Height="417" Width="690">
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />

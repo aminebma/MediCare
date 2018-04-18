@@ -51,16 +51,32 @@ namespace MediCare
             {
                 if (num_tel.Text.Length == 10)
                 {
-                    Globals.NomMedecin = nom.Text;
-                    Globals.PrenomMedecin = prenom.Text;
-                    med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text);
-                    MessageBox.Show("Le medecin a été inséré ! ");
-                    MenuPrincipal t = new MenuPrincipal();
-                    Globals.ListPatients = (from patient in Globals.DataClass.Patient
-                                            join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
-                                            select personne).ToList<Personne>();
-                    t.Show();
-                    this.Close();
+                    if (!med.RechercherMedecinAdd(username.Text))
+                    {
+                        Globals.NomMedecin = nom.Text;
+                        Globals.PrenomMedecin = prenom.Text;
+                        med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text);
+                        MessageBox.Show("Le medecin a été inséré ! ");
+                        MenuPrincipal t = new MenuPrincipal();
+                        Globals.ListPatients = (from patient in Globals.DataClass.Patient
+                                                join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+                                                select personne).ToList<Personne>();
+                        t.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        bool exist = true;
+                        int i = 1;
+                        string userSuggest = username.Text;
+                        while(exist)
+                        {
+                            userSuggest = username.Text + i;
+                            exist = med.RechercherMedecinAdd(userSuggest);
+                            i++;
+                        }
+                        MessageBox.Show("Nom d'utilisateur existant, essayez: \n"+userSuggest);
+                    }
                 }
                 else MessageBox.Show("Votre numero est incorrect ");
             }

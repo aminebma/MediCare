@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="MediCare.DossierMedical"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MediCare"
+             mc:Ignorable="d" 
+             d:DesignHeight="548" d:DesignWidth="702">
+    <Grid>
+        <Label Content="Le dossier médical de ce patient : " HorizontalAlignment="Left" Height="40" Margin="36,30,0,0" VerticalAlignment="Top" Width="625" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="45,71,38,312" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" RenderTransformOrigin="0.49,0.504">
+            <StackPanel x:Name="StackSuivi"  Height="156" Width="617"></StackPanel>
+        </ScrollViewer>
+        <Label Content="L'Historique de toutes ses consultations : " HorizontalAlignment="Left" Height="40" Margin="36,246,0,0" VerticalAlignment="Top" Width="625" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="45,299,38,37" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" RenderTransformOrigin="0.49,0.504">
+            <StackPanel x:Name="Stack"  Height="206" Width="609">
+                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

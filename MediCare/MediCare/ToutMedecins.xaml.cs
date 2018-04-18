@@ -16,29 +16,31 @@ using System.Windows.Shapes;
 namespace MediCare
 {
     /// <summary>
-    /// Logique d'interaction pour DossierPatient.xaml
+    /// Logique d'interaction pour ToutPatients.xaml
     /// </summary>
     public partial class ToutMedecins : UserControl
     {
-         Medecin2 personne = new Medecin2();
-        List<Patients> list;
+        Medecin2 personne = new Medecin2();
+        List<Medecins> list;
+    
         public ToutMedecins()
         {
             InitializeComponent();
-            list = personne.DossiersMedical();
-            if (list.Count() != 0)
-            {
-                foreach (Patients p in list)
+            list = personne.RechercheToutMedecin();
+                if (list.Count() != 0)
                 {
-                    Expander expSuivi = new Expander();
-                    expSuivi.Header = "Nom du Patient :" + p.Nom + "\n Prénom du patient :" + p.Prenom;
-                    expSuivi.Content = " Date de naissance : " + p.Datenaiss + "\n Taille :" + p.Taille + "\n Poids : " + p.Poids + "\n Sexe : " + p.Sexe + "\n Numéro de téléphone :" + p.Numtel + "\n Maladie :" + p.Maladie + "\n Groupage" + p.Groupage + "\n Etat de santé :" + p.EtatSante + "\n Adresse : " + p.Adresse;
-                    StackSuivi.Children.Add(expSuivi);
+                    foreach(Medecins p in list)
+                    {
+                        Expander expSuivi = new Expander();
+                        expSuivi.Header = "Nom du Patient :" + p.Nom+ "\n Prénom du patient :" + p.Prenom ;
+                        expSuivi.Content = " Date de naissance : " + p.Datenaiss + "\n Adresse :" + p.Adresse + "\n Numéro de télèphone : " + p.Numtel + "\n Sexe : " + p.Sexe ;
+                        StackSuivi.Children.Add(expSuivi);
 
 
+                    }
                 }
-            }
 
+            
         }
     }
 }
