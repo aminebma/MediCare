@@ -69,5 +69,18 @@ namespace MediCare
             wndw.setCreatingForm = fenetrePrincipale;
             wndw.Show();
         }
+
+        private void Historique_Click(object sender, RoutedEventArgs e)
+        {
+            GridDroit.Children.Clear();
+            GridDroit.Children.Add(new Historique());
+            
+        }
+
+        private void MonHistorique_Click(object sender, RoutedEventArgs e)
+        {
+            GridDroit.Children.Clear();
+            GridDroit.Children.Add(new HistoriqueMedecin());
+        }
     }
 }

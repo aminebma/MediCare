@@ -17,6 +17,9 @@ namespace MediCare
         Medic med = new Medic();
         List<Medicaments> listMedicTmp;
         public int i = 0;
+        string sexe;
+        DateTime date;
+        string adresse;
 
         public AjoutConsultation()
         {
@@ -33,6 +36,25 @@ namespace MediCare
                 }
             }
         }
+        public AjoutConsultation(string sexe , string adresse, DateTime date)
+        {
+            this.date = date;
+            this.adresse = adresse;
+            this.sexe = sexe;
+            InitializeComponent();
+            foreach (Medicaments medic in Globals.ListMedicaments)
+            {
+                if (medic.nom.Length > 25) medicamentT.Items.Add(medic.nom.Substring(0, 25));
+                else medicamentT.Items.Add(medic.nom);
+                i++;
+                if (i > 100)
+                {
+                    i = 0;
+                    break;
+                }
+            }
+        }
+
 
         internal class Treatement
         {

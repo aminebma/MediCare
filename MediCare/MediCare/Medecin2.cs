@@ -30,7 +30,7 @@ namespace MediCare
                 active = true,
                 key = key,
                 username = username,
-                password = password,
+                password = Encrypt(password),
                 email = email,
                 IdPersonne = t.Id
             };
@@ -38,11 +38,9 @@ namespace MediCare
             Globals.DataClass.SubmitChanges();
         }
 
-        //il me faudra une fonction de vérification du nom d'utilisateur et du mot de passe
-
         public bool VerifMed(string nom, string mot_pass)
         {
-            string cryptedPass = EncryptPassword(mot_pass);
+            string cryptedPass = Encrypt(mot_pass);
             IQueryable<Medecin> medverif = (from Medecin in Globals.DataClass.Medecin
                                             where Medecin.username == nom && Medecin.password == cryptedPass
                                             select Medecin);
@@ -55,46 +53,44 @@ namespace MediCare
             }
         }
 
-        public bool ModifMed(string username, string mot_pass, string new_password)
+        public bool ModifMed(string username, string new_password)
         {
-            string cryptedPass = EncryptPassword(mot_pass);
             IQueryable<Medecin> medModif = (from medecin in Globals.DataClass.Medecin
-                                            where medecin.username == username && medecin.password == cryptedPass
+                                            where medecin.username == username
                                             select medecin);
             if (medModif.Count() != 0)
             {
-                medModif.First().password = EncryptPassword(new_password);
-                //Globals.DataClass.Medecin
+                medModif.First().password = Encrypt(new_password);
                 Globals.DataClass.SubmitChanges();
                 return true;
             }
             else return false;
-
-
-            /* medModif.ToList();
-             List <Medecin> list = medModif.ToList<Medecin>();
-           foreach (Medecin med in list)
-           {
-               med.username = new_username;
-               med.password = new_password;
-               Globals.DataClass.SubmitChanges();*/
         }
 
         public List<Personne> RechercherMedecin(string user)
         {
             IQueryable<Personne> medecins = (from med in Globals.DataClass.Medecin
-                                             where med.username.Contains(user)
+                                             where med.username == user
                                              join personne in Globals.DataClass.Personne on med.IdPersonne equals personne.Id
                                              select personne);
             return medecins.ToList<Personne>();
         }
-		public List<Medecins> RechercheToutMedecin ()
+
+        public bool RechercherMedecinAdd(string user)
+        {
+            IQueryable<Medecin> medecins = (from med in Globals.DataClass.Medecin
+                                            where med.username == user
+                                            select med);
+            return (medecins.Count() == 0) ? false : true;
+        }
+
+        public List<Medecins> RechercheToutMedecin ()
 		{
 			List<Medecins> list = new List<Medecins>();
 
 
 			IQueryable<Medecin> medcin = (from med in Globals.DataClass.Medecin
-											  select med);
+									      select med);
 			
 
 			foreach ( Medecin p in medcin)
@@ -130,13 +126,13 @@ namespace MediCare
 			}
 			return list;
 		}
-        public string EncryptPassword(string password)
+
+        public string Encrypt(string word)
         {
-            byte[] passBytes = Encoding.Unicode.GetBytes(password);
+            byte[] passBytes = Encoding.Unicode.GetBytes(word);
             string encryptedPass = Convert.ToBase64String(passBytes);
             return encryptedPass;
         }
-
     }
 }
 

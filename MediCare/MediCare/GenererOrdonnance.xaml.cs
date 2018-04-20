@@ -72,13 +72,15 @@ namespace MediCare
             {
                 consultation.AddConsult(Globals.NomPatient, Globals.PrenomPatient, Globals.NomMedecin, Globals.PrenomMedecin, diagnostic, description, certificat, Lettre, scanner, bilan, ordonnance, radio, traitment, label,Globals.Age);
                 MessageBox.Show("Consultation ajoutée avec succés !");
-            }
+                var parent = (Grid)this.Parent;
+                parent.Children.Clear();
+        }
             catch (Exception)
             {
                 MessageBox.Show("Une erreur s'est produite !");
             }
 
-        }
+}
 
 
         private void VisuaiserOrdo_Click(object sender, RoutedEventArgs e)
@@ -97,9 +99,31 @@ namespace MediCare
             catch (Exception)
             {
                 MessageBox.Show("Une erreur s'est produite");
+
             }
+           
 
-}
 
+
+
+                System.Diagnostics.Process.Start(ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label));
+
+
+
+
+
+        }
+
+        private void ImprimerOrdo_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog Fff = new PrintDialog();
+            Fff.PageRangeSelection = PageRangeSelection.AllPages;
+            Fff.UserPageRangeEnabled = true;
+            bool? doPrint = Fff.ShowDialog();
+            if (doPrint != true)
+            {
+                return;
+            }
+        }
     }
 }

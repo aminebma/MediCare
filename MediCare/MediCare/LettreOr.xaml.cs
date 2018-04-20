@@ -52,7 +52,7 @@ namespace MediCare
                     {
                 iTextSharp.text.Paragraph para5 = new iTextSharp.text.Paragraph("Objet :       \n" + "         Avis de traitement \n " + "         Examens complémentaires\n\n\n" + "Mon cher confrere\n\n", times1);
                 doc.Add(para5);
-                iTextSharp.text.Paragraph para6 = new iTextSharp.text.Paragraph("Je vous adresse Monsieur " + nom.Text + " agé de " + age.Text + "  ans. Demeurant à " + adresse.Text + " qui présente  " + patientsT2.Text, times1);
+                iTextSharp.text.Paragraph para6 = new iTextSharp.text.Paragraph("Je vous adresse Monsieur " + Globals.NomPatient + " " + Globals.PrenomPatient + " agé de " + Globals.Age + "  ans. Demeurant à " + adresse.Text + " qui présente  " + patientsT2.Text, times1);
                 doc.Add(para6);
                 iTextSharp.text.Paragraph para7 = new iTextSharp.text.Paragraph("Je souhaiterais que vous le preniez en main en lui faisant des examens complémentaires pour ensuite me donner votre avis.\n\n " + "Je vous remercie et vous prie d'agréer, mon cher confrere, mes salutations distinguées.\n\n\n\n   ", times1);
                 doc.Add(para7);
@@ -61,7 +61,7 @@ namespace MediCare
             {
                 iTextSharp.text.Paragraph para5 = new iTextSharp.text.Paragraph("Objet :         \n" + "               Avis de traitement \n " + "          Examens complémentaires\n\n\n" + "Mon cher confrere\n\n", times1);
                 doc.Add(para5);
-                iTextSharp.text.Paragraph para6 = new iTextSharp.text.Paragraph("Je vous adresse Madame " + nom.Text + " agée de " + age.Text + "  ans. Demeurant à " + adresse.Text + " qui présente  " + patientsT2.Text, times1);
+                iTextSharp.text.Paragraph para6 = new iTextSharp.text.Paragraph("Je vous adresse Madame " + Globals.NomPatient + " " + Globals.PrenomPatient + " agée de " + Globals.Age + "  ans. Demeurant à " + adresse.Text + " qui présente  " + patientsT2.Text, times1);
                 doc.Add(para6);
                 iTextSharp.text.Paragraph para7 = new iTextSharp.text.Paragraph("Je souhaiterais que vous le preniez en main en lui faisant des examens complémentaires pour ensuite me donner votre avis.\n\n " + "Je vous remercie et vous prie d'agréer, mon cher confrere, mes salutations distinguées.\n\n\n\n   ", times1);
                 doc.Add(para7);
@@ -71,7 +71,7 @@ namespace MediCare
             {
                 iTextSharp.text.Paragraph para5 = new iTextSharp.text.Paragraph("Objet :          \n" + "     Avis de traitement \n " + "     Examens complémentaires\n\n\n" + "Mon cher confrere\n\n", times1);
                 doc.Add(para5);
-                iTextSharp.text.Paragraph para6 = new iTextSharp.text.Paragraph("Je vous adresse Mademoiselle " + nom.Text + " agée de " + age.Text + "  ans. Demeurant à " + adresse.Text + " qui présente  " + patientsT2.Text, times1);
+                iTextSharp.text.Paragraph para6 = new iTextSharp.text.Paragraph("Je vous adresse Mademoiselle " + Globals.NomPatient + " " + Globals.PrenomPatient + " agée de " + Globals.Age + "  ans. Demeurant à " + adresse.Text + " qui présente  " + patientsT2.Text, times1);
                 doc.Add(para6);
                 iTextSharp.text.Paragraph para7 = new iTextSharp.text.Paragraph("Je souhaiterais que vous le preniez en main en lui faisant des examens complémentaires pour ensuite me donner votre avis.\n\n " + "Je vous remercie et vous prie d'agréer, mon cher confrere, mes salutations distinguées. \n\n\n\n  ", times1);
                 doc.Add(para7);

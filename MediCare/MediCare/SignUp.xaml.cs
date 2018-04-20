@@ -101,15 +101,5 @@ namespace MediCare
                 else MessageBox.Show("Les informations saisies sont incorrectes");
             }
         }
-
-        private void nom_MouseEnter(object sender, MouseEventArgs e)
-        {
-            nom.Focus();
-        }
-
-        private void password_MouseEnter(object sender, MouseEventArgs e)
-        {
-            password.Focus();
-        }
     }
 }

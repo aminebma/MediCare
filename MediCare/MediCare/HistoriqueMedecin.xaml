@@ -16,11 +16,7 @@
             </ScrollViewer>
         </materialDesign:Card>
         <Label Content="L'hitorique de toutes vos consultations médicales :" HorizontalAlignment="Center" Margin="0,96,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Century Gothic" FontSize="18"/>
-
-
-        <StackPanel Margin="0" VerticalAlignment="Top" Background="#FF6A97AC">
-            <Label FontSize="36" FontFamily="Century Gothic" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Historique de vos consultations :" Margin="112,0,121,0"/>
-        </StackPanel>
+        <Label Content="Mon Historique " HorizontalAlignment="Left" Height="69" Margin="469,8,-22,0" VerticalAlignment="Top" Width="297" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>

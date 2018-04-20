@@ -17,48 +17,16 @@
                 </TransformGroup>
             </Grid.RenderTransform>
             <ListView VerticalAlignment="Center" Margin="0" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged">
-                <ListViewItem x:Name="AjtRDVpro" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
-                    <ListViewItem.RenderTransform>
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform/>
+                            <ScaleTransform ScaleY="-1"/>
                             <SkewTransform/>
                             <RotateTransform/>
                             <TranslateTransform/>
                         </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="0">
-                        <materialDesign:PackIcon Kind="CalendarClock" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
-                        <TextBlock x:Name="TextAJTRDVPRO" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem x:Name="AjtRDVpers" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="0">
-                        <materialDesign:PackIcon Kind="CalendarClock" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
-                        <TextBlock x:Name="TextAJTRDVPERD" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem x:Name="ModSupRDV" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="0">
-                        <materialDesign:PackIcon Kind="CalendarToday" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
-                        <TextBlock x:Name="TextMODSUPRDV" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
-                    </StackPanel>
-                </ListViewItem>
+                    </Separator.RenderTransform>
+                </Separator>
                 <ListViewItem x:Name="CsltAgd" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
@@ -69,15 +37,93 @@
                         </TransformGroup>
                     </ListViewItem.RenderTransform>
                     <StackPanel Orientation="Horizontal" Margin="0">
-                        <materialDesign:PackIcon Kind="CalendarCheck" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="White"/>
                         <TextBlock x:Name="TextCSLTAGD" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
                     </StackPanel>
                 </ListViewItem>
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <ListViewItem x:Name="AjtRDVpro" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <TextBlock x:Name="TextAJTRDVPRO" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </ListViewItem>
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <ListViewItem x:Name="AjtRDVpers" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <TextBlock x:Name="TextAJTRDVPERD" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </ListViewItem>
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <ListViewItem x:Name="ModSupRDV" Height="100" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <TextBlock x:Name="TextMODSUPRDV" Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </ListViewItem>
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
             </ListView>
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="311,0,0,0" Width="15">
             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="0" Width="15" />
         </StackPanel>
-        <Grid x:Name="Grid2" HorizontalAlignment="Right" Height="548" Width="741"/>
+        <Grid x:Name="Grid2" HorizontalAlignment="Right" Width="746"/>
     </Grid>
 </UserControl>

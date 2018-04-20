@@ -87,6 +87,7 @@ namespace MediCare
             var parent = (Grid)this.Parent;
             parent.Children.Clear();
             parent.Children.Add(new Certificat());
+
         }
 
         private void LettreOrientation_Click(object sender, RoutedEventArgs e)

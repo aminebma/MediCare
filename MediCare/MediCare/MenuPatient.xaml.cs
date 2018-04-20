@@ -24,47 +24,30 @@ namespace MediCare
             InitializeComponent();
         }
 
-        private void Rechercher_pat_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Rech_pat_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Ajout_pat_Click(object sender, RoutedEventArgs e)
-        {
-            var parent = (Grid)this.Parent;
-            UserControl usc = new FichePatient();
-            parent.Children.Clear();
-            parent.Children.Add(usc);
-        }
-
-        private void Supr_pat_Click(object sender, RoutedEventArgs e)
-        {
-            var parent = (Grid)this.Parent;
-            UserControl usc = new PatientASupp();
-            parent.Children.Clear();
-            parent.Children.Add(usc);
-        }
-
+        
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
-                case "SearchPatient":
+                case "Consultation":
                     GridDroit.Children.Clear();
-                    GridDroit.Children.Add(new AffichPatient());
+                    GridDroit.Children.Add(new AjoutConsultation());
                     break;
-                case "AjtPatient":
+                case "Suivi":
                     GridDroit.Children.Clear();
-                    GridDroit.Children.Add(new FichePatient());
+                    GridDroit.Children.Add(new SUIVIS());
                     break;
-                case "SupPatient":
+                case "Dossier":
                     GridDroit.Children.Clear();
-                    GridDroit.Children.Add(new PatientASupp());
+                    GridDroit.Children.Add(new DossierMedical());
+                    break;
+                case "Supprimer":
+                    GridDroit.Children.Clear();
+                    GridDroit.Children.Add(new SupprimerPatient());
+                    break;
+                case "rdv":
+                    GridDroit.Children.Clear();
+                    GridDroit.Children.Add(new AjoutRdvPro());
                     break;
                 default:
                     break;

@@ -8,17 +8,14 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="AjoutRdvPro1"
     mc:Ignorable="d" Width="741" Height="548">
     <Grid>
-
-        <StackPanel Height="60" VerticalAlignment="Top" Background="#FF77B3B4" Margin="0">
-            <Label Content="Modifier/Annuler un rendez-vous" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center" Width="390" FontFamily="Century Gothic" FontSize="24" Foreground="#DDFFFFFF" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        </StackPanel>
         <DatePicker x:Name="NewDateT" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Nouvelle date" HorizontalAlignment="Left" Height="38" Margin="52,209,0,0" VerticalAlignment="Top" Width="233" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
-        <Button x:Name="ModifBtn" Content="Modifier" HorizontalAlignment="Center" Height="53" Margin="464,334,117,162" Width="160" FontFamily="Century Gothic" Background="#FF77B3B4" Click="ModifBtn_Click"/>
-        <Button x:Name="SuppBtn" Content="Supprimer" HorizontalAlignment="Center" Height="53" Margin="464,424,120,70" Width="157" FontFamily="Century Gothic" Background="#FF77B3B4" Click="SuppButton_Click"/>
+        <Button x:Name="ModifBtn" Content="Modifier" HorizontalAlignment="Center" Height="Auto" Margin="464,352,117,151" Width="160" FontFamily="Century Gothic" Background="#FF77B3B4" Click="ModifBtn_Click"/>
+        <Button x:Name="SuppBtn" Content="Supprimer" HorizontalAlignment="Center" Height="Auto" Margin="464,424,120,80" Width="157" FontFamily="Century Gothic" Background="#FF77B3B4" Click="SuppButton_Click"/>
         <DatePicker x:Name="OldDateT" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Ancienne Date" HorizontalAlignment="Left" Height="32" Margin="52,128,0,0" VerticalAlignment="Top" Width="233" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
         <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="52" Margin="407,108,0,0" VerticalAlignment="Top" Width="273"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Nom*" PreviewTextInput="nomPatientT_PreviewTextInput" Background="#FFFAFAFA" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown"/>
         <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="50" Margin="407,192,0,0" VerticalAlignment="Top" Width="273"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Prenom*" PreviewTextInput="prenomPatientT_PreviewTextInput" Background="#FFFAFAFA" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus"/>
         <materialDesign:TimePicker Is24Hours="True" x:Name="horaire" Margin="52,297,517,0" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Horaire" PreviewTextInput="horaire_PreviewTextInput" Height="43" />
+        <Label Content="Modifier/Supprimer un rendez-vous : " HorizontalAlignment="Left" Height="54" Margin="88,-1,0,0" VerticalAlignment="Top" Width="521" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>

@@ -49,27 +49,45 @@ namespace MediCare
             }
             else if(checkDate())
             {
-                if (num_tel.Text.Length == 10)
+                if(clef.Text==Encrypt(nom.Text+prenom.Text+date_naiss.Text))
                 {
-                    Globals.NomMedecin = nom.Text;
-                    Globals.PrenomMedecin = prenom.Text;
-                    med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text);
-                    MessageBox.Show("Le medecin a été inséré ! ");
-                    MenuPrincipal t = new MenuPrincipal();
-                    Globals.ListPatients = (from patient in Globals.DataClass.Patient
-                                            join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
-                                            select personne).ToList<Personne>();
-                    t.Show();
-                    this.Close();
+                    if (num_tel.Text.Length == 10)
+                    {
+                        if (!med.RechercherMedecinAdd(username.Text))
+                        {
+                            Globals.NomMedecin = nom.Text;
+                            Globals.PrenomMedecin = prenom.Text;
+                            med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text);
+                            MessageBox.Show("Le medecin a été inséré ! ");
+                            MenuPrincipal t = new MenuPrincipal();
+                            Globals.ListPatients = (from patient in Globals.DataClass.Patient
+                                                    join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+                                                    select personne).ToList<Personne>();
+                            t.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            bool exist = true;
+                            int i = 1;
+                            string userSuggest = username.Text;
+                            while (exist)
+                            {
+                                userSuggest = username.Text + i;
+                                exist = med.RechercherMedecinAdd(userSuggest);
+                                i++;
+                            }
+                            MessageBox.Show("Nom d'utilisateur existant, essayez: \n" + userSuggest);
+                        }
+                    }
+                    else MessageBox.Show("Votre numero est incorrect ");
                 }
-                else MessageBox.Show("Votre numero est incorrect ");
+                else
+                {
+                    MessageBox.Show("Veuillez rentrer une date valide");
+                    date_naiss.BorderBrush = Brushes.Red;
+                }
             }
-            else
-            {
-                MessageBox.Show("Veuillez rentrer une date valide");
-                date_naiss.BorderBrush = Brushes.Red;
-            }
-           
         }
 
         private bool checkDate()
@@ -112,6 +130,13 @@ namespace MediCare
         private void date_naiss_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = true;
+        }
+
+        public string Encrypt(string word)
+        {
+            byte[] passBytes = Encoding.Unicode.GetBytes(word);
+            string encryptedPass = Convert.ToBase64String(passBytes);
+            return encryptedPass;
         }
     }
 }

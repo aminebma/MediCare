@@ -6,11 +6,19 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MediCare"
         mc:Ignorable="d"
-        Height="548" Width="746">
+        Height="548" Width="746" PreviewKeyDown="UserControl_PreviewKeyDown">
     <Grid Margin="0,-4,2,4">
-        <Button x:Name="validateBtn" Content="Valider" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="136" Margin="0,0,0,56" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="34" Click="validateBtn_Click" RenderTransformOrigin="1.434,-6"/>
-        <Label Content="Veuillez saisir les nouveaux champs" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,3,0" Foreground="#FF4E7576" FontWeight="Bold" FontSize="18" Height="43" Width="332" FontFamily="Century Gothic"/>
-        <PasswordBox x:Name="pass" materialDesign:HintAssist.Hint="Nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="204,188,212,294" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" Width="328" />
-        <PasswordBox x:Name="npass" materialDesign:HintAssist.Hint="Confirmer nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="204,309,208,173" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" Width="332" />
+        <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Left" Height="240" Margin="130,116,0,0" VerticalAlignment="Top" Width="480"/>
+        <Button x:Name="validateBtn" Content="Valider" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="136" Margin="302,0,306,68" Padding="0" BorderThickness="0" Background="#FF6A97AC" Foreground="White" Height="34" Click="validateBtn_Click" RenderTransformOrigin="1.434,-6"/>
+        <Label Content="Veuillez saisir les nouveaux champs" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="204,56,182,0" Foreground="#FF6A97AC" FontWeight="Bold" FontSize="18" Height="43" Width="358" FontFamily="Century Gothic"/>
+        <PasswordBox x:Name="pass" materialDesign:HintAssist.Hint="Nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="208,126,208,356" FontFamily="Century Gothic" FontSize="16" Foreground="#FF6A97AC" HorizontalAlignment="Center" Width="328" PasswordChanged="pass_PasswordChanged" />
+        <PasswordBox x:Name="npass" materialDesign:HintAssist.Hint="Confirmer nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="206,210,206,272" FontFamily="Century Gothic" FontSize="16" Foreground="#FF6A97AC" HorizontalAlignment="Center" Width="332" PasswordChanged="npass_PasswordChanged" />
+        <Grid x:Name="validationMdp" Margin="208,281,208,82" Visibility="Hidden">
+            <TextBlock x:Name="maj" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="● Contient une majuscule" VerticalAlignment="Top" Width="207"/>
+            <TextBlock x:Name="min" HorizontalAlignment="Left" Height="23" Margin="0,28,0,0" TextWrapping="Wrap" Text="● Contient une minuscule" VerticalAlignment="Top" Width="207"/>
+            <TextBlock x:Name="chiff" HorizontalAlignment="Left" Height="23" Margin="0,58,0,0" TextWrapping="Wrap" Text="●  Contient un chiffre" VerticalAlignment="Top" Width="207"/>
+            <TextBlock x:Name="leng" HorizontalAlignment="Left" Height="23" Margin="0,86,0,0" TextWrapping="Wrap" Text="●  Aumoins 6 caractères" VerticalAlignment="Top" Width="207"/>
+            <TextBlock x:Name="passValidation" HorizontalAlignment="Left" Height="23" Margin="0,114,0,0" TextWrapping="Wrap" Text="●  Les mots de passe correspondent" VerticalAlignment="Top" Width="207"/>
+        </Grid>
     </Grid>
 </UserControl>

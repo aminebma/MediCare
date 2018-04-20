@@ -48,7 +48,7 @@ namespace MediCare
             get { return fenetrePrincipale; }
             set { fenetrePrincipale = value; }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void modifBtn_Click(object sender, RoutedEventArgs e)
         {
             bool verif= med.VerifMed(username2.Text, Password.Password);
             if ( verif == false)
@@ -63,6 +63,27 @@ namespace MediCare
                 usc.SetFenetrePrincipale = fenetrePrincipale;
                 GridAppelant.Children.Add(usc);
                 this.Close();
+            }
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Enter)
+            {
+                bool verif = med.VerifMed(username2.Text, Password.Password);
+                if (verif == false)
+                {
+                    MessageBox.Show("Vos données sont erronées ! Veuillez les resaisir  ");
+                }
+                else
+                {
+                    GridAppelant.Children.Clear();
+                    ModifMed_2 usc = new ModifMed_2(username2.Text);
+                    usc.SetGridAppelant = SelectionGrid;
+                    usc.SetFenetrePrincipale = fenetrePrincipale;
+                    GridAppelant.Children.Add(usc);
+                    this.Close();
+                }
             }
         }
     }

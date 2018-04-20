@@ -14,97 +14,141 @@
             TextOptions.TextRenderingMode="Auto"
             FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <StackPanel>
-            <Grid Margin="0" VerticalAlignment="Top">
-                <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}">
-                    <StackPanel>
-                        <Expander HorizontalAlignment="Stretch" Header="       Rendez Vous de la journée" IsExpanded="True" Background="#4C42919E" FontFamily="Century Gothic" FontSize="14" Foreground="#FF2A5E66">
-                            <ListView x:Name="ListeRDV">
-                                <ListView.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal"></StackPanel>
-                                    </ItemsPanelTemplate>
-                                </ListView.ItemsPanel>
-                            </ListView>
-                        </Expander>
-                    </StackPanel>
-                </materialDesign:Card>
-            </Grid>
-            <Grid VerticalAlignment="Top" Height="402">
-                <Button x:Name="ConsultationBTN"
-    Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="198,24,668,184" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Consultation" FontFamily="Century Gothic" FontSize="24" Click="ConsultationBTN_Click" Foreground="White" FontWeight="Bold">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                            <GradientStop Color="#FF30CC9D" Offset="1"/>
-                            <GradientStop Color="#FF6EE092" Offset="0.004"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="AgendaBTN" 
+        <Image Margin="297,12,687,440" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-54.027"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="0,122,233,314" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-9.765"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="0,460,693,-24" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.4" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-11.18"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="645,268,339,184" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
+        <Image Margin="0,356,512,80" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.4" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-9.765"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="0,102,478,334" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.3" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25.795"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="AgendaBTN" 
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="510,45,406,212" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Agenda" FontFamily="Century Gothic" FontSize="24" Click="AgendaBTN_Click" Foreground="White" FontWeight="Bold">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.5,0">
-                            <GradientStop Color="#FF00A2FB" Offset="0"/>
-                            <GradientStop Color="#FF03DCCE" Offset="0.996"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="SuivieBTN"
-                    Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="774,28,146,229" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Suivie" FontFamily="Century Gothic" FontSize="24" Click="SuivieBTN_Click" Foreground="White" FontWeight="Bold">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF5CE29F"/>
-                            <GradientStop Color="#FF7637B6" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="RechercheBTN"
-                    Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="648,188,240,38" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Recherche" FontFamily="Century Gothic" FontSize="24" Foreground="White" FontWeight="Bold" Click="RechercheBTN_Click">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF73E8BE" Offset="0"/>
-                            <GradientStop Color="#FF6DB9FB" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="PAtientBTN"
-                    Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="381,208,518,38" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Patient" FontFamily="Century Gothic" FontSize="24" Click="PAtientBTN_Click" Foreground="White" FontWeight="Bold">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                            <GradientStop Color="#FF81CCFF" Offset="0"/>
-                            <GradientStop Color="#FF717DFF" Offset="0.824"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="CompteBTN"
-                    Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth4" Margin="164,250,784,38" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Historique" FontFamily="Century Gothic" FontSize="24" Click="CompteBTN_Click" Foreground="White" FontWeight="Bold">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                            <GradientStop Color="#FF42919E"/>
-                            <GradientStop Color="#FFF8D9D6" Offset="0.867"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Image Height="88" Margin="246,73,720,241" Width="106" Source="ressources/icones/icones png/64 Pixels/dentist.png" Opacity="0.5" IsEnabled="False" IsHitTestVisible="False"/>
-                <Image Margin="548,83,440,255" Source="ressources/icones/icones png/64 Pixels/note-on-a-clipboard.png" Opacity="0.5" IsHitTestVisible="False"/>
-                <Image Margin="805,55,169,263" Source="ressources/icones/icones png/64 Pixels/pulse-line.png" Opacity="0.5" IsEnabled="False" IsHitTestVisible="False"/>
-                <materialDesign:PackIcon Kind="DatabaseSearch" Margin="702,242,0,0" Height="73" Width="84" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" IsHitTestVisible="False" Focusable="False"/>
-                <materialDesign:PackIcon Kind="History" Margin="198,284,0,0" Height="50" Width="56" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False"/>
-                <materialDesign:PackIcon Kind="Human" Margin="422,244,0,0" Height="84" Width="92" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" IsHitTestVisible="False" Focusable="False"/>
-            </Grid>
-        </StackPanel>
-        <Button x:Name="refreshRDVListe" Height="Auto" Margin="0,0,1021,499" Background="{x:Null}" BorderBrush="{x:Null}" Click="refreshRDVListe_Click" Foreground="#FF93B4BA" >
-            <materialDesign:PackIcon Kind="Refresh" HorizontalAlignment="Center" VerticalAlignment="Center" Width="32" Height="28"></materialDesign:PackIcon>
-            <Button.ToolTip>
-                <TextBlock>Rafraîchir la liste des rendez vous</TextBlock>
-            </Button.ToolTip>
+                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="645,53,287,354" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Agenda" FontFamily="Century Gothic" FontSize="24" Click="AgendaBTN_Click" Foreground="White" FontWeight="Bold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.5,0">
+                    <GradientStop Color="#FF00A2FB" Offset="0"/>
+                    <GradientStop Color="#FF03DCCE" Offset="0.996"/>
+                </LinearGradientBrush>
+            </Button.Background>
         </Button>
+        <Button x:Name="RechercheBTN"
+                    Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="639,338,293,70" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Recherche" FontFamily="Century Gothic" FontSize="24" Foreground="White" FontWeight="Bold" Click="RechercheBTN_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF73E8BE" Offset="0"/>
+                    <GradientStop Color="#FF6DB9FB" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="PAtientBTN"
+                    Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="455,147,386,171" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Patient" FontFamily="Century Gothic" FontSize="36" Click="PAtientBTN_Click" Foreground="White" FontWeight="Bold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF81CCFF" Offset="0"/>
+                    <GradientStop Color="#FF717DFF" Offset="0.824"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="CompteBTN"
+                    Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="722,218,247,228" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Compte" FontFamily="Century Gothic" FontSize="20" Click="CompteBTN_Click" Foreground="White" FontWeight="Bold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF42919E"/>
+                    <GradientStop Color="#FFF8D9D6" Offset="0.867"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Image Margin="683,92,0,0" Source="ressources/icones/icones png/64 Pixels/note-on-a-clipboard.png" Opacity="0.5" IsHitTestVisible="False" Height="62" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65"/>
+        <materialDesign:PackIcon Kind="DatabaseSearch" Margin="676,376,0,0" Height="79" Width="69" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" IsHitTestVisible="False" Focusable="False"/>
+        <materialDesign:PackIcon Kind="Account" Margin="748,240,0,0" Height="58" Width="56" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False"/>
+        <Expander HorizontalAlignment="Left" Header="Rendez Vous de la journée" IsExpanded="True" Background="#9965BFCD" FontFamily="Century Gothic" FontSize="14" Foreground="White" Width="295">
+            <ListView x:Name="ListeRDV" Background="{x:Null}" Foreground="{x:Null}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </Expander>
+        <Image Margin="523,211,0,0" Source="ressources/icones/icones png/64 Pixels/dentist.png" Opacity="0.5" IsHitTestVisible="False" Height="101" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102"/>
+        <Image Margin="0,11,19,425" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25.795"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="963,449,21,3" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
+        <Image Margin="0,261,39,204" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="49" Opacity="0.4" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-9.765"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="312,246,696,235" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-12.314"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 
 </UserControl>

@@ -11,8 +11,6 @@ namespace MediCare
     {
         public void AddPatientPersonne(String nom, String prenom, string date, String adresse, string num_tel, string homme, string taille, string poids, string groupage, string maladie, string etat_sante)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataclass = new MCDataClassDataContext(con);
 
             Personne tabpersonne = new Personne
             {
@@ -25,8 +23,8 @@ namespace MediCare
             };
             
 
-            dataclass.Personne.InsertOnSubmit(tabpersonne);
-            dataclass.SubmitChanges();
+            Globals.DataClass.Personne.InsertOnSubmit(tabpersonne);
+            Globals.DataClass.SubmitChanges();
 
             Patient tabpatient = new Patient
             {
@@ -38,8 +36,29 @@ namespace MediCare
                 IdPersonne = tabpersonne.Id
             };
 
-            dataclass.Patient.InsertOnSubmit(tabpatient);
-            dataclass.SubmitChanges();
+            Globals.DataClass.Patient.InsertOnSubmit(tabpatient);
+            Globals.DataClass.SubmitChanges();
+        }
+        public void AddPatientPersonne(String nom, String prenom)
+        {
+           
+            Personne tabpersonne = new Personne
+            {
+                nom = nom,
+                prenom = prenom
+            };
+
+
+            Globals.DataClass.Personne.InsertOnSubmit(tabpersonne);
+            Globals.DataClass.SubmitChanges();
+
+            Patient tabpatient = new Patient
+            {
+                IdPersonne = tabpersonne.Id
+            };
+
+            Globals.DataClass.Patient.InsertOnSubmit(tabpatient);
+            Globals.DataClass.SubmitChanges();
         }
 
         public void SuppRdv(string nomPatient, string prenomPatient)
@@ -95,51 +114,49 @@ namespace MediCare
 
         public void SuppConsultation(string nomPatient, string prenomPatient)
         {
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-            Personne Pers = (from personne in dataClass.Personne
+            Personne Pers = (from personne in Globals.DataClass.Personne
                              where nomPatient == personne.nom && prenomPatient == personne.prenom
                              select personne).First<Personne>();
 
-            Patient Pat = (from patient in dataClass.Patient
+            Patient Pat = (from patient in Globals.DataClass.Patient
                            where patient.IdPersonne == Pers.Id
                            select patient).First<Patient>();
 
-            MPConsultation mpcnsltToDelete = (from cns in dataClass.Consultation
+            MPConsultation mpcnsltToDelete = (from cns in Globals.DataClass.Consultation
                                               
-                                              join mpc in dataClass.MPConsultation on cns.Id equals mpc.IdConsultation
+                                              join mpc in Globals.DataClass.MPConsultation on cns.Id equals mpc.IdConsultation
                                               where mpc.IdPatient == Pat.Id
                                               select mpc).First<MPConsultation>();
 
-            Consultation cnsltToDelete = (from cns in dataClass.Consultation
+            Consultation cnsltToDelete = (from cns in Globals.DataClass.Consultation
                                           where cns.Id == mpcnsltToDelete.IdConsultation
                                           select cns).First<Consultation>();
-            IQueryable<Radio> rdi = (from radio in dataClass.Radio
+            IQueryable<Radio> rdi = (from radio in Globals.DataClass.Radio
                                      where radio.IdConsultation == cnsltToDelete.Id
                                      select radio);
             foreach (Radio p in rdi)
             {
-                dataClass.Radio.DeleteOnSubmit(p);
-                dataClass.SubmitChanges();
+                Globals.DataClass.Radio.DeleteOnSubmit(p);
+                Globals.DataClass.SubmitChanges();
             }
 
-            IQueryable<Traitement> trait = (from traitement in dataClass.Traitement
+            IQueryable<Traitement> trait = (from traitement in Globals.DataClass.Traitement
                                             where traitement.IdConsultation == cnsltToDelete.Id
 
                                             select traitement);
 
             foreach (Traitement p in trait)
             {
-                dataClass.Traitement.DeleteOnSubmit(p);
-                dataClass.SubmitChanges();
+                Globals.DataClass.Traitement.DeleteOnSubmit(p);
+                Globals.DataClass.SubmitChanges();
             }
 
 
 
-            dataClass.MPConsultation.DeleteOnSubmit(mpcnsltToDelete);
-            dataClass.SubmitChanges();
-            dataClass.Consultation.DeleteOnSubmit(cnsltToDelete);
-            dataClass.SubmitChanges();
+            Globals.DataClass.MPConsultation.DeleteOnSubmit(mpcnsltToDelete);
+            Globals.DataClass.SubmitChanges();
+            Globals.DataClass.Consultation.DeleteOnSubmit(cnsltToDelete);
+            Globals.DataClass.SubmitChanges();
             
 
         }
@@ -147,142 +164,27 @@ namespace MediCare
         {
             nom = nom.ToUpper();
             prenom = prenom.ToUpper();
-            string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-            MCDataClassDataContext dataClass = new MCDataClassDataContext(con);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            Personne personasupp = (from pers in dataClass.Personne
+            Personne personasupp = (from pers in Globals.DataClass.Personne
                                     where nom == pers.nom && prenom == pers.prenom
                                     orderby pers.Id descending
                                     select pers).First<Personne>();
-            Patient patienasup = (from pat in dataClass.Patient
+            Patient patienasup = (from pat in Globals.DataClass.Patient
                                   where personasupp.Id == pat.IdPersonne
                                   select pat).First<Patient>();
-           SuppRdv(nom, prenom);
-            
-
-
-            IQueryable<Consultation> consult = (from mpc in dataClass.MPConsultation
+            SuppRdv(nom, prenom);
+            IQueryable<Consultation> consult = (from mpc in Globals.DataClass.MPConsultation
                                                 where mpc.IdPatient == patienasup.Id
-                                                join cns in dataClass.Consultation on mpc.IdConsultation equals cns.Id
+                                                join cns in Globals.DataClass.Consultation on mpc.IdConsultation equals cns.Id
                                                 select cns);
             foreach (Consultation p in consult)
             {
-
-
                 SuppConsultation(nom, prenom);
             }
 
-            dataClass.Patient.DeleteOnSubmit(patienasup);
-            dataClass.SubmitChanges();
-            dataClass.Personne.DeleteOnSubmit(personasupp);
-            dataClass.SubmitChanges();
+            Globals.DataClass.Patient.DeleteOnSubmit(patienasup);
+            Globals.DataClass.SubmitChanges();
+            Globals.DataClass.Personne.DeleteOnSubmit(personasupp);
+            Globals.DataClass.SubmitChanges();
         }
         public List<Personne> RechercherPatientBDD(string nom, string prenom)
         {

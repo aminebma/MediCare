@@ -42,7 +42,7 @@
         <TextBox x:Name="NomMedic" materialDesign:HintAssist.Hint="Nom Médicament" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="59,24,216,196" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
         <TextBox x:Name="Type" materialDesign:HintAssist.Hint="Type" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="59,100,216,120" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
         <TextBox x:Name="Dosage" materialDesign:HintAssist.Hint="Dosage" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="59,171,216,49" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
-        <Button x:Name="AjtMedic" Content="Ajouter" HorizontalAlignment="Left" Height="49" Margin="329,100,0,0" VerticalAlignment="Top" Width="126" FontFamily="Century Gothic" Background="#FF42919E" BorderBrush="{x:Null}" Click="AjtMedic_Click"/>
+        <Button x:Name="AjtMedic" Content="Ajouter" HorizontalAlignment="Left" Height="41" Margin="335,100,0,0" VerticalAlignment="Top" Width="120" FontFamily="Century Gothic" Background="#FF42919E" BorderBrush="{x:Null}" Click="AjtMedic_Click"/>
 
 
 

@@ -9,24 +9,17 @@
         mc:Ignorable="d"
         Height="548" Width="702">
     <Grid x:Name="medicamentT1" Margin="0,-12,0,0" RenderTransformOrigin="0.48,0.496">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="51*"/>
-        </Grid.RowDefinitions>
-        <TextBox x:Name="labelT" materialDesign:HintAssist.Hint="Label" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" Margin="36,36,512,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" Foreground="Black" BorderBrush="#FF77B3B4" CaretBrush="#FF6990A1" SelectionBrush="#FF4A87A4" mah:TextBoxHelper.AutoWatermark="True" mah:TextBoxHelper.Watermark="Nom du Patient" Grid.Row="1" RenderTransformOrigin="0.355,0.937" Cursor="Arrow"/>
+        <TextBox x:Name="labelT" materialDesign:HintAssist.Hint="Titre de consultation * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="46" Margin="41,54,468,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" Foreground="Black" BorderBrush="#FF77B3B4" CaretBrush="#FF6990A1" SelectionBrush="#FF4A87A4" mah:TextBoxHelper.AutoWatermark="True" mah:TextBoxHelper.Watermark="Nom du Patient" RenderTransformOrigin="0.355,0.937" Cursor="Arrow"/>
         <TextBox x:Name="diagnosticT" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Diagnostic*" Height="86" Margin="36,114,362,0" BorderThickness="0,0,0,3" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF77B3B4" Grid.Row="1" OpacityMask="#FF6A97AC"/>
         <TextBox x:Name="descriptionT"  Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="Description" Height="85" Margin="371,116,21,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF77B3B4" Grid.Row="1"/>
         <ComboBox x:Name="medicamentT"  materialDesign:HintAssist.Hint="Medicament*"  Height="42" Margin="12,252,496,0" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="White" FontSize="18" FontFamily="Century Gothic" Foreground="#FF070004" BorderBrush="#FF6A97AC" Grid.Row="1" IsEditable="True" TextBoxBase.TextChanged="medicamentT_TextChanged" IsTextSearchEnabled="False" GotFocus="medicamentT_GotFocus" PreviewKeyDown="medicamentT_PreviewKeyDown"/>
-        <TextBox x:Name="doseT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Dose" HorizontalAlignment="Left" Height="46" Margin="263,250,0,0" TextWrapping="Wrap"  BorderThickness="0,0,0,3" VerticalAlignment="Top" Width="104" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1" Foreground="Black"/>
-        <TextBox x:Name="indicationT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Indication" Height="47" Margin="414,249,165,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
+        <TextBox x:Name="doseT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Dose * " HorizontalAlignment="Left" Height="46" Margin="263,250,0,0" TextWrapping="Wrap"  BorderThickness="0,0,0,3" VerticalAlignment="Top" Width="104" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1" Foreground="Black"/>
+        <TextBox x:Name="indicationT" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Indication * " Height="47" Margin="414,249,165,0" TextWrapping="Wrap" BorderThickness="0,0,0,3" VerticalAlignment="Top" Background="{x:Null}" FontSize="18" FontFamily="Century Gothic" SpellCheck.IsEnabled="True" Foreground="#FF070004" SelectionBrush="#FF6A97AC" CaretBrush="#FF6A97AC" BorderBrush="#FF6A97AC" Grid.Row="1"/>
         <Button x:Name="AjouterFichier" Content="Ajouter un fichier" HorizontalAlignment="Left" Height="36" Margin="505,405,0,0" VerticalAlignment="Top" Width="180" FontWeight="Light" FontFamily="Century Gothic" FontSize="16" Background="#FF6A97AC" Click="AjouterFichier_Click" Foreground="#FFFFFFFF" Grid.Row="1"/>
 
 
 
-        <Button x:Name="Add_Consultation" Content="Continuer" HorizontalAlignment="Left" Height="31" Margin="505,470,0,0" VerticalAlignment="Top" Width="176" FontWeight="Light" FontFamily="Century Gothic" FontSize="16" Background="#FF6A97AC" Click="Add_Consultation_Click" Foreground="#FFFFFFFF" Grid.Row="1"/>
-        <StackPanel Height="50" VerticalAlignment="Top" Background="#FF6A97AC">
-            <Label  Width="283" FontSize="36" FontFamily="Century Gothic" Foreground="White" Height="66" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Consultation :" Margin="219,-2,200,0"/>
-        </StackPanel>
+        <Button x:Name="Add_Consultation" Content="Continuer" HorizontalAlignment="Left" Height="31" Margin="505,455,0,0" VerticalAlignment="Top" Width="176" FontWeight="Light" FontFamily="Century Gothic" FontSize="16" Background="#FF6A97AC" Click="Add_Consultation_Click" Foreground="#FFFFFFFF" Grid.Row="1"/>
         <DataGrid x:Name="DataGridTrait" IsReadOnly="True" Margin="10,330,297,32" ItemsSource="{Binding Treatement}" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False"   materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="1" Background="#FF98BBCB">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Traitement}" Header="Traitement"  EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"/>
@@ -50,16 +43,14 @@
 
 
         </DataGrid>
-        <Button x:Name="AjouterTraitement" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}" materialDesign:ShadowAssist.ShadowDepth="Depth1" Click="AjouterTraitement_Click" RenderTransformOrigin="0.446,0.479" Margin="359,222,303,251" Grid.Row="1" Background="#FF768790" FontSize="20" Height="Auto" Width="Auto" Content="+">
+        <Button x:Name="AjouterTraitement" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="AjouterTraitement_Click" RenderTransformOrigin="0.446,0.479" Margin="364,214,303,318" Background="#FF768790" FontSize="20" Height="Auto" Width="Auto" Content="+">
             <Button.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="125.948"/>
+                    <TranslateTransform Y="128.948"/>
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+        <Label Content="Consultation médical" HorizontalAlignment="Left" Height="69" Margin="365,6,-8,0" VerticalAlignment="Top" Width="345" Foreground="#FF6A97AC" FontSize="28" FontWeight="Bold"/>
 
 
 

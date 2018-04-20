@@ -52,8 +52,8 @@
         </Image>
 
         <Label Content="Etes vous sure ?" HorizontalAlignment="Left" Margin="91,30,0,0" VerticalAlignment="Top" Height="38" Width="153" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold"/>
-        <Button Content="Oui" HorizontalAlignment="Left" Margin="75,81,0,0" VerticalAlignment="Top" Width="62" Height="37" FontSize="11" FontFamily="Century Gothic" Background="#FF77B3B4" Click="Oui_Click"/>
-        <Button Content="Non" HorizontalAlignment="Left" Margin="205,82,0,0" VerticalAlignment="Top" Width="62" Height="36" FontSize="11" FontFamily="Century Gothic" Background="#FF77B3B4" Click="Non_Click"/>
+        <Button Content="Oui" HorizontalAlignment="Left" Margin="71,84,0,0" VerticalAlignment="Top" Width="60" Height="30" FontSize="11" FontFamily="Century Gothic" Background="#FF77B3B4" Click="Oui_Click"/>
+        <Button Content="Non" HorizontalAlignment="Left" Margin="199,84,0,0" VerticalAlignment="Top" Width="60" Height="30" FontSize="11" FontFamily="Century Gothic" Background="#FF77B3B4" Click="Non_Click"/>
 
     </Grid>
 </Window>

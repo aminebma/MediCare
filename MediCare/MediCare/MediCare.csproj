@@ -106,6 +106,9 @@
     <Compile Include="AffichPatient.xaml.cs">
       <DependentUpon>AffichPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AgendaMedecin.xaml.cs">
+      <DependentUpon>AgendaMedecin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AgendaMenu.xaml.cs">
       <DependentUpon>AgendaMenu.xaml</DependentUpon>
     </Compile>
@@ -129,8 +132,11 @@
     <Compile Include="certificat.xaml.cs">
       <DependentUpon>certificat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ToutMedecins.xaml.cs">
-      <DependentUpon>ToutMedecins.xaml</DependentUpon>
+    <Compile Include="DossierMedical.xaml.cs">
+      <DependentUpon>DossierMedical.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToutPatients.xaml.cs">
+      <DependentUpon>ToutPatients.xaml</DependentUpon>
     </Compile>
     <Compile Include="GenererOrdonnance.xaml.cs">
       <DependentUpon>GenererOrdonnance.xaml</DependentUpon>
@@ -141,9 +147,6 @@
     </Compile>
     <Compile Include="HistoriqueMedecin.xaml.cs">
       <DependentUpon>HistoriqueMedecin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="impression.xaml.cs">
-      <DependentUpon>impression.xaml</DependentUpon>
     </Compile>
     <Compile Include="LettreOr.xaml.cs">
       <DependentUpon>LettreOr.xaml</DependentUpon>
@@ -187,19 +190,10 @@
     </Compile>
     <Compile Include="Notifications.cs" />
     <Compile Include="Ordonnance.cs" />
-    <Compile Include="PatientASupp.xaml.cs">
-      <DependentUpon>PatientASupp.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PatientMenu.xaml.cs">
-      <DependentUpon>PatientMenu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Patients.cs" />
     <Compile Include="Perso.cs" />
     <Compile Include="PopupPatient.xaml.cs">
       <DependentUpon>PopupPatient.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RechercheMenu.xaml.cs">
-      <DependentUpon>RechercheMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -212,9 +206,6 @@
       <DependentUpon>FichePatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClassePersonne.cs" />
-    <Compile Include="SppressionCons.xaml.cs">
-      <DependentUpon>SppressionCons.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SUIVIS.xaml.cs">
       <DependentUpon>SUIVIS.xaml</DependentUpon>
     </Compile>
@@ -224,11 +215,15 @@
     <Compile Include="toutMedic.xaml.cs">
       <DependentUpon>toutMedic.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ToutPatients.xaml.cs">
-      <DependentUpon>ToutPatients.xaml</DependentUpon>
+    <Compile Include="ToutMedecins.xaml.cs">
+      <DependentUpon>ToutMedecins.xaml</DependentUpon>
     </Compile>
     <Compile Include="Traite.cs" />
     <Page Include="AffichPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgendaMedecin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,7 +239,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ToutMedecins.xaml">
+    <Page Include="DossierMedical.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToutPatients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -257,10 +256,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="HistoriqueMedecin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="impression.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -324,21 +319,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PatientASupp.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PatientMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PopupPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="RechercheMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SignUp.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -364,10 +347,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SppressionCons.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="SUIVIS.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -380,7 +359,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ToutPatients.xaml">
+    <Page Include="ToutMedecins.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -498,8 +477,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="restauration\MCDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>MCDatabase.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="ressources\images\background.png" />
     <Content Include="ressources\images\avatar-medecins_0.ico" />
@@ -509,4 +488,9 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked</PreBuildEvent>
+  </PropertyGroup>
 </Project>
