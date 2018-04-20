@@ -25,26 +25,14 @@ namespace MediCare
         public MonCompte()
         {
             InitializeComponent();
-            IQueryable<Personne> infoMed= (from personne in Globals.DataClass.Personne
-                                            where personne.nom == Globals.NomMedecin && personne.prenom == Globals.PrenomMedecin
-                                            select personne);
-           
-            if (infoMed.Count()!=0)
-            {
-                Personne mdc = infoMed.First<Personne>();
-                NomMed.Content ="Nom : \n" + mdc.nom;
-                PrenomMed.Content ="Prenom : \n"+ mdc.prenom;
-                Adresse.Content ="Adresse : \n"+ mdc.adresse;
-                IQueryable<Medecin> mail = (from medecin in Globals.DataClass.Medecin
-                                            where medecin.IdPersonne == mdc.Id orderby medecin.Id descending
-                                            select medecin);
-                Medecin med = mail.First();
-                email.Content ="Email : \n"+ med.email;
+                NomMed.Content ="Nom : \n" + Globals.NomMedecin;
+                PrenomMed.Content ="Prenom : \n"+ Globals.PrenomMedecin;
+                Adresse.Content ="Adresse : \n"+ Globals.AdresseMedecin;
+                email.Content ="Email : \n"+ Globals.MailMedecin;
                 NomMed.HorizontalContentAlignment = HorizontalAlignment.Stretch;
                 PrenomMed.HorizontalContentAlignment = HorizontalAlignment.Stretch;
                 Adresse.HorizontalContentAlignment = HorizontalAlignment.Stretch;
                 email.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-            }
            
         }
 

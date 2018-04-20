@@ -17,7 +17,7 @@ namespace MediCare
     /// <summary>
     /// Logique d'interaction pour AjouterMédic.xaml
     /// </summary>
-    public partial class AjouterMédic : Window
+    public partial class AjouterMédic : UserControl
     {
         public AjouterMédic()
         {
@@ -29,7 +29,7 @@ namespace MediCare
             Medic medc = new Medic();
             medc.AjouterMedic(NomMedic.Text, Type.Text, Dosage.Text);
             MessageBox.Show("Médicament ajouter avec succès !");
-            this.Close();
+            ((Grid)this.Parent).Children.Clear();
         }
     }
 }

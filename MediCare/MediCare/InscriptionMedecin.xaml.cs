@@ -49,7 +49,7 @@ namespace MediCare
             }
             else if(checkDate())
             {
-                if(clef.Text==Encrypt(nom.Text+prenom.Text+date_naiss.Text))
+                if(clef.Text==Encrypt(nom.Text.ToUpper()+prenom.Text.ToUpper()+date_naiss.Text))
                 {
                     if (num_tel.Text.Length == 10)
                     {
@@ -82,11 +82,11 @@ namespace MediCare
                     }
                     else MessageBox.Show("Votre numero est incorrect ");
                 }
-                else
-                {
-                    MessageBox.Show("Veuillez rentrer une date valide");
-                    date_naiss.BorderBrush = Brushes.Red;
-                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez rentrer une date valide");
+                date_naiss.BorderBrush = Brushes.Red;
             }
         }
 
@@ -137,6 +137,68 @@ namespace MediCare
             byte[] passBytes = Encoding.Unicode.GetBytes(word);
             string encryptedPass = Convert.ToBase64String(passBytes);
             return encryptedPass;
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Enter && signUpBtn.IsEnabled==true)
+            {
+                if (nom.Text == "" || prenom.Text == "" || adresse.Text == "" || num_tel.Text == "" || sex.Text == "" || clef.Text == "" || username.Text == "" || password.Password == "" || email.Text == "" || date_naiss.Text == "")
+                {
+                    MessageBox.Show("Veuillez remplir toutes les informations!");
+                    if (nom.Text == "") nom.BorderBrush = Brushes.Red; else nom.BorderBrush = Brushes.Black;
+                    if (prenom.Text == "") prenom.BorderBrush = Brushes.Red; else prenom.BorderBrush = Brushes.Black;
+                    if (adresse.Text == "") adresse.BorderBrush = Brushes.Red; else adresse.BorderBrush = Brushes.Black;
+                    if (num_tel.Text == "") num_tel.BorderBrush = Brushes.Red; else num_tel.BorderBrush = Brushes.Black;
+                    if (date_naiss.Text == "") date_naiss.BorderBrush = Brushes.Red; else date_naiss.BorderBrush = Brushes.Black;
+                    if (sex.Text == "") sex.BorderBrush = Brushes.Red; else sex.BorderBrush = Brushes.Black;
+                    if (email.Text == "") email.BorderBrush = Brushes.Red; else email.BorderBrush = Brushes.Black;
+                    if (clef.Text == "") clef.BorderBrush = Brushes.Red; else clef.BorderBrush = Brushes.Black;
+                    if (username.Text == "") username.BorderBrush = Brushes.Red; else username.BorderBrush = Brushes.Black;
+                    if (password.Password == "") password.BorderBrush = Brushes.Red; else password.BorderBrush = Brushes.Black;
+                }
+                else if (checkDate())
+                {
+                    if (clef.Text == Encrypt(nom.Text.ToUpper() + prenom.Text.ToUpper() + date_naiss.Text))
+                    {
+                        if (num_tel.Text.Length == 10)
+                        {
+                            if (!med.RechercherMedecinAdd(username.Text))
+                            {
+                                Globals.NomMedecin = nom.Text;
+                                Globals.PrenomMedecin = prenom.Text;
+                                med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text);
+                                MessageBox.Show("Le medecin a été inséré ! ");
+                                MenuPrincipal t = new MenuPrincipal();
+                                Globals.ListPatients = (from patient in Globals.DataClass.Patient
+                                                        join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+                                                        select personne).ToList<Personne>();
+                                t.Show();
+                                this.Close();
+                            }
+                            else
+                            {
+                                bool exist = true;
+                                int i = 1;
+                                string userSuggest = username.Text;
+                                while (exist)
+                                {
+                                    userSuggest = username.Text + i;
+                                    exist = med.RechercherMedecinAdd(userSuggest);
+                                    i++;
+                                }
+                                MessageBox.Show("Nom d'utilisateur existant, essayez: \n" + userSuggest);
+                            }
+                        }
+                        else MessageBox.Show("Votre numero est incorrect ");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez rentrer une date valide");
+                    date_naiss.BorderBrush = Brushes.Red;
+                }
+            }
         }
     }
 }

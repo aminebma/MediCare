@@ -12,11 +12,12 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="141,329,0,0" VerticalAlignment="Top" Width="172" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date*" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput"/>
-        <TextBox x:Name="notesT" HorizontalAlignment="Center" Height="155" Margin="158,101,159,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Description du rendez-vous" TextWrapping="Wrap" VerticalAlignment="Top" Width="422" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" SpellCheck.IsEnabled="True"/>
-        <Button x:Name="AddButton" Content="Ajouter" HorizontalAlignment="Center" Height="Auto" Margin="294,410,299,99" Width="146" FontFamily="Century Gothic" Background="#FF77B3B4" Click="AddButton_Click"/>
-        <materialDesign:TimePicker Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Horaire*" Is24Hours="True" x:Name="horaire" Margin="421,329,143,0" PreviewTextInput="horaire_PreviewTextInput" Height="32" />
-        <Label Content="Ajouter un rdv personnel" HorizontalAlignment="Left" Height="68" Margin="365,8,0,0" VerticalAlignment="Top" Width="357" Foreground="#FF6A97AC" FontSize="28" FontWeight="Bold"/>
+        <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="141,329,0,0" VerticalAlignment="Top" Width="172" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date*" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" FontFamily="Century Gothic"/>
+        <TextBox x:Name="notesT" HorizontalAlignment="Center" Height="155" Margin="158,101,159,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Description du rendez-vous" TextWrapping="Wrap" VerticalAlignment="Top" Width="422" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF77B3B4" SpellCheck.IsEnabled="True"/>
+        <Button x:Name="AddButton" Content="Ajouter" HorizontalAlignment="Center" Height="Auto" Margin="0,428,0,81" Width="146" FontFamily="Century Gothic" Background="#FF77B3B4" Click="AddButton_Click" Foreground="#DDFFFFFF"/>
+        <materialDesign:TimePicker Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Horaire*" Is24Hours="True" x:Name="horaire" Margin="421,329,143,0" PreviewTextInput="horaire_PreviewTextInput" Height="32" FontFamily="Century Gothic" />
+        <Label Content="Ajouter un rdv personnel" HorizontalAlignment="Left" Height="68" Margin="365,8,0,0" VerticalAlignment="Top" Width="357" Foreground="#FF6A97AC" FontSize="28" FontWeight="Bold" FontFamily="Century Gothic"/>
+
     </Grid>
 </UserControl>
  

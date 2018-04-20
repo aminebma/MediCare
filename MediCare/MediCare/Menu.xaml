@@ -14,67 +14,6 @@
             TextOptions.TextRenderingMode="Auto"
             FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <Image Margin="297,12,687,440" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-54.027"/>
-                    <TranslateTransform X="-0.045" Y="-0.135"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="0,122,233,314" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-9.765"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="0,460,693,-24" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.4" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-11.18"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="645,268,339,184" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
-        <Image Margin="0,356,512,80" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.4" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-9.765"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="0,102,478,334" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.3" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="25.795"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button x:Name="AgendaBTN" 
-                    Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="645,53,287,354" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Agenda" FontFamily="Century Gothic" FontSize="24" Click="AgendaBTN_Click" Foreground="White" FontWeight="Bold">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.5,0">
-                    <GradientStop Color="#FF00A2FB" Offset="0"/>
-                    <GradientStop Color="#FF03DCCE" Offset="0.996"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
         <Button x:Name="RechercheBTN"
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
                     materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="639,338,293,70" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Recherche" FontFamily="Century Gothic" FontSize="24" Foreground="White" FontWeight="Bold" Click="RechercheBTN_Click">
@@ -105,7 +44,6 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Image Margin="683,92,0,0" Source="ressources/icones/icones png/64 Pixels/note-on-a-clipboard.png" Opacity="0.5" IsHitTestVisible="False" Height="62" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65"/>
         <materialDesign:PackIcon Kind="DatabaseSearch" Margin="676,376,0,0" Height="79" Width="69" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" IsHitTestVisible="False" Focusable="False"/>
         <materialDesign:PackIcon Kind="Account" Margin="748,240,0,0" Height="58" Width="56" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False"/>
         <Expander HorizontalAlignment="Left" Header="Rendez Vous de la journée" IsExpanded="True" Background="#9965BFCD" FontFamily="Century Gothic" FontSize="14" Foreground="White" Width="295">
@@ -118,37 +56,23 @@
             </ListView>
         </Expander>
         <Image Margin="523,211,0,0" Source="ressources/icones/icones png/64 Pixels/dentist.png" Opacity="0.5" IsHitTestVisible="False" Height="101" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102"/>
-        <Image Margin="0,11,19,425" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="25.795"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="963,449,21,3" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
-        <Image Margin="0,261,39,204" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="49" Opacity="0.4" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-9.765"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image Margin="312,246,696,235" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-12.314"/>
-                    <TranslateTransform X="-0.045" Y="-0.135"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+        <Button x:Name="MedicamentBTN"
+            Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
+            materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="639,37,293,371" Height="140" Width="140" BorderBrush="{x:Null}" Content="Médicament" FontFamily="Century Gothic" FontSize="22" Foreground="White" FontWeight="Bold" Click="MedicamentBTN_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1FB2B9" Offset="0"/>
+                    <GradientStop Color="#FF485E99" Offset="0.717"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <materialDesign:PackIcon Kind="Beaker" Margin="670,66,0,0" Height="80" Width="82" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False"/>
+        <Button x:Name="AgendaBTN" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="241,0,777,498" Foreground="Black" Width="54" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="AgendaBTN_Click">
+            <Button.ToolTip>
+                <TextBlock><Run Text="Agenda"/></TextBlock>
+            </Button.ToolTip>
+            <materialDesign:PackIcon Kind="Calendar" Foreground="White" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Button>
     </Grid>
 
 </UserControl>

@@ -47,7 +47,7 @@ namespace MediCare
                     break;
                 case "rdv":
                     GridDroit.Children.Clear();
-                    GridDroit.Children.Add(new AjoutRdvPro());
+                    GridDroit.Children.Add(new RdvPatient());
                     break;
                 default:
                     break;

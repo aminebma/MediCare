@@ -8,14 +8,17 @@
         mc:Ignorable="d"
         Height="548" Width="744">
     <Grid Margin="0">
+        <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Left" Height="340" Margin="40,128,0,0" VerticalAlignment="Top" Width="668"/>
+
         <materialDesign:Card Background="{x:Null}" Margin="0,3,0,0" VerticalAlignment="Stretch">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,142,0,95" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel x:Name="StackSuivi"  Height="304" Width="687">
-                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
-                </StackPanel>
-            </ScrollViewer>
+            <Button Content="Ok" HorizontalAlignment="Left" Margin="606,491,0,0" VerticalAlignment="Top" Width="75" Background="#FF408DA0" Click="Button_Click"/>
         </materialDesign:Card>
-        <Label Content="L'hitorique de toutes vos consultations médicales :" HorizontalAlignment="Center" Margin="0,96,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Century Gothic" FontSize="18"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="54,143,54,96" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="309" Width="636">
+            <StackPanel x:Name="StackSuivi"  Height="311" Width="618">
+                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+            </StackPanel>
+        </ScrollViewer>
+        <Label Content="L'hitorique de toutes vos consultations médicales :" HorizontalAlignment="Center" Margin="98,86,202,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18"/>
         <Label Content="Mon Historique " HorizontalAlignment="Left" Height="69" Margin="469,8,-22,0" VerticalAlignment="Top" Width="297" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
 
     </Grid>

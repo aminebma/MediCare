@@ -15,8 +15,8 @@
         <Button x:Name="LettreOrientation" Content="Lettre D'orientation" HorizontalAlignment="Left" Height="42" Margin="405,194,0,0" VerticalAlignment="Top" Width="218"  FontFamily="Century Gothic" FontSize="20" Background="#FF75B0BB" BorderBrush="{x:Null}" Click="LettreOrientation_Click"/>
         <Button x:Name="CertificatMedical" Content="Certificat Medical&#xA;" HorizontalAlignment="Left" Height="42" Margin="100,192,0,0" VerticalAlignment="Top" Width="216" FontFamily="Century Gothic" FontSize="20" Background="#FF77B3B4" BorderBrush="{x:Null}" Click="CertificatMedical_Click"/>
         <Button Content="Valider " HorizontalAlignment="Left" Height="42" Margin="532,495,0,0" VerticalAlignment="Top" Width="142" Background="#FFADAF9F" FontFamily="Century Gothic" FontSize="20" Click="Valider_Click" BorderBrush="{x:Null}"/>
-        <Label Content="Cliquez ci-dessous si vous voulez faire un certificat de bonne santé &#xD;&#xA;ou une lettre d'orientation :" HorizontalAlignment="Left" Height="48" Margin="20,89,0,0" VerticalAlignment="Top" Width="634" FontWeight="Bold" FontFamily="Century Gothic" FontSize="16"/>
-        <Label Content="Cliquer ci-dessous si vous voulez ajouter un bilan, radio ou un scanner &#xD;&#xA;au dossier de ce patient :" HorizontalAlignment="Left" Height="48" Margin="20,312,0,0" VerticalAlignment="Top" Width="634" FontWeight="Bold" FontFamily="Century Gothic" FontSize="16"/>
+        <Label Content="Cliquez ci-dessous si vous voulez faire un certificat de bonne santé &#xD;&#xA;ou une lettre d'orientation :" HorizontalAlignment="Left" Height="48" Margin="20,89,0,0" VerticalAlignment="Top" Width="634" FontFamily="Century Gothic" FontSize="16"/>
+        <Label Content="Cliquer ci-dessous si vous voulez ajouter un bilan, radio ou un scanner &#xD;&#xA;au dossier de ce patient :" HorizontalAlignment="Left" Height="48" Margin="20,312,0,0" VerticalAlignment="Top" Width="634" FontFamily="Century Gothic" FontSize="16"/>
         <Label Content="Fichiers Médicaux" HorizontalAlignment="Left" Height="54" Margin="370,16,0,0" VerticalAlignment="Top" Width="270" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
 
     </Grid>

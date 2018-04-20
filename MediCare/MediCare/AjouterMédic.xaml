@@ -1,4 +1,4 @@
-﻿<Window x:Class="MediCare.AjouterMédic"
+﻿<UserControl x:Class="MediCare.AjouterMédic"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,46 +6,15 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MediCare"
         mc:Ignorable="d"
-       Title="Ajouter un Médicament" Height="300" Width="500">
+       Height="545" Width="746">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="44" Margin="28,36,0,0" VerticalAlignment="Top" Width="58" Source="ressources/images/bulles_2.PNG" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="25.687"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image HorizontalAlignment="Left" Height="44" Margin="365,27,0,0" VerticalAlignment="Top" Width="58" Source="ressources/images/bulles_3.PNG" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
-            <Image.RenderTransform>
-
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="25.687"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image HorizontalAlignment="Left" Height="44" Margin="175,182,0,0" VerticalAlignment="Top" Width="58" Source="ressources/images/bulles.PNG" RenderTransformOrigin="0.5,0.5" Opacity="0.6">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="25.687"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <TextBox x:Name="NomMedic" materialDesign:HintAssist.Hint="Nom Médicament" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="59,24,216,196" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
-        <TextBox x:Name="Type" materialDesign:HintAssist.Hint="Type" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="59,100,216,120" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
-        <TextBox x:Name="Dosage" materialDesign:HintAssist.Hint="Dosage" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="59,171,216,49" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" />
-        <Button x:Name="AjtMedic" Content="Ajouter" HorizontalAlignment="Left" Height="41" Margin="335,100,0,0" VerticalAlignment="Top" Width="120" FontFamily="Century Gothic" Background="#FF42919E" BorderBrush="{x:Null}" Click="AjtMedic_Click"/>
+        <TextBox x:Name="NomMedic" materialDesign:HintAssist.Hint="Nom Médicament" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="140,109,135,389" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Width="471" Height="50" />
+        <TextBox x:Name="Type" materialDesign:HintAssist.Hint="Type" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="140,189,135,295" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="471" />
+        <TextBox x:Name="Dosage" materialDesign:HintAssist.Hint="Dosage" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="140,282,135,213" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="471" />
+        <Button x:Name="AjtMedic" Content="Ajouter" HorizontalAlignment="Center" Height="41" Margin="313,0,313,80" VerticalAlignment="Bottom" Width="120" FontFamily="Century Gothic" Background="#FF42919E" BorderBrush="{x:Null}" Click="AjtMedic_Click" Foreground="#DDFFFFFF"/>
 
 
 
     </Grid>
 
-</Window>
+</UserControl>

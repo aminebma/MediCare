@@ -45,5 +45,13 @@ namespace MediCare
                 }
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            var parent2 = (Grid)parent.Parent;
+            parent2.Children.Add(new MonCompte());
+        }
     }
 }

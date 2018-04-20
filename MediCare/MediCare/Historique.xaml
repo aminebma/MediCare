@@ -8,16 +8,19 @@
         mc:Ignorable="d" Height="548" Width="744">
     <Grid Margin="0">
 
+        <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Left" Height="338" Margin="68,124,0,0" VerticalAlignment="Top" Width="613"/>
+
         <materialDesign:Card Background="{x:Null}" VerticalAlignment="Stretch">
-            <Label Content="L'historique de toutes les consultations faites dans cet établissement : " HorizontalAlignment="Center" Height="43" Margin="0,82,0,423" VerticalAlignment="Center" Width="554" FontWeight="Bold" FontSize="16" FontFamily="Century Gothic"/>
+            <Label Content="L'historique de toutes les consultations faites dans cet établissement : " HorizontalAlignment="Center" Height="43" Margin="0,82,0,423" VerticalAlignment="Center" Width="554" FontSize="16" FontFamily="Century Gothic"/>
 
         </materialDesign:Card>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="82,130,83,70" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="350">
-            <StackPanel x:Name="StackSuivi"  Height="291" Width="682">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="86,133,82,104" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="311" Width="576">
+            <StackPanel x:Name="StackSuivi"  Height="341" Width="558">
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </StackPanel>
         </ScrollViewer>
         <Label Content="Historique " HorizontalAlignment="Left" Height="69" Margin="492,9,-45,0" VerticalAlignment="Top" Width="297" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="599,488,0,0" VerticalAlignment="Top" Width="66" Background="#FF408DA0" Height="39" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

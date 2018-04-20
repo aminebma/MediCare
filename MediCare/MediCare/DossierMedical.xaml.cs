@@ -56,7 +56,7 @@ namespace MediCare
                     Stack.Children.Add(expSuivi);
                     consulta = consultation.AcceeConsultationId(p.Id);
                     expSuivi.Content = " Diagnostic : " + consulta.Diagnostic + "\n Description :" + consulta.Description;
-                    if (consulta.traitement != null)
+                    if (consulta.traitement.Count() != 0 )
                     {
                         expSuivi.Content = expSuivi.Content + "\n Traitement :";
                         foreach (Traite d in consulta.traitement)

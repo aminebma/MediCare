@@ -29,6 +29,7 @@ namespace MediCare
         Agenda pat = new Agenda();
         List<Personne> listPatientsTmp;
         List<Medicaments> listMedicTmp;
+        List<Personne> listMedecinsTmp;
 
         public MenuPrincipal()
         {
@@ -37,7 +38,9 @@ namespace MediCare
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Globals.TempRappelRDV = 15;
             Task.Factory.StartNew(GenererNotif, TaskCreationOptions.LongRunning);
+            
         }
+
         
         private async void GenererNotif()
         {
@@ -125,17 +128,12 @@ namespace MediCare
             
         }
 
+        
 
         private void Agenda_Click(object sender, RoutedEventArgs e)
         {
             SelectionGrid.Children.Clear();
             SelectionGrid.Children.Add(new AgendaMenu());
-        }
-
-        private void AjtMedic_Click(object sender, RoutedEventArgs e)
-        {
-            AjouterMédic wndw = new AjouterMédic();
-            wndw.Show();
         }
 
         private void Patient_Click(object sender, RoutedEventArgs e)
@@ -169,7 +167,7 @@ namespace MediCare
                 element.Items.Clear();
                 foreach (Personne patient in listPatientsTmp)
                 {
-                    element.Items.Add(element.Items.Add(patient.nom + " " + patient.prenom));
+                    element.Items.Add(element.Items.Add(patient.nom));
                     if (element.Items.Count != 0) element.Items.RemoveAt(element.Items.Count - 1);
                 }
             }
@@ -180,11 +178,59 @@ namespace MediCare
                 element.Items.Clear();
                 foreach (Medicaments medicament in listMedicTmp)
                 {
-                    element.Items.Add(element.Items.Add(medicament.nom));
-                    if (element.Items.Count != 0) element.Items.RemoveAt(element.Items.Count - 1);
+                    if (medicament.nom.Length > 25) element.Items.Add(medicament.nom.Substring(0, 25));
+                    else element.Items.Add(medicament.nom);
+                }
+            }
+            listMedecinsTmp = pat.RechercherMedecin(element.Text);
+            if (listMedecinsTmp.Count() != 0)
+            {
+                element.Items.Clear();
+                foreach (Personne medecin in listMedecinsTmp)
+                {
+                    if (medecin.nom.Length > 25) element.Items.Add(medecin.nom.Substring(0, 25));
+                    else element.Items.Add(medecin.nom);
                 }
             }
 
         }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            listPatientsTmp = pat.RechercherPatient(element.Text);
+            if (listPatientsTmp.Count() != 0)
+            {
+                Globals.NomPatient = listPatientsTmp[0].nom;
+                SelectionGrid.Children.Clear();
+                SelectionGrid.Children.Add(new AffichDossiers());
+            }
+            else
+            {
+                listMedicTmp = med.RechercheMedicament(element.Text);
+                if (listMedicTmp.Count() != 0)
+                {
+                    Globals.Medicament = listMedicTmp[0].nom;
+                    SelectionGrid.Children.Clear();
+                    SelectionGrid.Children.Add(new affichMedicament());
+                }
+                else
+                {
+                    listPatientsTmp = pat.RechercherMedecin(element.Text);
+                    if (listPatientsTmp.Count() != 0)
+                    {
+                        Globals.NomMedecin = listPatientsTmp[0].nom;
+                        SelectionGrid.Children.Clear();
+                        SelectionGrid.Children.Add(new AffichMedecin());
+                    }
+                }
+            }
+        }
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionGrid.Children.Clear();
+            SelectionGrid.Children.Add(new MenuRecherche());
+        }
+
     }
 }

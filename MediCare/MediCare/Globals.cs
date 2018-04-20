@@ -20,6 +20,18 @@ namespace MediCare
                 _idMedecin = value;
             }
         }
+        private static string _medicament;
+        public static string Medicament
+        {
+            get
+            {
+                return _medicament;
+            }
+            set
+            {
+                _medicament = value;
+            }
+        }
 
         private static string _nomPatient;
         public static string NomPatient
@@ -73,6 +85,32 @@ namespace MediCare
             }
         }
 
+        private static string _adresseMedecin;
+        public static string AdresseMedecin
+        {
+            get
+            {
+                return _adresseMedecin;
+            }
+            set
+            {
+                _adresseMedecin = value;
+            }
+        }
+
+        private static string _mailMedecin;
+        public static string MailMedecin
+        {
+            get
+            {
+                return _mailMedecin;
+            }
+            set
+            {
+                _mailMedecin = value;
+            }
+        }
+
         private static int _TempRappelRDV;
         public static int TempRappelRDV
         { 
@@ -97,6 +135,7 @@ namespace MediCare
                 _label = value;
             }
         }
+        
         private static int _age;
         public static int Age
         {

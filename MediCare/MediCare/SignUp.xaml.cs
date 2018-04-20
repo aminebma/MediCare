@@ -48,10 +48,11 @@ namespace MediCare
             Medecin2 med = new Medecin2();
             if(med.VerifMed(nom.Text,password.Password))
             {
-                List<Personne> pers = new List<Personne>();
+                Personne pers = new Personne();
                 pers = med.RechercherMedecin(nom.Text);
-                Globals.NomMedecin = pers[0].nom;
-                Globals.PrenomMedecin = pers[0].prenom;
+                Globals.NomMedecin = pers.nom;
+                Globals.PrenomMedecin = pers.prenom;
+                Globals.AdresseMedecin = pers.adresse;
                 MenuPrincipal main = new MenuPrincipal();
                 main.Show();
                 Globals.ListPatients= (from patient in Globals.DataClass.Patient
@@ -65,19 +66,6 @@ namespace MediCare
             else MessageBox.Show("Les informations saisies sont incorrectes");
         }
 
-        //private void ignoreBtn_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Globals.IdMedecin = 1;
-        //    MenuPrincipal Menu = new MenuPrincipal();
-        //    Globals.ListPatients = (from patient in Globals.DataClass.Patient
-        //                            join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
-        //                            select personne).ToList<Personne>();
-        //    Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
-        //                               select medicament).ToList<Medicaments>();
-        //    Menu.Show();
-        //    this.Close();
-        //}
-
         private void signUpGrid_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -85,10 +73,15 @@ namespace MediCare
                 Medecin2 med = new Medecin2();
                 if (med.VerifMed(nom.Text, password.Password))
                 {
-                    List<Personne> pers = new List<Personne>();
+                    Personne pers = new Personne();
                     pers = med.RechercherMedecin(nom.Text);
-                    Globals.NomMedecin = pers[0].nom;
-                    Globals.PrenomMedecin = pers[0].prenom;
+                    Globals.NomMedecin = pers.nom;
+                    Globals.PrenomMedecin = pers.prenom;
+                    Globals.AdresseMedecin = pers.adresse;
+                    Medecin mail = (from medecin in Globals.DataClass.Medecin
+                                    where medecin.IdPersonne == pers.Id
+                                    select medecin).First();
+                    Globals.MailMedecin = mail.email;
                     MenuPrincipal main = new MenuPrincipal();
                     main.Show();
                     Globals.ListPatients = (from patient in Globals.DataClass.Patient

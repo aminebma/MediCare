@@ -32,7 +32,7 @@ namespace MediCare
                 StackSuivi.Children.Add(expSuivi);
                 consulta = cons.AcceeConsultationId(p.Id);
                 expSuivi.Content = " " + consulta.Diagnostic + "\n " + consulta.Description;
-                if (consulta.traitement != null)
+                if (consulta.traitement.Count() !=0 )
                 {
                     expSuivi.Content = expSuivi.Content + "\n Traitement :";
                     foreach (Traite d in consulta.traitement)
@@ -43,6 +43,12 @@ namespace MediCare
             }
         }
 
-      
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            var parent2 = (Grid)parent.Parent;
+            parent2.Children.Add(new MonCompte());
+        }
     }
 }

@@ -9,7 +9,7 @@
         <Button x:Name="VisuaiserOrdo" Content="Visualiser ordonnance PDF" HorizontalAlignment="Center" Height="42" Margin="0,199,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC" Click="VisuaiserOrdo_Click"/>
         <Button x:Name="ImprimerOrdo" Content="Imprimer ordonnance PDF" HorizontalAlignment="Center" Height="42" Margin="0,257,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC" Click="ImprimerOrdo_Click"/>
         <Button x:Name="Valider" Content="Valider la consultation" HorizontalAlignment="Center" Height="42" Margin="450,460,18,46" VerticalAlignment="Center" Width="234" Click="Valider_Click" Background="#FF6A97AC"/>
-        <Label Content="L'ordonnance de cette consultation a été générée, Voulez-vous :" HorizontalAlignment="Center" Margin="92,124,96,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Label Content="L'ordonnance de cette consultation a été générée, Voulez-vous :" HorizontalAlignment="Center" Margin="92,124,68,0" VerticalAlignment="Top" FontSize="16" FontFamily="Century Gothic" Width="542"/>
         <Label Content="Ordonnance " HorizontalAlignment="Left" Height="69" Margin="407,10,-2,0" VerticalAlignment="Top" Width="297" Foreground="CadetBlue" FontSize="36" FontWeight="Bold"/>
 
     </Grid>

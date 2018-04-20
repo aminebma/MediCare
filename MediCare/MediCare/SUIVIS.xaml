@@ -8,12 +8,15 @@
         mc:Ignorable="d"
         Height="548" Width="702">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="75,142,77,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
-            <StackPanel x:Name="StackSuivi"  Height="368" Width="547">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="51,55,70,430" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" RenderTransformOrigin="0.49,0.504">
+            <StackPanel x:Name="StackSuivi"  Height="66" Width="585"></StackPanel>
+        </ScrollViewer>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="75,180,77,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+            <StackPanel x:Name="Stack"  Height="368" Width="547">
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </StackPanel>
         </ScrollViewer>
-        <Label Content="Le suivi médical de ce patient :" HorizontalAlignment="Left" Margin="69,89,0,0" VerticalAlignment="Top" Height="42" Width="451" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Label Content="Le suivi médical de ce patient :" HorizontalAlignment="Left" Margin="69,128,0,0" VerticalAlignment="Top" Height="42" Width="451" FontSize="20" FontFamily="Century Gothic"/>
         <Label Content="Suivi Médical" HorizontalAlignment="Left" Height="54" Margin="446,9,0,0" VerticalAlignment="Top" Width="238" Foreground="CadetBlue" FontSize="28" FontWeight="Bold" Background="#00000000"/>
     </Grid>
 </UserControl>

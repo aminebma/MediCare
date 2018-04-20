@@ -103,6 +103,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AffichDossiers.xaml.cs">
+      <DependentUpon>AffichDossiers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AffichMedecin.xaml.cs">
+      <DependentUpon>AffichMedecin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="affichMedicament.xaml.cs">
+      <DependentUpon>affichMedicament.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AffichPatient.xaml.cs">
       <DependentUpon>AffichPatient.xaml</DependentUpon>
     </Compile>
@@ -125,15 +134,18 @@
       <DependentUpon>AjoutConsultation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Consulta.cs" />
-    <Compile Include="Consultation_Patient.xaml.cs">
-      <DependentUpon>Consultation_Patient.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ConsultLabel.cs" />
     <Compile Include="certificat.xaml.cs">
       <DependentUpon>certificat.xaml</DependentUpon>
     </Compile>
     <Compile Include="DossierMedical.xaml.cs">
       <DependentUpon>DossierMedical.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuMédicament.xaml.cs">
+      <DependentUpon>MenuMédicament.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RdvPatient.xaml.cs">
+      <DependentUpon>RdvPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="ToutPatients.xaml.cs">
       <DependentUpon>ToutPatients.xaml</DependentUpon>
@@ -169,9 +181,6 @@
     </Compile>
     <Compile Include="MenuFichier.xaml.cs">
       <DependentUpon>MenuFichier.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MenuHistorique.xaml.cs">
-      <DependentUpon>MenuHistorique.xaml</DependentUpon>
     </Compile>
     <Compile Include="MenuRecherche.xaml.cs">
       <DependentUpon>MenuRecherche.xaml</DependentUpon>
@@ -219,6 +228,18 @@
       <DependentUpon>ToutMedecins.xaml</DependentUpon>
     </Compile>
     <Compile Include="Traite.cs" />
+    <Page Include="AffichDossiers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AffichMedecin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="affichMedicament.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AffichPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -231,15 +252,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Consultation_Patient.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="certificat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DossierMedical.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuMédicament.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RdvPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -278,10 +303,6 @@
     <Page Include="MenuFichier.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MenuHistorique.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MenuPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -67,13 +67,13 @@ namespace MediCare
             else return false;
         }
 
-        public List<Personne> RechercherMedecin(string user)
+        public Personne RechercherMedecin(string user)
         {
-            IQueryable<Personne> medecins = (from med in Globals.DataClass.Medecin
+            Personne medecin = (from med in Globals.DataClass.Medecin
                                              where med.username == user
                                              join personne in Globals.DataClass.Personne on med.IdPersonne equals personne.Id
-                                             select personne);
-            return medecins.ToList<Personne>();
+                                             select personne).First();
+            return medecin;
         }
 
         public bool RechercherMedecinAdd(string user)

@@ -29,6 +29,11 @@ namespace MediCare
             TextCSLTAGD.Text = "Consulter mon Agenda";
         }
 
+        public UserControl SetGrid2
+        {
+            set { Grid2.Children.Add(value); }
+            
+        }
      
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

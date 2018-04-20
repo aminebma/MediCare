@@ -13,49 +13,131 @@
             TextOptions.TextRenderingMode="Auto"
             FontFamily="{DynamicResource MaterialDesignFont}" MinWidth="1080" MinHeight="720" ResizeMode="CanMinimize">
     <Grid Background="White">
-        <ToolBarTray Margin="0,0,0,582" Background="White">
-            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="0,0,0,-27" Background="White">
+        <Image Margin="0,11,20,568" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="61" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.994" ScaleX="1.006"/>
+                    <SkewTransform AngleY="1.634"/>
+                    <RotateTransform Angle="24.988"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="967,449,22,146" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
+        <Image Margin="0,261,40,347" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="47" Opacity="0.4" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.999" ScaleX="1.001"/>
+                    <SkewTransform AngleY="-0.697"/>
+                    <RotateTransform Angle="-9.423"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="339,246,673,378" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.998" ScaleX="1.002"/>
+                    <SkewTransform AngleY="-0.869"/>
+                    <RotateTransform Angle="-11.887"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="325,12,664,583" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.977" ScaleX="1.024"/>
+                    <SkewTransform AngleY="-1.982"/>
+                    <RotateTransform Angle="-53.031"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="0,122,227,457" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="60" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.999" ScaleX="1.001"/>
+                    <SkewTransform AngleY="-0.697"/>
+                    <RotateTransform Angle="-9.423"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="0,460,670,119" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="61" Opacity="0.4" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.998" ScaleX="1.002"/>
+                    <SkewTransform AngleY="-0.794"/>
+                    <RotateTransform Angle="-10.79"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="661,268,329,327" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
+        <Image Margin="0,356,496,223" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="60" Opacity="0.4" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.999" ScaleX="1.001"/>
+                    <SkewTransform AngleY="-0.697"/>
+                    <RotateTransform Angle="-9.423"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="0,102,463,477" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="61" Opacity="0.3" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.994" ScaleX="1.006"/>
+                    <SkewTransform AngleY="1.634"/>
+                    <RotateTransform Angle="24.988"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <ToolBarTray Margin="0,0,0,613" Background="White">
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="0,0,0,-20" Background="White">
                 <ToolBar.Header>
-                    <Image Width="294" Source="ressources/images/medicare_white.PNG" Stretch="Fill" VerticalAlignment="Center"/>
+                    <Image Width="294" Source="ressources/images/medicare_white.PNG" Stretch="Fill" VerticalAlignment="Center" Height="80"/>
                 </ToolBar.Header>
-                <Separator Margin="0" Height="104" />
-                <Button x:Name="Home" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Home_Click">
+                <Separator Margin="10,0,7,0" />
+                <Button x:Name="Home" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Home_Click">
                     <Button.ToolTip>
                         <TextBlock><Run Text="Acceuil"/></TextBlock>
                     </Button.ToolTip>
-                    <materialDesign:PackIcon Kind="Home" Foreground="#FF42919E" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <materialDesign:PackIcon Kind="Home" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Button>
-                <Separator Margin="6,0" />
-                <Button x:Name="Compte" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Compte_Click">
+                <Separator Margin="10,0" />
+                <Button x:Name="Compte" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Compte_Click">
                     <Button.ToolTip>
                         <TextBlock><Run Text="Mon Compte"/></TextBlock>
                     </Button.ToolTip>
-                    <materialDesign:PackIcon Kind="Account" Foreground="#FF42919E" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <materialDesign:PackIcon Kind="Account" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Button>
-                <Separator Margin="6,0" />
-                <Button x:Name="Agenda" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Agenda_Click">
+                <Separator Margin="10,0" />
+                <Button x:Name="Agenda" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Agenda_Click">
                     <Button.ToolTip>
                         <TextBlock><Run Text="Agenda"/></TextBlock>
                     </Button.ToolTip>
-                    <materialDesign:PackIcon Kind="Calendar" Foreground="#FF42919E" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <materialDesign:PackIcon Kind="Calendar" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Button>
-                <Separator Margin="6,0" />
-                <Button x:Name="patient" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Patient_Click">
+                <Separator Margin="10,0" />
+                <Button x:Name="patient" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Patient_Click">
                     <Button.ToolTip>
                         <TextBlock><Run Text="Patient"/></TextBlock>
                     </Button.ToolTip>
-                    <materialDesign:PackIcon Kind="Human" Foreground="#FF42919E" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <materialDesign:PackIcon Kind="Human" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Button>
-                <Separator Margin="6,0" />
-                <Button x:Name="AjtMedic" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="AjtMedic_Click">
+                <Separator Margin="10,0" />
+                <Button x:Name="Search" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Search_Click" >
                     <Button.ToolTip>
-                        <TextBlock><Run Text="Ajouter un médicament à la base de données"/></TextBlock>
+                        <TextBlock><Run Text="recherche"/></TextBlock>
                     </Button.ToolTip>
-                    <materialDesign:PackIcon Kind="DatabasePlus" Foreground="#FF42919E" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <materialDesign:PackIcon Kind="Magnify" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Button>
-                <Separator Margin="6,0" />
-                <StackPanel x:Name="SearchPanel" materialDesign:RippleAssist.IsCentered="True" Width="342" Margin="0" Orientation="Horizontal">
-                    <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16,25,0,25" materialDesign:ShadowAssist.ShadowDepth="Depth1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="270">
+                <Separator Margin="10,0" />
+                <StackPanel x:Name="SearchPanel" materialDesign:RippleAssist.IsCentered="True" Width="321" Margin="0,7,0,5" Orientation="Horizontal" Height="68" VerticalAlignment="Center">
+                    <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16,10,0,10" materialDesign:ShadowAssist.ShadowDepth="Depth1" VerticalAlignment="Stretch" HorizontalAlignment="Center">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
@@ -68,41 +150,37 @@
                             <ComboBox x:Name="element" Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Rechercher un élément..." materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" MinWidth="200" VerticalContentAlignment="Bottom" IsEditable="True" TextBoxBase.TextChanged="element_TextChanged" IsTextSearchEnabled="False" GotFocus="element_GotFocus" PreviewKeyDown="element_PreviewKeyDown" />
                         </Grid>
                     </materialDesign:ColorZone>
-                    <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8,0,0,0" Panel.ZIndex="0" Height="40" Width="40" VerticalAlignment="Center">
+                    <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8,0,0,14" Panel.ZIndex="0" Height="40" Width="40" VerticalAlignment="Bottom" Click="Button_Click">
                         <materialDesign:PackIcon Kind="Send" Foreground="#FF42919E" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
                 </StackPanel>
-                <Separator Margin="6,0" />
-                <StackPanel x:Name="OptionPopUp" Orientation="Horizontal" Margin="0,14,10,14" Width="35" Height="50">
-                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="0" Foreground="#FF42919E" HorizontalAlignment="Stretch">
-                        <StackPanel Width="150">
-                            <Button x:Name="SettingBTN" Content="Paramètres"/>
-                            <Button x:Name="HelpBTN" Content="Aide"/>
-                            <Separator/>
-                            <Button x:Name="LogoutBTN" Content="Se déconnecter" Click="LogoutBTN_Click" />
-                        </StackPanel>
-                    </materialDesign:PopupBox>
-                </StackPanel>
+                <Separator Margin="10,0" />
+                <Button x:Name="Logout" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,15" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="LogoutBTN_Click" >
+                    <Button.ToolTip>
+                        <TextBlock><Run Text="Se déconnecté"/></TextBlock>
+                    </Button.ToolTip>
+                    <materialDesign:PackIcon Kind="Logout" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Button>
             </ToolBar>
         </ToolBarTray>
-        <Grid x:Name="SelectionGrid" Margin="0,102,0,42" Height="548"/>
-        <StackPanel HorizontalAlignment="Right" Margin="0,0,5,1" VerticalAlignment="Bottom">
-            <Grid>
-                <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="0" Foreground="{x:Null}" HorizontalAlignment="Center" >
+        <Grid x:Name="SelectionGrid" Margin="0,78,0,65" Height="548"/>
+        <StackPanel HorizontalAlignment="Right" Margin="0,0,5,9" VerticalAlignment="Bottom" Width="102">
+            <Grid Margin="0,0,1,0">
+                <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="0" Foreground="{x:Null}" HorizontalAlignment="Right" >
                     <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Button>
-                <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Foreground="{x:Null}" Margin="0,0,100,0" HorizontalAlignment="Left" >
+                <Button x:Name="Facebook" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Foreground="{x:Null}" Margin="0" HorizontalAlignment="Left" >
                     <materialDesign:PackIcon Kind="Facebook" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Button>
-                <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="100,0,0,0" Foreground="{x:Null}" HorizontalAlignment="Right">
-                    <materialDesign:PackIcon Kind="InformationOutline" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Button>
             </Grid>
         </StackPanel>
-        <Separator Height="2" Margin="3,0,-1,41" VerticalAlignment="Bottom" Width="1072" Background="#FF42919E"/>
-        <Label Content="MediCare 2018 © Tous droits Réservés" HorizontalAlignment="Center" Margin="414,654,414,0" VerticalAlignment="Top" Foreground="Gray" FontFamily="Century Gothic"/>
-        <materialDesign:Snackbar IsActive="False" x:Name="Notification" VerticalAlignment="Top" Margin="0,109,0,0" Background="#FF6A97AC">
+        <Separator Height="2" Margin="3,0,-1,59" VerticalAlignment="Bottom" Width="1072" Background="#FF42919E"/>
+        <Label Content="MediCare 2018 © Tous droits Réservés" HorizontalAlignment="Center" Margin="414,646,398,0" VerticalAlignment="Top" Foreground="Gray" FontFamily="Century Gothic" Width="262"/>
+        <materialDesign:Snackbar IsActive="False" x:Name="Notification" VerticalAlignment="Top" Margin="0,77,0,0" Background="#FF6A97AC">
             <materialDesign:SnackbarMessage  ActionContent="OK" ActionClick="ActionClick" FontFamily="Century Gothic"/>
         </materialDesign:Snackbar>
+        <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="0,642,1024,9" Foreground="{x:Null}" HorizontalAlignment="Right">
+            <materialDesign:PackIcon Kind="InformationOutline" Width="Auto" Height="Auto" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Button>
     </Grid>
 </Window>

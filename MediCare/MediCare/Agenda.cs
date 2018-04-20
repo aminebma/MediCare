@@ -334,6 +334,15 @@ namespace MediCare
                                             select personne);
             return medecin.ToList<Personne>();
         }
+        public List<Personne> RechercherMedecin(string nom)
+        {
+            nom = nom.ToUpper();
+            IQueryable<Personne> medecin = (from personne in Globals.DataClass.Personne
+                                            where personne.nom.Contains(nom) 
+                                            join medcin in Globals.DataClass.Medecin on personne.Id equals medcin.IdPersonne
+                                            select personne);
+            return medecin.ToList<Personne>();
+        }
         public List<Medicaments> RechercherMedic(string nom)
         {
             nom = nom.ToUpper();

@@ -33,12 +33,15 @@ namespace MediCare
             {
                 foreach (ConsultLabel p in list)
                 {
+                    TextBlock expnom = new TextBlock();
+                    expnom.Text = "Nom : " + Globals.NomPatient + " Prénom : " + Globals.PrenomPatient;
+                    Stack.Children.Add(expnom);
                     Expander expSuivi = new Expander();
                     expSuivi.Header = "Titre de Consultation :" + p.Label + "\n Date de la consultation :" + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
                     StackSuivi.Children.Add(expSuivi);
                     consulta = consultation.AcceeConsultationId(p.Id);
                     expSuivi.Content = " Diagnostic : " + consulta.Diagnostic + "\n Description :" + consulta.Description;
-                    if (consulta.traitement != null)
+                    if (consulta.traitement.Count() != 0)
                     {
                         expSuivi.Content = expSuivi.Content + "\n Traitement :";
                         foreach (Traite d in consulta.traitement)

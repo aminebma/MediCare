@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MediCare"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
       mc:Ignorable="d"
-      Title="Medecin2" Height="442" Width="642">
+      Title="Medecin2" Height="442" Width="642" PreviewKeyDown="Window_PreviewKeyDown">
 
     <Grid Background="White" >
         <Grid.ColumnDefinitions>
@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <TextBox x:Name="nom" HorizontalAlignment="Left" Height="39" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Nom*" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="288,27,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" PreviewTextInput="nom_PreviewTextInput"/>
         <TextBox x:Name="prenom" HorizontalAlignment="Left" Height="41" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Prénom*" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="470,24,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" Grid.ColumnSpan="2" PreviewTextInput="prenom_PreviewTextInput"/>
-        <TextBox x:Name="adresse" HorizontalAlignment="Left" Height="38" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Adresse du cabinet*" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="144" Margin="287,79,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="adresse" HorizontalAlignment="Left" Height="47" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Adresse du cabinet*" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="144" Margin="287,79,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
         <TextBox x:Name="num_tel" HorizontalAlignment="Left" Height="38" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Numéro de téléphone*" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="144" Margin="471,79,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" Grid.ColumnSpan="2" PreviewTextInput="num_tel_PreviewTextInput"/>
         <DatePicker x:Name="date_naiss" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date de naissance*" HorizontalAlignment="Left" Height="30" Margin="288,148,0,0" VerticalAlignment="Top" Width="138" BorderBrush="#FF77B3B4" PreviewTextInput="date_naiss_PreviewTextInput"/>
         <ComboBox x:Name="sex" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Sexe" BorderThickness="0,0,0,3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="467,131,0,0" Width="148" Background="White" BorderBrush="#FF77B3B4" Height="47" FontFamily="Century Gothic" FontSize="14" Foreground="#FF3599CC" Grid.ColumnSpan="2" >
