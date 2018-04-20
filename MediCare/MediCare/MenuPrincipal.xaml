@@ -99,9 +99,6 @@
                 </Button>
             </Grid>
         </StackPanel>
-        <Button x:Name="Settings" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="10,0,0,1" Foreground="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
-            <materialDesign:PackIcon Kind="Settings" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </Button>
         <Separator Height="2" Margin="3,0,-1,41" VerticalAlignment="Bottom" Width="1072" Background="#FF42919E"/>
         <Label Content="MediCare 2018 © Tous droits Réservés" HorizontalAlignment="Center" Margin="414,654,414,0" VerticalAlignment="Top" Foreground="Gray" FontFamily="Century Gothic"/>
         <materialDesign:Snackbar IsActive="False" x:Name="Notification" VerticalAlignment="Top" Margin="0,109,0,0" Background="#FF6A97AC">

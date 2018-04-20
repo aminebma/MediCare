@@ -8,14 +8,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="746" Height="548">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="45,129,276,77" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" RenderTransformOrigin="0.49,0.504">
+        <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Left" Height="422" Margin="30,60,0,0" VerticalAlignment="Top" Width="636"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="45,140,276,70" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" RenderTransformOrigin="0.49,0.504">
             <ListView x:Name="StackSuivi"  Height="322" Width="415">
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </ListView>
         </ScrollViewer>
-        <Button x:Name="search" Content="Ok" HorizontalAlignment="Left" Height="31" Margin="551,445,0,0" VerticalAlignment="Top" Width="91" Click="search_Click" Background="#FF6A97AC"/>
+        <Button x:Name="search" Content="Ok" HorizontalAlignment="Left" Height="31" Margin="551,424,0,0" VerticalAlignment="Top" Width="91" Click="search_Click" Background="#FF6A97AC"/>
         <ComboBox x:Name="nomPatientT" HorizontalAlignment="Left" Height="44" Margin="79,72,0,0" VerticalAlignment="Top" Width="158"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Nom*" PreviewTextInput="nomPatientT_PreviewTextInput" FontFamily="Century Gothic" FontSize="16" Foreground="#FF6A97AC" IsEditable="True" TextBoxBase.TextChanged="nomPatientT_TextChanged" IsTextSearchEnabled="False" GotFocus="nomPatientT_GotFocus" PreviewKeyDown="nomPatientT_PreviewKeyDown"/>
-        <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="44" Margin="304,73,0,0" VerticalAlignment="Top" Width="170"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Prenom*" PreviewTextInput="prenomPatientT_PreviewTextInput" FontFamily="Century Gothic" FontSize="16" Foreground="#FF6A97AC" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus"/>
-        <Label Content="Veuillez saisir ou choisir un patient  : " HorizontalAlignment="Left" Height="40" Margin="22,23,0,0" VerticalAlignment="Top" Width="645" FontSize="20" FontFamily="Century Gothic" FontWeight="Bold" />
+        <ComboBox x:Name="prenomPatientT" HorizontalAlignment="Left" Height="44" Margin="307,73,0,0" VerticalAlignment="Top" Width="170"   Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Prenom*" PreviewTextInput="prenomPatientT_PreviewTextInput" FontFamily="Century Gothic" FontSize="16" Foreground="#FF6A97AC" IsEditable="True" TextBoxBase.TextChanged="prenomPatientT_TextChanged" IsTextSearchEnabled="False" PreviewKeyDown="prenomPatientT_PreviewKeyDown" GotFocus="prenomPatientT_GotFocus"/>
+        <Label Content="Veuillez saisir ou choisir un patient  : " HorizontalAlignment="Left" Height="40" Margin="76,15,0,0" VerticalAlignment="Top" Width="369" FontSize="20" FontFamily="Century Gothic" FontWeight="Bold" />
     </Grid>
 </UserControl>

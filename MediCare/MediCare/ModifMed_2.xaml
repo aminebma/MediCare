@@ -8,8 +8,9 @@
         mc:Ignorable="d"
         Height="548" Width="746" PreviewKeyDown="UserControl_PreviewKeyDown">
     <Grid Margin="0,-4,2,4">
-        <Button x:Name="validateBtn" Content="Valider" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="136" Margin="304,0,304,26" Padding="0" BorderThickness="0" Background="#FF6A97AC" Foreground="White" Height="34" Click="validateBtn_Click" RenderTransformOrigin="1.434,-6"/>
-        <Label Content="Veuillez saisir les nouveaux champs" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,3,0" Foreground="#FF6A97AC" FontWeight="Bold" FontSize="18" Height="43" Width="332" FontFamily="Century Gothic"/>
+        <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Left" Height="240" Margin="130,116,0,0" VerticalAlignment="Top" Width="480"/>
+        <Button x:Name="validateBtn" Content="Valider" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="136" Margin="302,0,306,68" Padding="0" BorderThickness="0" Background="#FF6A97AC" Foreground="White" Height="34" Click="validateBtn_Click" RenderTransformOrigin="1.434,-6"/>
+        <Label Content="Veuillez saisir les nouveaux champs" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="204,56,182,0" Foreground="#FF6A97AC" FontWeight="Bold" FontSize="18" Height="43" Width="358" FontFamily="Century Gothic"/>
         <PasswordBox x:Name="pass" materialDesign:HintAssist.Hint="Nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="208,126,208,356" FontFamily="Century Gothic" FontSize="16" Foreground="#FF6A97AC" HorizontalAlignment="Center" Width="328" PasswordChanged="pass_PasswordChanged" />
         <PasswordBox x:Name="npass" materialDesign:HintAssist.Hint="Confirmer nouveau mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="206,210,206,272" FontFamily="Century Gothic" FontSize="16" Foreground="#FF6A97AC" HorizontalAlignment="Center" Width="332" PasswordChanged="npass_PasswordChanged" />
         <Grid x:Name="validationMdp" Margin="208,281,208,82" Visibility="Hidden">

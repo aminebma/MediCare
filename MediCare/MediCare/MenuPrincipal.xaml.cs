@@ -125,11 +125,6 @@ namespace MediCare
             
         }
 
-        private void Consultation_Click(object sender, RoutedEventArgs e)
-        {
-            SelectionGrid.Children.Clear();
-            SelectionGrid.Children.Add(new Consultation_Patient());
-        }
 
         private void Agenda_Click(object sender, RoutedEventArgs e)
         {
@@ -146,7 +141,7 @@ namespace MediCare
         private void Patient_Click(object sender, RoutedEventArgs e)
         {
             SelectionGrid.Children.Clear();
-            SelectionGrid.Children.Add(new MenuPatient());
+            SelectionGrid.Children.Add(new AffichPatient());
         }
 
 

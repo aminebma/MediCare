@@ -148,9 +148,6 @@
     <Compile Include="HistoriqueMedecin.xaml.cs">
       <DependentUpon>HistoriqueMedecin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="impression.xaml.cs">
-      <DependentUpon>impression.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LettreOr.xaml.cs">
       <DependentUpon>LettreOr.xaml</DependentUpon>
     </Compile>
@@ -193,9 +190,6 @@
     </Compile>
     <Compile Include="Notifications.cs" />
     <Compile Include="Ordonnance.cs" />
-    <Compile Include="PatientASupp.xaml.cs">
-      <DependentUpon>PatientASupp.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Patients.cs" />
     <Compile Include="Perso.cs" />
     <Compile Include="PopupPatient.xaml.cs">
@@ -212,9 +206,6 @@
       <DependentUpon>FichePatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClassePersonne.cs" />
-    <Compile Include="SppressionCons.xaml.cs">
-      <DependentUpon>SppressionCons.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SUIVIS.xaml.cs">
       <DependentUpon>SUIVIS.xaml</DependentUpon>
     </Compile>
@@ -265,10 +256,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="HistoriqueMedecin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="impression.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -332,10 +319,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PatientASupp.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="PopupPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -363,10 +346,6 @@
     <Page Include="FichePatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SppressionCons.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="SUIVIS.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -509,4 +488,9 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked</PreBuildEvent>
+  </PropertyGroup>
 </Project>

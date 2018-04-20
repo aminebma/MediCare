@@ -30,6 +30,13 @@ namespace MediCare
         {
             var BackBrush = new SolidColorBrush(Color.FromRgb(153, 180, 209));
             var SelectBrush = new SolidColorBrush(Color.FromRgb(33, 150, 243));
+            _0.Background = BackBrush;
+            _1.Background = BackBrush;
+            _2.Background = BackBrush;
+            _3.Background = BackBrush;
+            _4.Background = BackBrush;
+            _5.Background = BackBrush;
+            _6.Background = BackBrush;
             _7.Background = BackBrush;
             _8.Background = BackBrush;
             _9.Background = BackBrush;
@@ -41,6 +48,19 @@ namespace MediCare
             _15.Background = BackBrush;
             _16.Background = BackBrush;
             _17.Background = BackBrush;
+            _18.Background = BackBrush;
+            _19.Background = BackBrush;
+            _20.Background = BackBrush;
+            _21.Background = BackBrush;
+            _22.Background = BackBrush;
+            _23.Background = BackBrush;
+            ListeRDV0.Items.Clear();
+            ListeRDV1.Items.Clear();
+            ListeRDV2.Items.Clear();
+            ListeRDV3.Items.Clear();
+            ListeRDV4.Items.Clear();
+            ListeRDV5.Items.Clear();
+            ListeRDV6.Items.Clear();
             ListeRDV7.Items.Clear();
             ListeRDV8.Items.Clear();
             ListeRDV9.Items.Clear();
@@ -52,6 +72,12 @@ namespace MediCare
             ListeRDV15.Items.Clear();
             ListeRDV16.Items.Clear();
             ListeRDV17.Items.Clear();
+            ListeRDV18.Items.Clear();
+            ListeRDV19.Items.Clear();
+            ListeRDV20.Items.Clear();
+            ListeRDV21.Items.Clear();
+            ListeRDV22.Items.Clear();
+            ListeRDV23.Items.Clear();
             agenda.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
             Agenda agd = new Agenda();
             List<RendezVous> ListRDV = agd.RendezVousAujrd(Calendrier.SelectedDate.ToString());
@@ -83,6 +109,34 @@ namespace MediCare
                         }
                         switch (rdv.Date.ToString().Substring(11, 2))
                         {
+                            case "00":
+                                ListeRDV0.Items.Add(test);
+                                _0.Background = SelectBrush;
+                                break;
+                            case "01":
+                                ListeRDV1.Items.Add(test);
+                                _1.Background = SelectBrush;
+                                break;
+                            case "02":
+                                ListeRDV2.Items.Add(test);
+                                _2.Background = SelectBrush;
+                                break;
+                            case "03":
+                                ListeRDV3.Items.Add(test);
+                                _3.Background = SelectBrush;
+                                break;
+                            case "04":
+                                ListeRDV4.Items.Add(test);
+                                _4.Background = SelectBrush;
+                                break;
+                            case "05":
+                                ListeRDV5.Items.Add(test);
+                                _5.Background = SelectBrush;
+                                break;
+                            case "06":
+                                ListeRDV6.Items.Add(test);
+                                _6.Background = SelectBrush;
+                                break;
                             case "07":
                                 ListeRDV7.Items.Add(test);
                                 _7.Background = SelectBrush;
@@ -126,6 +180,30 @@ namespace MediCare
                             case "17":
                                 ListeRDV17.Items.Add(test);
                                 _17.Background = SelectBrush;
+                                break;
+                            case "18":
+                                ListeRDV18.Items.Add(test);
+                                _18.Background = SelectBrush;
+                                break;
+                            case "19":
+                                ListeRDV19.Items.Add(test);
+                                _19.Background = SelectBrush;
+                                break;
+                            case "20":
+                                ListeRDV20.Items.Add(test);
+                                _20.Background = SelectBrush;
+                                break;
+                            case "21":
+                                ListeRDV21.Items.Add(test);
+                                _21.Background = SelectBrush;
+                                break;
+                            case "22":
+                                ListeRDV22.Items.Add(test);
+                                _22.Background = SelectBrush;
+                                break;
+                            case "23":
+                                ListeRDV23.Items.Add(test);
+                                _23.Background = SelectBrush;
                                 break;
                             default: break;
                         }

@@ -12,14 +12,12 @@
             <Label Content="L'historique de toutes les consultations faites dans cet établissement : " HorizontalAlignment="Center" Height="43" Margin="0,82,0,423" VerticalAlignment="Center" Width="554" FontWeight="Bold" FontSize="16" FontFamily="Century Gothic"/>
 
         </materialDesign:Card>
-        <StackPanel Margin="0" VerticalAlignment="Top" Background="#FF42919E">
-            <Label FontSize="36" FontFamily="Century Gothic" Foreground="White" Content="Historique des consultation  " Margin="0" HorizontalAlignment="Center"/>
-        </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="82,130,83,70" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Center" Height="350">
             <StackPanel x:Name="StackSuivi"  Height="291" Width="682">
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </StackPanel>
         </ScrollViewer>
+        <Label Content="Historique " HorizontalAlignment="Left" Height="69" Margin="492,9,-45,0" VerticalAlignment="Top" Width="297" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>

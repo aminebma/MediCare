@@ -13,7 +13,7 @@
         <Label Content="Mademoiselle" HorizontalAlignment="Left" Height="28" Margin="21,67,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
         <Label Content="Madame" HorizontalAlignment="Left" Height="28" Margin="185,69,0,0" VerticalAlignment="Top" Width="158" Foreground="#FF3599CC" FontWeight="Bold"/>
         <Label Content="Monsieur" HorizontalAlignment="Left" Height="28" Margin="333,69,0,0" VerticalAlignment="Top" Width="148" Foreground="#FF3599CC" FontWeight="Bold"/>
-        <Button  x:Name="PDF" Content="Créer PDF" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Margin="568,66,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="32" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
+        <Button  x:Name="PDF" Content="Créer PDF" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Margin="563,66,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="32" Click="Button_Click" RenderTransformOrigin="1.434,-6"/>
         <Label Content="Fait à : " HorizontalAlignment="Left" Height="28" Margin="128,404,0,0" VerticalAlignment="Top" Width="64" Foreground="#FF3599CC" FontWeight="Bold"/>
         <Label Content="Le : " HorizontalAlignment="Left" Height="28" Margin="405,404,0,0" VerticalAlignment="Top" Width="49" Foreground="#FF3599CC" FontWeight="Bold" RenderTransformOrigin="0.693,-0.799"/>
         <DatePicker x:Name="date" HorizontalAlignment="Left" Height="30" Margin="474,396,0,0" VerticalAlignment="Top" Width="148" OpacityMask="#FF489599" Foreground="#FF549794" BorderBrush="#892E8687" Background="White" BorderThickness="0,0,0,3"/>
@@ -23,7 +23,7 @@
         <CheckBox x:Name="___op_Copy" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="280,74,0,0" Checked="CheckBox_Checked" Foreground="#FFAAC5B4"/>
         <CheckBox x:Name="___op_Copy1" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="443,74,0,0" Checked="CheckBox_Checked" Foreground="#FFAAC5B4"/>
         <TextBlock x:Name="patientsT2" HorizontalAlignment="Left" Height="94" Margin="182,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" Background="#3377B3B4"/>
-        <Button  x:Name="Suivant" Content="Suivant" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Margin="544,500,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="28" Click="Suivant_Click" RenderTransformOrigin="1.434,-6"/>
+        <Button  x:Name="Suivant" Content="Suivant" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="572,500,0,0" Padding="0" BorderThickness="0" Background="#FF77B3B4" Foreground="White" Height="28" Click="Suivant_Click" RenderTransformOrigin="1.434,-6"/>
 
     </Grid>
 </UserControl>

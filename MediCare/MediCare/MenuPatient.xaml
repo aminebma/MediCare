@@ -17,7 +17,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <ListView VerticalAlignment="Center" Margin="0,18,0,56" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged" Height="474">
+            <ListView VerticalAlignment="Center" Margin="0,18,0,31" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged" Height="499">
 
                 <ListViewItem x:Name="Consultation" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
@@ -99,6 +99,19 @@
                     </ListViewItem.RenderTransform>
                     <StackPanel Orientation="Horizontal" Margin="0">
                         <TextBlock Text="Supprimer le patient " Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="rdv" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <TextBlock Text="Ajouter un rdv " Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
                     </StackPanel>
                 </ListViewItem>
             </ListView>

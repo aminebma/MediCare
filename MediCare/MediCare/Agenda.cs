@@ -347,6 +347,7 @@ namespace MediCare
         public List<RendezVous> RendezVousAujrd(string dateSelect)
         {
             IQueryable<RendezVous> agenda = (from rdv in Globals.DataClass.RendezVous
+                                             where rdv.IdMedecin == Globals.IdMedecin
                                              orderby rdv.Date
                                              select rdv);
             List<RendezVous> list1 = new List<RendezVous>();

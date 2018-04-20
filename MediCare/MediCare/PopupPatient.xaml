@@ -8,8 +8,8 @@
     <Grid>
 
         <Label Content="Ce patient n'existe pas. Voulez-vous l'ajouter ?" Margin="0,10,0,75" Height="37" FontFamily="Century Gothic" Background="{x:Null}" Foreground="#FF6A97AC" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="290"/>
-        <Button Content="Oui" Margin="67,61,161,24" Width="62" Height="37" FontSize="11" FontFamily="Century Gothic" Background="#FF6A97AC" Click="Oui_Click" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
-        <Button Content="Non" Margin="170,61,58,25" Width="62" Height="36" FontSize="11" FontFamily="Century Gothic" Background="#FF6A97AC" Click="Non_Click" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+        <Button Content="Oui" Margin="67,61,169,32" Width="54" Height="29" FontSize="11" FontFamily="Century Gothic" Background="#FF6A97AC" Click="Oui_Click" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+        <Button Content="Non" Margin="178,61,59,32" Width="54" Height="29" FontSize="11" FontFamily="Century Gothic" Background="#FF6A97AC" Click="Non_Click" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
 
     </Grid>
 </Window>

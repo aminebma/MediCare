@@ -101,22 +101,15 @@ namespace MediCare
                 MessageBox.Show("Une erreur s'est produite");
 
             }
-            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
-
-            ofd.InitialDirectory = System.Windows.Forms.Application.ExecutablePath;
+           
 
 
 
 
+                System.Diagnostics.Process.Start(ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label));
 
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 
-            {
-                System.Diagnostics.Process.Start(ofd.FileName);
 
-               
-
-            }
 
 
         }

@@ -105,6 +105,7 @@ namespace MediCare
                         prenomPatientT.IsEnabled = false;
                         search.IsEnabled = false;
                         PopupPatient pop = new PopupPatient();
+                        pop.SetGridAppelant = (Grid)this.Parent;
                         pop.Show();
                     }
                 }
@@ -133,6 +134,7 @@ namespace MediCare
                             prenomPatientT.IsEnabled = false;
                             search.IsEnabled = false;
                             PopupPatient pop = new PopupPatient();
+                            pop.SetGridAppelant = (Grid)this.Parent;
                             pop.Show();
                         }
                     }

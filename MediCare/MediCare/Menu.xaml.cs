@@ -28,12 +28,7 @@ namespace MediCare
             ClassNotif.GenererRDVduJour(ListeRDV);       
         }
 
-        private void ConsultationBTN_Click(object sender, RoutedEventArgs e)
-        {
-            var parent = (Grid)this.Parent;
-            parent.Children.Clear();
-            parent.Children.Add(new Consultation_Patient());
-        }
+        
 
         private void AgendaBTN_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +54,7 @@ namespace MediCare
         {
             var parent = (Grid)this.Parent;
             parent.Children.Clear();
-            parent.Children.Add(new MenuHistorique());
+            parent.Children.Add(new MonCompte());
         }
 
         private void RechercheBTN_Click(object sender, RoutedEventArgs e)

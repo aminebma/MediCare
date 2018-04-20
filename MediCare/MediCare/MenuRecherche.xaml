@@ -18,30 +18,9 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <ListView Margin="0" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged" VerticalAlignment="Center" >
-                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
-                    <Separator.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleY="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Separator.RenderTransform>
-                </Separator>
-                <ListViewItem x:Name="DossierPatient" Height="60" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" BorderThickness="0" >
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Margin="0" Foreground="White" FontFamily="Century Gothic" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Dossier médical "/><LineBreak/><Run Text="d'un patient"/></TextBlock>
-                    </StackPanel>
-                </ListViewItem>
+            <ListView Margin="0,134,0,158" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged" VerticalAlignment="Center" Height="256" >
+
+
                 <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
                     <Separator.RenderTransform>
                         <TransformGroup>
@@ -62,7 +41,7 @@
                         </TransformGroup>
                     </ListViewItem.RenderTransform>
                     <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Margin="0" Foreground="White" FontFamily="Century Gothic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Rechercher un "/><LineBreak/><Run Text="Médicament"/></TextBlock>
+                        <TextBlock Margin="0" Foreground="White" FontFamily="Century Gothic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Rechercher un Médicament"/></TextBlock>
                     </StackPanel>
                 </ListViewItem>
                 <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White" FontSize="18">
@@ -75,53 +54,7 @@
                         </TransformGroup>
                     </Separator.RenderTransform>
                 </Separator>
-                <ListViewItem x:Name="RechMedecin" Height="60" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" BorderThickness="0">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="Rechercher un medecin" Margin="0" Foreground="White" FontFamily="Century Gothic" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </ListViewItem>
-                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
-                    <Separator.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleY="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Separator.RenderTransform>
-                </Separator>
-                <ListViewItem x:Name="RechRDV" Height="60" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" BorderThickness="0">
-                    <ListViewItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ListViewItem.RenderTransform>
-                    <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Margin="0" Foreground="White" FontFamily="Century Gothic" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Rechercher un"/><LineBreak/><Run Text=" rendez-vous"/></TextBlock>
-                    </StackPanel>
-                </ListViewItem>
-                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
-                    <Separator.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleY="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Separator.RenderTransform>
-                </Separator>
-                <ListViewItem x:Name="Medecins" Height="60" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" BorderThickness="0"  >
+                <ListViewItem x:Name="Medecins" Height="48" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" BorderThickness="0"  >
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

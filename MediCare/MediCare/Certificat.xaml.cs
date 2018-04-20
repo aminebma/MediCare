@@ -164,7 +164,7 @@ namespace MediCare
 
 
 
-            iTextSharp.text.Paragraph para9 = new iTextSharp.text.Paragraph("      \n\n                                                                                          Fait à  " + adr.Text + " Le   " + date.Text + "\n\n\n\n\n\n\n ", times1);
+            iTextSharp.text.Paragraph para9 = new iTextSharp.text.Paragraph("      \n\n                                                                                          Fait à  " + adr.Text + " Le   " + DateTime.Today + "\n\n\n\n\n\n\n ", times1);
             doc.Add(para9);
             iTextSharp.text.Paragraph para10 = new iTextSharp.text.Paragraph(" Signature du medecin                                                                              Cachet du medecin ", times);
             doc.Add(para10);

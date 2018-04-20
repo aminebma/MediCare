@@ -12,6 +12,104 @@
             <ScrollViewer x:Name="agenda" VerticalScrollBarVisibility="Auto" Margin="0,0,275,0" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" RenderTransformOrigin="0.49,0.504">
                 <StackPanel x:Name="StackAgenda">
                     <Border Background="{DynamicResource MaterialDesignDivider}" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <Expander x:Name="_0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                           00:00-1:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV0" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_1" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                           1:00-2:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV1" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_2" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                           2:00-3:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV2" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_3" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                           3:00-4:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV3" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_4" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                           4:00-5:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV4" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_5" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                           5:00-6:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV5" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_6" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                           6:00-7:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV6" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
                     <Expander x:Name="_7" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                           7:00-8:00" Foreground="White" Width="466">
                         <ListView x:Name="ListeRDV7" Background="{x:Null}" Foreground="{x:Null}">
                             <ListView.ItemsPanel>
@@ -22,10 +120,10 @@
                         </ListView>
                     </Expander>
                     <Border
-      Background="{DynamicResource MaterialDesignDivider}"
-      Height="1"
-      HorizontalAlignment="Stretch"
-      SnapsToDevicePixels="True" />
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
                     <Expander x:Name="_8" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                           8:00-9:00" Foreground="White" Width="466">
                         <ListView x:Name="ListeRDV8" Background="{x:Null}" Foreground="{x:Null}">
                             <ListView.ItemsPanel>
@@ -166,12 +264,96 @@
                         Height="1"
                         HorizontalAlignment="Stretch"
                         SnapsToDevicePixels="True" />
+                    <Expander x:Name="_18" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                         18:00-19:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV18" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_19" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                         19:00-20:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV19" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_20" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                         20:00-21:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV20" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_21" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                         21:00-22:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV21" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_22" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                         22:00-23:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV22" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
+                    <Expander x:Name="_23" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Header="                                         23:00-00:00" Foreground="White" Width="466">
+                        <ListView x:Name="ListeRDV23" Background="{x:Null}" Foreground="{x:Null}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Expander>
+                    <Border
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        SnapsToDevicePixels="True" />
                 </StackPanel>
             </ScrollViewer>
         </materialDesign:Card>
         <Calendar x:Name="Calendrier" HorizontalAlignment="Right" Margin="0,79" VerticalAlignment="Center" Width="275" SelectedDatesChanged="Calendrier_SelectedDatesChanged_1" BorderBrush="{x:Null}"/>
         <TextBox Name="aide"
   TextWrapping="Wrap"
-  AcceptsReturn="True" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Text="Sellectionnez la date désirée dans la calendrier et visualisez vos rendez vous" Width="275" Foreground="#FF536272" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,1,0,0" VerticalScrollBarVisibility="Disabled" IsReadOnly="True"/>
+  AcceptsReturn="True" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Text="Selectionnez la date désirée dans la calendrier et visualisez vos rendez-vous" Width="275" Foreground="#FF536272" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,1,0,0" VerticalScrollBarVisibility="Disabled" IsReadOnly="True" Height="83"/>
     </Grid>
 </UserControl>

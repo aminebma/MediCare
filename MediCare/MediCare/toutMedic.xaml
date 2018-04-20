@@ -7,11 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="548" d:DesignWidth="744" Width="746">
     <Grid>
-        <Label Content="La liste de tous les médicaments enregistrés : " Margin="0,30,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic" HorizontalAlignment="Center"/>
+        <Label Content="La liste de tous les médicaments enregistrés : " Margin="142,51,154,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic" HorizontalAlignment="Center"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,90,0,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <StackPanel x:Name="StackSuivi"  Height="417" Width="690">
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </StackPanel>
         </ScrollViewer>
+        <Label Content="Médicaments" HorizontalAlignment="Left" Height="54" Margin="534,-5,0,0" VerticalAlignment="Top" Width="201" Foreground="#FF3599CC" FontSize="28" FontWeight="Bold"/>
     </Grid>
 </UserControl>

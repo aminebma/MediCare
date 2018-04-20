@@ -20,7 +20,6 @@ namespace MediCare
     public partial class PopupPatient : Window
     {
         Grid GridAppelant;
-        Grid Total;
 
         public PopupPatient()
         {
@@ -36,29 +35,19 @@ namespace MediCare
             set { GridAppelant = value; }
         }
 
-        public Grid SetTotal
-        {
-            get { return Total; }
-            set { Total = value; }
-        }
-
-
         private void Oui_Click(object sender, RoutedEventArgs e)
         {
-            //Total.Children.Add(new FichePatient());
-            var parent = (Grid)this.Parent;
-            parent.Children.Clear();
-            parent.Children.Add(new FichePatient());
+            GridAppelant.Children.Clear();
+            GridAppelant.Children.Add(new FichePatient());
             this.Close();
         }
 
         private void Non_Click(object sender, RoutedEventArgs e)
-        {
-            pers.AddPatientPersonne(Globals.NomPatient,Globals.PrenomPatient,null,null,null,null,null,null,null,null,null);
-            var parent = (Grid)this.Parent;
-            parent.Children.Clear();
-            parent.Children.Add(new AjoutConsultation());
+        {        
+            GridAppelant.Children.Clear();
+            GridAppelant.Children.Add(new MenuPatient());
             this.Close();
+            pers.AddPatientPersonne(Globals.NomPatient, Globals.PrenomPatient);
         }
     }
 }

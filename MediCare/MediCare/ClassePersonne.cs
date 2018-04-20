@@ -39,29 +39,27 @@ namespace MediCare
             Globals.DataClass.Patient.InsertOnSubmit(tabpatient);
             Globals.DataClass.SubmitChanges();
         }
-        //public void AddPatientPersonne(String nom, String prenom)
-        //{
-        //    string con = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\MCDatabase.mdf;Integrated Security=True";
-        //    MCDataClassDataContext Globals.DataClass = new MCDataClassDataContext(con);
-
-        //    Personne tabpersonne = new Personne
-        //    {
-        //        nom = nom,
-        //        prenom = prenom
-        //    };
+        public void AddPatientPersonne(String nom, String prenom)
+        {
+           
+            Personne tabpersonne = new Personne
+            {
+                nom = nom,
+                prenom = prenom
+            };
 
 
-        //    Globals.DataClass.Personne.InsertOnSubmit(tabpersonne);
-        //    Globals.DataClass.SubmitChanges();
+            Globals.DataClass.Personne.InsertOnSubmit(tabpersonne);
+            Globals.DataClass.SubmitChanges();
 
-        //    Patient tabpatient = new Patient
-        //    {
-        //        IdPersonne = tabpersonne.Id
-        //    };
+            Patient tabpatient = new Patient
+            {
+                IdPersonne = tabpersonne.Id
+            };
 
-        //    Globals.DataClass.Patient.InsertOnSubmit(tabpatient);
-        //    Globals.DataClass.SubmitChanges();
-        //}
+            Globals.DataClass.Patient.InsertOnSubmit(tabpatient);
+            Globals.DataClass.SubmitChanges();
+        }
 
         public void SuppRdv(string nomPatient, string prenomPatient)
         {

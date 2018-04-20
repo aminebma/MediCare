@@ -13,9 +13,7 @@
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </StackPanel>
         </ScrollViewer>
-        <StackPanel Margin="0,0,2,0" VerticalAlignment="Top" Background="#FF6A97AC">
-            <Label FontSize="48" FontFamily="Century Gothic" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Suivi médical :" Margin="0"/>
-        </StackPanel>
-        <Label Content="Le suivi médical de cepatient :" HorizontalAlignment="Left" Margin="40,88,0,0" VerticalAlignment="Top" Height="42" Width="451" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Label Content="Le suivi médical de ce patient :" HorizontalAlignment="Left" Margin="69,89,0,0" VerticalAlignment="Top" Height="42" Width="451" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Label Content="Suivi Médical" HorizontalAlignment="Left" Height="54" Margin="446,9,0,0" VerticalAlignment="Top" Width="238" Foreground="CadetBlue" FontSize="28" FontWeight="Bold" Background="#00000000"/>
     </Grid>
 </UserControl>
