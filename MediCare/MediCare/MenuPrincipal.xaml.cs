@@ -25,15 +25,15 @@ namespace MediCare
     public partial class MenuPrincipal : Window
     {
         public int i = 0;
-        List<Personne> listPatientsTmp;
-        List<Medicaments> listMedicTmp;
         Medic med = new Medic();
         Agenda pat = new Agenda();
+        List<Personne> listPatientsTmp;
+        List<Medicaments> listMedicTmp;
 
         public MenuPrincipal()
         {
             InitializeComponent();
-            SelectionGrid.Children.Add(new Menu(ListRDV));
+            SelectionGrid.Children.Add(new Menu());
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Globals.TempRappelRDV = 15;
             Task.Factory.StartNew(GenererNotif, TaskCreationOptions.LongRunning);
@@ -41,6 +41,14 @@ namespace MediCare
         
         private async void GenererNotif()
         {
+            IQueryable<RendezVous> NotifRdv0 = (from rendezVous in Globals.DataClass.RendezVous
+                                               orderby rendezVous.Date
+                                               select rendezVous);
+            foreach( RendezVous rdvv in NotifRdv0)
+            {
+                rdvv.Notified = false;
+                Globals.DataClass.SubmitChanges();
+            }
             while (true)
             {
                 try
@@ -73,13 +81,10 @@ namespace MediCare
                                     string heureRDV = rdv.Date.ToString().Substring(10, 9);
                                     await Dispatcher.BeginInvoke(new Action(delegate ()
                                      {
-                                         TextBlock TextRDV = new TextBlock();
-                                         TextRDV.Text = " RENDEZ VOUS DANS " + Globals.TempRappelRDV.ToString() + " min \n Patient: \n Nom: " + NomPatient + "\n Prenom: " + PrenomPatient + "\n Heure: " + heureRDV + "\n\t(" + DateTime.Now.ToString() + ")";
-                                         ListeNotif.Items.Add(TextRDV);
-                                         if (NotificationBadge.Badge.Equals("0")) NotificationBadge.BadgeBackground = Brushes.Red;
-                                         NotificationBadge.Badge = int.Parse(NotificationBadge.Badge.ToString()) + 1;
                                          rdv.Notified = true;
                                          Globals.DataClass.SubmitChanges();
+                                         Notification.IsActive = true;
+                                         Notification.Message.Content = "Vous avez un rendez vous important dans " + Globals.TempRappelRDV.ToString() + " minutes";
                                      }));
                                     System.Windows.Forms.NotifyIcon notif = new System.Windows.Forms.NotifyIcon();
                                     notif.Visible = true;
@@ -97,18 +102,10 @@ namespace MediCare
 
         public ListView ListRDV { get; }
 
-
-        private void EffacerNotif_Click(object sender, RoutedEventArgs e)
-        {
-            ListeNotif.Items.Clear();
-            NotificationBadge.BadgeBackground = Brushes.Green;
-            NotificationBadge.Badge = "0";
-        }
-
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             SelectionGrid.Children.Clear();
-            UserControl usc = new Menu(ListeNotif);
+            UserControl usc = new Menu();
             SelectionGrid.Children.Add(usc);
         }
 
@@ -152,9 +149,10 @@ namespace MediCare
             SelectionGrid.Children.Add(new MenuPatient());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void ActionClick(object sender, RoutedEventArgs e)
+        {
+            Notification.IsActive = false;
         }
 
         private void element_GotFocus(object sender, RoutedEventArgs e)
@@ -170,7 +168,7 @@ namespace MediCare
         private void element_TextChanged(object sender, TextChangedEventArgs e)
         {
             listPatientsTmp = pat.RechercherPatientNom(element.Text);
-            
+
             if (listPatientsTmp.Count() != 0)
             {
                 element.Items.Clear();
@@ -180,7 +178,7 @@ namespace MediCare
                     if (element.Items.Count != 0) element.Items.RemoveAt(element.Items.Count - 1);
                 }
             }
-            
+
             listMedicTmp = med.RechercheMedicament(element.Text);
             if (listMedicTmp.Count() != 0)
             {
@@ -191,9 +189,7 @@ namespace MediCare
                     if (element.Items.Count != 0) element.Items.RemoveAt(element.Items.Count - 1);
                 }
             }
-            
-        }
 
-        
+        }
     }
 }

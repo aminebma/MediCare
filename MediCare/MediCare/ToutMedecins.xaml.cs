@@ -32,7 +32,7 @@ namespace MediCare
                     foreach(Medecins p in list)
                     {
                         Expander expSuivi = new Expander();
-                        expSuivi.Header = "Nom du Patient :" + p.Nom+ "\n Prénom du patient :" + p.Prenom ;
+                        expSuivi.Header = "Nom du médecin :" + p.Nom+ "\n Prénom du médecin :" + p.Prenom ;
                         expSuivi.Content = " Date de naissance : " + p.Datenaiss + "\n Adresse :" + p.Adresse + "\n Numéro de télèphone : " + p.Numtel + "\n Sexe : " + p.Sexe ;
                         StackSuivi.Children.Add(expSuivi);
 

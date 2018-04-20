@@ -48,6 +48,7 @@ namespace MediCare
                     break;
                 case "CsltAgd":
                     this.Grid2.Children.Clear();
+                    this.Grid2.Children.Add(new AgendaMedecin());
                     break;
                 default:
                     break;

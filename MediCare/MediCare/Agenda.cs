@@ -343,5 +343,25 @@ namespace MediCare
                                              select medoc);
             return medic.ToList<Medicaments>();
         }
+
+        public List<RendezVous> RendezVousAujrd(string dateSelect)
+        {
+            IQueryable<RendezVous> agenda = (from rdv in Globals.DataClass.RendezVous
+                                             orderby rdv.Date
+                                             select rdv);
+            List<RendezVous> list1 = new List<RendezVous>();
+            list1=agenda.ToList<RendezVous>();
+            List<RendezVous> list2 = new List<RendezVous>();
+            foreach(RendezVous rdv in list1)
+            {
+                if (string.Compare(rdv.Date.ToString().Substring(0, 10), dateSelect.ToString().Substring(0, 10)) == 0)
+                {
+                    list2.Add(rdv);
+                }
+
+            }
+            list1 = agenda.ToList<RendezVous>();
+            return list2;
+        }
     }
 }

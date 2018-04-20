@@ -30,7 +30,7 @@ namespace MediCare
                 active = true,
                 key = key,
                 username = username,
-                password = EncryptPassword(password),
+                password = Encrypt(password),
                 email = email,
                 IdPersonne = t.Id
             };
@@ -40,7 +40,7 @@ namespace MediCare
 
         public bool VerifMed(string nom, string mot_pass)
         {
-            string cryptedPass = EncryptPassword(mot_pass);
+            string cryptedPass = Encrypt(mot_pass);
             IQueryable<Medecin> medverif = (from Medecin in Globals.DataClass.Medecin
                                             where Medecin.username == nom && Medecin.password == cryptedPass
                                             select Medecin);
@@ -53,15 +53,14 @@ namespace MediCare
             }
         }
 
-        public bool ModifMed(string username, string mot_pass, string new_password)
+        public bool ModifMed(string username, string new_password)
         {
-            string cryptedPass = EncryptPassword(mot_pass);
             IQueryable<Medecin> medModif = (from medecin in Globals.DataClass.Medecin
-                                            where medecin.username == username && medecin.password == cryptedPass
+                                            where medecin.username == username
                                             select medecin);
             if (medModif.Count() != 0)
             {
-                medModif.First().password = EncryptPassword(new_password);
+                medModif.First().password = Encrypt(new_password);
                 Globals.DataClass.SubmitChanges();
                 return true;
             }
@@ -127,13 +126,13 @@ namespace MediCare
 			}
 			return list;
 		}
-        public string EncryptPassword(string password)
+
+        public string Encrypt(string word)
         {
-            byte[] passBytes = Encoding.Unicode.GetBytes(password);
+            byte[] passBytes = Encoding.Unicode.GetBytes(word);
             string encryptedPass = Convert.ToBase64String(passBytes);
             return encryptedPass;
         }
-
     }
 }
 

@@ -28,12 +28,14 @@ namespace MediCare
             {
                 foreach (RendezVous rdv in NotifRdv)
                 {
-                    string dateRdv, dateAJRD;
-                    dateRdv = rdv.Date.ToString().Substring(0, 10);
-                    dateAJRD = DateTime.Today.ToString().Substring(0, 10);
-                    if (string.Compare(dateRdv, dateAJRD) == 0)
+                    if (string.Compare(rdv.Date.ToString().Substring(0, 10), DateTime.Today.ToString().Substring(0, 10)) == 0)
                     {
-                        TextBlock TextRDV = new TextBlock();
+                        TextBox TextRDV = new TextBox();
+                        TextRDV.Width = 270;
+                        TextRDV.AcceptsReturn = true;
+                        TextRDV.IsReadOnly = true;
+                        TextRDV.HorizontalContentAlignment = HorizontalAlignment.Center;
+                        TextRDV.VerticalContentAlignment = VerticalAlignment.Center;
                         IQueryable<Patient> patientRDV = (from patient in Globals.DataClass.Patient
                                                            where rdv.IdPatient == patient.Id
                                                            select patient);
@@ -84,8 +86,5 @@ namespace MediCare
                 }
             }
         }
-
-        
-
     }
 }

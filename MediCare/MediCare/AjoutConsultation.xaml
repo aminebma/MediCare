@@ -23,7 +23,7 @@
 
 
 
-        <Button x:Name="Add_Consultation" Content="Continuer" HorizontalAlignment="Left" Height="31" Margin="505,470,0,0" VerticalAlignment="Top" Width="176" FontWeight="Light" FontFamily="Century Gothic" FontSize="16" Background="#FF6A97AC" Click="Add_Consultation_Click" Foreground="#FFFFFFFF" Grid.Row="1"/>
+        <Button x:Name="Add_Consultation" Content="Continuer" HorizontalAlignment="Left" Height="31" Margin="505,455,0,0" VerticalAlignment="Top" Width="176" FontWeight="Light" FontFamily="Century Gothic" FontSize="16" Background="#FF6A97AC" Click="Add_Consultation_Click" Foreground="#FFFFFFFF" Grid.Row="1"/>
         <StackPanel Height="50" VerticalAlignment="Top" Background="#FF6A97AC">
             <Label  Width="283" FontSize="36" FontFamily="Century Gothic" Foreground="White" Height="66" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Consultation :" Margin="219,-2,200,0"/>
         </StackPanel>

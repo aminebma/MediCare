@@ -22,16 +22,10 @@ namespace MediCare
     public partial class Menu : UserControl
     {
         Notifications ClassNotif = new Notifications();
-        public Menu(ListView ListRDV)
+        public Menu()
         {   
             InitializeComponent();
-            ClassNotif.GenererRDVduJour(ListeRDV);            
-        }
-
-        private void refreshRDVListe_Click(object sender, RoutedEventArgs e)
-        {
-            ListeRDV.Items.Clear();
-            ClassNotif.GenererRDVduJour(ListeRDV);
+            ClassNotif.GenererRDVduJour(ListeRDV);       
         }
 
         private void ConsultationBTN_Click(object sender, RoutedEventArgs e)

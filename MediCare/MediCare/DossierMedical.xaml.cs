@@ -62,7 +62,6 @@ namespace MediCare
                         foreach (Traite d in consulta.traitement)
                         {
                             expSuivi.Content = expSuivi.Content + "\n Nom du médicament : " + d.NomMed + " ,Dose préscrite : " + d.Dose + " ,Indication : " + d.Indication;
-
                         }
                     }
 

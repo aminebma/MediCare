@@ -46,7 +46,6 @@ namespace MediCare
         private void Oui_Click(object sender, RoutedEventArgs e)
         {
             //Total.Children.Add(new FichePatient());
-
             var parent = (Grid)this.Parent;
             parent.Children.Clear();
             parent.Children.Add(new FichePatient());
@@ -55,8 +54,7 @@ namespace MediCare
 
         private void Non_Click(object sender, RoutedEventArgs e)
         {
-            //pers.AddPatientPersonne(Globals.NomPatient,Globals.PrenomPatient,null,null,null,true,null,null,null,null,null);
-
+            pers.AddPatientPersonne(Globals.NomPatient,Globals.PrenomPatient,null,null,null,null,null,null,null,null,null);
             var parent = (Grid)this.Parent;
             parent.Children.Clear();
             parent.Children.Add(new AjoutConsultation());
