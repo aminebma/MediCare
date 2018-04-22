@@ -108,7 +108,6 @@ namespace MediCare
             //Globals.DataClass.SubmitChanges();
             //Globals.DataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
             //Globals.DataClass.SubmitChanges();
-            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
         }
 
 

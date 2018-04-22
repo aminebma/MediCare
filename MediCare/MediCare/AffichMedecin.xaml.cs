@@ -15,12 +15,8 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour AffichMedecin.xaml
-    /// </summary>
     public partial class AffichMedecin : UserControl
     {
-
         Medecin2 personne = new Medecin2();
         List<Medecins> list;
 
@@ -36,12 +32,10 @@ namespace MediCare
                     if (Globals.NomMedecin == p.Nom)
                     {
                         Expander expSuivi = new Expander();
-                        expSuivi.Header = "Nom du médecin :" + p.Nom + "\n Prénom du médecin :" + p.Prenom;
+                        expSuivi.Header = " Nom du médecin :" + p.Nom + "\n Prénom du médecin :" + p.Prenom;
                         expSuivi.Content = " Date de naissance : " + p.Datenaiss + "\n Adresse :" + p.Adresse + "\n Numéro de télèphone : " + p.Numtel + "\n Sexe : " + p.Sexe;
                         StackSuivi.Children.Add(expSuivi);
                     }
-
-
                 }
             }
         }

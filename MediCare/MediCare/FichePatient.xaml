@@ -4,33 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediCare"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.FichePatient"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="MediCare.FichePatient"
         mc:Ignorable="d"
-        Height="548" Width="746">
+        Height="548" Width="746" PreviewKeyDown="UserControl_PreviewKeyDown">
     <Grid>
-        <Button x:Name="Ajouter" Content="Ajouter un patient" HorizontalAlignment="Left" Height="41" Margin="461,495,0,0" VerticalAlignment="Top" Width="150" Background="#FF76B0B1" Foreground="White" Click="Ajouter_Click" BorderBrush="#FF2196F3"/>
-        <DatePicker x:Name="Date_naiss" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date de naissance*" HorizontalAlignment="Left" Margin="170,109,0,0" VerticalAlignment="Top" Height="31" Width="149" FirstDayOfWeek="Sunday" PreviewTextInput="DatePicker_PreviewTextInput" BorderBrush="#FF77B3B4"/>
-        <ComboBox x:Name="Groupage" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Groupage*" HorizontalAlignment="Left" Height="40" Margin="174,438,0,0" VerticalAlignment="Top" Width="145" Cursor="Arrow" SelectionChanged="Groupage_SelectionChanged" BorderBrush="#FF77B3B4" Background="{x:Null}" Foreground="#FF080000">
+        <TextBox x:Name="Nom" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Nom *" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="150" Margin="170,38,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" PreviewTextInput="Nom_PreviewTextInput"/>
+        <TextBox x:Name="Prenom" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Prénom * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="459,39,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" PreviewTextInput="Prenom_PreviewTextInput"/>
+        <DatePicker x:Name="Date_naiss" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date de naissance*" HorizontalAlignment="Left" Margin="170,109,0,0" VerticalAlignment="Top" Height="31" Width="149" FirstDayOfWeek="Sunday" PreviewTextInput="DatePicker_PreviewTextInput" BorderBrush="#FF77B3B4" BorderThickness="0,0,0,3"/>
+        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Adresse * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="460,103,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="Num_tel" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Numéro de téléphone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="175,180,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <ComboBox x:Name="Sexe" materialDesign:HintAssist.Hint="Sexe* " Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" Height="51" Margin="459,169,0,0" VerticalAlignment="Top" Background="White" Width="145" FontSize="18" BorderBrush="#FF77B3B4" Cursor="Arrow" BorderThickness="0,0,0,3">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel IsItemsHost="True"/>
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+            <ComboBoxItem Content="Homme"/>
+            <ComboBoxItem Content="Femme"/>
+        </ComboBox>
+        <TextBox x:Name="Poids" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Poids * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="174,260,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <TextBox x:Name="Taille" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Taille *" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="462,260,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" PreviewTextInput="Num_tel_PreviewTextInput"/>
+        <TextBox x:Name="Etat_sante" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Etat de santé * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="175,342,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" PreviewTextInput="Prenom_PreviewTextInput"/>
+        <TextBox x:Name="Maladie" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Maladie *" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="461,343,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" PreviewTextInput="Prenom_PreviewTextInput"/>
+        <ComboBox x:Name="Groupage" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Groupage*" HorizontalAlignment="Left" Height="40" Margin="174,438,0,0" VerticalAlignment="Top" Width="145" Cursor="Arrow" BorderBrush="#FF77B3B4" Background="White" Foreground="#FF080000" BorderThickness="0,0,0,3" PreviewTextInput="Groupage_PreviewTextInput">
             <ListBoxItem Content="A+"/>
             <ListBoxItem Content="A-"/>
+            <ListBoxItem Content="B+"/>
+            <ListBoxItem Content="B-"/>
             <ListBoxItem Content="O+"/>
             <ListBoxItem Content="O-"/>
             <ListBoxItem Content="AB+"/>
             <ListBoxItem Content="AB-"/>
         </ComboBox>
-
-        <TextBox x:Name="Nom" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Nom *" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="175,38,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4" TextChanged="nom_TextChanged"/>
-        <TextBox x:Name="Num_tel" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Numéro de téléphone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="175,180,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="Poids" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Poids * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="174,260,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="Etat_santé" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Etat de santé * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="175,342,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="Prenom" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Prénom * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="459,39,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Adresse * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="460,103,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="Taille" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Taille *" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="462,260,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <TextBox x:Name="Maladie" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Maladie *" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="145" Margin="461,343,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <ComboBox x:Name="Sexe" HorizontalAlignment="Left" Height="40" Margin="459,180,0,0" VerticalAlignment="Top" Width="145" FontSize="18" BorderBrush="#FF77B3B4">
-            <ComboBoxItem Content="Homme"/>
-            <ComboBoxItem Content="Femme"/>
-        </ComboBox>
+        <Button x:Name="Ajouter" Content="Ajouter un patient" HorizontalAlignment="Left" Height="41" Margin="461,495,0,0" VerticalAlignment="Top" Width="150" Background="#FF76B0B1" Foreground="White" Click="Ajouter_Click" BorderBrush="#FF2196F3"/>
 
     </Grid>
 </UserControl>

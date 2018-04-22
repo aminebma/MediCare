@@ -45,9 +45,8 @@ namespace MediCare
         private void Non_Click(object sender, RoutedEventArgs e)
         {        
             GridAppelant.Children.Clear();
-            GridAppelant.Children.Add(new MenuPatient());
+            GridAppelant.Children.Add(new PatientNonExistant());
             this.Close();
-            pers.AddPatientPersonne(Globals.NomPatient, Globals.PrenomPatient);
         }
     }
 }

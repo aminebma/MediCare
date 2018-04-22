@@ -326,6 +326,6 @@
         <Calendar x:Name="Calendrier" HorizontalAlignment="Right" Margin="0,79" VerticalAlignment="Center" Width="275" SelectedDatesChanged="Calendrier_SelectedDatesChanged_1" BorderBrush="{x:Null}"/>
         <TextBox Name="aide"
   TextWrapping="Wrap"
-  AcceptsReturn="True" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Text="Sellectionnez la date désirée dans la calendrier et visualisez vos rendez vous" Width="275" Foreground="#FF536272" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,1,0,0" VerticalScrollBarVisibility="Disabled" IsReadOnly="True" Height="83"/>
+  AcceptsReturn="True" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Text="Selectionnez la date désirée dans la calendrier et visualisez vos rendez-vous" Width="275" Foreground="#FF536272" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,1,0,0" VerticalScrollBarVisibility="Disabled" IsReadOnly="True" Height="83"/>
     </Grid>
 </UserControl>

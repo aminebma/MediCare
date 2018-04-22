@@ -49,22 +49,41 @@ namespace MediCare
             }
             else if(checkDate())
             {
-                if(clef.Text==Encrypt(nom.Text.ToUpper()+prenom.Text.ToUpper()+date_naiss.Text))
+                if (clef.Text == Encrypt(nom.Text.ToUpper() + prenom.Text.ToUpper() + date_naiss.Text))
                 {
                     if (num_tel.Text.Length == 10)
                     {
                         if (!med.RechercherMedecinAdd(username.Text))
                         {
-                            Globals.NomMedecin = nom.Text;
-                            Globals.PrenomMedecin = prenom.Text;
-                            med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text);
-                            MessageBox.Show("Le medecin a été inséré ! ");
-                            MenuPrincipal t = new MenuPrincipal();
-                            Globals.ListPatients = (from patient in Globals.DataClass.Patient
-                                                    join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
-                                                    select personne).ToList<Personne>();
-                            t.Show();
-                            this.Close();
+                            try
+                            {
+                                Globals.NomMedecin = nom.Text;
+                                Globals.PrenomMedecin = prenom.Text;
+                                Globals.codeMedecin = Code.Text;
+                                Globals.MailMedecin = email.Text;
+                                Globals.fax = int.Parse(fax.Text);
+                                Globals.num = int.Parse(num_tel.Text);
+                                Globals.numMobile = int.Parse(numCab.Text);
+                                Globals.specialite = specialite.Text;
+                                med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text, specialite.Text, int.Parse(fax.Text), int.Parse(numCab.Text), Code.Text);
+                                MessageBox.Show("Compte créé avec succés !");
+                                MenuPrincipal t = new MenuPrincipal();
+                                Globals.ListPatients = (from patient in Globals.DataClass.Patient
+                                                        join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+                                                        select personne).ToList<Personne>();
+
+                                Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
+                                                           select medicament).ToList<Medicaments>();
+                                t.Show();
+                                this.Close();
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Une erreur s'est produite lors de l'ajout à la base de données. Le médecin n'a pas été ajouté");
+                                SignUp signUp = new SignUp();
+                                signUp.Show();
+                                this.Close();
+                            }
                         }
                         else
                         {
@@ -82,6 +101,7 @@ namespace MediCare
                     }
                     else MessageBox.Show("Votre numero est incorrect ");
                 }
+                else MessageBox.Show("Clé d'activation incorrecte !");
             }
             else
             {
@@ -155,6 +175,7 @@ namespace MediCare
                     if (email.Text == "") email.BorderBrush = Brushes.Red; else email.BorderBrush = Brushes.Black;
                     if (clef.Text == "") clef.BorderBrush = Brushes.Red; else clef.BorderBrush = Brushes.Black;
                     if (username.Text == "") username.BorderBrush = Brushes.Red; else username.BorderBrush = Brushes.Black;
+                    if (specialite.Text == "") specialite.BorderBrush = Brushes.Red; else specialite.BorderBrush = Brushes.Black;
                     if (password.Password == "") password.BorderBrush = Brushes.Red; else password.BorderBrush = Brushes.Black;
                 }
                 else if (checkDate())
@@ -165,16 +186,29 @@ namespace MediCare
                         {
                             if (!med.RechercherMedecinAdd(username.Text))
                             {
-                                Globals.NomMedecin = nom.Text;
-                                Globals.PrenomMedecin = prenom.Text;
-                                med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text);
-                                MessageBox.Show("Le medecin a été inséré ! ");
-                                MenuPrincipal t = new MenuPrincipal();
-                                Globals.ListPatients = (from patient in Globals.DataClass.Patient
-                                                        join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
-                                                        select personne).ToList<Personne>();
-                                t.Show();
-                                this.Close();
+                                try
+                                {
+                                    Globals.NomMedecin = nom.Text;
+                                    Globals.PrenomMedecin = prenom.Text;
+                                    med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text, specialite.Text, int.Parse(fax.Text), int.Parse(numCab.Text), Code.Text);
+                                    MessageBox.Show("Compte créé avec succés !");
+                                    MenuPrincipal t = new MenuPrincipal();
+                                    Globals.ListPatients = (from patient in Globals.DataClass.Patient
+                                                            join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+                                                            select personne).ToList<Personne>();
+
+                                    Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
+                                                               select medicament).ToList<Medicaments>();
+                                    t.Show();
+                                    this.Close();
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Une erreur s'est produite lors de l'ajout à la base de données. Le médecin n'a pas été ajouté");
+                                    SignUp signUp = new SignUp();
+                                    signUp.Show();
+                                    this.Close();
+                                }
                             }
                             else
                             {
@@ -192,6 +226,7 @@ namespace MediCare
                         }
                         else MessageBox.Show("Votre numero est incorrect ");
                     }
+                    else MessageBox.Show("Clé d'activation incorrecte !");
                 }
                 else
                 {

@@ -114,9 +114,9 @@ namespace MediCare
 
         private void LogoutBTN_Click(object sender, RoutedEventArgs e)
         {
-            LogOutPop wndw = new LogOutPop();
-            wndw.setCreatingForm = this;
+            SignUp wndw = new SignUp();
             wndw.Show();
+            this.Close();
         }
 
         private void Compte_Click(object sender, RoutedEventArgs e)
@@ -156,6 +156,36 @@ namespace MediCare
         private void element_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Tab && element.IsDropDownOpen && element.HasItems) element.Text = element.Items.GetItemAt(0).ToString();
+            if(e.Key==Key.Enter && element.Text != "")
+            {
+                listPatientsTmp = pat.RechercherPatient(element.Text);
+                if (listPatientsTmp.Count() != 0)
+                {
+                    Globals.NomPatient = listPatientsTmp[0].nom;
+                    SelectionGrid.Children.Clear();
+                    SelectionGrid.Children.Add(new AffichDossiers());
+                }
+                else
+                {
+                    listMedicTmp = med.RechercheMedicament(element.Text);
+                    if (listMedicTmp.Count() != 0)
+                    {
+                        Globals.Medicament = listMedicTmp[0].nom;
+                        SelectionGrid.Children.Clear();
+                        SelectionGrid.Children.Add(new affichMedicament());
+                    }
+                    else
+                    {
+                        listPatientsTmp = pat.RechercherMedecin(element.Text);
+                        if (listPatientsTmp.Count() != 0)
+                        {
+                            Globals.NomMedecin = listPatientsTmp[0].nom;
+                            SelectionGrid.Children.Clear();
+                            SelectionGrid.Children.Add(new AffichMedecin());
+                        }
+                    }
+                }
+            }
         }
 
         private void element_TextChanged(object sender, TextChangedEventArgs e)
@@ -198,30 +228,33 @@ namespace MediCare
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            listPatientsTmp = pat.RechercherPatient(element.Text);
-            if (listPatientsTmp.Count() != 0)
+            if(element.Text!="")
             {
-                Globals.NomPatient = listPatientsTmp[0].nom;
-                SelectionGrid.Children.Clear();
-                SelectionGrid.Children.Add(new AffichDossiers());
-            }
-            else
-            {
-                listMedicTmp = med.RechercheMedicament(element.Text);
-                if (listMedicTmp.Count() != 0)
+                listPatientsTmp = pat.RechercherPatient(element.Text);
+                if (listPatientsTmp.Count() != 0)
                 {
-                    Globals.Medicament = listMedicTmp[0].nom;
+                    Globals.NomPatient = listPatientsTmp[0].nom;
                     SelectionGrid.Children.Clear();
-                    SelectionGrid.Children.Add(new affichMedicament());
+                    SelectionGrid.Children.Add(new AffichDossiers());
                 }
                 else
                 {
-                    listPatientsTmp = pat.RechercherMedecin(element.Text);
-                    if (listPatientsTmp.Count() != 0)
+                    listMedicTmp = med.RechercheMedicament(element.Text);
+                    if (listMedicTmp.Count() != 0)
                     {
-                        Globals.NomMedecin = listPatientsTmp[0].nom;
+                        Globals.Medicament = listMedicTmp[0].nom;
                         SelectionGrid.Children.Clear();
-                        SelectionGrid.Children.Add(new AffichMedecin());
+                        SelectionGrid.Children.Add(new affichMedicament());
+                    }
+                    else
+                    {
+                        listPatientsTmp = pat.RechercherMedecin(element.Text);
+                        if (listPatientsTmp.Count() != 0)
+                        {
+                            Globals.NomMedecin = listPatientsTmp[0].nom;
+                            SelectionGrid.Children.Clear();
+                            SelectionGrid.Children.Add(new AffichMedecin());
+                        }
                     }
                 }
             }
@@ -232,5 +265,9 @@ namespace MediCare
             SelectionGrid.Children.Add(new MenuRecherche());
         }
 
+        private void LogoutBTN(object sender, RoutedEventArgs e)
+        {
+            Dialog.IsOpen=true;
+        }
     }
 }

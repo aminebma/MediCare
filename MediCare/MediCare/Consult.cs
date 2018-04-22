@@ -9,7 +9,6 @@ namespace MediCare
 {
 	class Consult
 	{
-
         public void AddConsult(string nomPatient, string prenomPatient, string nomMedecin, string prenomMedecin, string diagnostic, string description, string cheminCertificat, string cheminLettreOrientation, string cheminScanner, string cheminBilan, string cheminOrdo, List<string> cheminRadio, List<Traite> traitement, string label, int age)
         {
             nomPatient = nomPatient.ToUpper();
@@ -30,7 +29,6 @@ namespace MediCare
             Globals.DataClass.Consultation.InsertOnSubmit(table);
             Globals.DataClass.SubmitChanges();
 
-
             foreach (var chemin in cheminRadio)
             {
                 Radio tableRadio = new Radio();
@@ -39,8 +37,6 @@ namespace MediCare
                 Globals.DataClass.Radio.InsertOnSubmit(tableRadio);
                 Globals.DataClass.SubmitChanges();
             }
-
-
 
             foreach (var trait in traitement)
             {
@@ -80,10 +76,6 @@ namespace MediCare
             Globals.DataClass.MPConsultation.InsertOnSubmit(tableMPC);
             Globals.DataClass.SubmitChanges();
         }
-
-
-
-
 
         public void SuppConsultation(string nomPatient, string prenomPatient, DateTime date)
         {
@@ -127,14 +119,11 @@ namespace MediCare
                 Globals.DataClass.SubmitChanges();
             }
 
-
-
             Globals.DataClass.MPConsultation.DeleteOnSubmit(mpcnsltToDelete);
             Globals.DataClass.SubmitChanges();
             Globals.DataClass.Consultation.DeleteOnSubmit(cnsltToDelete);
             Globals.DataClass.SubmitChanges();
         }
-
 
         public List<ConsultLabel> RechercheConsultationDate(DateTime date)
 		{
@@ -257,8 +246,6 @@ namespace MediCare
 			return list;
 
 		}
-
-
 		 
 		public List<ConsultLabel> HistoriqueMedecin(string nomMedecin, string prenomMedecin)
 		{
@@ -294,7 +281,6 @@ namespace MediCare
 			}
 			return list;
 		}
-
 	}
 }
 

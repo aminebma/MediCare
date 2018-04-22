@@ -33,9 +33,9 @@ namespace MediCare
     partial void InsertConsultation(Consultation instance);
     partial void UpdateConsultation(Consultation instance);
     partial void DeleteConsultation(Consultation instance);
-    partial void InsertRendezVous(RendezVous instance);
-    partial void UpdateRendezVous(RendezVous instance);
-    partial void DeleteRendezVous(RendezVous instance);
+    partial void InsertTraitement(Traitement instance);
+    partial void UpdateTraitement(Traitement instance);
+    partial void DeleteTraitement(Traitement instance);
     partial void InsertMedecin(Medecin instance);
     partial void UpdateMedecin(Medecin instance);
     partial void DeleteMedecin(Medecin instance);
@@ -57,9 +57,9 @@ namespace MediCare
     partial void InsertRadio(Radio instance);
     partial void UpdateRadio(Radio instance);
     partial void DeleteRadio(Radio instance);
-    partial void InsertTraitement(Traitement instance);
-    partial void UpdateTraitement(Traitement instance);
-    partial void DeleteTraitement(Traitement instance);
+    partial void InsertRendezVous(RendezVous instance);
+    partial void UpdateRendezVous(RendezVous instance);
+    partial void DeleteRendezVous(RendezVous instance);
     #endregion
 		
 		public MCDataClassDataContext() : 
@@ -100,11 +100,11 @@ namespace MediCare
 			}
 		}
 		
-		public System.Data.Linq.Table<RendezVous> RendezVous
+		public System.Data.Linq.Table<Traitement> Traitement
 		{
 			get
 			{
-				return this.GetTable<RendezVous>();
+				return this.GetTable<Traitement>();
 			}
 		}
 		
@@ -164,11 +164,11 @@ namespace MediCare
 			}
 		}
 		
-		public System.Data.Linq.Table<Traitement> Traitement
+		public System.Data.Linq.Table<RendezVous> RendezVous
 		{
 			get
 			{
-				return this.GetTable<Traitement>();
+				return this.GetTable<RendezVous>();
 			}
 		}
 	}
@@ -201,11 +201,11 @@ namespace MediCare
 		
 		private System.Nullable<int> _age;
 		
+		private EntitySet<Traitement> _Traitement;
+		
 		private EntitySet<MPConsultation> _MPConsultation;
 		
 		private EntitySet<Radio> _Radio;
-		
-		private EntitySet<Traitement> _Traitement;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -237,9 +237,9 @@ namespace MediCare
 		
 		public Consultation()
 		{
+			this._Traitement = new EntitySet<Traitement>(new Action<Traitement>(this.attach_Traitement), new Action<Traitement>(this.detach_Traitement));
 			this._MPConsultation = new EntitySet<MPConsultation>(new Action<MPConsultation>(this.attach_MPConsultation), new Action<MPConsultation>(this.detach_MPConsultation));
 			this._Radio = new EntitySet<Radio>(new Action<Radio>(this.attach_Radio), new Action<Radio>(this.detach_Radio));
-			this._Traitement = new EntitySet<Traitement>(new Action<Traitement>(this.attach_Traitement), new Action<Traitement>(this.detach_Traitement));
 			OnCreated();
 		}
 		
@@ -463,6 +463,19 @@ namespace MediCare
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultation_Traitement", Storage="_Traitement", ThisKey="Id", OtherKey="IdConsultation")]
+		public EntitySet<Traitement> Traitement
+		{
+			get
+			{
+				return this._Traitement;
+			}
+			set
+			{
+				this._Traitement.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultation_MPConsultation", Storage="_MPConsultation", ThisKey="Id", OtherKey="IdConsultation")]
 		public EntitySet<MPConsultation> MPConsultation
 		{
@@ -489,19 +502,6 @@ namespace MediCare
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultation_Traitement", Storage="_Traitement", ThisKey="Id", OtherKey="IdConsultation")]
-		public EntitySet<Traitement> Traitement
-		{
-			get
-			{
-				return this._Traitement;
-			}
-			set
-			{
-				this._Traitement.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -520,6 +520,18 @@ namespace MediCare
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Traitement(Traitement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultation = this;
+		}
+		
+		private void detach_Traitement(Traitement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultation = null;
 		}
 		
 		private void attach_MPConsultation(MPConsultation entity)
@@ -545,43 +557,27 @@ namespace MediCare
 			this.SendPropertyChanging();
 			entity.Consultation = null;
 		}
-		
-		private void attach_Traitement(Traitement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultation = this;
-		}
-		
-		private void detach_Traitement(Traitement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultation = null;
-		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RendezVous")]
-	public partial class RendezVous : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Traitement")]
+	public partial class Traitement : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Id;
 		
-		private System.Nullable<System.DateTime> _Date;
+		private string _Dose;
 		
-		private System.Nullable<int> _IdPatient;
+		private string _Indication;
 		
-		private System.Nullable<byte> _IdMedecin;
+		private int _IdConsultation;
 		
-		private System.Nullable<bool> _Important;
+		private System.Nullable<int> _IdMedicament;
 		
-		private System.Nullable<bool> _Fait;
+		private EntityRef<Consultation> _Consultation;
 		
-		private string _Note;
-		
-		private System.Nullable<bool> _Notified;
-		
-		private EntitySet<MPRendezVous> _MPRendezVous;
+		private EntityRef<Medicaments> _Medicaments;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -589,25 +585,20 @@ namespace MediCare
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateChanged();
-    partial void OnIdPatientChanging(System.Nullable<int> value);
-    partial void OnIdPatientChanged();
-    partial void OnIdMedecinChanging(System.Nullable<byte> value);
-    partial void OnIdMedecinChanged();
-    partial void OnImportantChanging(System.Nullable<bool> value);
-    partial void OnImportantChanged();
-    partial void OnFaitChanging(System.Nullable<bool> value);
-    partial void OnFaitChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
-    partial void OnNotifiedChanging(System.Nullable<bool> value);
-    partial void OnNotifiedChanged();
+    partial void OnDoseChanging(string value);
+    partial void OnDoseChanged();
+    partial void OnIndicationChanging(string value);
+    partial void OnIndicationChanged();
+    partial void OnIdConsultationChanging(int value);
+    partial void OnIdConsultationChanged();
+    partial void OnIdMedicamentChanging(System.Nullable<int> value);
+    partial void OnIdMedicamentChanged();
     #endregion
 		
-		public RendezVous()
+		public Traitement()
 		{
-			this._MPRendezVous = new EntitySet<MPRendezVous>(new Action<MPRendezVous>(this.attach_MPRendezVous), new Action<MPRendezVous>(this.detach_MPRendezVous));
+			this._Consultation = default(EntityRef<Consultation>);
+			this._Medicaments = default(EntityRef<Medicaments>);
 			OnCreated();
 		}
 		
@@ -631,156 +622,159 @@ namespace MediCare
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="SmallDateTime")]
-		public System.Nullable<System.DateTime> Date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dose", DbType="VarChar(50)")]
+		public string Dose
 		{
 			get
 			{
-				return this._Date;
+				return this._Dose;
 			}
 			set
 			{
-				if ((this._Date != value))
+				if ((this._Dose != value))
 				{
-					this.OnDateChanging(value);
+					this.OnDoseChanging(value);
 					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
+					this._Dose = value;
+					this.SendPropertyChanged("Dose");
+					this.OnDoseChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPatient", DbType="Int")]
-		public System.Nullable<int> IdPatient
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Indication", DbType="VarChar(MAX)")]
+		public string Indication
 		{
 			get
 			{
-				return this._IdPatient;
+				return this._Indication;
 			}
 			set
 			{
-				if ((this._IdPatient != value))
+				if ((this._Indication != value))
 				{
-					this.OnIdPatientChanging(value);
+					this.OnIndicationChanging(value);
 					this.SendPropertyChanging();
-					this._IdPatient = value;
-					this.SendPropertyChanged("IdPatient");
-					this.OnIdPatientChanged();
+					this._Indication = value;
+					this.SendPropertyChanged("Indication");
+					this.OnIndicationChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMedecin", DbType="TinyInt")]
-		public System.Nullable<byte> IdMedecin
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdConsultation", DbType="Int NOT NULL")]
+		public int IdConsultation
 		{
 			get
 			{
-				return this._IdMedecin;
+				return this._IdConsultation;
 			}
 			set
 			{
-				if ((this._IdMedecin != value))
+				if ((this._IdConsultation != value))
 				{
-					this.OnIdMedecinChanging(value);
+					if (this._Consultation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdConsultationChanging(value);
 					this.SendPropertyChanging();
-					this._IdMedecin = value;
-					this.SendPropertyChanged("IdMedecin");
-					this.OnIdMedecinChanged();
+					this._IdConsultation = value;
+					this.SendPropertyChanged("IdConsultation");
+					this.OnIdConsultationChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Important", DbType="Bit")]
-		public System.Nullable<bool> Important
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMedicament", DbType="Int")]
+		public System.Nullable<int> IdMedicament
 		{
 			get
 			{
-				return this._Important;
+				return this._IdMedicament;
 			}
 			set
 			{
-				if ((this._Important != value))
+				if ((this._IdMedicament != value))
 				{
-					this.OnImportantChanging(value);
+					if (this._Medicaments.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdMedicamentChanging(value);
 					this.SendPropertyChanging();
-					this._Important = value;
-					this.SendPropertyChanged("Important");
-					this.OnImportantChanged();
+					this._IdMedicament = value;
+					this.SendPropertyChanged("IdMedicament");
+					this.OnIdMedicamentChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fait", DbType="Bit")]
-		public System.Nullable<bool> Fait
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultation_Traitement", Storage="_Consultation", ThisKey="IdConsultation", OtherKey="Id", IsForeignKey=true)]
+		public Consultation Consultation
 		{
 			get
 			{
-				return this._Fait;
+				return this._Consultation.Entity;
 			}
 			set
 			{
-				if ((this._Fait != value))
+				Consultation previousValue = this._Consultation.Entity;
+				if (((previousValue != value) 
+							|| (this._Consultation.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnFaitChanging(value);
 					this.SendPropertyChanging();
-					this._Fait = value;
-					this.SendPropertyChanged("Fait");
-					this.OnFaitChanged();
+					if ((previousValue != null))
+					{
+						this._Consultation.Entity = null;
+						previousValue.Traitement.Remove(this);
+					}
+					this._Consultation.Entity = value;
+					if ((value != null))
+					{
+						value.Traitement.Add(this);
+						this._IdConsultation = value.Id;
+					}
+					else
+					{
+						this._IdConsultation = default(int);
+					}
+					this.SendPropertyChanged("Consultation");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)")]
-		public string Note
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medicaments_Traitement", Storage="_Medicaments", ThisKey="IdMedicament", OtherKey="Id", IsForeignKey=true)]
+		public Medicaments Medicaments
 		{
 			get
 			{
-				return this._Note;
+				return this._Medicaments.Entity;
 			}
 			set
 			{
-				if ((this._Note != value))
+				Medicaments previousValue = this._Medicaments.Entity;
+				if (((previousValue != value) 
+							|| (this._Medicaments.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnNoteChanging(value);
 					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
+					if ((previousValue != null))
+					{
+						this._Medicaments.Entity = null;
+						previousValue.Traitement.Remove(this);
+					}
+					this._Medicaments.Entity = value;
+					if ((value != null))
+					{
+						value.Traitement.Add(this);
+						this._IdMedicament = value.Id;
+					}
+					else
+					{
+						this._IdMedicament = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Medicaments");
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notified", DbType="Bit")]
-		public System.Nullable<bool> Notified
-		{
-			get
-			{
-				return this._Notified;
-			}
-			set
-			{
-				if ((this._Notified != value))
-				{
-					this.OnNotifiedChanging(value);
-					this.SendPropertyChanging();
-					this._Notified = value;
-					this.SendPropertyChanged("Notified");
-					this.OnNotifiedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RendezVous_MPRendezVous", Storage="_MPRendezVous", ThisKey="Id", OtherKey="IdRendezVous")]
-		public EntitySet<MPRendezVous> MPRendezVous
-		{
-			get
-			{
-				return this._MPRendezVous;
-			}
-			set
-			{
-				this._MPRendezVous.Assign(value);
 			}
 		}
 		
@@ -803,18 +797,6 @@ namespace MediCare
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
-		private void attach_MPRendezVous(MPRendezVous entity)
-		{
-			this.SendPropertyChanging();
-			entity.RendezVous = this;
-		}
-		
-		private void detach_MPRendezVous(MPRendezVous entity)
-		{
-			this.SendPropertyChanging();
-			entity.RendezVous = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Medecin")]
@@ -836,6 +818,14 @@ namespace MediCare
 		private System.Nullable<int> _IdPersonne;
 		
 		private string _email;
+		
+		private System.Nullable<int> _fax;
+		
+		private System.Nullable<int> _numCab;
+		
+		private string _code;
+		
+		private string _specialite;
 		
 		private EntitySet<MPConsultation> _MPConsultation;
 		
@@ -861,6 +851,14 @@ namespace MediCare
     partial void OnIdPersonneChanged();
     partial void OnemailChanging(string value);
     partial void OnemailChanged();
+    partial void OnfaxChanging(System.Nullable<int> value);
+    partial void OnfaxChanged();
+    partial void OnnumCabChanging(System.Nullable<int> value);
+    partial void OnnumCabChanged();
+    partial void OncodeChanging(string value);
+    partial void OncodeChanged();
+    partial void OnspecialiteChanging(string value);
+    partial void OnspecialiteChanged();
     #endregion
 		
 		public Medecin()
@@ -931,7 +929,7 @@ namespace MediCare
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(50)")]
 		public string username
 		{
 			get
@@ -995,7 +993,7 @@ namespace MediCare
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(200)")]
 		public string email
 		{
 			get
@@ -1011,6 +1009,86 @@ namespace MediCare
 					this._email = value;
 					this.SendPropertyChanged("email");
 					this.OnemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fax", DbType="Int")]
+		public System.Nullable<int> fax
+		{
+			get
+			{
+				return this._fax;
+			}
+			set
+			{
+				if ((this._fax != value))
+				{
+					this.OnfaxChanging(value);
+					this.SendPropertyChanging();
+					this._fax = value;
+					this.SendPropertyChanged("fax");
+					this.OnfaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numCab", DbType="Int")]
+		public System.Nullable<int> numCab
+		{
+			get
+			{
+				return this._numCab;
+			}
+			set
+			{
+				if ((this._numCab != value))
+				{
+					this.OnnumCabChanging(value);
+					this.SendPropertyChanging();
+					this._numCab = value;
+					this.SendPropertyChanged("numCab");
+					this.OnnumCabChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_code", DbType="NVarChar(20)")]
+		public string code
+		{
+			get
+			{
+				return this._code;
+			}
+			set
+			{
+				if ((this._code != value))
+				{
+					this.OncodeChanging(value);
+					this.SendPropertyChanging();
+					this._code = value;
+					this.SendPropertyChanged("code");
+					this.OncodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_specialite", DbType="NVarChar(100)")]
+		public string specialite
+		{
+			get
+			{
+				return this._specialite;
+			}
+			set
+			{
+				if ((this._specialite != value))
+				{
+					this.OnspecialiteChanging(value);
+					this.SendPropertyChanging();
+					this._specialite = value;
+					this.SendPropertyChanged("specialite");
+					this.OnspecialiteChanged();
 				}
 			}
 		}
@@ -1555,9 +1633,9 @@ namespace MediCare
 		
 		private EntityRef<Medecin> _Medecin;
 		
-		private EntityRef<RendezVous> _RendezVous;
-		
 		private EntityRef<Patient> _Patient;
+		
+		private EntityRef<RendezVous> _RendezVous;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -1576,8 +1654,8 @@ namespace MediCare
 		public MPRendezVous()
 		{
 			this._Medecin = default(EntityRef<Medecin>);
-			this._RendezVous = default(EntityRef<RendezVous>);
 			this._Patient = default(EntityRef<Patient>);
+			this._RendezVous = default(EntityRef<RendezVous>);
 			OnCreated();
 		}
 		
@@ -1707,40 +1785,6 @@ namespace MediCare
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RendezVous_MPRendezVous", Storage="_RendezVous", ThisKey="IdRendezVous", OtherKey="Id", IsForeignKey=true)]
-		public RendezVous RendezVous
-		{
-			get
-			{
-				return this._RendezVous.Entity;
-			}
-			set
-			{
-				RendezVous previousValue = this._RendezVous.Entity;
-				if (((previousValue != value) 
-							|| (this._RendezVous.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._RendezVous.Entity = null;
-						previousValue.MPRendezVous.Remove(this);
-					}
-					this._RendezVous.Entity = value;
-					if ((value != null))
-					{
-						value.MPRendezVous.Add(this);
-						this._IdRendezVous = value.Id;
-					}
-					else
-					{
-						this._IdRendezVous = default(int);
-					}
-					this.SendPropertyChanged("RendezVous");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_MPRendezVous", Storage="_Patient", ThisKey="IdPatient", OtherKey="Id", IsForeignKey=true)]
 		public Patient Patient
 		{
@@ -1771,6 +1815,40 @@ namespace MediCare
 						this._IdPatient = default(int);
 					}
 					this.SendPropertyChanged("Patient");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RendezVous_MPRendezVous", Storage="_RendezVous", ThisKey="IdRendezVous", OtherKey="Id", IsForeignKey=true)]
+		public RendezVous RendezVous
+		{
+			get
+			{
+				return this._RendezVous.Entity;
+			}
+			set
+			{
+				RendezVous previousValue = this._RendezVous.Entity;
+				if (((previousValue != value) 
+							|| (this._RendezVous.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RendezVous.Entity = null;
+						previousValue.MPRendezVous.Remove(this);
+					}
+					this._RendezVous.Entity = value;
+					if ((value != null))
+					{
+						value.MPRendezVous.Add(this);
+						this._IdRendezVous = value.Id;
+					}
+					else
+					{
+						this._IdRendezVous = default(int);
+					}
+					this.SendPropertyChanged("RendezVous");
 				}
 			}
 		}
@@ -2512,25 +2590,29 @@ namespace MediCare
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Traitement")]
-	public partial class Traitement : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RendezVous")]
+	public partial class RendezVous : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Id;
 		
-		private string _Dose;
+		private System.Nullable<System.DateTime> _Date;
 		
-		private string _Indication;
+		private System.Nullable<int> _IdPatient;
 		
-		private int _IdConsultation;
+		private System.Nullable<byte> _IdMedecin;
 		
-		private System.Nullable<int> _IdMedicament;
+		private System.Nullable<bool> _Important;
 		
-		private EntityRef<Consultation> _Consultation;
+		private System.Nullable<bool> _Fait;
 		
-		private EntityRef<Medicaments> _Medicaments;
+		private string _Note;
+		
+		private System.Nullable<bool> _Notified;
+		
+		private EntitySet<MPRendezVous> _MPRendezVous;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -2538,20 +2620,25 @@ namespace MediCare
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnDoseChanging(string value);
-    partial void OnDoseChanged();
-    partial void OnIndicationChanging(string value);
-    partial void OnIndicationChanged();
-    partial void OnIdConsultationChanging(int value);
-    partial void OnIdConsultationChanged();
-    partial void OnIdMedicamentChanging(System.Nullable<int> value);
-    partial void OnIdMedicamentChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
+    partial void OnIdPatientChanging(System.Nullable<int> value);
+    partial void OnIdPatientChanged();
+    partial void OnIdMedecinChanging(System.Nullable<byte> value);
+    partial void OnIdMedecinChanged();
+    partial void OnImportantChanging(System.Nullable<bool> value);
+    partial void OnImportantChanged();
+    partial void OnFaitChanging(System.Nullable<bool> value);
+    partial void OnFaitChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnNotifiedChanging(System.Nullable<bool> value);
+    partial void OnNotifiedChanged();
     #endregion
 		
-		public Traitement()
+		public RendezVous()
 		{
-			this._Consultation = default(EntityRef<Consultation>);
-			this._Medicaments = default(EntityRef<Medicaments>);
+			this._MPRendezVous = new EntitySet<MPRendezVous>(new Action<MPRendezVous>(this.attach_MPRendezVous), new Action<MPRendezVous>(this.detach_MPRendezVous));
 			OnCreated();
 		}
 		
@@ -2575,159 +2662,156 @@ namespace MediCare
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dose", DbType="VarChar(50)")]
-		public string Dose
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> Date
 		{
 			get
 			{
-				return this._Dose;
+				return this._Date;
 			}
 			set
 			{
-				if ((this._Dose != value))
+				if ((this._Date != value))
 				{
-					this.OnDoseChanging(value);
+					this.OnDateChanging(value);
 					this.SendPropertyChanging();
-					this._Dose = value;
-					this.SendPropertyChanged("Dose");
-					this.OnDoseChanged();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Indication", DbType="VarChar(MAX)")]
-		public string Indication
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPatient", DbType="Int")]
+		public System.Nullable<int> IdPatient
 		{
 			get
 			{
-				return this._Indication;
+				return this._IdPatient;
 			}
 			set
 			{
-				if ((this._Indication != value))
+				if ((this._IdPatient != value))
 				{
-					this.OnIndicationChanging(value);
+					this.OnIdPatientChanging(value);
 					this.SendPropertyChanging();
-					this._Indication = value;
-					this.SendPropertyChanged("Indication");
-					this.OnIndicationChanged();
+					this._IdPatient = value;
+					this.SendPropertyChanged("IdPatient");
+					this.OnIdPatientChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdConsultation", DbType="Int NOT NULL")]
-		public int IdConsultation
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMedecin", DbType="TinyInt")]
+		public System.Nullable<byte> IdMedecin
 		{
 			get
 			{
-				return this._IdConsultation;
+				return this._IdMedecin;
 			}
 			set
 			{
-				if ((this._IdConsultation != value))
+				if ((this._IdMedecin != value))
 				{
-					if (this._Consultation.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdConsultationChanging(value);
+					this.OnIdMedecinChanging(value);
 					this.SendPropertyChanging();
-					this._IdConsultation = value;
-					this.SendPropertyChanged("IdConsultation");
-					this.OnIdConsultationChanged();
+					this._IdMedecin = value;
+					this.SendPropertyChanged("IdMedecin");
+					this.OnIdMedecinChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMedicament", DbType="Int")]
-		public System.Nullable<int> IdMedicament
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Important", DbType="Bit")]
+		public System.Nullable<bool> Important
 		{
 			get
 			{
-				return this._IdMedicament;
+				return this._Important;
 			}
 			set
 			{
-				if ((this._IdMedicament != value))
+				if ((this._Important != value))
 				{
-					if (this._Medicaments.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdMedicamentChanging(value);
+					this.OnImportantChanging(value);
 					this.SendPropertyChanging();
-					this._IdMedicament = value;
-					this.SendPropertyChanged("IdMedicament");
-					this.OnIdMedicamentChanged();
+					this._Important = value;
+					this.SendPropertyChanged("Important");
+					this.OnImportantChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultation_Traitement", Storage="_Consultation", ThisKey="IdConsultation", OtherKey="Id", IsForeignKey=true)]
-		public Consultation Consultation
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fait", DbType="Bit")]
+		public System.Nullable<bool> Fait
 		{
 			get
 			{
-				return this._Consultation.Entity;
+				return this._Fait;
 			}
 			set
 			{
-				Consultation previousValue = this._Consultation.Entity;
-				if (((previousValue != value) 
-							|| (this._Consultation.HasLoadedOrAssignedValue == false)))
+				if ((this._Fait != value))
 				{
+					this.OnFaitChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Consultation.Entity = null;
-						previousValue.Traitement.Remove(this);
-					}
-					this._Consultation.Entity = value;
-					if ((value != null))
-					{
-						value.Traitement.Add(this);
-						this._IdConsultation = value.Id;
-					}
-					else
-					{
-						this._IdConsultation = default(int);
-					}
-					this.SendPropertyChanged("Consultation");
+					this._Fait = value;
+					this.SendPropertyChanged("Fait");
+					this.OnFaitChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Medicaments_Traitement", Storage="_Medicaments", ThisKey="IdMedicament", OtherKey="Id", IsForeignKey=true)]
-		public Medicaments Medicaments
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)")]
+		public string Note
 		{
 			get
 			{
-				return this._Medicaments.Entity;
+				return this._Note;
 			}
 			set
 			{
-				Medicaments previousValue = this._Medicaments.Entity;
-				if (((previousValue != value) 
-							|| (this._Medicaments.HasLoadedOrAssignedValue == false)))
+				if ((this._Note != value))
 				{
+					this.OnNoteChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Medicaments.Entity = null;
-						previousValue.Traitement.Remove(this);
-					}
-					this._Medicaments.Entity = value;
-					if ((value != null))
-					{
-						value.Traitement.Add(this);
-						this._IdMedicament = value.Id;
-					}
-					else
-					{
-						this._IdMedicament = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Medicaments");
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notified", DbType="Bit")]
+		public System.Nullable<bool> Notified
+		{
+			get
+			{
+				return this._Notified;
+			}
+			set
+			{
+				if ((this._Notified != value))
+				{
+					this.OnNotifiedChanging(value);
+					this.SendPropertyChanging();
+					this._Notified = value;
+					this.SendPropertyChanged("Notified");
+					this.OnNotifiedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RendezVous_MPRendezVous", Storage="_MPRendezVous", ThisKey="Id", OtherKey="IdRendezVous")]
+		public EntitySet<MPRendezVous> MPRendezVous
+		{
+			get
+			{
+				return this._MPRendezVous;
+			}
+			set
+			{
+				this._MPRendezVous.Assign(value);
 			}
 		}
 		
@@ -2749,6 +2833,18 @@ namespace MediCare
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_MPRendezVous(MPRendezVous entity)
+		{
+			this.SendPropertyChanging();
+			entity.RendezVous = this;
+		}
+		
+		private void detach_MPRendezVous(MPRendezVous entity)
+		{
+			this.SendPropertyChanging();
+			entity.RendezVous = null;
 		}
 	}
 }

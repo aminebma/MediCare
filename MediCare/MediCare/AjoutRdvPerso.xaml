@@ -6,18 +6,26 @@
         xmlns:local="clr-namespace:MediCare"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.AjoutRdvPerso"
          mc:Ignorable="d" Height="548.2" Width="741">
+    <materialDesign:DialogHost x:Name="Dialog" Margin="0">
+        <materialDesign:DialogHost.DialogContent >
+            <Grid Width="300" Height="100">
+                <TextBlock  HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Text="Rendez Vous Ajouté avec succès"/>
+                <Button  Content="OK" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="Auto" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Click="Button_Click_1" />
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
 
-    <Grid Margin="0,0,2,-1">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="141,329,0,0" VerticalAlignment="Top" Width="172" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date*" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" FontFamily="Century Gothic"/>
-        <TextBox x:Name="notesT" HorizontalAlignment="Center" Height="155" Margin="158,101,159,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Description du rendez-vous" TextWrapping="Wrap" VerticalAlignment="Top" Width="422" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF77B3B4" SpellCheck.IsEnabled="True"/>
-        <Button x:Name="AddButton" Content="Ajouter" HorizontalAlignment="Center" Height="Auto" Margin="0,428,0,81" Width="146" FontFamily="Century Gothic" Background="#FF77B3B4" Click="AddButton_Click" Foreground="#DDFFFFFF"/>
-        <materialDesign:TimePicker Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Horaire*" Is24Hours="True" x:Name="horaire" Margin="421,329,143,0" PreviewTextInput="horaire_PreviewTextInput" Height="32" FontFamily="Century Gothic" />
-        <Label Content="Ajouter un rdv personnel" HorizontalAlignment="Left" Height="68" Margin="365,8,0,0" VerticalAlignment="Top" Width="357" Foreground="#FF6A97AC" FontSize="28" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Grid Margin="0,0,2,-1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="32" Margin="141,329,0,0" VerticalAlignment="Top" Width="172" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date*" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" FontFamily="Century Gothic"/>
+            <TextBox x:Name="notesT" HorizontalAlignment="Center" Height="155" Margin="158,101,159,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Description du rendez-vous" TextWrapping="Wrap" VerticalAlignment="Top" Width="422" Background="{x:Null}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF77B3B4" SpellCheck.IsEnabled="True"/>
+            <Button x:Name="AddButton" Content="Ajouter" HorizontalAlignment="Center" Height="Auto" Margin="0,428,0,81" Width="146" FontFamily="Century Gothic" Background="#FF77B3B4" Click="AddButton_Click" Foreground="#DDFFFFFF"/>
+            <materialDesign:TimePicker Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Horaire*" Is24Hours="True" x:Name="horaire" Margin="421,329,143,0" PreviewTextInput="horaire_PreviewTextInput" Height="32" FontFamily="Century Gothic" />
+            <Label Content="Ajouter un rendez-vous personnel" HorizontalAlignment="Left" Height="68" Margin="260,10,0,0" VerticalAlignment="Top" Width="469" Foreground="#FF6A97AC" FontSize="28" FontWeight="Bold" FontFamily="Century Gothic"/>
 
-    </Grid>
+        </Grid>
+    </materialDesign:DialogHost>
 </UserControl>
  

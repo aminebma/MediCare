@@ -9,7 +9,7 @@ namespace MediCare
 {
     class Medecin2
     {
-        public void AddMed(string nom, string prenom, DateTime date, string adresse, string num_tel, string sexe, string key, string username, string password,string email)
+        public void AddMed(string nom, string prenom, DateTime date, string adresse, string num_tel, string sexe, string key, string username, string password,string email,string specialite,int fax, int numCab, string code)
         {
             nom=nom.ToUpper();
             prenom=prenom.ToUpper();
@@ -32,6 +32,10 @@ namespace MediCare
                 username = username,
                 password = Encrypt(password),
                 email = email,
+                fax = fax,
+                specialite = specialite,
+                code = code,
+                numCab = numCab,
                 IdPersonne = t.Id
             };
             Globals.DataClass.Medecin.InsertOnSubmit(tabmedecin);
@@ -70,10 +74,47 @@ namespace MediCare
         public Personne RechercherMedecin(string user)
         {
             Personne medecin = (from med in Globals.DataClass.Medecin
-                                             where med.username == user
-                                             join personne in Globals.DataClass.Personne on med.IdPersonne equals personne.Id
-                                             select personne).First();
+            where med.username == user
+                                         join personne in Globals.DataClass.Personne on med.IdPersonne equals personne.Id
+                                         select personne).First();
             return medecin;
+
+
+        }
+
+        
+
+        public Medecins RechercheMedecin(string user)
+        {
+            //Personne medecin = (from med in Globals.DataClass.Medecin
+            //                                 where med.username == user
+            //                                 join personne in Globals.DataClass.Personne on med.IdPersonne equals personne.Id
+            //                                 select personne).First();
+            //return medecin;
+            
+
+
+            IQueryable<Medecin> medecin = (from med in Globals.DataClass.Medecin
+                                          where med.username.Contains(user)
+                                          select med);
+
+
+            if(medecin.Count()!=0)
+            {
+                Medecin p = medecin.First<Medecin>();
+                Personne personne = (from per in Globals.DataClass.Personne
+                                     where p.IdPersonne.Equals(per.Id)
+                                     select per).First<Personne>();
+
+                Medecins q = new Medecins(personne.nom, personne.prenom, (DateTime)personne.dateNaissance, personne.adresse, (int)personne.telephone, personne.sexe, (Boolean)p.active, p.key, p.username, p.password, p.email, p.code, p.specialite, (int)p.fax, (int)p.numCab);
+                return q;
+            }
+            
+             Medecins f = new Medecins();
+
+
+
+            return f;
         }
 
         public bool RechercherMedecinAdd(string user)
@@ -99,7 +140,7 @@ namespace MediCare
 									 where per.Id == p.IdPersonne
 									 select per).First<Personne>();
 
-				Medecins q = new Medecins(personne.nom, personne.prenom, (DateTime)personne.dateNaissance, personne.adresse, (int)personne.telephone, personne.sexe, (Boolean)p.active, p.key, p.username, p.password);
+				Medecins q = new Medecins(personne.nom, personne.prenom, (DateTime)personne.dateNaissance, personne.adresse, (int)personne.telephone, personne.sexe, (Boolean)p.active, p.key, p.username, p.password,p.email,p.code,p.specialite,(int)p.fax,(int)p.numCab);
 				list.Add(q);
 
 			}

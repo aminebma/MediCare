@@ -40,7 +40,7 @@ namespace MediCare
                     if (Globals.NomPatient == p.Nom && Globals.PrenomPatient == p.Prenom)
                     {
                         TextBlock expSuivi = new TextBlock();
-                        expSuivi.Text = "Nom : " + p.Nom + "    Prénom : " + p.Prenom + "\n    Date de naissance : " + p.Datenaiss + "\n    Taille : " + p.Taille +" cm "+ "\n    Poids : " + p.Poids +" Kg "+ "\n    Sexe : " + p.Sexe + "\n     Numéro de téléphone : 0" + p.Numtel + "\n     Maladie : " + p.Maladie + "\n    Groupage sanguin : " + p.Groupage + "\n    Etat de santé actuel : " + p.EtatSante + "\n    Adresse : " + p.Adresse;
+                        expSuivi.Text = " Nom : " + p.Nom + "    Prénom : " + p.Prenom + "\n    Date de naissance : " + p.Datenaiss + "\n    Taille : " + p.Taille +" cm "+ "\n    Poids : " + p.Poids +" Kg "+ "\n    Sexe : " + p.Sexe + "\n     Numéro de téléphone : 0" + p.Numtel + "\n     Maladie : " + p.Maladie + "\n    Groupage sanguin : " + p.Groupage + "\n    Etat de santé actuel : " + p.EtatSante + "\n    Adresse : " + p.Adresse;
                         StackSuivi.Children.Add(expSuivi);
                     }
                 }
@@ -52,7 +52,7 @@ namespace MediCare
                 foreach (ConsultLabel p in l)
                 {
                     Expander expSuivi = new Expander();
-                    expSuivi.Header = "Titre de Consultation :" + p.Label + "\n  Date de la consultation :" + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
+                    expSuivi.Header = " Titre de Consultation :" + p.Label + "\n  Date de la consultation :" + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
                     Stack.Children.Add(expSuivi);
                     consulta = consultation.AcceeConsultationId(p.Id);
                     expSuivi.Content = " Diagnostic : " + consulta.Diagnostic + "\n Description :" + consulta.Description;
@@ -64,8 +64,6 @@ namespace MediCare
                             expSuivi.Content = expSuivi.Content + "\n Nom du médicament : " + d.NomMed + " ,Dose préscrite : " + d.Dose + " ,Indication : " + d.Indication;
                         }
                     }
-
-
                 }
             }
         }

@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour AgendaMenu.xaml
-    /// </summary>
     public partial class AgendaMenu : UserControl
     {
         public AgendaMenu()
@@ -59,6 +56,5 @@ namespace MediCare
                     break;
             }
         }
-
     }
 }

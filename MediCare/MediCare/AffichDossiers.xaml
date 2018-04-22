@@ -42,7 +42,7 @@
         <Image Margin="501,251,463,206" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
         <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Left" Height="404" Margin="127,99,0,0" VerticalAlignment="Top" Width="809"/>
 
-        <Label Content="La liste du\des Patient(s) recherché(s) : " HorizontalAlignment="Center" Margin="28,58,306,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Label Content="La liste du\des patient(s) recherché(s) : " HorizontalAlignment="Center" Margin="28,58,306,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="146,0,164,64" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="770" Height="371">
             <StackPanel x:Name="StackSuivi"  Height="366" Width="768">
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />

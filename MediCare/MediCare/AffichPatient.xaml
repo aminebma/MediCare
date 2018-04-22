@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MediCare"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MediCare.AffichPatient"
-             mc:Ignorable="d"  Width="1080" Height="548">
+             mc:Ignorable="d"  Width="1080" Height="548" PreviewKeyDown="UserControl_PreviewKeyDown">
     <Grid>
         <Image Margin="927,423,35,34" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
         <Image Margin="502,251,461,206" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>

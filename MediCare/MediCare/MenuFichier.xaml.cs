@@ -86,7 +86,7 @@ namespace MediCare
         {
             var parent = (Grid)this.Parent;
             parent.Children.Clear();
-            parent.Children.Add(new Certificat());
+            parent.Children.Add(new Certificat(label));
 
         }
 

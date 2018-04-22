@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour MonCompte.xaml
-    /// </summary>
     public partial class MonCompte : UserControl
     {
         Window fenetrePrincipale;
@@ -25,15 +22,14 @@ namespace MediCare
         public MonCompte()
         {
             InitializeComponent();
-                NomMed.Content ="Nom : \n" + Globals.NomMedecin;
-                PrenomMed.Content ="Prenom : \n"+ Globals.PrenomMedecin;
-                Adresse.Content ="Adresse : \n"+ Globals.AdresseMedecin;
-                email.Content ="Email : \n"+ Globals.MailMedecin;
-                NomMed.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-                PrenomMed.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-                Adresse.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-                email.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-           
+            NomMed.Content ="Nom : \n" + Globals.NomMedecin;
+            PrenomMed.Content ="Prenom : \n"+ Globals.PrenomMedecin;
+            Adresse.Content ="Adresse : \n"+ Globals.AdresseMedecin;
+            email.Content ="Email : \n"+ Globals.MailMedecin;
+            NomMed.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+            PrenomMed.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+            Adresse.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+            email.HorizontalContentAlignment = HorizontalAlignment.Stretch;
         }
 
         public Window SetFenetrePrincipale

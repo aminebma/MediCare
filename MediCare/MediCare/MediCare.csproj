@@ -121,8 +121,8 @@
     <Compile Include="AgendaMenu.xaml.cs">
       <DependentUpon>AgendaMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AjouterMédic.xaml.cs">
-      <DependentUpon>AjouterMédic.xaml</DependentUpon>
+    <Compile Include="AjouterMedic.xaml.cs">
+      <DependentUpon>AjouterMedic.xaml</DependentUpon>
     </Compile>
     <Compile Include="AjoutRdvPerso.xaml.cs">
       <DependentUpon>AjoutRdvPerso.xaml</DependentUpon>
@@ -141,8 +141,15 @@
     <Compile Include="DossierMedical.xaml.cs">
       <DependentUpon>DossierMedical.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LogOutPop.xaml.cs">
+      <DependentUpon>LogOutPop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuMédicament.xaml.cs">
       <DependentUpon>MenuMédicament.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mois.cs" />
+    <Compile Include="PatientNonExistant.xaml.cs">
+      <DependentUpon>PatientNonExistant.xaml</DependentUpon>
     </Compile>
     <Compile Include="RdvPatient.xaml.cs">
       <DependentUpon>RdvPatient.xaml</DependentUpon>
@@ -162,9 +169,6 @@
     </Compile>
     <Compile Include="LettreOr.xaml.cs">
       <DependentUpon>LettreOr.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LogOutPop.xaml.cs">
-      <DependentUpon>LogOutPop.xaml</DependentUpon>
     </Compile>
     <Compile Include="MCDataClass.designer.cs">
       <AutoGen>True</AutoGen>
@@ -248,7 +252,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AjouterMédic.xaml">
+    <Page Include="AjouterMedic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -260,9 +264,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LogOutPop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MenuMédicament.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientNonExistant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RdvPatient.xaml">
       <SubType>Designer</SubType>
@@ -287,10 +299,6 @@
     <Page Include="LettreOr.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="LogOutPop.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Menu.xaml">
       <SubType>Designer</SubType>
@@ -433,7 +441,6 @@
     <Resource Include="ressources\images\logoo.PNG" />
     <Resource Include="ressources\images\mail.PNG" />
     <Resource Include="ressources\images\fond-médical-50928037.jpg" />
-    <Resource Include="ressources\images\abstract-blue-medical-background-technology-layered-38479133.jpg" />
     <Resource Include="ressources\images\fond-médical-cellule.jpg" />
     <Resource Include="ressources\icones\icones ico\logo_blue.ico" />
     <Resource Include="ressources\icones\icones ico\logo_white.ico" />
@@ -497,6 +504,8 @@
     <Resource Include="ressources\icones\icones png\64 Pixels\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ressources\images\link Orca.png" />
+    <Resource Include="ressources\images\LOGO.png" />
     <Content Include="restauration\MCDatabase_log.ldf">
       <DependentUpon>MCDatabase.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

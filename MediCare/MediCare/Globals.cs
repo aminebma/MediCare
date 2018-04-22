@@ -32,7 +32,31 @@ namespace MediCare
                 _medicament = value;
             }
         }
-
+       
+        private static string _adressePatient;
+        public static string AdressePatient
+        {
+            get
+            {
+                return _adressePatient;
+            }
+            set
+            {
+                _adressePatient = value;
+            }
+        }
+        private static string _specialite;
+        public static string specialite
+        {
+            get
+            {
+                return _specialite;
+            }
+            set
+            {
+                _specialite = value;
+            }
+        }
         private static string _nomPatient;
         public static string NomPatient
         {
@@ -123,6 +147,57 @@ namespace MediCare
                 _TempRappelRDV = value;
             }
         }
+
+        private static int _num;
+        public static int num
+        {
+            get
+            {
+                return _num;
+            }
+            set
+            {
+                _num = value;
+            }
+        }
+
+        private static int _numMobile;
+        public static int numMobile
+        {
+            get
+            {
+                return _numMobile;
+            }
+            set
+            {
+                _numMobile = value;
+            }
+        }
+
+        private static int _fax;
+        public static int fax
+        {
+            get
+            {
+                return _fax;
+            }
+            set
+            {
+                _fax = value;
+            }
+        }
+        private static string _codeMedecin;
+        public static string codeMedecin
+        {
+            get
+            {
+                return _codeMedecin;
+            }
+            set
+            {
+                _codeMedecin = value;
+            }
+        }
         private static string _label;
         public static string Label
         {
@@ -135,7 +210,6 @@ namespace MediCare
                 _label = value;
             }
         }
-        
         private static int _age;
         public static int Age
         {

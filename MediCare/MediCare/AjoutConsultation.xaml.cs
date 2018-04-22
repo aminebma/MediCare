@@ -33,25 +33,6 @@ namespace MediCare
                 }
             }
         }
-        //public AjoutConsultation(string sexe , string adresse, DateTime date)
-        //{
-        //    this.date = date;
-        //    this.adresse = adresse;
-        //    this.sexe = sexe;
-        //    InitializeComponent();
-        //    foreach (Medicaments medic in Globals.ListMedicaments)
-        //    {
-        //        if (medic.nom.Length > 25) medicamentT.Items.Add(medic.nom.Substring(0, 25));
-        //        else medicamentT.Items.Add(medic.nom);
-        //        i++;
-        //        if (i > 100)
-        //        {
-        //            i = 0;
-        //            break;
-        //        }
-        //    }
-        //}
-
 
         internal class Treatement
         {
@@ -127,7 +108,6 @@ namespace MediCare
             {
                 if (medic.nom.Length > 25) medicamentT.Items.Add(medic.nom.Substring(0, 25));
                 else medicamentT.Items.Add(medic.nom);
-                //if (medicamentT.Items.Count != 0) medicamentT.Items.RemoveAt(medicamentT.Items.Count - 1);
             }
         }
 
@@ -141,7 +121,6 @@ namespace MediCare
             if (e.Key == Key.Tab && medicamentT.IsDropDownOpen && medicamentT.HasItems) medicamentT.Text = medicamentT.Items.GetItemAt(0).ToString();
         }
     }
-
 }
 
 

@@ -28,7 +28,7 @@ namespace MediCare
             {
                 foreach (RendezVous rdv in NotifRdv)
                 {
-                    if (string.Compare(rdv.Date.ToString().Substring(0, 10), DateTime.Today.ToString().Substring(0, 10)) == 0)
+                    if (string.Compare(rdv.Date.ToString().Substring(0, 10), DateTime.Today.ToString().Substring(0, 10)) == 0 && rdv.IdMedecin==Globals.IdMedecin)
                     {
                         TextBox TextRDV = new TextBox();
                         TextRDV.Width = 270;

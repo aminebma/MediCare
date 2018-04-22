@@ -18,7 +18,7 @@
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </StackPanel>
         </ScrollViewer>
-        <Label Content="L'hitorique de toutes vos consultations médicales :" HorizontalAlignment="Center" Margin="98,86,202,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18"/>
+        <Label Content="L'historique de toutes vos consultations médicales :" HorizontalAlignment="Center" Margin="98,86,202,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18"/>
         <Label Content="Mon Historique " HorizontalAlignment="Left" Height="69" Margin="469,8,-22,0" VerticalAlignment="Top" Width="297" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
 
     </Grid>

@@ -97,12 +97,13 @@
                 </Ellipse.Fill>
             </Ellipse>
             <Label x:Name="Label" Content="Docteur" HorizontalAlignment="Center" Height="34" Margin="96,183,97,0" VerticalAlignment="Top" Width="92" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
-            <Label x:Name="NomMed" Content="Label" HorizontalAlignment="Center" Height="57" Margin="28,220,33,0" VerticalAlignment="Top" Width="224" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
-            <Label x:Name="PrenomMed" Content="Label" HorizontalAlignment="Center" Height="57" Margin="28,277,33,0" VerticalAlignment="Top" Width="224" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
-            <Label x:Name="Adresse" Content="Label" HorizontalAlignment="Center" Height="57" Margin="28,334,33,0" VerticalAlignment="Top" Width="224" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
-            <Label x:Name="email" Content="Label" HorizontalAlignment="Center" Height="57" Margin="28,391,33,0" VerticalAlignment="Top" Width="224" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
+            <Label x:Name="NomMed" Content="Label" HorizontalAlignment="Center" Height="59" Margin="41,220,66,0" VerticalAlignment="Top" Width="204" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
+            <Label x:Name="PrenomMed" Content="Label" HorizontalAlignment="Center" Height="57" Margin="41,281,68,0" VerticalAlignment="Top" Width="202" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
+            <Label x:Name="Adresse" Content="Label" HorizontalAlignment="Center" Height="59" Margin="41,342,54,0" VerticalAlignment="Top" Width="216" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
+            <Label x:Name="email" Content="Label" HorizontalAlignment="Center" Height="59" Margin="39,403,52,0" VerticalAlignment="Top" Width="220" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
             <Separator Height="14" Margin="0,164,0,0" VerticalAlignment="Top" Background="#FF6A97AC"/>
-            <Separator Height="14" Margin="0,469,0,0" VerticalAlignment="Top" Background="#FF6A97AC"/>
+            <Separator Height="14" Margin="2,513,-2,0" VerticalAlignment="Top" Background="#FF6A97AC"/>
+            <Label x:Name="specialite" Content="Label" HorizontalAlignment="Center" Height="55" Margin="39,459,50,0" VerticalAlignment="Top" Width="222" FontFamily="Century Gothic" FontSize="18" Foreground="#FF6A97AC"/>
         </Grid>
 
     </Grid>

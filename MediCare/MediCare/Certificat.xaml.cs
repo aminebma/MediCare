@@ -21,24 +21,22 @@ using System.Text.RegularExpressions;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour Certificat.xaml
-    /// </summary>
     public partial class Certificat : UserControl
     {
         Regex charControl = new Regex(@"[A-Za-z]+");
+        Regex numControl = new Regex(@"[0-9]+");
+        string label;
 
-        public Certificat()
+        public Certificat(string label)
         {
             InitializeComponent();
+            this.label = label;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // PdfDocument document = new PdfDocument();
-
             Document doc = new Document();
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Certificat.pdf", FileMode.Create));
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Certificat"+" "+label+".pdf", FileMode.Create));
             doc.Open();
             BaseFont bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
             Font times2 = new Font(bfTimes, 20, Font.BOLD);
@@ -55,7 +53,7 @@ namespace MediCare
 
             if (title.Text == "Mademoiselle")
             {
-                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Mademoiselle  " + Globals.NomPatient + " " + Globals.PrenomPatient + "  Née le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
+                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Mademoiselle  " + Globals.NomPatient + " " + Globals.PrenomPatient + "  Agée le  " + Globals.Age + " ans,  Demeurant à  " + Globals.AdressePatient + "\n\n\n", times1);
                 doc.Add(para3);
 
                 if ((bool)option.IsChecked)
@@ -91,7 +89,7 @@ namespace MediCare
 
             if (title.Text == "Madame")
             {
-                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Madame  " + Globals.NomPatient + " " + Globals.PrenomPatient + "  Née le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
+                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Madame  " + Globals.NomPatient + " " + Globals.PrenomPatient + "  Agée le  " + Globals.Age + " ans,  Demeurant à  " + Globals.AdressePatient + "\n\n\n", times1);
                 doc.Add(para3);
 
                 if ((bool)option.IsChecked)
@@ -127,7 +125,7 @@ namespace MediCare
 
             if (title.Text == "Monsieur")
             {
-                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Monsieur " + Globals.NomPatient + " " + Globals.PrenomPatient + "  Né le  " + date_naiss.Text + "  Demeurant à  " + adresse.Text + "\n\n\n", times1);
+                iTextSharp.text.Paragraph para3 = new iTextSharp.text.Paragraph("Monsieur " + Globals.NomPatient + " " + Globals.PrenomPatient + "  Agé le  " + Globals.Age + " ans, Demeurant à  " + Globals.AdressePatient + "\n\n\n", times1);
                 doc.Add(para3);
 
                 if ((bool)option.IsChecked)
@@ -161,41 +159,17 @@ namespace MediCare
                 }
 
             }
-
-
-
-            iTextSharp.text.Paragraph para9 = new iTextSharp.text.Paragraph("      \n\n                                                                                          Fait à  " + adr.Text + " Le   " + DateTime.Today + "\n\n\n\n\n\n\n ", times1);
+            iTextSharp.text.Paragraph para9 = new iTextSharp.text.Paragraph("      \n\n                                                                                          Fait à  " + adr.Text + " Le   " + DateTime.Today.Day +"-"+DateTime.Today.Month+"-"+DateTime.Today.Year + "\n\n\n\n\n\n\n ", times1);
             doc.Add(para9);
             iTextSharp.text.Paragraph para10 = new iTextSharp.text.Paragraph(" Signature du medecin                                                                              Cachet du medecin ", times);
             doc.Add(para10);
             doc.Close();
             MessageBox.Show("Le fichier a été généré ! ");
-
         }
 
         private void nom_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!charControl.IsMatch(e.Text)) e.Handled = true;
-        }
-
-        private void date_naiss_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void date_naiss2_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void jour22_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void jour33_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = true;
         }
 
         private void date_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -205,10 +179,14 @@ namespace MediCare
 
         private void Suivant_Click(object sender, RoutedEventArgs e)
         {
-
             var parent = (Grid)this.Parent;
             parent.Children.Clear();
             parent.Children.Add(new MenuFichier());
+        }
+
+        private void jour_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!numControl.IsMatch(e.Text)) e.Handled = true;
         }
     }
 }

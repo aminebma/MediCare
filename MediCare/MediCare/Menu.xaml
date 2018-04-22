@@ -14,9 +14,30 @@
             TextOptions.TextRenderingMode="Auto"
             FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
+        <Image Source="ressources/images/logoo.png" Margin="263,3,3,-9" />
+        <Image Margin="0,148,279,340" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="42" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.001" ScaleX="0.999"/>
+                    <SkewTransform AngleX="0.819"/>
+                    <RotateTransform Angle="-9.364"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="325,8,660,449" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.028" ScaleX="0.973"/>
+                    <SkewTransform AngleX="2.326"/>
+                    <RotateTransform Angle="-52.857"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
         <Button x:Name="RechercheBTN"
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="639,338,293,70" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Recherche" FontFamily="Century Gothic" FontSize="24" Foreground="White" FontWeight="Bold" Click="RechercheBTN_Click">
+                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="561,388,393,44" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Recherche" FontFamily="Century Gothic" FontSize="22" Foreground="White"  Click="RechercheBTN_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF73E8BE" Offset="0"/>
@@ -26,26 +47,27 @@
         </Button>
         <Button x:Name="PAtientBTN"
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="455,147,386,171" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Patient" FontFamily="Century Gothic" FontSize="36" Click="PAtientBTN_Click" Foreground="White" FontWeight="Bold">
+                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="588,7,326,382" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Patient" FontFamily="Century Gothic" FontSize="34" Click="PAtientBTN_Click" Foreground="White">
             <Button.Background>
                 <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FF81CCFF" Offset="0"/>
-                    <GradientStop Color="#FF717DFF" Offset="0.824"/>
+                    <GradientStop Color="#FF81CCFF" Offset="0.196"/>
+                    <GradientStop Color="#FF717DFF" Offset="0.883"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
         <Button x:Name="CompteBTN"
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="722,218,247,228" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Compte" FontFamily="Century Gothic" FontSize="20" Click="CompteBTN_Click" Foreground="White" FontWeight="Bold">
+                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="828,141,113,276" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Compte" FontFamily="Century Gothic" FontSize="24" Click="CompteBTN_Click" Foreground="White" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FF42919E"/>
-                    <GradientStop Color="#FFF8D9D6" Offset="0.867"/>
+                    <GradientStop Color="#FF4BCDBF"/>
+                    <GradientStop Color="#FFF8D9D6" Offset="0.83"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <materialDesign:PackIcon Kind="DatabaseSearch" Margin="676,376,0,0" Height="79" Width="69" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" IsHitTestVisible="False" Focusable="False"/>
-        <materialDesign:PackIcon Kind="Account" Margin="748,240,0,0" Height="58" Width="56" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False"/>
+        <materialDesign:PackIcon Kind="DatabaseSearch" Margin="588,412,0,0" Height="78" Width="68" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" IsHitTestVisible="False" Focusable="False"/>
+
+        <materialDesign:PackIcon Kind="Account" Margin="852,169,0,0" Height="81" Width="80" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False"/>
         <Expander HorizontalAlignment="Left" Header="Rendez Vous de la journée" IsExpanded="True" Background="#9965BFCD" FontFamily="Century Gothic" FontSize="14" Foreground="White" Width="295">
             <ListView x:Name="ListeRDV" Background="{x:Null}" Foreground="{x:Null}">
                 <ListView.ItemsPanel>
@@ -55,24 +77,95 @@
                 </ListView.ItemsPanel>
             </ListView>
         </Expander>
-        <Image Margin="523,211,0,0" Source="ressources/icones/icones png/64 Pixels/dentist.png" Opacity="0.5" IsHitTestVisible="False" Height="101" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102"/>
+        <Image Margin="624,51,0,0" Source="ressources/icones/icones png/64 Pixels/dentist.png" Opacity="0.5" IsHitTestVisible="False" Height="81" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80"/>
         <Button x:Name="MedicamentBTN"
             Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-            materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="639,37,293,371" Height="140" Width="140" BorderBrush="{x:Null}" Content="Médicament" FontFamily="Century Gothic" FontSize="22" Foreground="White" FontWeight="Bold" Click="MedicamentBTN_Click">
+            materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="728,284,198,120" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Médicament" FontFamily="Century Gothic" FontSize="22" Foreground="White" Click="MedicamentBTN_Click">
             <Button.Background>
-                <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF1FB2B9" Offset="0"/>
-                    <GradientStop Color="#FF485E99" Offset="0.717"/>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF80C6FF" Offset="0.748"/>
+                    <GradientStop Color="#FF7488FF" Offset="0.157"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <materialDesign:PackIcon Kind="Beaker" Margin="670,66,0,0" Height="80" Width="82" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False"/>
-        <Button x:Name="AgendaBTN" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="241,0,777,498" Foreground="Black" Width="54" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="AgendaBTN_Click">
+        <materialDesign:PackIcon Kind="Beaker" Margin="752,316,0,0" Height="87" Width="98" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False"/>
+        <Button x:Name="AgendaBTN" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="228,0,777,492" Foreground="Black" Width="67" Height="56" Background="{x:Null}" BorderBrush="{x:Null}" Click="AgendaBTN_Click">
             <Button.ToolTip>
                 <TextBlock><Run Text="Agenda"/></TextBlock>
             </Button.ToolTip>
-            <materialDesign:PackIcon Kind="Calendar" Foreground="White" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <materialDesign:PackIcon Kind="Calendar" Foreground="White" BorderThickness="2" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Button>
+        <Button x:Name="Agenda"
+            Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
+            materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="368,29,572,388" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Agenda" FontFamily="Century Gothic" FontSize="24" Click="AgendaBTN_Click" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF72E2C7"/>
+                    <GradientStop Color="#FF6EBCF7" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <materialDesign:PackIcon Kind="Calendar" Margin="403,62,0,0" Height="68" Width="67" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False" RenderTransformOrigin="1.434,-0.125"/>
+        <Image Margin="319,424,666,33" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.028" ScaleX="0.973"/>
+                    <SkewTransform AngleX="2.326"/>
+                    <RotateTransform Angle="-52.857"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="918,31,98,466" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.028" ScaleX="0.973"/>
+                    <SkewTransform AngleX="2.326"/>
+                    <RotateTransform Angle="22.187"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="343,212,642,245" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.028" ScaleX="0.973"/>
+                    <SkewTransform AngleX="2.326"/>
+                    <RotateTransform Angle="5.089"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="0,316,509,169" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="42" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.001" ScaleX="0.999"/>
+                    <SkewTransform AngleX="0.819"/>
+                    <RotateTransform Angle="-9.364"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="922,369,94,128" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.028" ScaleX="0.973"/>
+                    <SkewTransform AngleX="2.326"/>
+                    <RotateTransform Angle="-33.136"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="981,498,4,-41" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="0.58,0.533" Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.028" ScaleX="0.973"/>
+                    <SkewTransform AngleX="2.326"/>
+                    <RotateTransform Angle="-52.857"/>
+                    <TranslateTransform X="-0.045" Y="-0.135"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 
 </UserControl>

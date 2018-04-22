@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour AffichDossiers.xaml
-    /// </summary>
     public partial class AffichDossiers : UserControl
     {
         PersonneClasse personne = new PersonneClasse();
@@ -34,11 +31,10 @@ namespace MediCare
                     if (Globals.NomPatient == p.Nom )
                     {
                         TextBlock expSuivi = new TextBlock();
-                        expSuivi.Text = "Nom : " + p.Nom + "    Prénom : " + p.Prenom + "\n    Date de naissance : " + p.Datenaiss + "\n    Taille : " + p.Taille + " cm " + "\n    Poids : " + p.Poids + " Kg " + "\n    Sexe : " + p.Sexe + "\n     Numéro de téléphone : 0" + p.Numtel + "\n     Maladie : " + p.Maladie + "\n    Groupage sanguin : " + p.Groupage + "\n    Etat de santé actuel : " + p.EtatSante + "\n    Adresse : " + p.Adresse;
+                        expSuivi.Text = " Nom : " + p.Nom + "    Prénom : " + p.Prenom + "\n    Date de naissance : " + p.Datenaiss + "\n    Taille : " + p.Taille + " cm " + "\n    Poids : " + p.Poids + " Kg " + "\n    Sexe : " + p.Sexe + "\n     Numéro de téléphone : 0" + p.Numtel + "\n     Maladie : " + p.Maladie + "\n    Groupage sanguin : " + p.Groupage + "\n    Etat de santé actuel : " + p.EtatSante + "\n    Adresse : " + p.Adresse;
                         StackSuivi.Children.Add(expSuivi);
                     }
                 }
-
             }
         }
 

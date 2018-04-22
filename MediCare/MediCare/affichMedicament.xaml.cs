@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour affichMedicament.xaml
-    /// </summary>
     public partial class affichMedicament : UserControl
     {
         List<Medicaments> list;
@@ -33,7 +30,7 @@ namespace MediCare
                 {
 
                     Expander expSuivi = new Expander();
-                    expSuivi.Header = "Nom du Médicament :" + p.nom;
+                    expSuivi.Header = " Nom du Médicament :" + p.nom;
                     expSuivi.Content = " Dose : " + p.Dosage + "\n Type :" + p.Type;
                     StackSuivi.Children.Add(expSuivi);
 
