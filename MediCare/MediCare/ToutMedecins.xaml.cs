@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour ToutPatients.xaml
-    /// </summary>
     public partial class ToutMedecins : UserControl
     {
         Medecin2 personne = new Medecin2();

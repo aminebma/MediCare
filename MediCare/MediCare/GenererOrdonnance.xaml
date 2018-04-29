@@ -3,14 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MediCare"
         mc:Ignorable="d" Height="548" Width="702">
-    <Grid Width="702" Height="548" Background="White">
-        <Button x:Name="VisuaiserOrdo" Content="Visualiser ordonnance PDF" HorizontalAlignment="Center" Height="42" Margin="0,199,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC" Click="VisuaiserOrdo_Click"/>
-        <Button x:Name="ImprimerOrdo" Content="Imprimer ordonnance PDF" HorizontalAlignment="Center" Height="42" Margin="0,257,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC" Click="ImprimerOrdo_Click"/>
-        <Button x:Name="Valider" Content="Valider la consultation" HorizontalAlignment="Center" Height="42" Margin="450,460,18,46" VerticalAlignment="Center" Width="234" Click="Valider_Click" Background="#FF6A97AC"/>
-        <Label Content="L'ordonnance de cette consultation a été générée, Voulez-vous :" HorizontalAlignment="Center" Margin="92,124,96,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontFamily="Century Gothic"/>
-        <Label Content="Ordonnance " HorizontalAlignment="Left" Height="69" Margin="407,10,-2,0" VerticalAlignment="Top" Width="297" Foreground="CadetBlue" FontSize="36" FontWeight="Bold"/>
-
-    </Grid>
+    <materialDesign:DialogHost x:Name="Dialog" Margin="0">
+        <materialDesign:DialogHost.DialogContent >
+            <Grid Width="300" Height="100">
+                <TextBlock  HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Text="Consultation Ajoutée avec succès"/>
+                <Button  Content="OK" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="Auto" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Click="Button_Click_1" />
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid Width="702" Height="548">
+            <Button x:Name="VisuaiserOrdo" Content="Visualiser l'ordonnace" HorizontalAlignment="Center" Height="42" Margin="0,199,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC" Click="VisuaiserOrdo_Click" FontFamily="Century Gothic" Foreground="White"/>
+            <Button x:Name="ImprimerOrdo" Content="Imprimer l'ordonnance" HorizontalAlignment="Center" Height="42" Margin="0,257,0,0" VerticalAlignment="Top" Width="350" Background="#FF6A97AC" Click="ImprimerOrdo_Click" FontFamily="Century Gothic" Foreground="White"/>
+            <Button x:Name="Valider" Content="Valider la consultation" HorizontalAlignment="Center" Height="42" Margin="450,460,18,46" VerticalAlignment="Center" Width="234" Click="Valider_Click" Background="#FF6A97AC" FontFamily="Century Gothic" Foreground="White"/>
+            <Label Content="L'ordonnance de cette consultation est prête à être enregistrée, Voulez-vous:" Margin="41,124,36,0" VerticalAlignment="Top" FontSize="16" FontFamily="Century Gothic" Width="625" HorizontalAlignment="Center"/>
+            <Label Content="Ordonnance " HorizontalAlignment="Left" Height="69" Margin="407,10,-2,0" VerticalAlignment="Top" Width="297" Foreground="CadetBlue" FontSize="36" FontWeight="Bold" FontFamily="Century Gothic"/>
+        </Grid>
+    </materialDesign:DialogHost>
 </UserControl>

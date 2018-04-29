@@ -51,10 +51,13 @@ namespace MediCare
 
         public void AjouterMedic(string Nom, string type, string dose)
         {
-            Medicaments medic = new Medicaments();
-            medic.nom = Nom;
-            medic.Type = type;
-            medic.Dosage = dose;
+            Medicaments medic = new Medicaments
+            {
+                nom = Nom,
+                Type = type,
+                Dosage = dose
+            };
+            Globals.ListMedicaments.Add(medic);
             Globals.DataClass.Medicaments.InsertOnSubmit(medic);
             Globals.DataClass.SubmitChanges();
         }

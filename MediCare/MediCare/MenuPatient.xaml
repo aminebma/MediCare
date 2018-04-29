@@ -17,9 +17,9 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <ListView VerticalAlignment="Center" Margin="0,18,0,31" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged" Height="499">
+            <ListView VerticalAlignment="Center" Margin="0,18,0,20" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged" Height="510">
 
-                <ListViewItem x:Name="Consultation" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                <ListViewItem x:Name="Consultation" Height="66" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -42,7 +42,7 @@
                         </TransformGroup>
                     </Separator.RenderTransform>
                 </Separator>
-                <ListViewItem x:Name="Suivi" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                <ListViewItem x:Name="Suivi" Height="66" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -65,7 +65,7 @@
                         </TransformGroup>
                     </Separator.RenderTransform>
                 </Separator>
-                <ListViewItem x:Name="Dossier" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                <ListViewItem x:Name="Dossier" Height="66" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -88,7 +88,7 @@
                         </TransformGroup>
                     </Separator.RenderTransform>
                 </Separator>
-                <ListViewItem x:Name="Supprimer" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                <ListViewItem x:Name="Supprimer" Height="66" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -101,7 +101,17 @@
                         <TextBlock Text="Supprimer le patient " Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem x:Name="rdv" Height="85" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <ListViewItem x:Name="rdv" Height="65" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
                     <ListViewItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -111,7 +121,30 @@
                         </TransformGroup>
                     </ListViewItem.RenderTransform>
                     <StackPanel Orientation="Horizontal" Margin="0">
-                        <TextBlock Text="Ajouter un rdv " Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                        <TextBlock Text="Ajouter un rendez-vous " Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </ListViewItem>
+                <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <ListViewItem x:Name="fichier" Height="66" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <TextBlock Text="Consulter les fichiers " Margin="10" VerticalAlignment="Center" Foreground="White" FontFamily="Century Gothic" FontSize="20"/>
                     </StackPanel>
                 </ListViewItem>
             </ListView>

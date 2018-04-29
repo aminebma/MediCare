@@ -18,7 +18,6 @@ namespace MediCare
 		private string cheminOrdo;
 		public List<Traite> traitement;
 		public List<string> Radio; 
-	
 
 		public Consulta(DateTime date, string diagnostic, string description, string cheminCertificat, string cheminLettreOrientation, string cheminScanner, string cheminBilan, string cheminOrdo, List<Traite> traitement, List<string> Radio )
 		{
@@ -32,13 +31,13 @@ namespace MediCare
 			this.cheminBilan = cheminBilan;
 			this.Radio = Radio;
 			this.traitement = traitement; 
-
-
 		}
+
         public Consulta()
         {
 
         }
+
 		public DateTime Date
 		{
 			get { return date; }
@@ -50,31 +49,37 @@ namespace MediCare
 			get { return diagnostic; }
 			set { diagnostic = value; }
 		}
+
 		public string Description
 		{
 			get { return description ; }
 			set { description = value; }
 		}
+
 		public string CheminCertificat
 		{
 			get { return cheminCertificat; }
 			set { cheminCertificat = value; }
 		}
+
 		public string CheminLettreOrientation
 		{
 			get { return cheminLettreOrientation; }
 			set { cheminLettreOrientation = value; }
 		}
+
 		public string CheminBilan
 		{
 			get { return cheminBilan; }
 			set { cheminBilan = value; }
 		}
+
 		public string CheminScanner
 		{
 			get { return cheminScanner; }
 			set { cheminScanner = value; }
 		}
+
 		public string CheminOrdo
 		{
 			get { return cheminOrdo; }

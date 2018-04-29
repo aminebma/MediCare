@@ -3,16 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:local="clr-namespace:MediCare"
              mc:Ignorable="d" 
-             d:DesignHeight="548" d:DesignWidth="744" Width="746">
+             d:DesignHeight="548" d:DesignWidth="744" Width="746" FontFamily="Century Gothic">
     <Grid>
-        <Label Content="La liste de tous les médicaments enregistrés : " Margin="142,51,154,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic" HorizontalAlignment="Center"/>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,90,0,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Label Content="Sélectionnez le médicament recherché : " Margin="12,87,324,0" VerticalAlignment="Top" FontSize="20" FontFamily="Century Gothic" HorizontalAlignment="Center"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="48,0,52,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="325" Width="646">
             <StackPanel x:Name="StackSuivi"  Height="417" Width="690">
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
             </StackPanel>
         </ScrollViewer>
-        <Label Content="Médicaments" HorizontalAlignment="Left" Height="54" Margin="534,-5,0,0" VerticalAlignment="Top" Width="201" Foreground="#FF3599CC" FontSize="28" FontWeight="Bold"/>
+        <Label Content="Médicaments" HorizontalAlignment="Left" Height="54" Margin="534,-5,0,0" VerticalAlignment="Top" Width="201" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
+        <ComboBox x:Name="medicament" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Medicament*" HorizontalAlignment="Left" Height="46" Margin="472,82,0,0" VerticalAlignment="Top" Width="220" IsEditable="True" TextBoxBase.TextChanged="medicamentT_TextChanged" IsTextSearchEnabled="False" PreviewKeyDown="medicament_PreviewKeyDown" SelectionChanged="medicament_SelectionChanged"/>
     </Grid>
 </UserControl>

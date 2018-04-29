@@ -24,6 +24,7 @@ namespace MediCare
 			this.nom = nom;
 			this.prenom = prenom;
 		}
+
         public ConsultLabel(DateTime date, string label, int id, string nom, string prenom, string nomed, string prenomed)
         {
             this.date = date;
@@ -39,6 +40,7 @@ namespace MediCare
         {
 
         }
+
 		public DateTime Date
 		{
 			get { return date; }
@@ -50,18 +52,19 @@ namespace MediCare
 			get { return label; }
 			set { label = value; }
 		}
+
 		public int Id
 		{
 			get { return id; }
 			set { id = value; }
 		}
 
-
 		public string Nom
 		{
 			get { return nom; }
 			set { nom = value; }
 		}
+
 		public string Prenom
 		{
 			get { return prenom; }
@@ -73,6 +76,7 @@ namespace MediCare
             get { return nomed; }
             set { nomed = value; }
         }
+
         public string Prenomed
         {
             get { return prenomed; }

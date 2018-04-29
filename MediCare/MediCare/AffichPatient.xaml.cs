@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour AffichPatient.xaml
-    /// </summary>
     public partial class AffichPatient : UserControl
     {
         List<Personne> listPatientsTmp;
@@ -89,6 +86,8 @@ namespace MediCare
                     listPatientsTmp = pat.RechercherPatient(Globals.NomPatient + " " + Globals.PrenomPatient);
                     if (listPatientsTmp.Count() != 0)
                     {
+
+                        Globals.AdressePatient = listPatientsTmp[0].adresse;
                         DateTime date = (DateTime)listPatientsTmp[0].dateNaissance;
                         Globals.Age = DateTime.Today.Year - date.Year;
                         nomPatientT.IsEnabled = false;
@@ -104,9 +103,7 @@ namespace MediCare
                         nomPatientT.IsEnabled = false;
                         prenomPatientT.IsEnabled = false;
                         search.IsEnabled = false;
-                        PopupPatient pop = new PopupPatient();
-                        pop.SetGridAppelant = (Grid)this.Parent;
-                        pop.Show();
+                        Dialog.IsOpen = true;
                     }
                 }
                 else
@@ -133,9 +130,7 @@ namespace MediCare
                             nomPatientT.IsEnabled = false;
                             prenomPatientT.IsEnabled = false;
                             search.IsEnabled = false;
-                            PopupPatient pop = new PopupPatient();
-                            pop.SetGridAppelant = (Grid)this.Parent;
-                            pop.Show();
+                            Dialog.IsOpen = true;
                         }
                     }
                 }
@@ -143,15 +138,12 @@ namespace MediCare
 
         }
         
-
-
-
-
         public class specRadio : RadioButton
         {
             public string nom { get; set; }
             public string prenom { get; set; }
         }
+
         private void nomPatientT_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!charControl.IsMatch(e.Text)) e.Handled = true;
@@ -192,7 +184,6 @@ namespace MediCare
             }
         }
 
-
         private void nomPatientT_MouseEnter(object sender, MouseEventArgs e)
         {
             nomPatientT.Focus();
@@ -223,6 +214,20 @@ namespace MediCare
         {
             if (e.Key == Key.Tab && nomPatientT.IsDropDownOpen && nomPatientT.HasItems) nomPatientT.Text = nomPatientT.Items.GetItemAt(0).ToString();
         }
+
+        private void Oui_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = ((Grid)this.Parent);
+            parent.Children.Clear();
+            parent.Children.Add(new FichePatient());
+            
+        }
+
+        private void Non_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = ((Grid)this.Parent);
+            parent.Children.Clear();
+            parent.Children.Add(new PatientNonExistant());
+        }
     }
-    
 }

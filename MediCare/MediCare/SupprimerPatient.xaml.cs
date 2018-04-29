@@ -16,15 +16,8 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour SupprimerPatient.xaml
-    /// </summary>
     public partial class SupprimerPatient : UserControl
     {
-
-        //List<specCheckBox> listChecked = new List<specCheckBox>();
-        //List<specCheckBox> listComplete = new List<specCheckBox>();
-
         PersonneClasse personne = new PersonneClasse();
         Medecin2 patients = new Medecin2();
         List<Patients> list;

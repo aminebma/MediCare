@@ -7,12 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="548" d:DesignWidth="744" Width="746">
     <Grid>
-        <Label Content="La liste de tous les médecins enregistrés : " HorizontalAlignment="Center" Margin="28,58,306,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic"/>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,90,0,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Left" Height="405" Margin="36,102,0,0" VerticalAlignment="Top" Width="669"/>
+        <Label Content="La liste de tous les médecins enregistrés : " HorizontalAlignment="Center" Margin="28,58,306,0" VerticalAlignment="Top" FontSize="20" FontFamily="Century Gothic"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="75,0,75,68" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="352" Width="596">
             <StackPanel x:Name="StackSuivi"  Height="417" Width="690">
-                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" Margin="0,0,84,0" />
             </StackPanel>
         </ScrollViewer>
-        <Label Content="Médecins " HorizontalAlignment="Left" Height="54" Margin="571,3,-7,0" VerticalAlignment="Top" Width="182" Foreground="#FF3599CC" FontSize="28" FontWeight="Bold"/>
+        <Label Content="Médecins " HorizontalAlignment="Left" Height="54" Margin="571,3,-7,0" VerticalAlignment="Top" Width="182" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
     </Grid>
 </UserControl>

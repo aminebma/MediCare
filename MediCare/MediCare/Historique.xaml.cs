@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour Historique.xaml
-    /// </summary>
     public partial class Historique : UserControl
     {
         List<ConsultLabel> list;
@@ -29,8 +26,10 @@ namespace MediCare
             list = cons.Historique();
             foreach (ConsultLabel p in list)
             {
-                Expander expSuivi = new Expander();
-                expSuivi.Header = "Médecin : " + p.Nomed + " " + p.Prenomed + "\nPatient : " + p.Nom + " " + p.Prenom + "\nLabel :" + p.Label + "\nDate de la consultation : " + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
+                Expander expSuivi = new Expander
+                {
+                    Header = "Médecin : " + p.Nomed + " " + p.Prenomed + "\nPatient : " + p.Nom + " " + p.Prenom + "\nLabel :" + p.Label + "\nDate de la consultation : " + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year
+                };
                 StackSuivi.Children.Add(expSuivi);
                 consulta = cons.AcceeConsultationId(p.Id);
                 expSuivi.Content =" " + consulta.Diagnostic + "\n " + consulta.Description;
@@ -44,6 +43,14 @@ namespace MediCare
                     }
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            var parent2 = (Grid)parent.Parent;
+            parent2.Children.Add(new MonCompte());
         }
     }
 }

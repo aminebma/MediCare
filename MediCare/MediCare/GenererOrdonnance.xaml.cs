@@ -17,13 +17,8 @@ using System.Windows.Navigation;
 using System.IO;
 using Microsoft.Win32;
 
-
-
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour GenererOrdonnance.xaml
-    /// </summary>
     public partial class GenererOrdonnance : UserControl
     {
         string label;
@@ -49,8 +44,8 @@ namespace MediCare
             this.scanner = scanner;
             this.certificat =certificat;
             this.Lettre  = Lettre;
-
         }
+
         public GenererOrdonnance(string label, string diagnostic, string description, List<Traite> traitment)
         {
             InitializeComponent();
@@ -58,60 +53,44 @@ namespace MediCare
             this.diagnostic = diagnostic;
             this.description = description;
             this.traitment = traitment;
-
         }
+
         public GenererOrdonnance()
         {
             InitializeComponent();
         }
+
         Ordonnance ordo = new Ordonnance();
+
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
             Consult consultation = new Consult();
             try
             {
-                consultation.AddConsult(Globals.NomPatient, Globals.PrenomPatient, Globals.NomMedecin, Globals.PrenomMedecin, diagnostic, description, certificat, Lettre, scanner, bilan, ordonnance, radio, traitment, label,Globals.Age);
-                MessageBox.Show("Consultation ajoutée avec succés !");
-                var parent = (Grid)this.Parent;
-                parent.Children.Clear();
-        }
+                this.ordonnance = ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label, Globals.specialite, Globals.codeMedecin, Globals.Age, Globals.numMobile, Globals.num, Globals.fax, Globals.MailMedecin);
+                consultation.AddConsult(Globals.NomPatient, Globals.PrenomPatient, Globals.NomMedecin, Globals.PrenomMedecin, diagnostic, description, certificat, Lettre, scanner, bilan, ordonnance, radio, traitment, label, Globals.Age);
+                Dialog.IsOpen = true;
+                
+            }
             catch (Exception)
             {
-                MessageBox.Show("Une erreur s'est produite !");
+                MessageBox.Show("Une erreur s'est produite, la consultation n'a pas été ajoutée");
             }
 
-}
+        }
 
 
         private void VisuaiserOrdo_Click(object sender, RoutedEventArgs e)
         {
-            //OpenFileDialog ofd = new OpenFileDialog();
-            //if (ofd.ShowDialog() == true)
-            //{
-            //    MessageBox.Show(ofd.FileName);
-            //    this.ordonnance = ofd.FileName;
-
-            //}
             try
             {
-                this.ordonnance = ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label);
+                this.ordonnance = ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label, Globals.specialite, Globals.codeMedecin, Globals.Age, Globals.numMobile, Globals.num, Globals.fax, Globals.MailMedecin);
+                System.Diagnostics.Process.Start(ordonnance);
             }
             catch (Exception)
             {
                 MessageBox.Show("Une erreur s'est produite");
-
             }
-           
-
-
-
-
-                System.Diagnostics.Process.Start(ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label));
-
-
-
-
-
         }
 
         private void ImprimerOrdo_Click(object sender, RoutedEventArgs e)
@@ -120,10 +99,13 @@ namespace MediCare
             Fff.PageRangeSelection = PageRangeSelection.AllPages;
             Fff.UserPageRangeEnabled = true;
             bool? doPrint = Fff.ShowDialog();
-            if (doPrint != true)
-            {
-                return;
-            }
+            if (doPrint != true) return;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
         }
     }
 }

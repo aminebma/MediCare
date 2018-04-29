@@ -45,7 +45,6 @@ namespace MediCare
             sgnup.Show();
             creatingForm.Close();
             this.Close();
-            
         }
     }
 }

@@ -7,14 +7,13 @@
         xmlns:local="clr-namespace:MediCare"
         mc:Ignorable="d"
         Title="ModifMed" Height="322.111" Width="366.262" PreviewKeyDown="Window_PreviewKeyDown">
-    <Grid Margin="0,0,0,-1">
+    <Grid Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border BorderBrush="CadetBlue" BorderThickness="1" HorizontalAlignment="Left" Height="143" Margin="59,54,0,0" VerticalAlignment="Top" Width="259"/>
-        <Button x:Name="modifBtn" Content="Modifier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="117,215,0,0" Padding="0" BorderThickness="0" Background="#FF6A97AC" Foreground="White" Height="34" Click="modifBtn_Click" RenderTransformOrigin="1.434,-6" BorderBrush="{x:Null}"/>
+        <Button x:Name="modifBtn" Content="Modifier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="118,229,0,0" Padding="0" BorderThickness="0" Background="#FF6A97AC" Foreground="White" Height="34" Click="modifBtn_Click" RenderTransformOrigin="1.434,-6" BorderBrush="{x:Null}" FontFamily="Century Gothic"/>
         <Label Content="Veuillez saisir les champs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="81,14,0,0" Foreground="#FF6A97AC" FontWeight="Bold" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBox x:Name="username2" materialDesign:HintAssist.Hint="  Identifiant" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="82,58,71,188" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="205" />
-        <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="  Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="83,118,70,124" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="205" />
+        <TextBox x:Name="username2" materialDesign:HintAssist.Hint="  Identifiant" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="82,67,71,179" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="205" />
+        <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="  Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="82,144,71,99" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="48" Width="205" />
     </Grid>
 </Window>

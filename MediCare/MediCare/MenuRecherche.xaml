@@ -19,8 +19,6 @@
                 </TransformGroup>
             </Grid.RenderTransform>
             <ListView Margin="0,134,0,158" Background="#FF42919E" SelectionChanged="ListView_SelectionChanged" VerticalAlignment="Center" Height="256" >
-
-
                 <Separator Margin="0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="White">
                     <Separator.RenderTransform>
                         <TransformGroup>

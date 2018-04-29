@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour AgendaMenu.xaml
-    /// </summary>
     public partial class AgendaMenu : UserControl
     {
         public AgendaMenu()
@@ -29,6 +26,11 @@ namespace MediCare
             TextCSLTAGD.Text = "Consulter mon Agenda";
         }
 
+        public UserControl SetGrid2
+        {
+            set { Grid2.Children.Add(value); }
+            
+        }
      
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -54,6 +56,5 @@ namespace MediCare
                     break;
             }
         }
-
     }
 }

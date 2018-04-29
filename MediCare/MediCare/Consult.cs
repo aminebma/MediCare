@@ -9,7 +9,6 @@ namespace MediCare
 {
 	class Consult
 	{
-
         public void AddConsult(string nomPatient, string prenomPatient, string nomMedecin, string prenomMedecin, string diagnostic, string description, string cheminCertificat, string cheminLettreOrientation, string cheminScanner, string cheminBilan, string cheminOrdo, List<string> cheminRadio, List<Traite> traitement, string label, int age)
         {
             nomPatient = nomPatient.ToUpper();
@@ -30,7 +29,6 @@ namespace MediCare
             Globals.DataClass.Consultation.InsertOnSubmit(table);
             Globals.DataClass.SubmitChanges();
 
-
             foreach (var chemin in cheminRadio)
             {
                 Radio tableRadio = new Radio();
@@ -39,8 +37,6 @@ namespace MediCare
                 Globals.DataClass.Radio.InsertOnSubmit(tableRadio);
                 Globals.DataClass.SubmitChanges();
             }
-
-
 
             foreach (var trait in traitement)
             {
@@ -80,10 +76,6 @@ namespace MediCare
             Globals.DataClass.MPConsultation.InsertOnSubmit(tableMPC);
             Globals.DataClass.SubmitChanges();
         }
-
-
-
-
 
         public void SuppConsultation(string nomPatient, string prenomPatient, DateTime date)
         {
@@ -127,14 +119,11 @@ namespace MediCare
                 Globals.DataClass.SubmitChanges();
             }
 
-
-
             Globals.DataClass.MPConsultation.DeleteOnSubmit(mpcnsltToDelete);
             Globals.DataClass.SubmitChanges();
             Globals.DataClass.Consultation.DeleteOnSubmit(cnsltToDelete);
             Globals.DataClass.SubmitChanges();
         }
-
 
         public List<ConsultLabel> RechercheConsultationDate(DateTime date)
 		{
@@ -234,45 +223,44 @@ namespace MediCare
 
 			foreach (Consultation p in cnslt)
 			{
-                MPConsultation mpcnslt = (from mpc in Globals.DataClass.MPConsultation
+                IQueryable<MPConsultation> mpconslt = (from mpc in Globals.DataClass.MPConsultation
                                           where mpc.IdConsultation == p.Id
-                                          select mpc).First<MPConsultation>();
-                Patient pat = (from patient in Globals.DataClass.Patient
-                               where patient.Id == mpcnslt.IdPatient
-                               select patient).First<Patient>();
-				Personne pers = (from personne in Globals.DataClass.Personne
-								 where personne.Id == pat.IdPersonne
-								 select personne).First<Personne>();
-                Medecin patmed = (from medecin in Globals.DataClass.Medecin
-                               where medecin.Id == mpcnslt.IdMedecin
-                               select medecin).First<Medecin>();
-                Personne persmed = (from personne in Globals.DataClass.Personne
-                                 where personne.Id == patmed.IdPersonne
-                                 select personne).First<Personne>();
-
-                ConsultLabel q = new ConsultLabel((DateTime)p.date, p.label, p.Id,  pers.nom, pers.prenom,persmed.nom,persmed.prenom);
-				list.Add(q);
-
+                                          select mpc);
+                if (mpconslt.Count() != 0)
+                {
+                    MPConsultation mpcnslt = mpconslt.First<MPConsultation>();
+                    Patient pat = (from patient in Globals.DataClass.Patient
+                                   where patient.Id == mpcnslt.IdPatient
+                                   select patient).First<Patient>();
+                    Personne pers = (from personne in Globals.DataClass.Personne
+                                     where personne.Id == pat.IdPersonne
+                                     select personne).First<Personne>();
+                    Medecin patmed = (from medecin in Globals.DataClass.Medecin
+                                      where medecin.Id == mpcnslt.IdMedecin
+                                      select medecin).First<Medecin>();
+                    Personne persmed = (from personne in Globals.DataClass.Personne
+                                        where personne.Id == patmed.IdPersonne
+                                        select personne).First<Personne>();
+                    ConsultLabel q = new ConsultLabel((DateTime)p.date, p.label, p.Id, pers.nom, pers.prenom, persmed.nom, persmed.prenom);
+                    list.Add(q);
+                }
 			}
 			return list;
-
 		}
-
-
 		 
-		public List<ConsultLabel> HistoriqueMedecin(string nomMedecin, string prenomMedecin)
+		public List<ConsultLabel> HistoriqueMedecin()
 		{
 			List<ConsultLabel> list = new List<ConsultLabel>();
 
-			Personne perso = (from personne in Globals.DataClass.Personne
-							  where nomMedecin == personne.nom && prenomMedecin == personne.prenom
-							  select personne).First<Personne>();
-			Medecin med = (from medecin in Globals.DataClass.Medecin
-						   where perso.Id == medecin.IdPersonne
-						   select medecin).First<Medecin>();
+			//Personne perso = (from personne in Globals.DataClass.Personne
+			//				  where nomMedecin == personne.nom && prenomMedecin == personne.prenom
+			//				  select personne).First<Personne>();
+			//Medecin med = (from medecin in Globals.DataClass.Medecin
+			//			   where perso.Id == medecin.IdPersonne
+			//			   select medecin).First<Medecin>();
 
 			IQueryable<Consultation> cnslt = (from mpc in Globals.DataClass.MPConsultation
-											  where mpc.IdMedecin == med.Id
+											  where mpc.IdMedecin == Globals.IdMedecin
 											  join cns in Globals.DataClass.Consultation on mpc.IdConsultation equals cns.Id
 											  select cns);
 
@@ -294,7 +282,6 @@ namespace MediCare
 			}
 			return list;
 		}
-
 	}
 }
 

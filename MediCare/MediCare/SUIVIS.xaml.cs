@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour SUIVIS.xaml
-    /// </summary>
     public partial class SUIVIS : UserControl
     {
         Agenda pat = new Agenda();
@@ -29,16 +26,21 @@ namespace MediCare
         {
             InitializeComponent();
             list = consultation.Suivie(Globals.NomPatient, Globals.PrenomPatient);
+            TextBlock expnom = new TextBlock();
+            expnom.Text = "  Nom : " + Globals.NomPatient + "  Prénom : " + Globals.PrenomPatient;
+            StackSuivi.Children.Add(expnom);
+
             if (list.Count() != 0)
             {
                 foreach (ConsultLabel p in list)
                 {
+                    
                     Expander expSuivi = new Expander();
-                    expSuivi.Header = "Titre de Consultation :" + p.Label + "\n Date de la consultation :" + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
-                    StackSuivi.Children.Add(expSuivi);
+                    expSuivi.Header = "  Titre de Consultation :" + p.Label + "\n Date de la consultation :" + p.Date.Day + "/" + p.Date.Month + "/" + p.Date.Year;
+                    Stack.Children.Add(expSuivi);
                     consulta = consultation.AcceeConsultationId(p.Id);
                     expSuivi.Content = " Diagnostic : " + consulta.Diagnostic + "\n Description :" + consulta.Description;
-                    if (consulta.traitement != null)
+                    if (consulta.traitement.Count() != 0)
                     {
                         expSuivi.Content = expSuivi.Content + "\n Traitement :";
                         foreach (Traite d in consulta.traitement)

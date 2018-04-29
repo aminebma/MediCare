@@ -16,9 +16,6 @@ using System.Text.RegularExpressions;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour AjoutRdvPro.xaml
-    /// </summary>
     public partial class AjoutRdvPro : UserControl
     {
 
@@ -62,11 +59,9 @@ namespace MediCare
 
                         if (rdv.AddRdv(DateTime.Parse(dateT.Text + " " + horaire.Text), Globals.IdMedecin, nomPatientT.Text, prenomPatientT.Text, (bool)isImportant.IsChecked, notesT.Text))
                         {
-                            MessageBox.Show("Rendez-vous ajouté avec succés !");
-                            var parent = (Grid)this.Parent;
-                            parent.Children.Clear();
-                            var parent2 = (Grid)parent.Parent;
-                            parent2.Children.Add(new AgendaMenu());
+                            //MessageBox.Show("Rendez-vous ajouté avec succés !");
+                            Dialog.IsOpen = true;
+                            
                         }
                         else MessageBox.Show("Vous avez déjà un rendez-vous à cette date");
                     }
@@ -165,6 +160,19 @@ namespace MediCare
         private void nomPatientT_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Tab && nomPatientT.IsDropDownOpen && nomPatientT.HasItems) nomPatientT.Text = nomPatientT.Items.GetItemAt(0).ToString();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Dialog.IsOpen = true;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            var parent2 = (Grid)parent.Parent;
+            parent2.Children.Add(new AgendaMenu());
         }
     }
 }

@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace MediCare
 {
-    /// <summary>
-    /// Logique d'interaction pour AgendaMedecin.xaml
-    /// </summary>
     public partial class AgendaMedecin : UserControl
     {
         public AgendaMedecin()
@@ -60,7 +57,7 @@ namespace MediCare
             ListeRDV3.Items.Clear();
             ListeRDV4.Items.Clear();
             ListeRDV5.Items.Clear();
-            ListeRDV6.Items.Clear();
+            ListeRDV5.Items.Clear();
             ListeRDV7.Items.Clear();
             ListeRDV8.Items.Clear();
             ListeRDV9.Items.Clear();
@@ -78,35 +75,149 @@ namespace MediCare
             ListeRDV21.Items.Clear();
             ListeRDV22.Items.Clear();
             ListeRDV23.Items.Clear();
-            agenda.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
             Agenda agd = new Agenda();
             List<RendezVous> ListRDV = agd.RendezVousAujrd(Calendrier.SelectedDate.ToString());
             foreach(RendezVous rdv in ListRDV)
             {
-                IQueryable<Patient> patientRDV = (from patient in Globals.DataClass.Patient
-                                                  where rdv.IdPatient == patient.Id
-                                                  select patient);
-                IQueryable<Personne> personneRDV = (from personne in Globals.DataClass.Personne
-                                                    where patientRDV.First().IdPersonne == personne.Id
-                                                    select personne);
-                if (patientRDV.Count() != 0)
+                if (rdv.IdMedecin==Globals.IdMedecin)
                 {
-                    if (patientRDV.First().Id != 0)
+                    IQueryable<Patient> patientRDV = (from patient in Globals.DataClass.Patient
+                                                      where rdv.IdPatient == patient.Id
+                                                      select patient);
+                    IQueryable<Personne> personneRDV = (from personne in Globals.DataClass.Personne
+                                                        where patientRDV.First().IdPersonne == personne.Id
+                                                        select personne);
+                    if (rdv.IdPatient != 0)
+                    {
+                        if (patientRDV.Count() != 0)
+                        {
+                            TextBox test = new TextBox();
+                            agenda.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+                            test.AcceptsReturn = true;
+                            test.Width = 435;
+                            test.Foreground = Brushes.White;
+                            test.IsReadOnly = true;
+                            test.HorizontalContentAlignment = HorizontalAlignment.Center;
+                            test.VerticalContentAlignment = VerticalAlignment.Center;
+                            test.Text = "Rendez Vous: Patient " + personneRDV.First().nom + " " + personneRDV.First().prenom + "\n Heure" + rdv.Date.ToString().Substring(11, 8) + "\n Note :" + rdv.Note;
+                            if (rdv.Important == true)
+                            {
+                                test.Foreground = Brushes.Red;
+                                test.ToolTip = "Rendez Vous Important";
+                            }
+                            switch (rdv.Date.ToString().Substring(11, 2))
+                            {
+                                case "00":
+                                    ListeRDV0.Items.Add(test);
+                                    _0.Background = SelectBrush;
+                                    break;
+                                case "01":
+                                    ListeRDV1.Items.Add(test);
+                                    _1.Background = SelectBrush;
+                                    break;
+                                case "02":
+                                    ListeRDV2.Items.Add(test);
+                                    _2.Background = SelectBrush;
+                                    break;
+                                case "03":
+                                    ListeRDV3.Items.Add(test);
+                                    _3.Background = SelectBrush;
+                                    break;
+                                case "04":
+                                    ListeRDV4.Items.Add(test);
+                                    _4.Background = SelectBrush;
+                                    break;
+                                case "05":
+                                    ListeRDV5.Items.Add(test);
+                                    _5.Background = SelectBrush;
+                                    break;
+                                case "06":
+                                    ListeRDV6.Items.Add(test);
+                                    _6.Background = SelectBrush;
+                                    break;
+                                case "07":
+                                    ListeRDV7.Items.Add(test);
+                                    _7.Background = SelectBrush;
+                                    break;
+                                case "08":
+                                    ListeRDV8.Items.Add(test);
+                                    _8.Background = SelectBrush;
+                                    break;
+                                case "09":
+                                    ListeRDV9.Items.Add(test);
+                                    _9.Background = SelectBrush;
+                                    break;
+                                case "10":
+                                    ListeRDV10.Items.Add(test);
+                                    _10.Background = SelectBrush;
+                                    break;
+                                case "11":
+                                    ListeRDV11.Items.Add(test);
+                                    _11.Background = SelectBrush;
+                                    break;
+                                case "12":
+                                    ListeRDV12.Items.Add(test);
+                                    _12.Background = SelectBrush;
+                                    break;
+                                case "13":
+                                    ListeRDV13.Items.Add(test);
+                                    _13.Background = SelectBrush;
+                                    break;
+                                case "14":
+                                    ListeRDV14.Items.Add(test);
+                                    _14.Background = SelectBrush;
+                                    break;
+                                case "15":
+                                    ListeRDV15.Items.Add(test);
+                                    _15.Background = SelectBrush;
+                                    break;
+                                case "16":
+                                    ListeRDV16.Items.Add(test);
+                                    _16.Background = SelectBrush;
+                                    break;
+                                case "17":
+                                    ListeRDV17.Items.Add(test);
+                                    _17.Background = SelectBrush;
+                                    break;
+                                case "18":
+                                    ListeRDV18.Items.Add(test);
+                                    _18.Background = SelectBrush;
+                                    break;
+                                case "19":
+                                    ListeRDV19.Items.Add(test);
+                                    _19.Background = SelectBrush;
+                                    break;
+                                case "20":
+                                    ListeRDV20.Items.Add(test);
+                                    _20.Background = SelectBrush;
+                                    break;
+                                case "21":
+                                    ListeRDV21.Items.Add(test);
+                                    _21.Background = SelectBrush;
+                                    break;
+                                case "22":
+                                    ListeRDV22.Items.Add(test);
+                                    _22.Background = SelectBrush;
+                                    break;
+                                case "23":
+                                    ListeRDV23.Items.Add(test);
+                                    _23.Background = SelectBrush;
+                                    break;
+                                default: break;
+                            }
+                        }
+                    }
+                    else
                     {
                         TextBox test = new TextBox();
                         agenda.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
                         test.AcceptsReturn = true;
-                        test.Width = 450;
+                        test.Width = 435;
                         test.Foreground = Brushes.White;
                         test.IsReadOnly = true;
                         test.HorizontalContentAlignment = HorizontalAlignment.Center;
                         test.VerticalContentAlignment = VerticalAlignment.Center;
-                        test.Text = "Rendez Vous: Patient " + personneRDV.First().nom + " " + personneRDV.First().prenom + "\n Heure" + rdv.Date.ToString().Substring(11, 8) + "\n Note :" + rdv.Note;
-                        if (rdv.Important == true)
-                        {
-                            test.Foreground = Brushes.Red;
-                            test.ToolTip = "Rendez Vous Important";
-                        }
+                        test.Text = "Rendez Vous personnel : " + rdv.Note + "\n Heure" + rdv.Date.ToString().Substring(11, 8);
                         switch (rdv.Date.ToString().Substring(11, 2))
                         {
                             case "00":
@@ -140,7 +251,7 @@ namespace MediCare
                             case "07":
                                 ListeRDV7.Items.Add(test);
                                 _7.Background = SelectBrush;
-                            break;
+                                break;
                             case "08":
                                 ListeRDV8.Items.Add(test);
                                 _8.Background = SelectBrush;
@@ -208,8 +319,10 @@ namespace MediCare
                             default: break;
                         }
                     }
-                }
+
+                } 
             }
         }
     }
 }
+

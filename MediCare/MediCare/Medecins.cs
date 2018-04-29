@@ -19,8 +19,18 @@ namespace MediCare
 		private string key;
 		private string username;
 		private string password;
+        private string email;
+        private string specialite;
+        private int fax;
+        private int numCab;
+        private string code;
 
-		public Medecins(string nom, string prenom, DateTime datenaiss, string adresse, int numtel, string sexe, Boolean active, string key, string username, string password)
+        public Medecins()
+        {
+
+        }
+
+		public Medecins(string nom, string prenom, DateTime datenaiss, string adresse, int numtel, string sexe, Boolean active, string key, string username, string password,string email, string code, string specialite, int fax, int numCab)
 		{
 			this.nom = nom;
 			this.prenom = prenom;
@@ -32,6 +42,12 @@ namespace MediCare
 			this.key = key;
 			this.username = username;
 			this.password = password;
+            this.email = email;
+            this.code = code;
+            this.specialite = specialite;
+            this.fax = fax;
+            this.numCab = numCab;
+           
 		}
 		public string Nom
 		{
@@ -83,7 +99,32 @@ namespace MediCare
 			get { return key; }
 			set { key = value; }
 		}
-		
-	}
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+        public string Specialite
+        {
+            get { return specialite; }
+            set { specialite = value; }
+        }
+        public string Code
+        {
+            get { return code; }
+            set { code = value; }
+        }
+        public int Fax
+        {
+            get { return fax; }
+            set { fax = value; }
+        }
+        public int NumCab
+        {
+            get { return numCab; }
+            set { numCab = value; }
+        }
+
+    }
 }
 

@@ -7,19 +7,17 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Linq;
 
 namespace MediCare
 {
     public partial class AjoutConsultation : UserControl
     {
-        Traite TraitementEnreg = new Traite();
+        //Traite TraitementEnreg = new Traite();
         List<Traite> traitementList = new List<Traite>();
         Medic med = new Medic();
         List<Medicaments> listMedicTmp;
         public int i = 0;
-        string sexe;
-        DateTime date;
-        string adresse;
 
         public AjoutConsultation()
         {
@@ -36,25 +34,6 @@ namespace MediCare
                 }
             }
         }
-        public AjoutConsultation(string sexe , string adresse, DateTime date)
-        {
-            this.date = date;
-            this.adresse = adresse;
-            this.sexe = sexe;
-            InitializeComponent();
-            foreach (Medicaments medic in Globals.ListMedicaments)
-            {
-                if (medic.nom.Length > 25) medicamentT.Items.Add(medic.nom.Substring(0, 25));
-                else medicamentT.Items.Add(medic.nom);
-                i++;
-                if (i > 100)
-                {
-                    i = 0;
-                    break;
-                }
-            }
-        }
-
 
         internal class Treatement
         {
@@ -69,37 +48,42 @@ namespace MediCare
         private void AjouterTraitement_Click(object sender, RoutedEventArgs e)
         {
             i++;
-            TraitementEnreg.Dose = doseT.Text;
-            TraitementEnreg.NomMed = medicamentT.Text;
-            TraitementEnreg.Indication = indicationT.Text;
-            traitementList.Add(TraitementEnreg);
-            var data = new Treatement { Traitement = i, Dose = doseT.Text, Indication = indicationT.Text,Medicament = medicamentT.Text };
+            //TraitementEnreg.Dose = doseT.Text;
+            //TraitementEnreg.NomMed = medicamentT.Text;
+            //TraitementEnreg.Indication = indicationT.Text;
+            traitementList.Add(new Traite(doseT.Text, indicationT.Text, medicamentT.Text));
+            Treatement data = new Treatement { Traitement = i, Dose = doseT.Text, Indication = indicationT.Text,Medicament = medicamentT.Text };
             DataGridTrait.Items.Add(data);
-            medicamentT.Items.Clear();
+            medicamentT.Text = "";
             doseT.Clear();
             indicationT.Clear();
         }
 
         private void Add_Consultation_Click(object sender, RoutedEventArgs e)
         {
-            if (medicamentT.Text != "" && doseT.Text != "" && indicationT.Text != "")
-            {
-                TraitementEnreg.Dose = doseT.Text;
-                TraitementEnreg.NomMed = medicamentT.Text;
-                TraitementEnreg.Indication = indicationT.Text;
-                traitementList.Add(TraitementEnreg);
-            }
+            //if (medicamentT.Text != "" && doseT.Text != "" )
+            //{
+            //TraitementEnreg.Dose = doseT.Text;
+            //TraitementEnreg.NomMed = medicamentT.Text;
+            //TraitementEnreg.Indication = indicationT.Text;
+            //    traitementList.Add(new Traite(doseT.Text, indicationT.Text, medicamentT.Text));
+            //}
 
-            if (diagnosticT.Text == "" || (medicamentT.Text == "" && traitementList.Count==0) || (doseT.Text == "" && traitementList.Count==0))
+            if (diagnosticT.Text == "" || labelT.Text=="" || (medicamentT.Text == "" &&  doseT.Text=="" && traitementList.Count==0))
             {
+                if (labelT.Text == "") labelT.BorderBrush = Brushes.Red; else labelT.BorderBrush = Brushes.Black;
                 if (diagnosticT.Text == "") diagnosticT.BorderBrush = Brushes.Red; else diagnosticT.BorderBrush = Brushes.Black;
                 if (medicamentT.Text == "" && traitementList.Count == 0) medicamentT.BorderBrush = Brushes.Red; else medicamentT.BorderBrush = Brushes.Black;
                 if (doseT.Text == "" && traitementList.Count == 0) doseT.BorderBrush = Brushes.Red; else doseT.BorderBrush = Brushes.Black;
-                MessageBox.Show("Veuillez remplir toutes les informations!");
+                Dialog.IsOpen = true;
             }
             else
             {
                 var parent = (Grid)this.Parent;
+                IQueryable<Consultation> cslt = (from p in Globals.DataClass.Consultation
+                                                 orderby p.Id descending
+                                                 select p);
+                if (cslt.Count() != 0) Globals.IdConsult = cslt.First<Consultation>().Id+1;
                 UserControl ordo = new GenererOrdonnance(labelT.Text, diagnosticT.Text, descriptionT.Text, traitementList);
                 parent.Children.Clear();
                 parent.Children.Add(ordo);
@@ -108,12 +92,12 @@ namespace MediCare
 
         private void AjouterFichier_Click(object sender, RoutedEventArgs e)
         {
-            if (medicamentT.Text != "" && doseT.Text != "" && indicationT.Text != "")
+            if (medicamentT.Text != "" && doseT.Text != "" )
             {
-                TraitementEnreg.Dose = doseT.Text;
-                TraitementEnreg.NomMed = medicamentT.Text;
-                TraitementEnreg.Indication = indicationT.Text;
-                traitementList.Add(TraitementEnreg);
+                //TraitementEnreg.Dose = doseT.Text;
+                //traitementenreg.nommed = medicamentt.text;
+                //traitementenreg.indication = indicationt.text;
+                traitementList.Add(new Traite(doseT.Text, indicationT.Text, medicamentT.Text));
             }
 
             var parent = (Grid)this.Parent;
@@ -130,7 +114,6 @@ namespace MediCare
             {
                 if (medic.nom.Length > 25) medicamentT.Items.Add(medic.nom.Substring(0, 25));
                 else medicamentT.Items.Add(medic.nom);
-                //if (medicamentT.Items.Count != 0) medicamentT.Items.RemoveAt(medicamentT.Items.Count - 1);
             }
         }
 
@@ -144,7 +127,6 @@ namespace MediCare
             if (e.Key == Key.Tab && medicamentT.IsDropDownOpen && medicamentT.HasItems) medicamentT.Text = medicamentT.Items.GetItemAt(0).ToString();
         }
     }
-
 }
 
 

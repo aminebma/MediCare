@@ -21,8 +21,8 @@ namespace MediCare
                 telephone = int.Parse(num_tel),
                 sexe =homme
             };
-            
 
+            Globals.ListPatients.Add(tabpersonne);
             Globals.DataClass.Personne.InsertOnSubmit(tabpersonne);
             Globals.DataClass.SubmitChanges();
 
@@ -108,7 +108,6 @@ namespace MediCare
             //Globals.DataClass.SubmitChanges();
             //Globals.DataClass.RendezVous.DeleteOnSubmit(rdvToDelete);
             //Globals.DataClass.SubmitChanges();
-            //System.IO.File.Copy($@"{Globals.CurrentDirectoryPath}\\MCDatabase.mdf", $@"{Globals.CurrentDirectoryPath}\\restauration\\MCDatabase.mdf", true);
         }
 
 

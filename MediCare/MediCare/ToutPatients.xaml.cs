@@ -14,13 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MediCare
-{
-    /// <summary>
-    /// Logique d'interaction pour DossierPatient.xaml
-    /// </summary>
+{ 
     public partial class ToutPatients : UserControl
     {
-         Medecin2 personne = new Medecin2();
+        Medecin2 personne = new Medecin2();
         List<Patients> list;
         public ToutPatients()
         {

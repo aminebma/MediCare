@@ -8,15 +8,19 @@
         mc:Ignorable="d"
         Height="548" Width="744">
     <Grid Margin="0">
-        <materialDesign:Card Background="{x:Null}" Margin="0,3,0,0" VerticalAlignment="Stretch">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,142,0,95" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel x:Name="StackSuivi"  Height="304" Width="687">
+        <materialDesign:Card Background="{x:Null}" Margin="0" VerticalAlignment="Stretch">
+            <Button Content="Ok" HorizontalAlignment="Center" Margin="0,0,0,25" VerticalAlignment="Bottom" Width="75" Background="#FF408DA0" Click="Button_Click" Foreground="White"/>
+        </materialDesign:Card>
+        <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Center" Margin="0,136,0,72" VerticalAlignment="Center">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+                <StackPanel x:Name="StackSuivi"  Height="311" Width="618">
                     <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
                 </StackPanel>
             </ScrollViewer>
-        </materialDesign:Card>
-        <Label Content="L'hitorique de toutes vos consultations médicales :" HorizontalAlignment="Center" Margin="0,96,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Century Gothic" FontSize="18"/>
-        <Label Content="Mon Historique " HorizontalAlignment="Left" Height="69" Margin="469,8,-22,0" VerticalAlignment="Top" Width="297" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
+        </Border>
+
+        <Label Content="L'historique de toutes vos consultations médicales :" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18"/>
+        <Label Content="Mon Historique " HorizontalAlignment="Left" Margin="469,8,-22,0" VerticalAlignment="Top" Foreground="CadetBlue" FontSize="28" FontWeight="Bold" FontFamily="Century Gothic"/>
 
     </Grid>
 </UserControl>
