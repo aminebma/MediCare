@@ -23,10 +23,9 @@
             <DatePicker x:Name="dateT" HorizontalAlignment="Left" Height="40" Margin="473,113,0,0" VerticalAlignment="Top" Width="172" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date*" FirstDayOfWeek="Sunday" PreviewTextInput="dateT_PreviewTextInput" />
             <materialDesign:TimePicker Is24Hours="True" x:Name="horaire" Margin="473,188,94,0" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Horaire*" PreviewTextInput="horaire_PreviewTextInput" Height="43" />
             <TextBox x:Name="notesT" HorizontalAlignment="Center" Height="138" Margin="149,294,149,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Background="{x:Null}" materialDesign:HintAssist.Hint="Notes" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Century Gothic" FontSize="16" Foreground="#FF7C5223" SpellCheck.IsEnabled="True"/>
-            <CheckBox x:Name="isImportant" Content="Important" HorizontalAlignment="Left" Height="53" Margin="208,454,0,0" VerticalAlignment="Top" Width="107" FontFamily="Century Gothic" Foreground="#FF3C5859" FontWeight="Bold" FontSize="16" Background="#FF77B3B4" BorderBrush="#FF3C5859"/>
+            <CheckBox x:Name="isImportant" Content="Important" HorizontalAlignment="Left" Height="53" Margin="210,454,0,0" VerticalAlignment="Top" Width="107" FontFamily="Century Gothic" Foreground="#FF3C5859" FontWeight="Bold" FontSize="16" Background="#FF77B3B4" BorderBrush="#FF3C5859"/>
             <Button x:Name="addBtn" Content="Ajouter" HorizontalAlignment="Center" Height="53" Margin="386,454,129,42" Width="166" Click="addBtn_Click" FontFamily="Century Gothic" Background="#FF77B3B4"/>
             <Label Content="Ajouter un rdv professionnel" HorizontalAlignment="Left" Height="69" Margin="316,6,0,0" VerticalAlignment="Top" Width="419" Foreground="CadetBlue" FontSize="28" FontWeight="Bold"/>
-            <Button Content="Button" HorizontalAlignment="Left" Height="37" Margin="382,252,0,0" VerticalAlignment="Top" Width="77" Click="Button_Click"/>
         </Grid>
     </materialDesign:DialogHost>
 </UserControl>

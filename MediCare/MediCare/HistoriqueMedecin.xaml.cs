@@ -23,7 +23,7 @@ namespace MediCare
         public HistoriqueMedecin()
         {
             InitializeComponent();
-            list = cons.HistoriqueMedecin(Globals.NomMedecin, Globals.PrenomMedecin);
+            list = cons.HistoriqueMedecin();
             foreach (ConsultLabel p in list)
             {
                 Expander expSuivi = new Expander

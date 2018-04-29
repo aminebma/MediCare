@@ -6,17 +6,26 @@
         xmlns:local="clr-namespace:MediCare"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Height="548" Width="702">
+        Height="548" Width="702" FontFamily="Century Gothic">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="51,55,70,430" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" RenderTransformOrigin="0.49,0.504">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,55,0,430" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" RenderTransformOrigin="0.49,0.504" FontFamily="Century Gothic" HorizontalAlignment="Center">
             <StackPanel x:Name="StackSuivi"  Height="66" Width="585"></StackPanel>
         </ScrollViewer>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="75,180,77,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
-            <StackPanel x:Name="Stack"  Height="368" Width="547">
-                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,180,0,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center">
+            <StackPanel x:Name="Stack"  Height="339" Width="547">
+                <Border Background="{DynamicResource MaterialDesignDivider}" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" Height="1" RenderTransformOrigin="0.5,0.5" >
+                    <Border.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Border.RenderTransform>
+                </Border>
             </StackPanel>
         </ScrollViewer>
-        <Label Content="Le suivi médical de ce patient :" HorizontalAlignment="Left" Margin="69,128,0,0" VerticalAlignment="Top" Height="42" Width="451" FontSize="20" FontFamily="Century Gothic"/>
-        <Label Content="Suivi Médical" HorizontalAlignment="Left" Height="54" Margin="446,9,0,0" VerticalAlignment="Top" Width="238" Foreground="CadetBlue" FontSize="28" FontWeight="Bold" Background="#00000000"/>
+        <Label Content="Le suivi médical de ce patient :" HorizontalAlignment="Center" Margin="0,128,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Century Gothic"/>
+        <Label Content="Suivi Médical" HorizontalAlignment="Left" Height="54" Margin="446,9,0,0" VerticalAlignment="Top" Width="238" Foreground="CadetBlue" FontSize="28" FontWeight="Bold" Background="#00000000" FontFamily="Century Gothic"/>
     </Grid>
 </UserControl>

@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:local="clr-namespace:MediCare"
              mc:Ignorable="d" 
-             d:DesignHeight="548" d:DesignWidth="744" Width="746">
+             d:DesignHeight="548" d:DesignWidth="744" Width="746" FontFamily="Century Gothic">
     <Grid>
         <Label Content="Sélectionnez le médicament recherché : " Margin="12,87,324,0" VerticalAlignment="Top" FontSize="20" FontFamily="Century Gothic" HorizontalAlignment="Center"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="48,0,52,29" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="325" Width="646">

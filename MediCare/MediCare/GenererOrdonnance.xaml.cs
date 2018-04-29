@@ -69,9 +69,8 @@ namespace MediCare
             {
                 this.ordonnance = ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label, Globals.specialite, Globals.codeMedecin, Globals.Age, Globals.numMobile, Globals.num, Globals.fax, Globals.MailMedecin);
                 consultation.AddConsult(Globals.NomPatient, Globals.PrenomPatient, Globals.NomMedecin, Globals.PrenomMedecin, diagnostic, description, certificat, Lettre, scanner, bilan, ordonnance, radio, traitment, label, Globals.Age);
-                MessageBox.Show("Consultation ajoutée avec succés !");
-                var parent = (Grid)this.Parent;
-                parent.Children.Clear();
+                Dialog.IsOpen = true;
+                
             }
             catch (Exception)
             {
@@ -83,15 +82,15 @@ namespace MediCare
 
         private void VisuaiserOrdo_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-                this.ordonnance = ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label,Globals.specialite,Globals.codeMedecin, Globals.Age,Globals.numMobile, Globals.num,Globals.fax,Globals.MailMedecin);
+            try
+            {
+                this.ordonnance = ordo.GenererOrdonnance(Globals.NomMedecin, Globals.PrenomMedecin, Globals.NomPatient, Globals.PrenomPatient, traitment, label, Globals.specialite, Globals.codeMedecin, Globals.Age, Globals.numMobile, Globals.num, Globals.fax, Globals.MailMedecin);
                 System.Diagnostics.Process.Start(ordonnance);
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Une erreur s'est produite");
-            //}
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Une erreur s'est produite");
+            }
         }
 
         private void ImprimerOrdo_Click(object sender, RoutedEventArgs e)
@@ -101,6 +100,12 @@ namespace MediCare
             Fff.UserPageRangeEnabled = true;
             bool? doPrint = Fff.ShowDialog();
             if (doPrint != true) return;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
         }
     }
 }

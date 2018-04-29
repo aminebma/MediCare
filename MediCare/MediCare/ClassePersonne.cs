@@ -21,8 +21,8 @@ namespace MediCare
                 telephone = int.Parse(num_tel),
                 sexe =homme
             };
-            
 
+            Globals.ListPatients.Add(tabpersonne);
             Globals.DataClass.Personne.InsertOnSubmit(tabpersonne);
             Globals.DataClass.SubmitChanges();
 

@@ -26,11 +26,12 @@ namespace MediCare
         {
             InitializeComponent();
             list = consultation.Suivie(Globals.NomPatient, Globals.PrenomPatient);
+            TextBlock expnom = new TextBlock();
+            expnom.Text = "  Nom : " + Globals.NomPatient + "  Prénom : " + Globals.PrenomPatient;
+            StackSuivi.Children.Add(expnom);
+
             if (list.Count() != 0)
             {
-                TextBlock expnom = new TextBlock();
-                expnom.Text = "  Nom : " + Globals.NomPatient + "  Prénom : " + Globals.PrenomPatient;
-                StackSuivi.Children.Add(expnom);
                 foreach (ConsultLabel p in list)
                 {
                     

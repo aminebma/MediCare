@@ -26,14 +26,18 @@ namespace MediCare
             Medic medc = new Medic();
             try
             {
-                medc.AjouterMedic(NomMedic.Text.ToUpper(), Type.Text.ToUpper(), Dosage.Text.ToUpper());
-                MessageBox.Show("Médicament ajouté à la base de données");
-                ((Grid)this.Parent).Children.Clear();
+                medc.AjouterMedic(NomMedic.Text, Type.Text, Dosage.Text);
+                Dialog.IsOpen = true;
             }
             catch(Exception)
             {
                 MessageBox.Show("Une erreur s'est produite, le médicament n'a pas été ajouté");
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ((Grid)this.Parent).Children.Clear();
         }
     }
 }

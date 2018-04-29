@@ -103,9 +103,7 @@ namespace MediCare
                         nomPatientT.IsEnabled = false;
                         prenomPatientT.IsEnabled = false;
                         search.IsEnabled = false;
-                        PopupPatient pop = new PopupPatient();
-                        pop.SetGridAppelant = (Grid)this.Parent;
-                        pop.Show();
+                        Dialog.IsOpen = true;
                     }
                 }
                 else
@@ -132,9 +130,7 @@ namespace MediCare
                             nomPatientT.IsEnabled = false;
                             prenomPatientT.IsEnabled = false;
                             search.IsEnabled = false;
-                            PopupPatient pop = new PopupPatient();
-                            pop.SetGridAppelant = (Grid)this.Parent;
-                            pop.Show();
+                            Dialog.IsOpen = true;
                         }
                     }
                 }
@@ -219,90 +215,19 @@ namespace MediCare
             if (e.Key == Key.Tab && nomPatientT.IsDropDownOpen && nomPatientT.HasItems) nomPatientT.Text = nomPatientT.Items.GetItemAt(0).ToString();
         }
 
-        private void UserControl_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void Oui_Click(object sender, RoutedEventArgs e)
         {
-            if(e.Key==Key.Enter)
-            {
-                foreach (specRadio p in listComplete)
-                {
-                    if (p.IsChecked.Value == true)
-                    {
-                        Checked = p;
-                    }
-                }
+            var parent = ((Grid)this.Parent);
+            parent.Children.Clear();
+            parent.Children.Add(new FichePatient());
+            
+        }
 
-                if ((nomPatientT.Text == "" || prenomPatientT.Text == "") && (Checked.IsChecked == false))
-                {
-                    MessageBox.Show("Veuillez saisir toutes les informations ou choisir un patient !");
-                    if (nomPatientT.Text == "") nomPatientT.BorderBrush = Brushes.Red; else nomPatientT.BorderBrush = Brushes.Black;
-                    if (prenomPatientT.Text == "") prenomPatientT.BorderBrush = Brushes.Red; else prenomPatientT.BorderBrush = Brushes.Black;
-                }
-                else
-                {
-                    if (Checked.IsChecked != false)
-                    {
-
-                        Globals.NomPatient = Checked.nom;
-                        Globals.PrenomPatient = Checked.prenom;
-                        nomPatientT.Text = Globals.NomPatient;
-                        prenomPatientT.Text = Globals.PrenomPatient;
-                        listPatientsTmp = pat.RechercherPatient(Globals.NomPatient + " " + Globals.PrenomPatient);
-                        if (listPatientsTmp.Count() != 0)
-                        {
-
-                            Globals.AdressePatient = listPatientsTmp[0].adresse;
-                            DateTime date = (DateTime)listPatientsTmp[0].dateNaissance;
-                            Globals.Age = DateTime.Today.Year - date.Year;
-                            nomPatientT.IsEnabled = false;
-                            prenomPatientT.IsEnabled = false;
-                            search.IsEnabled = false;
-                            var parent = (Grid)this.Parent;
-                            parent.Children.Clear();
-                            parent.Children.Add(new MenuPatient());
-
-                        }
-                        else
-                        {
-                            nomPatientT.IsEnabled = false;
-                            prenomPatientT.IsEnabled = false;
-                            search.IsEnabled = false;
-                            PopupPatient pop = new PopupPatient();
-                            pop.SetGridAppelant = (Grid)this.Parent;
-                            pop.Show();
-                        }
-                    }
-                    else
-                    {
-                        if (Checked.IsChecked == false && (nomPatientT.Text != "" && prenomPatientT.Text != ""))
-                        {
-                            Globals.NomPatient = nomPatientT.Text;
-                            Globals.PrenomPatient = prenomPatientT.Text;
-                            listPatientsTmp = pat.RechercherPatient(Globals.NomPatient + " " + Globals.PrenomPatient);
-                            if (listPatientsTmp.Count() != 0)
-                            {
-                                DateTime date = (DateTime)listPatientsTmp[0].dateNaissance;
-                                Globals.Age = DateTime.Today.Year - date.Year;
-                                nomPatientT.IsEnabled = false;
-                                prenomPatientT.IsEnabled = false;
-                                search.IsEnabled = false;
-                                var parent = (Grid)this.Parent;
-                                parent.Children.Clear();
-                                parent.Children.Add(new MenuPatient());
-
-                            }
-                            else
-                            {
-                                nomPatientT.IsEnabled = false;
-                                prenomPatientT.IsEnabled = false;
-                                search.IsEnabled = false;
-                                PopupPatient pop = new PopupPatient();
-                                pop.SetGridAppelant = (Grid)this.Parent;
-                                pop.Show();
-                            }
-                        }
-                    }
-                }
-            }
+        private void Non_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = ((Grid)this.Parent);
+            parent.Children.Clear();
+            parent.Children.Add(new PatientNonExistant());
         }
     }
 }

@@ -7,14 +7,18 @@
         xmlns:local="clr-namespace:MediCare"
         mc:Ignorable="d"
        Height="545" Width="746">
-    <Grid>
-        <TextBox x:Name="NomMedic" materialDesign:HintAssist.Hint="Nom du Médicament" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="140,109,135,389" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Width="471" Height="50" />
-        <TextBox x:Name="Type" materialDesign:HintAssist.Hint="Type" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="140,189,135,295" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="471" />
-        <TextBox x:Name="Dosage" materialDesign:HintAssist.Hint="Dosage" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="140,282,135,213" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="471" />
-        <Button x:Name="AjtMedic" Content="Ajouter" HorizontalAlignment="Center" Height="41" Margin="313,0,313,80" VerticalAlignment="Bottom" Width="120" FontFamily="Century Gothic" Background="#FF42919E" BorderBrush="{x:Null}" Click="AjtMedic_Click" Foreground="#DDFFFFFF"/>
-
-
-
-    </Grid>
-
+    <materialDesign:DialogHost x:Name="Dialog" Margin="0">
+        <materialDesign:DialogHost.DialogContent >
+            <Grid Width="300" Height="100">
+                <TextBlock  HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Text="Médicament ajouté avec succès !"/>
+                <Button  Content="OK" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="Auto" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Click="Button_Click_1"/>
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid>
+            <TextBox x:Name="Type" materialDesign:HintAssist.Hint="Type" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="140,189,135,295" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="471" />
+            <TextBox x:Name="Dosage" materialDesign:HintAssist.Hint="Dosage" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="140,282,135,213" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="471" />
+            <Button x:Name="AjtMedic" Content="Ajouter" HorizontalAlignment="Center" Height="41" Margin="313,0,313,80" VerticalAlignment="Bottom" Width="120" FontFamily="Century Gothic" Background="#FF42919E" BorderBrush="{x:Null}" Click="AjtMedic_Click" Foreground="#DDFFFFFF"/>
+            <TextBox x:Name="NomMedic" materialDesign:HintAssist.Hint="Nom du Médicament" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="140,103,135,392" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="471" />
+        </Grid>
+    </materialDesign:DialogHost>
 </UserControl>

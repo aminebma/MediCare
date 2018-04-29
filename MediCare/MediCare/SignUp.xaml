@@ -7,45 +7,52 @@
       xmlns:local="clr-namespace:MediCare"
       mc:Ignorable="d"
       Title="MediCare" Height="657.85" Width="418" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" FontFamily="Century Gothic">
+    <materialDesign:DialogHost x:Name="Dialog" Margin="0">
+        <materialDesign:DialogHost.DialogContent >
+            <Grid Width="300" Height="100">
+                <TextBlock  HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Text="Les informations saisies sont incorrectes"/>
+                <Button x:Name="ok"  Content="OK" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="Auto" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" />
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid x:Name="signUpGrid" Margin="0" Background="White" PreviewKeyDown="signUpGrid_PreviewKeyDown">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <Image Margin="0,322,332,195" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-22.383"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
 
-    <Grid x:Name="signUpGrid" Margin="0" Background="White" PreviewKeyDown="signUpGrid_PreviewKeyDown">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <Image Margin="0,322,332,195" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-22.383"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+            <TextBox HorizontalAlignment="Left" Height="29" Margin="117,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="72" Background="White" BorderBrush="#FFF9FAFF" Visibility="Hidden" Opacity="0.985" Cursor="UpArrow"/>
+            <Button x:Name="logBtn" Content="Connexion" HorizontalAlignment="Center" Height="32" Margin="0,508,0,0" VerticalAlignment="Top" Width="174" Background="#FF6A97AC" FontSize="16" Foreground="White" BorderThickness="0" BorderBrush="{x:Null}" Click="logBtn_Click" FontFamily="Century Gothic"/>
+            <Image Margin="10,565,326,10" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
+            <Image Margin="323,193,1,340" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
+            <Image Margin="1,0,0,397" Source="ressources/images/mde.PNG" Stretch="Fill" Opacity="0.8"/>
+            <TextBox x:Name="nom" materialDesign:HintAssist.Hint="Identifiant" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,304,0,275" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" Width="196" SelectionBrush="#FF6A97AC" />
+            <PasswordBox x:Name="password" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,392,0,185" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" Width="202" SelectionBrush="#FF6A97AC" />
+            <Image Margin="10,149,30,316" Source="ressources/images/logo_final.PNG" Stretch="Fill"/>
+            <Button x:Name="signUpBtn" Content="S'inscrire" HorizontalAlignment="Center" VerticalAlignment="Center" Width="116" Margin="0,566,0,29" Padding="0" BorderThickness="0" Background="#FF6A97AC" Foreground="White" Height="34" Click="signUpBtn_Click" FontFamily="Century Gothic" FontSize="16"/>
+            <Image Margin="0,420,-4,98" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-22.383"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
 
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="117,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="72" Background="White" BorderBrush="#FFF9FAFF" Visibility="Hidden" Opacity="0.985" Cursor="UpArrow"/>
-        <Button x:Name="logBtn" Content="Connexion" HorizontalAlignment="Center" Height="32" Margin="0,508,0,0" VerticalAlignment="Top" Width="174" Background="#FF6A97AC" FontSize="16" Foreground="White" BorderThickness="0" BorderBrush="{x:Null}" Click="logBtn_Click" FontFamily="Century Gothic"/>
-        <Image Margin="10,565,326,10" Source="ressources/images/bulles.PNG" Stretch="Fill" Opacity="0.5"/>
-        <Image Margin="323,193,1,340" Source="ressources/images/bulles_3.PNG" Stretch="Fill" RenderTransformOrigin="7.296,-1.657" Opacity="0.5"/>
-        <Image Margin="1,0,0,397" Source="ressources/images/mde.PNG" Stretch="Fill" Opacity="0.8"/>
-        <TextBox x:Name="nom" materialDesign:HintAssist.Hint="Identifiant" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,304,0,275" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" Width="196" SelectionBrush="#FF6A97AC" />
-        <PasswordBox x:Name="password" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,392,0,185" FontFamily="Century Gothic" FontSize="16" Foreground="#FF4A6E6E" HorizontalAlignment="Center" Width="202" SelectionBrush="#FF6A97AC" />
-        <Image Margin="10,149,30,316" Source="ressources/images/logo_final.PNG" Stretch="Fill"/>
-        <Button x:Name="signUpBtn" Content="S'inscrire" HorizontalAlignment="Center" VerticalAlignment="Center" Width="116" Margin="0,566,0,29" Padding="0" BorderThickness="0" Background="#FF6A97AC" Foreground="White" Height="34" Click="signUpBtn_Click" FontFamily="Century Gothic" FontSize="16"/>
-        <Image Margin="0,420,-4,98" Source="ressources/images/bulles_2.PNG" Stretch="Fill" HorizontalAlignment="Right" Width="63" Opacity="0.5" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-22.383"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-
-    </Grid>
+        </Grid>
+    </materialDesign:DialogHost>
 </Window>

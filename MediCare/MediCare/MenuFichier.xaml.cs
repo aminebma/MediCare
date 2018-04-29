@@ -29,6 +29,7 @@ namespace MediCare
         string CheminBilan;
         string CheminCertificat;
         string CheminLettre;
+
         public MenuFichier(string label, string diagnostic, string description, List<Traite> traitement)
 		{
             this.label = label;
@@ -86,7 +87,7 @@ namespace MediCare
         {
             var parent = (Grid)this.Parent;
             parent.Children.Clear();
-            parent.Children.Add(new Certificat(label));
+            parent.Children.Add(new Certificat(label, diagnostic, description, traitement));
 
         }
 
@@ -94,7 +95,7 @@ namespace MediCare
         {
             var parent = (Grid)this.Parent;
             parent.Children.Clear();
-            parent.Children.Add(new LettreOr());
+            parent.Children.Add(new LettreOr(label, diagnostic, description, traitement));
         }
     }
 }

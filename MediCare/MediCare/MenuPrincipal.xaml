@@ -14,7 +14,7 @@
             FontFamily="{DynamicResource MaterialDesignFont}" MinWidth="1080" MinHeight="720" ResizeMode="CanMinimize">
     <materialDesign:DialogHost x:Name="Dialog" Margin="0">
         <materialDesign:DialogHost.DialogContent >
-            <Grid Width="300" Height="150">
+            <Grid Width="300" Height="100">
                 <TextBlock  HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Text="Se déconnecter ?"/>
                 <Button  Background="CadetBlue" Content="oui" HorizontalAlignment="Left" Margin="60,0,0,20" VerticalAlignment="Bottom" Height="Auto" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Click="LogoutBTN_Click" Foreground="#DDFFFFFF" FontFamily="Century Gothic" BorderBrush="{x:Null}" />
                 <Button  Background="CadetBlue" Content="non" HorizontalAlignment="Right" Margin="0,0,60,20" VerticalAlignment="Bottom" Height="Auto" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Foreground="#DDFFFFFF" FontFamily="Century Gothic" BorderBrush="{x:Null}" />
@@ -126,48 +126,48 @@
                 </Image.RenderTransform>
             </Image>
             <ToolBarTray Margin="0,0,0,613" Background="White">
-                <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="0,0,0,-20" Background="White">
+                <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="0" Background="White">
                     <ToolBar.Header>
-                        <Image Width="294" Source="ressources/images/medicare_white.PNG" Stretch="Fill" VerticalAlignment="Center" Height="80" OpacityMask="#FF3E3E40"/>
+                        <Image Width="294" Source="ressources/images/medicare_white.PNG" Stretch="Fill" VerticalAlignment="Center" Height="82" OpacityMask="#FF3E3E40"/>
                     </ToolBar.Header>
-                    <Separator Margin="10,24,0,21" />
+                    <Separator Margin="10,0" />
                     <Button x:Name="Home" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Home_Click">
                         <Button.ToolTip>
                             <TextBlock><Run Text="Acceuil"/></TextBlock>
                         </Button.ToolTip>
                         <materialDesign:PackIcon Kind="Home" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
-                    <Separator Margin="10,24,0,21" />
+                    <Separator Margin="10,0" />
                     <Button x:Name="Compte" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Compte_Click">
                         <Button.ToolTip>
                             <TextBlock><Run Text="Mon Compte"/></TextBlock>
                         </Button.ToolTip>
                         <materialDesign:PackIcon Kind="Account" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
-                    <Separator Margin="10,24,0,21" />
+                    <Separator Margin="10,0" />
                     <Button x:Name="Agenda" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Agenda_Click">
                         <Button.ToolTip>
                             <TextBlock><Run Text="Agenda"/></TextBlock>
                         </Button.ToolTip>
                         <materialDesign:PackIcon Kind="Calendar" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
-                    <Separator Margin="10,24,0,21" />
+                    <Separator Margin="10,0" />
                     <Button x:Name="patient" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Patient_Click">
                         <Button.ToolTip>
                             <TextBlock><Run Text="Patient"/></TextBlock>
                         </Button.ToolTip>
                         <materialDesign:PackIcon Kind="Human" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
-                    <Separator Margin="10,24,0,21" />
+                    <Separator Margin="10,0" />
                     <Button x:Name="Search" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="Search_Click" >
                         <Button.ToolTip>
                             <TextBlock><Run Text="recherche"/></TextBlock>
                         </Button.ToolTip>
                         <materialDesign:PackIcon Kind="Magnify" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
-                    <Separator Margin="10,24,0,21" />
-                    <StackPanel x:Name="SearchPanel" materialDesign:RippleAssist.IsCentered="True" Width="388" Margin="0,7,0,5" Orientation="Horizontal" Height="68" VerticalAlignment="Center">
-                        <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16,10,0,10" materialDesign:ShadowAssist.ShadowDepth="Depth1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="278">
+                    <Separator Margin="10,0" />
+                    <StackPanel x:Name="SearchPanel" materialDesign:RippleAssist.IsCentered="True" Width="341" Margin="0,8,0,6" Orientation="Horizontal" Height="68" VerticalAlignment="Center">
+                        <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16,10,0,10" materialDesign:ShadowAssist.ShadowDepth="Depth1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="266">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
@@ -184,17 +184,17 @@
                             <materialDesign:PackIcon Kind="Send" Foreground="#FF42919E" Width="38" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Button>
                     </StackPanel>
-                    <Separator Margin="10,0" />
+                    <Separator Margin="5,0" />
                     <Button x:Name="Logout" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,15" Foreground="Black" Width="Auto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Click="LogoutBTN" >
                         <Button.ToolTip>
-                            <TextBlock><Run Text="Se déconnecté"/></TextBlock>
+                            <TextBlock><Run Text="Se déconnecter"/></TextBlock>
                         </Button.ToolTip>
                         <materialDesign:PackIcon Kind="Logout" Foreground="#FF42919E" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
                 </ToolBar>
             </ToolBarTray>
-            <Grid x:Name="SelectionGrid" Margin="0,78,0,65" Height="548"/>
-            <StackPanel HorizontalAlignment="Right" Margin="0,0,5,9" VerticalAlignment="Bottom" Width="102">
+            <Grid x:Name="SelectionGrid" Margin="0,100,0,43" Height="548"/>
+            <StackPanel HorizontalAlignment="Right" Margin="0,0,5,1" VerticalAlignment="Bottom" Width="102">
                 <Grid Margin="0,0,1,0">
                     <Button x:Name="Twitter" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="0" Foreground="{x:Null}" HorizontalAlignment="Right" >
                         <materialDesign:PackIcon Kind="Twitter" Width="40" Height="40" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -204,14 +204,21 @@
                     </Button>
                 </Grid>
             </StackPanel>
-            <Separator Height="2" Margin="3,0,-1,59" VerticalAlignment="Bottom" Width="1072" Background="#FF42919E"/>
-            <Label Content="MediCare 2018 © Tous droits Réservés" HorizontalAlignment="Center" Margin="414,646,398,0" VerticalAlignment="Top" Foreground="Gray" FontFamily="Century Gothic" Width="262"/>
-            <materialDesign:Snackbar IsActive="False" x:Name="Notification" VerticalAlignment="Top" Margin="0,77,0,0" Background="#FF6A97AC">
+            <Separator Height="2" Margin="3,0,-1,39" VerticalAlignment="Bottom" Width="1072" Background="#FF42919E"/>
+            <Label Content="MediCare 2018 © Tous droits Réservés" HorizontalAlignment="Center" Margin="414,658,398,0" VerticalAlignment="Top" Foreground="Gray" FontFamily="Century Gothic" Width="262"/>
+            <materialDesign:Snackbar IsActive="False" x:Name="Notification" VerticalAlignment="Top" Margin="0,99,0,0" Background="#FF6A97AC">
                 <materialDesign:SnackbarMessage  ActionContent="OK" ActionClick="ActionClick" FontFamily="Century Gothic"/>
             </materialDesign:Snackbar>
-            <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="0,642,1024,9" Foreground="{x:Null}" HorizontalAlignment="Right">
+            <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="0,648,1024,3" Foreground="{x:Null}" HorizontalAlignment="Right">
                 <materialDesign:PackIcon Kind="InformationOutline" Width="Auto" Height="Auto" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
+            <TextBox HorizontalAlignment="Left" Margin="330,73,0,0" TextWrapping="Wrap" Text="Acceuil" VerticalAlignment="Top" CaretBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#FF42919E" Foreground="#DDFFFFFF" FontFamily="Century Gothic" FontSize="14" Width="65"/>
+            <TextBox HorizontalAlignment="Left" Margin="395,73,0,0" TextWrapping="Wrap" Text="Compte" VerticalAlignment="Top" CaretBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#FF42919E" Foreground="#DDFFFFFF" FontFamily="Century Gothic" FontSize="14" Width="61"/>
+            <TextBox HorizontalAlignment="Left" Margin="456,73,0,0" TextWrapping="Wrap" Text="Agenda" VerticalAlignment="Top" CaretBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#FF42919E" Foreground="#DDFFFFFF" FontFamily="Century Gothic" FontSize="14" Width="64"/>
+            <TextBox HorizontalAlignment="Left" Margin="520,73,0,0" TextWrapping="Wrap" Text="Patient" VerticalAlignment="Top" CaretBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#FF42919E" Foreground="#DDFFFFFF" FontFamily="Century Gothic" FontSize="14" Width="57"/>
+            <TextBox HorizontalAlignment="Left" Margin="577,73,0,0" TextWrapping="Wrap" Text="Recherche" VerticalAlignment="Top" CaretBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#FF42919E" Foreground="#DDFFFFFF" FontFamily="Century Gothic" FontSize="14" Height="26" Width="84"/>
+            <TextBox HorizontalAlignment="Left" Height="26" Margin="0,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#FF42919E" FontFamily="Century Gothic" FontSize="14"/>
+            <TextBox HorizontalAlignment="Right" Height="26" Margin="0,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#FF42919E" FontFamily="Century Gothic" FontSize="14"/>
         </Grid>
     </materialDesign:DialogHost>
 </Window>

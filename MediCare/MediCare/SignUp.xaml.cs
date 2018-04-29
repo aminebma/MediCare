@@ -69,7 +69,7 @@ namespace MediCare
 
                 this.Close();
             }
-            else MessageBox.Show("Les informations saisies sont incorrectes");
+            else Dialog.IsOpen = true;
         }
 
         private void signUpGrid_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -103,7 +103,7 @@ namespace MediCare
 
                     this.Close();
                 }
-                else MessageBox.Show("Les informations saisies sont incorrectes");
+                else Dialog.IsOpen = true;
             }
         }
     }

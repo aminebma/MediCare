@@ -29,6 +29,8 @@ namespace MediCare
             {
                 nomPatientT.Items.Add(patient.nom);
                 prenomPatientT.Items.Add(patient.prenom);
+                nomPatient.Items.Add(patient.nom);
+                prenomPatient.Items.Add(patient.prenom);
                 nbElemMax++;
                 if (nbElemMax > 100) break;
             }
@@ -50,28 +52,25 @@ namespace MediCare
 
         private void SuppButton_Click(object sender, RoutedEventArgs e)
         {
-            bool checkDate1 = false, checkDate2 = false;
-
-            if (NewDateT.Text == "" || OldDateT.Text == "" || horaire.Text == "" || nomPatientT.Text == "" || prenomPatientT.Text == "")
+            bool checkDate = false;
+            bool deleted = false;
+            if (date.Text == "" && horaireToDel.Text=="" && nomPatientT.Text == "" && prenomPatientT.Text == "")
             {
-                MessageBox.Show("Veuillez remplir le minimum d'informations!");
-                if (NewDateT.Text == "") NewDateT.Foreground = Brushes.Red; else NewDateT.Foreground = Brushes.Black;
-                if (OldDateT.Text == "") OldDateT.Foreground = Brushes.Red; else OldDateT.Foreground = Brushes.Black;
-                if (horaire.Text == "") horaire.Foreground = Brushes.Red; else horaire.Foreground = Brushes.Black;
+                MessageBox.Show("Veuillez remplir le minimum d'informations:\nLa date ou le nom/prénom du patient");
+                if (date.Text == "") date.Foreground = Brushes.Red; else date.Foreground = Brushes.Black;
+                if (horaireToDel.Text == "") horaireToDel.Foreground = Brushes.Red; else horaireToDel.Foreground = Brushes.Black;
                 if (prenomPatientT.Text == "") prenomPatientT.BorderBrush = Brushes.Red; else prenomPatientT.BorderBrush = Brushes.Black;
                 if (nomPatientT.Text == "") nomPatientT.BorderBrush = Brushes.Red; else nomPatientT.BorderBrush = Brushes.Black;
             }
             else
             {
-                checkDate1 = DateCheck(DateTime.Parse(OldDateT.Text + " " + horaire.Text));
-                checkDate2 = DateCheck(DateTime.Parse(NewDateT.Text + " " + horaire.Text));
-
-                if (checkDate1 && checkDate2)
+                if(date.Text!="" && horaireToDel.Text!="")
                 {
                     try
                     {
-                        rdv.SuppRdv(DateTime.Parse(OldDateT.Text + " " + horaire.Text));
+                        rdv.SuppRdv(DateTime.Parse(date.Text + " " + horaireToDel.Text));
                         MessageBox.Show("Rendez-vous supprimé avec succés !");
+                        deleted = true;
                         var parent = (Grid)this.Parent;
                         parent.Children.Clear();
                         var parent2 = (Grid)parent.Parent;
@@ -79,18 +78,24 @@ namespace MediCare
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Database error");
+                        MessageBox.Show("Une erreur s'est produite, le rendez-vous n'a pas été supprimé");
                     }
                 }
-                else
-                { 
-                    MessageBox.Show("Veuillez rentrer une date valide");
-                    if (!checkDate1 && checkDate2) OldDateT.BorderBrush = Brushes.Red;
-                    else if (!checkDate1 && !checkDate2) NewDateT.BorderBrush = Brushes.Red;
-                    else
+                else if(nomPatient.Text != "" && prenomPatient.Text != "" && !deleted)
+                {
+                    try
                     {
-                        OldDateT.BorderBrush = Brushes.Red;
-                        NewDateT.BorderBrush = Brushes.Red;
+                        rdv.SuppRdv(nomPatient.Text,prenomPatient.Text);
+                        MessageBox.Show("Rendez-vous supprimé avec succés !");
+                        deleted = true;
+                        var parent = (Grid)this.Parent;
+                        parent.Children.Clear();
+                        var parent2 = (Grid)parent.Parent;
+                        parent2.Children.Add(new AgendaMenu());
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Une erreur s'est produite, le rendez-vous n'a pas été supprimé");
                     }
                 }
             }
@@ -206,6 +211,56 @@ namespace MediCare
                         NewDateT.BorderBrush = Brushes.Red;
                     }
                 }
+            }
+        }
+
+        private void nomPatient_GotFocus(object sender, RoutedEventArgs e)
+        {
+            nomPatient.IsDropDownOpen = true;
+        }
+
+        private void prenomPatient_GotFocus(object sender, RoutedEventArgs e)
+        {
+            prenomPatient.IsDropDownOpen = true;
+        }
+
+        private void nomPatient_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab && nomPatient.IsDropDownOpen && nomPatient.HasItems) nomPatient.Text = nomPatient.Items.GetItemAt(0).ToString();
+        }
+
+        private void prenomPatient_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab && prenomPatient.IsDropDownOpen && prenomPatient.HasItems) prenomPatient.Text = prenomPatient.Items.GetItemAt(0).ToString();
+        }
+
+        private void nomPatient_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (prenomPatient.Text == "") listPatientsTmp = rdv.RechercherPatientNom(nomPatient.Text);
+            else listPatientsTmp = rdv.RechercherPatient(nomPatient.Text + " " + prenomPatient.Text);
+            prenomPatient.Items.Clear();
+            nomPatient.Items.Clear();
+            foreach (Personne patient in listPatientsTmp)
+            {
+                prenomPatient.Items.Add(prenomPatient.Items.Add(patient.prenom));
+                nomPatient.Items.Add(nomPatient.Items.Add(patient.nom));
+                if (prenomPatient.Items.Count != 0) prenomPatient.Items.RemoveAt(prenomPatient.Items.Count - 1);
+                if (nomPatient.Items.Count != 0) nomPatient.Items.RemoveAt(nomPatient.Items.Count - 1);
+            }
+        }
+
+        private void prenomPatient_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (nomPatient.Text == "") listPatientsTmp = rdv.RechercherPatientPrenom(prenomPatient.Text);
+            else listPatientsTmp = rdv.RechercherPatient(nomPatient.Text + " " + prenomPatient.Text);
+            prenomPatient.Items.Clear();
+            nomPatient.Items.Clear();
+            foreach (Personne patient in listPatientsTmp)
+            {
+                prenomPatient.Items.Add(prenomPatient.Items.Add(patient.prenom));
+                nomPatient.Items.Add(nomPatient.Items.Add(patient.nom));
+                if (prenomPatient.Items.Count != 0) prenomPatient.Items.RemoveAt(prenomPatient.Items.Count - 1);
+                if (nomPatient.Items.Count != 0) nomPatient.Items.RemoveAt(nomPatient.Items.Count - 1);
             }
         }
     }

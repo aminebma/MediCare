@@ -46,21 +46,18 @@ namespace MediCare
             {
                 try
                 {
-                    pers.AddPatientPersonne(Nom.Text.ToUpper(), Prenom.Text.ToUpper(), Date_naiss.Text, Adresse.Text, Num_tel.Text, Sexe.Text, Taille.Text, Poids.Text, Groupage.Text, Maladie.Text, Etat_sante.Text);
+                    pers.AddPatientPersonne(Nom.Text, Prenom.Text, Date_naiss.Text, Adresse.Text, Num_tel.Text, Sexe.Text, Taille.Text, Poids.Text, Groupage.Text, Maladie.Text, Etat_sante.Text);
                     Globals.NomPatient = Nom.Text;
                     Globals.PrenomPatient = Prenom.Text;
                     DateTime date = Date_naiss.SelectedDate.Value;
                     Globals.AdressePatient = Adresse.Text;
                     Globals.Age = DateTime.Today.Year - date.Year;
-                    MessageBox.Show("Le patient a été ajouté avec succés ! ");
-                    var parent = (Grid)this.Parent;
-                    parent.Children.Clear();
-                    parent.Children.Add(new MenuPatient());
-                }
-                catch (Exception)
+                    Dialog.IsOpen = true;
+                }catch
                 {
-                    MessageBox.Show("Une erreur s'est produite. Le patient n'a pas été ajouté");
+                    MessageBox.Show("une erreur s'est produite, le patient n'a pas été ajouté");
                 }
+  
             }
 
         }
@@ -90,44 +87,11 @@ namespace MediCare
             if (numControl.IsMatch(e.Text)) e.Handled = true;
         }
 
-        private void UserControl_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if(e.Key==Key.Enter)
-            {
-                if (Date_naiss.Text == "" || Prenom.Text == "" || Nom.Text == "" || Adresse.Text == "" || Sexe.Text == "" || Poids.Text == "" || Taille.Text == "" || Etat_sante.Text == "" || Maladie.Text == "")
-                {
-                    MessageBox.Show("Veuillez remplir toutes les informations!");
-                    if (Date_naiss.Text == "") Date_naiss.BorderBrush = Brushes.Red; else Date_naiss.BorderBrush = Brushes.Black;
-                    if (Prenom.Text == "") Prenom.BorderBrush = Brushes.Red; else Prenom.BorderBrush = Brushes.Black;
-                    if (Nom.Text == "") Nom.BorderBrush = Brushes.Red; else Nom.BorderBrush = Brushes.Black;
-                    if (Adresse.Text == "") Adresse.BorderBrush = Brushes.Red; else Adresse.BorderBrush = Brushes.Black;
-                    if (Sexe.Text == "") Sexe.BorderBrush = Brushes.Red; else Sexe.BorderBrush = Brushes.Black;
-                    if (Poids.Text == "") Poids.BorderBrush = Brushes.Red; else Poids.BorderBrush = Brushes.Black;
-                    if (Taille.Text == "") Taille.BorderBrush = Brushes.Red; else Taille.BorderBrush = Brushes.Black;
-                    if (Etat_sante.Text == "") Etat_sante.BorderBrush = Brushes.Red; else Etat_sante.BorderBrush = Brushes.Black;
-                    if (Maladie.Text == "") Maladie.BorderBrush = Brushes.Red; else Maladie.BorderBrush = Brushes.Black;
-                }
-                else
-                {
-                    try
-                    {
-                        pers.AddPatientPersonne(Nom.Text.ToUpper(), Prenom.Text.ToUpper(), Date_naiss.Text, Adresse.Text, Num_tel.Text, Sexe.Text, Taille.Text, Poids.Text, Groupage.Text, Maladie.Text, Etat_sante.Text);
-                        Globals.NomPatient = Nom.Text;
-                        Globals.PrenomPatient = Prenom.Text;
-                        DateTime date = Date_naiss.SelectedDate.Value;
-                        Globals.AdressePatient = Adresse.Text;
-                        Globals.Age = DateTime.Today.Year - date.Year;
-                        MessageBox.Show("Le patient a été ajouté avec succés ! ");
-                        var parent = (Grid)this.Parent;
-                        parent.Children.Clear();
-                        parent.Children.Add(new MenuPatient());
-                    }catch(Exception)
-                    {
-                        MessageBox.Show("Une erreur s'est produite. Le patient n'a pas été ajouté");
-                    }
-
-                }
-            }
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            parent.Children.Add(new MenuPatient());
         }
     }
 }

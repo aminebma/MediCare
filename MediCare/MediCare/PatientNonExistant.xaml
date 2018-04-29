@@ -6,19 +6,19 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:MediCare"
              mc:Ignorable="d" 
-             d:DesignHeight="548" d:DesignWidth="1080" Background="#FFFDFDFD">
+             d:DesignHeight="548" d:DesignWidth="1080" FontFamily="Century Gothic" Width="1072">
 
     <Grid>
-        <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Left" Height="288" Margin="242,169,0,0" VerticalAlignment="Top" Width="624"/>
+        <Border BorderBrush="CadetBlue" BorderThickness="2" HorizontalAlignment="Center" Height="288" Margin="0,169,0,0" VerticalAlignment="Top" Width="624"/>
 
-        <Button x:Name="Ajouter" Content="Ok" HorizontalAlignment="Left" Height="41" Margin="757,406,0,0" VerticalAlignment="Top" Width="88" Background="#FF76B0B1" Foreground="White" Click="Ajouter_Click" BorderBrush="#FF2196F3"/>
-        <DatePicker x:Name="Date_naiss" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date de naissance*" HorizontalAlignment="Left" Margin="326,250,0,0" VerticalAlignment="Top" Height="31" Width="155" FirstDayOfWeek="Sunday" PreviewTextInput="DatePicker_PreviewTextInput" BorderBrush="#FF77B3B4" Background="{x:Null}"/>
-        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Adresse * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="381" Margin="320,324,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
-        <ComboBox x:Name="Sexe" HorizontalAlignment="Left" Height="46" Margin="547,235,0,0" materialDesign:HintAssist.Hint="Sexe * " Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Width="151" FontSize="18" BorderBrush="#FF77B3B4" Foreground="#FF446868" Cursor="Arrow" SelectionChanged="Sexe_SelectionChanged">
+        <Button x:Name="Ajouter" Content="Ok" HorizontalAlignment="Center" Height="41" Margin="0,478,0,0" VerticalAlignment="Top" Width="88" Background="#FF76B0B1" Foreground="White" Click="Ajouter_Click" BorderBrush="{x:Null}"/>
+        <DatePicker x:Name="Date_naiss" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" materialDesign:HintAssist.Hint="Date de naissance*" HorizontalAlignment="Left" Margin="359,241,0,0" VerticalAlignment="Top" Height="46" Width="155" FirstDayOfWeek="Sunday" PreviewTextInput="DatePicker_PreviewTextInput" BorderBrush="#FF77B3B4" Background="{x:Null}"/>
+        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Adresse * " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="381" Margin="353,330,0,0" BorderBrush="#FF77B3B4" Foreground="#FF446868" BorderThickness="0,0,0,3" SelectionBrush="#FF77B3B4"/>
+        <ComboBox x:Name="Sexe" HorizontalAlignment="Left" Height="46" Margin="580,241,0,0" materialDesign:HintAssist.Hint="Sexe * " Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Width="151" FontSize="18" BorderBrush="#FF77B3B4" Foreground="#FF446868" Cursor="Arrow" SelectionChanged="Sexe_SelectionChanged">
             <ComboBoxItem Content="Homme"/>
             <ComboBoxItem Content="Femme"/>
         </ComboBox>
-        <Label Content="Veuillez saisir les champs ci-dessous :" HorizontalAlignment="Left" Height="38" Margin="244,111,0,0" VerticalAlignment="Top" Width="426" FontSize="20" FontFamily="Century Gothic"/>
+        <Label Content="Veuillez saisir les champs ci-dessous :" HorizontalAlignment="Center" Height="38" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Century Gothic"/>
 
     </Grid>
 </UserControl>

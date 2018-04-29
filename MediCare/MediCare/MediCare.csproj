@@ -141,11 +141,14 @@
     <Compile Include="DossierMedical.xaml.cs">
       <DependentUpon>DossierMedical.xaml</DependentUpon>
     </Compile>
+    <Compile Include="fichierPatient.xaml.cs">
+      <DependentUpon>fichierPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LogOutPop.xaml.cs">
       <DependentUpon>LogOutPop.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuMédicament.xaml.cs">
-      <DependentUpon>MenuMédicament.xaml</DependentUpon>
+    <Compile Include="MenuMedicament.xaml.cs">
+      <DependentUpon>MenuMedicament.xaml</DependentUpon>
     </Compile>
     <Compile Include="Mois.cs" />
     <Compile Include="PatientNonExistant.xaml.cs">
@@ -264,11 +267,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="fichierPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LogOutPop.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MenuMédicament.xaml">
+    <Page Include="MenuMedicament.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -504,11 +511,9 @@
     <Resource Include="ressources\icones\icones png\64 Pixels\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ressources\images\link Orca.png" />
-    <Resource Include="ressources\images\LOGO.png" />
     <Content Include="restauration\MCDatabase_log.ldf">
-      <DependentUpon>MCDatabase.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>MCDatabase.mdf</DependentUpon>
     </Content>
     <Resource Include="ressources\images\background.png" />
     <Content Include="ressources\images\avatar-medecins_0.ico" />

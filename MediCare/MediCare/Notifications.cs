@@ -22,6 +22,7 @@ namespace MediCare
         public void GenererRDVduJour(ListView ListeRDV)
         {
             IQueryable<RendezVous> NotifRdv = (from rendezVous in Globals.DataClass.RendezVous
+                                               where rendezVous.IdMedecin == Globals.IdMedecin
                                                orderby rendezVous.Date
                                                select rendezVous);
             if (NotifRdv.Count() != 0)
@@ -50,8 +51,7 @@ namespace MediCare
                                                                     select personne);
 
                                 TextRDV.Text = " Heure : " + rdv.Date.ToString().Substring(10, 9) + " \n Patient : " + personneRDV.First().nom + " " + personneRDV.First().prenom + "\n Note :" + rdv.Note;
-
-                                if (rdv.Important == true && rdv.IdMedecin==Globals.IdMedecin)
+                                if (rdv.Important == true)
                                 {
                                     TextRDV.Foreground = Brushes.Red;
                                     TextRDV.ToolTip = "Rendez Vous Important";
@@ -59,7 +59,7 @@ namespace MediCare
 
                                 else
                                 {
-                                    Color color = (Color)ColorConverter.ConvertFromString("#FF42919E");
+                                    Color color = (Color)ColorConverter.ConvertFromString("#FFFFFFFF");
                                     TextRDV.Foreground = new SolidColorBrush(color);
                                 }
                                 ListeRDV.Items.Add(TextRDV);

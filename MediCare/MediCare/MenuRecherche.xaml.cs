@@ -29,10 +29,7 @@ namespace MediCare
         {
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
-                case "DossierPatient":
-                    //GridDroit.Children.Clear();
-                    //GridDroit.Children.Add(new ToutPatients());
-                    //break;
+                
                 case "Dossier":
                     GridDroit.Children.Clear();
                     GridDroit.Children.Add(new ToutPatients());
@@ -41,14 +38,6 @@ namespace MediCare
                     GridDroit.Children.Clear();
                     GridDroit.Children.Add(new ToutMedecins());
                     break;
-                case "RechMedecin":
-                    //GridDroit.Children.Clear();
-                    //GridDroit.Children.Add(new ToutMedecins());
-                    //break;
-                case "RechRDV":
-                    //GridDroit.Children.Clear();
-                    //GridDroit.Children.Add(new ToutPatients());
-                    //break;
                 case "RechMedic":
                     GridDroit.Children.Clear();
                     GridDroit.Children.Add(new toutMedic());

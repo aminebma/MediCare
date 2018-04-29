@@ -21,6 +21,14 @@ namespace MediCare
     /// </summary>
     public partial class Menu : UserControl
     {
+        Window fenetreprincipal;
+
+        public Window SetFenetreprincipal
+        {
+            get { return fenetreprincipal; }
+            set { fenetreprincipal = value; }
+        }
+
         Notifications ClassNotif = new Notifications();
         public Menu()
         {   
@@ -55,8 +63,10 @@ namespace MediCare
         private void CompteBTN_Click(object sender, RoutedEventArgs e)
         {
             var parent = (Grid)this.Parent;
+            MonCompte usc = new MonCompte();
+            usc.SetFenetrePrincipale = fenetreprincipal;
             parent.Children.Clear();
-            parent.Children.Add(new MonCompte());
+            parent.Children.Add(usc);
         }
 
         private void RechercheBTN_Click(object sender, RoutedEventArgs e)

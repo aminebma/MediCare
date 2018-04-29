@@ -12,7 +12,7 @@ namespace MediCare
 {
     public partial class AjoutConsultation : UserControl
     {
-        Traite TraitementEnreg = new Traite();
+        //Traite TraitementEnreg = new Traite();
         List<Traite> traitementList = new List<Traite>();
         Medic med = new Medic();
         List<Medicaments> listMedicTmp;
@@ -47,33 +47,34 @@ namespace MediCare
         private void AjouterTraitement_Click(object sender, RoutedEventArgs e)
         {
             i++;
-            TraitementEnreg.Dose = doseT.Text;
-            TraitementEnreg.NomMed = medicamentT.Text;
-            TraitementEnreg.Indication = indicationT.Text;
-            traitementList.Add(TraitementEnreg);
-            var data = new Treatement { Traitement = i, Dose = doseT.Text, Indication = indicationT.Text,Medicament = medicamentT.Text };
+            //TraitementEnreg.Dose = doseT.Text;
+            //TraitementEnreg.NomMed = medicamentT.Text;
+            //TraitementEnreg.Indication = indicationT.Text;
+            traitementList.Add(new Traite(doseT.Text, indicationT.Text, medicamentT.Text));
+            Treatement data = new Treatement { Traitement = i, Dose = doseT.Text, Indication = indicationT.Text,Medicament = medicamentT.Text };
             DataGridTrait.Items.Add(data);
-            medicamentT.Items.Clear();
+            medicamentT.Text = "";
             doseT.Clear();
             indicationT.Clear();
         }
 
         private void Add_Consultation_Click(object sender, RoutedEventArgs e)
         {
-            if (medicamentT.Text != "" && doseT.Text != "" && indicationT.Text != "")
-            {
-                TraitementEnreg.Dose = doseT.Text;
-                TraitementEnreg.NomMed = medicamentT.Text;
-                TraitementEnreg.Indication = indicationT.Text;
-                traitementList.Add(TraitementEnreg);
-            }
+            //if (medicamentT.Text != "" && doseT.Text != "" )
+            //{
+            //TraitementEnreg.Dose = doseT.Text;
+            //TraitementEnreg.NomMed = medicamentT.Text;
+            //TraitementEnreg.Indication = indicationT.Text;
+            //    traitementList.Add(new Traite(doseT.Text, indicationT.Text, medicamentT.Text));
+            //}
 
-            if (diagnosticT.Text == "" || (medicamentT.Text == "" && traitementList.Count==0) || (doseT.Text == "" && traitementList.Count==0))
+            if (diagnosticT.Text == "" || labelT.Text=="" || (medicamentT.Text == "" &&  doseT.Text=="" && traitementList.Count==0))
             {
+                if (labelT.Text == "") labelT.BorderBrush = Brushes.Red; else labelT.BorderBrush = Brushes.Black;
                 if (diagnosticT.Text == "") diagnosticT.BorderBrush = Brushes.Red; else diagnosticT.BorderBrush = Brushes.Black;
                 if (medicamentT.Text == "" && traitementList.Count == 0) medicamentT.BorderBrush = Brushes.Red; else medicamentT.BorderBrush = Brushes.Black;
                 if (doseT.Text == "" && traitementList.Count == 0) doseT.BorderBrush = Brushes.Red; else doseT.BorderBrush = Brushes.Black;
-                MessageBox.Show("Veuillez remplir toutes les informations!");
+                Dialog.IsOpen = true;
             }
             else
             {
@@ -86,12 +87,12 @@ namespace MediCare
 
         private void AjouterFichier_Click(object sender, RoutedEventArgs e)
         {
-            if (medicamentT.Text != "" && doseT.Text != "" && indicationT.Text != "")
+            if (medicamentT.Text != "" && doseT.Text != "" )
             {
-                TraitementEnreg.Dose = doseT.Text;
-                TraitementEnreg.NomMed = medicamentT.Text;
-                TraitementEnreg.Indication = indicationT.Text;
-                traitementList.Add(TraitementEnreg);
+                //TraitementEnreg.Dose = doseT.Text;
+                //traitementenreg.nommed = medicamentt.text;
+                //traitementenreg.indication = indicationt.text;
+                traitementList.Add(new Traite(doseT.Text, indicationT.Text, medicamentT.Text));
             }
 
             var parent = (Grid)this.Parent;

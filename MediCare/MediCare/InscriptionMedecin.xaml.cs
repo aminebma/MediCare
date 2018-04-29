@@ -71,9 +71,6 @@ namespace MediCare
                                 Globals.ListPatients = (from patient in Globals.DataClass.Patient
                                                         join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
                                                         select personne).ToList<Personne>();
-
-                                Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
-                                                           select medicament).ToList<Medicaments>();
                                 t.Show();
                                 this.Close();
                             }
@@ -191,16 +188,8 @@ namespace MediCare
                                     Globals.NomMedecin = nom.Text;
                                     Globals.PrenomMedecin = prenom.Text;
                                     med.AddMed(nom.Text, prenom.Text, DateTime.Parse(date_naiss.Text), adresse.Text, num_tel.Text, sex.Text, clef.Text, username.Text, password.Password, email.Text, specialite.Text, int.Parse(fax.Text), int.Parse(numCab.Text), Code.Text);
-                                    MessageBox.Show("Compte créé avec succés !");
-                                    MenuPrincipal t = new MenuPrincipal();
-                                    Globals.ListPatients = (from patient in Globals.DataClass.Patient
-                                                            join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
-                                                            select personne).ToList<Personne>();
-
-                                    Globals.ListMedicaments = (from medicament in Globals.DataClass.Medicaments
-                                                               select medicament).ToList<Medicaments>();
-                                    t.Show();
-                                    this.Close();
+                                    Dialog.IsOpen = true;
+                                    
                                 }
                                 catch (Exception)
                                 {
@@ -235,6 +224,18 @@ namespace MediCare
                 }
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MenuPrincipal t = new MenuPrincipal();
+            Globals.ListPatients = (from patient in Globals.DataClass.Patient
+                                    join personne in Globals.DataClass.Personne on patient.IdPersonne equals personne.Id
+                                    select personne).ToList<Personne>();
+            t.Show();
+            this.Close();
+        }
+
+       
     }
 }
 

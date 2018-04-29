@@ -22,14 +22,13 @@ namespace MediCare
         public MonCompte()
         {
             InitializeComponent();
-            NomMed.Content ="Nom : \n" + Globals.NomMedecin;
-            PrenomMed.Content ="Prenom : \n"+ Globals.PrenomMedecin;
-            Adresse.Content ="Adresse : \n"+ Globals.AdresseMedecin;
-            email.Content ="Email : \n"+ Globals.MailMedecin;
-            NomMed.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-            PrenomMed.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-            Adresse.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-            email.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+            NomMed.Text ="Nom : \n" + Globals.NomMedecin;
+            PrenomMed.Text ="Prenom : \n"+ Globals.PrenomMedecin;
+            email.Text ="Email : \n"+ Globals.MailMedecin;
+            specialite.Text = "Spécialité : \n" + Globals.specialite;
+            NomMed.HorizontalAlignment = HorizontalAlignment.Stretch;
+            PrenomMed.HorizontalAlignment = HorizontalAlignment.Stretch;
+            email.HorizontalAlignment = HorizontalAlignment.Stretch;
         }
 
         public Window SetFenetrePrincipale

@@ -49,6 +49,10 @@ namespace MediCare
                     GridDroit.Children.Clear();
                     GridDroit.Children.Add(new RdvPatient());
                     break;
+                case "fichier":
+                    GridDroit.Children.Clear();
+                    GridDroit.Children.Add(new fichierPatient());
+                    break;
                 default:
                     break;
             }

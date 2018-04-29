@@ -37,7 +37,7 @@
         </Image>
         <Button x:Name="RechercheBTN"
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="561,388,393,44" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Recherche" FontFamily="Century Gothic" FontSize="22" Foreground="White"  Click="RechercheBTN_Click">
+                    materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="561,388,393,44" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Recherche" FontFamily="Century Gothic" FontSize="22" Foreground="White"  Click="RechercheBTN_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF73E8BE" Offset="0"/>
@@ -47,7 +47,7 @@
         </Button>
         <Button x:Name="PAtientBTN"
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="588,7,326,382" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Patient" FontFamily="Century Gothic" FontSize="34" Click="PAtientBTN_Click" Foreground="White">
+                    materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="588,7,326,382" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Patient" FontFamily="Century Gothic" FontSize="34" Click="PAtientBTN_Click" Foreground="White">
             <Button.Background>
                 <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF81CCFF" Offset="0.196"/>
@@ -57,7 +57,7 @@
         </Button>
         <Button x:Name="CompteBTN"
                     Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="828,141,113,276" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Compte" FontFamily="Century Gothic" FontSize="24" Click="CompteBTN_Click" Foreground="White" >
+                    materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="828,141,113,276" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Compte" FontFamily="Century Gothic" FontSize="24" Click="CompteBTN_Click" Foreground="White" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF4BCDBF"/>
@@ -68,7 +68,7 @@
         <materialDesign:PackIcon Kind="DatabaseSearch" Margin="588,412,0,0" Height="78" Width="68" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" IsHitTestVisible="False" Focusable="False"/>
 
         <materialDesign:PackIcon Kind="Account" Margin="852,169,0,0" Height="81" Width="80" Foreground="#DDFFFFFF" Opacity="0.5" IsEnabled="False" Focusable="False" IsHitTestVisible="False"/>
-        <Expander HorizontalAlignment="Left" Header="Rendez Vous de la journée" IsExpanded="True" Background="#9965BFCD" FontFamily="Century Gothic" FontSize="14" Foreground="White" Width="295">
+        <Expander HorizontalAlignment="Left" Header="Rendez Vous de la journée" IsExpanded="True" Background="#FF42919E" FontFamily="Century Gothic" FontSize="14" Foreground="White" Width="295">
             <ListView x:Name="ListeRDV" Background="{x:Null}" Foreground="{x:Null}">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -80,7 +80,7 @@
         <Image Margin="624,51,0,0" Source="ressources/icones/icones png/64 Pixels/dentist.png" Opacity="0.5" IsHitTestVisible="False" Height="81" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80"/>
         <Button x:Name="MedicamentBTN"
             Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-            materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="728,284,198,120" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Médicament" FontFamily="Century Gothic" FontSize="22" Foreground="White" Click="MedicamentBTN_Click">
+            materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="728,284,198,120" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Médicament" FontFamily="Century Gothic" FontSize="22" Foreground="White" Click="MedicamentBTN_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF80C6FF" Offset="0.748"/>
@@ -97,7 +97,7 @@
         </Button>
         <Button x:Name="Agenda"
             Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-            materialDesign:ShadowAssist.ShadowDepth="Depth1" Margin="368,29,572,388" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Agenda" FontFamily="Century Gothic" FontSize="24" Click="AgendaBTN_Click" Foreground="White">
+            materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="368,29,572,388" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="Agenda" FontFamily="Century Gothic" FontSize="24" Click="AgendaBTN_Click" Foreground="White">
             <Button.Background>
                 <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF72E2C7"/>

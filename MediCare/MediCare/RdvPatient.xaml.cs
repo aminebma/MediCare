@@ -51,11 +51,7 @@ namespace MediCare
 
                         if (rdv.AddRdv(DateTime.Parse(dateT.Text + " " + horaire.Text), Globals.IdMedecin, Globals.NomPatient, Globals.PrenomPatient, (bool)isImportant.IsChecked, notesT.Text))
                         {
-                            MessageBox.Show("Rendez-vous ajouté avec succés !");
-                            var parent = (Grid)this.Parent;
-                            parent.Children.Clear();
-                            var parent2 = (Grid)parent.Parent;
-                            parent2.Children.Add(new MenuPatient());
+                            Dialog.IsOpen = true; 
                         }
                         else MessageBox.Show("Vous avez déjà un rendez-vous à cette date");
                     }
@@ -107,6 +103,12 @@ namespace MediCare
             e.Handled = true;
         }
 
-       
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var parent = (Grid)this.Parent;
+            parent.Children.Clear();
+            var parent2 = (Grid)parent.Parent;
+            parent2.Children.Add(new MenuPatient());
+        }
     }
 }

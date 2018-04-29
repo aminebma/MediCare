@@ -44,7 +44,7 @@ namespace MediCare
 
 			tableau.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
 
-			iTextSharp.text.Image imgTrace = iTextSharp.text.Image.GetInstance("LOGO.png");
+			iTextSharp.text.Image imgTrace = iTextSharp.text.Image.GetInstance(@"./ressources/Images/LOGO.png");
 			imgTrace.Alignment = iTextSharp.text.Image.ALIGN_TOP;
 			imgTrace.ScaleAbsoluteHeight(70f);
 			imgTrace.ScaleAbsoluteWidth(100f);
@@ -54,7 +54,7 @@ namespace MediCare
 			cellule.Border = 0;
 			tableau.AddCell(cellule);
 			iTextSharp.text.Paragraph para = new iTextSharp.text.Paragraph("CABINET MEDICAL DU DOCTEUR "+ nomMedecin , Gtitre);
-			para.Alignment = Element.ALIGN_BOTTOM;
+			para.Alignment = Element.ALIGN_CENTER;
 			PdfPCell cellule1 = new PdfPCell(para);
 			cellule1.Rowspan = 50;
 			cellule1.HorizontalAlignment = 0;
@@ -63,7 +63,7 @@ namespace MediCare
 
 
 
-			iTextSharp.text.Image imgTrace2 = iTextSharp.text.Image.GetInstance("link Orca.png");
+			iTextSharp.text.Image imgTrace2 = iTextSharp.text.Image.GetInstance("./ressources/images/qr_code.png");
 			imgTrace2.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
 			imgTrace2.ScaleAbsoluteHeight(50f);
 			imgTrace2.ScaleAbsoluteWidth(50f);
@@ -83,7 +83,7 @@ namespace MediCare
 							select personne).First();
 			
 			Personne pat = (from personne in Globals.DataClass.Personne
-							where nomMedecin == personne.nom && prenomMedecin == personne.prenom
+							where nomPatient == personne.nom && prenomPatient == personne.prenom
 							select personne).First();
 
 
@@ -96,18 +96,14 @@ namespace MediCare
 			doc.Add(text2);
 			iTextSharp.text.Paragraph text3 = new iTextSharp.text.Paragraph(med.adresse, normal);
             doc.Add(text3);
-			iTextSharp.text.Paragraph text4 = new iTextSharp.text.Paragraph("Tel : " +numTel+ ", Mobile : " +numMobile , normal);
+			iTextSharp.text.Paragraph text4 = new iTextSharp.text.Paragraph("Tel : 0" +numTel+ ", Mobile : 0" +numMobile , normal);
 			doc.Add(text4);
-			iTextSharp.text.Paragraph text5 = new iTextSharp.text.Paragraph("Fax : " + Fax + ", Email : " +Email , normal);
+			iTextSharp.text.Paragraph text5 = new iTextSharp.text.Paragraph("Fax : 0" + Fax + ", Email : " +Email , normal);
 			text5.SpacingAfter = 50f;
 
 			doc.Add(text5);
 
-
-
-
-			label = label.ToUpper();
-			iTextSharp.text.Paragraph titre = new iTextSharp.text.Paragraph(    label,Surligne );
+			iTextSharp.text.Paragraph titre = new iTextSharp.text.Paragraph(label.ToUpper(),Surligne );
 			titre.Alignment = Element.ALIGN_CENTER;
 			//titre.SpacingBefore = 20;
 			titre.SpacingAfter = 50f;
@@ -159,9 +155,9 @@ namespace MediCare
 			//iTextSharp.text.Paragraph para2 = new iTextSharp.text.Paragraph("                                       " + nomPatient + " " + prenomPatient  , times1);
 			//doc.Add(para2);
 			iTextSharp.text.Paragraph para5 = new iTextSharp.text.Paragraph(); 
-			foreach ( var p in trait )
+			foreach ( Traite p in trait )
 			{
-				iTextSharp.text.Phrase phrase = new iTextSharp.text.Phrase( p.NomMed + " , avec la dose : " + p.Dose + ",   \n  Indication :         " +p.Indication, normal);
+				iTextSharp.text.Phrase phrase = new iTextSharp.text.Phrase( p.NomMed + " , avec la dose : " + p.Dose + ",   \n  Indication :         " +p.Indication+"\n", normal);
 				para5.Add(phrase);
 				para5.Alignment = Element.ALIGN_JUSTIFIED; 
 			}

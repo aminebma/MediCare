@@ -34,7 +34,9 @@ namespace MediCare
         public MenuPrincipal()
         {
             InitializeComponent();
-            SelectionGrid.Children.Add(new Menu());
+            Menu usc = new Menu();
+            usc.SetFenetreprincipal = this;
+            SelectionGrid.Children.Add(usc);
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Globals.TempRappelRDV = 15;
             Task.Factory.StartNew(GenererNotif, TaskCreationOptions.LongRunning);
