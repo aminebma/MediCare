@@ -38,7 +38,7 @@ namespace MediCare
         private void Suivant_Click(object sender, RoutedEventArgs e)
         {
             Document doc = new Document();
-            System.IO.FileStream file = new System.IO.FileStream("Lettre_orientation_" + label + "_" + Globals.NomPatient + ".pdf", FileMode.Create);
+            System.IO.FileStream file = new System.IO.FileStream("Lettre_orientation_"+" " + Globals.PrenomPatient + " " + Globals.NomPatient + Globals.IdConsult + ".pdf", FileMode.Create);
             PdfWriter wri = PdfWriter.GetInstance(doc, file);
             doc.Open();
             BaseFont bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);

@@ -209,7 +209,7 @@
             <materialDesign:Snackbar IsActive="False" x:Name="Notification" VerticalAlignment="Top" Margin="0,99,0,0" Background="#FF6A97AC">
                 <materialDesign:SnackbarMessage  ActionContent="OK" ActionClick="ActionClick" FontFamily="Century Gothic"/>
             </materialDesign:Snackbar>
-            <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="0,648,1024,3" Foreground="{x:Null}" HorizontalAlignment="Right">
+            <Button x:Name="Info" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="Auto" Height="Auto" Margin="0,648,1024,3" Foreground="{x:Null}" HorizontalAlignment="Right" Click="Info_Click">
                 <materialDesign:PackIcon Kind="InformationOutline" Width="Auto" Height="Auto" Foreground="#FF42919E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
             <TextBox HorizontalAlignment="Left" Margin="330,73,0,0" TextWrapping="Wrap" Text="Acceuil" VerticalAlignment="Top" CaretBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#FF42919E" Foreground="#DDFFFFFF" FontFamily="Century Gothic" FontSize="14" Width="65"/>

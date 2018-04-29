@@ -271,5 +271,10 @@ namespace MediCare
         {
             Dialog.IsOpen=true;
         }
+
+        private void Info_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"medicare_help.chm");
+        }
     }
 }

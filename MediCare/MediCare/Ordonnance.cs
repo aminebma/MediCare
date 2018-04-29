@@ -21,9 +21,8 @@ namespace MediCare
 	{
 		public string GenererOrdonnance(string nomMedecin, string prenomMedecin, string nomPatient, string prenomPatient, List<Traite> trait, string label, string specialite, string codeMedecin,  int age, int numMobile, int numTel, int Fax, string Email)
 		{
-
 			Document doc = new Document();
-			System.IO.FileStream file = new System.IO.FileStream("Ordonnance"+" "+label+".pdf", System.IO.FileMode.OpenOrCreate);
+			System.IO.FileStream file = new System.IO.FileStream("Ordonnance"+" "+prenomPatient+" "+nomPatient+Globals.IdConsult+".pdf", System.IO.FileMode.OpenOrCreate);
 			PdfWriter writer = PdfWriter.GetInstance(doc, file);
 
 			doc.Open();

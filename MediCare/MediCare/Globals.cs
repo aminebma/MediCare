@@ -198,6 +198,20 @@ namespace MediCare
                 _codeMedecin = value;
             }
         }
+
+        private static int _idConsult;
+        public static int IdConsult
+        {
+            get
+            {
+                return _idConsult;
+            }
+            set
+            {
+                _idConsult = value;
+            }
+        }
+
         private static string _label;
         public static string Label
         {

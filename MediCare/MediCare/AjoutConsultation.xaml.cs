@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Linq;
 
 namespace MediCare
 {
@@ -79,6 +80,10 @@ namespace MediCare
             else
             {
                 var parent = (Grid)this.Parent;
+                IQueryable<Consultation> cslt = (from p in Globals.DataClass.Consultation
+                                                 orderby p.Id descending
+                                                 select p);
+                if (cslt.Count() != 0) Globals.IdConsult = cslt.First<Consultation>().Id+1;
                 UserControl ordo = new GenererOrdonnance(labelT.Text, diagnosticT.Text, descriptionT.Text, traitementList);
                 parent.Children.Clear();
                 parent.Children.Add(ordo);
